@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7168c5a080c91954a8b0385406ef7469
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Nakki LDR
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8e7d0b8225c2339448339640833c0879, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.csprojAssemblyReference.cache
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\MainWindow.g.cs
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\App.g.cs
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor_MarkupCompile.cache
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor_MarkupCompile.lref
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\bin\Debug\DeMetabolizerNovaEditor.exe.config
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\bin\Debug\DeMetabolizerNovaEditor.exe
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\bin\Debug\DeMetabolizerNovaEditor.pdb
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\MainWindow.baml
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.g.resources
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.Properties.Resources.resources
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.csproj.GenerateResource.cache
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.csproj.CoreCompileInputs.cache
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.exe
+C:\DeMetabolizer\DeMetabolizerNovaEditor\DeMetabolizerNovaEditor\obj\Debug\DeMetabolizerNovaEditor.pdb

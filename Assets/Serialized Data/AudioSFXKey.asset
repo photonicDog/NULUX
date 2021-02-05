@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7220839a90886f44bf8d2edd583d96b, type: 3}
+  m_Name: AudioSFXKey
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: c10dd8a04ac7f8e4f9348f73f96458c6, type: 3}
+    - {fileID: 8300000, guid: c8af1c3a4f137f647994f2a5203c62be, type: 3}
+    - {fileID: 8300000, guid: 69e84df04464b5b4e86f74f61347236c, type: 3}
+    - {fileID: 8300000, guid: 14f367278484ed544b86913d1d4a8129, type: 3}
+    - {fileID: 8300000, guid: 25e1d54b72bc88043b7b2031701b7c11, type: 3}
+    - {fileID: 8300000, guid: 22529d3f79b93ac499e4d5eb0826d989, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: audioDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LoopableAudio,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_sel
+    - Name: $v
+      Entry: 7
+      Data: 2|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 0
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_confirm
+    - Name: $v
+      Entry: 7
+      Data: 3|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 1
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_thud
+    - Name: $v
+      Entry: 7
+      Data: 4|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 2
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_skaphone
+    - Name: $v
+      Entry: 7
+      Data: 5|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 3
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_hangup
+    - Name: $v
+      Entry: 7
+      Data: 6|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 4
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: sfx_meddlesome_thud
+    - Name: $v
+      Entry: 7
+      Data: 7|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 5
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

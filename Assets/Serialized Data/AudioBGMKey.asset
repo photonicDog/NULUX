@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7220839a90886f44bf8d2edd583d96b, type: 3}
+  m_Name: AudioBGMKey
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: 9f35003374f3d654a8eb2349e5582a9b, type: 3}
+    - {fileID: 8300000, guid: ca9ba5daa64195247892a72d9031fc38, type: 3}
+    - {fileID: 8300000, guid: f9881dbaecdcd174c95925352384b562, type: 3}
+    - {fileID: 8300000, guid: 2cb0dbbfa61a650439baae2cca6bad6f, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: audioDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LoopableAudio,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mus_title
+    - Name: $v
+      Entry: 7
+      Data: 2|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 0
+    - Name: start
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mus_dramatube
+    - Name: $v
+      Entry: 7
+      Data: 3|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 2
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mus_awakening
+    - Name: $v
+      Entry: 7
+      Data: 4|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 6
+      Data: 
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mus_station
+    - Name: $v
+      Entry: 7
+      Data: 5|LoopableAudio, Assembly-CSharp
+    - Name: audio
+      Entry: 10
+      Data: 3
+    - Name: start
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

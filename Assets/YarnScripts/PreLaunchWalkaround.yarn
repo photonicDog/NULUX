@@ -1,0 +1,664 @@
+title: Yellowcake1
+tags: Yellowcake
+colorID: 0
+position: 75,47
+---
+TEMP: Hey.
+NARRATOR: (Before you sits a very vibrant creature emblazoned with trefoil insignias. It's eating a bowl of similarly vivid orbs suspended in white liquid.)
+YELLOWCAKE: Hey!
+YELLOWCAKE: Hey, uh.
+YELLOWCAKE: Who are you?
+TEMP: Oh, I'm Temp.
+YELLOWCAKE: Neat.
+YELLOWCAKE: I'm Yellowcake.
+YELLOWCAKE: I work down in energy, on account of having radioactive powers.
+YELLOWCAKE: But I'm done for the day, so I'm eating "Fruit Cereal" up here instead.
+TEMP: Energy? I hear that place is pretty scary.
+YELLOWCAKE: It's not that bad!
+YELLOWCAKE: I mean, if you don't mind the huge lead vaults...
+YELLOWCAKE: The glowing water...
+YELLOWCAKE: The irradiated local fauna...
+YELLOWCAKE: The monolithic control rods which rise to a ceiling you can't even see sometimes...
+YELLOWCAKE: The sulfur hexafluoride fog...
+TEMP+SURPRISED: Sounds.
+TEMP+SURPRISED: Bad?
+YELLOWCAKE: Yeah, but I don't mind, on account of being immune to radiation.
+<<setnpcstate yellowcake 1>>
+===
+title: Yellowcake2
+tags: Yellowcake
+colorID: 0
+position: 79,260
+---
+YELLOWCAKE: So...
+YELLOWCAKE: You're that kid who's supposed to be, like...
+YELLOWCAKE: Saving the universe?
+YELLOWCAKE: With that entropy reversal mechanism, right?
+TEMP: When you say it like that, it sounds dumb?
+YELLOWCAKE: No, it's admirable!
+YELLOWCAKE: If I weren't one of the few people who could keep this place running, I'd be out there too!
+YELLOWCAKE: I hear it's dangerous though...
+YELLOWCAKE: But I don't know why it would be dangerous? All they say is that it's dangerous out there, but...
+YELLOWCAKE: It's just space, right?
+TEMP: Whole lotta nothing, is what I was told.
+YELLOWCAKE: Yeah.
+YELLOWCAKE: Weird.
+
+<<setnpcstate yellowcake 2>>
+===
+title: Yellowcake3
+tags: Yellowcake
+colorID: 0
+position: 78,477
+---
+YELLOWCAKE: You tell me how space is, alright?
+===
+title: Gloomi1
+tags: Gloomi
+colorID: 0
+position: 571,-14
+---
+GLOOMI: (squeaks at you)
+[[Huh?|Gloomi1Bad]] [[(nod head) I'm Temp.|Gloomi1Good]]
+===
+title: Gloomi1Bad
+tags: Gloomi
+colorID: 0
+position: 321,109
+---
+GLOOMI: (insistent squeaking, eyes narrowed)
+[[I don't know what you're trying to convey. |Gloomi1Lockout]] [[Oh, I'm Temp.|Gloomi1Good]]
+===
+title: Gloomi1Good
+tags: Gloomi
+colorID: 0
+position: 577,269
+---
+GLOOMI: (squeaks repeatedly, in various tones)
+NARRATION: (It appears this creature isn't making those sounds through its mouth, but rather through an elaborate series of plushies it's holding under the table, which seem to have squeakers embedded in them.)
+TEMP: Rough day, huh?
+GLOOMI: (squeaks affirmatively)
+TEMP: Yeah.
+TEMP: Me too.
+TEMP: I have to go save space or something.
+GLOOMI: (questioning squeak)
+TEMP: Like, outer space?
+GLOOMI: (nods and squeaks resolutely)
+NARRATION: (It fishes something out of its pocket and gives it to you.)
+TEMP: This is... a plushie?
+NARRATION: You got a Yucklet!
+TEMP: Oh, it's got a squeaker in it...
+[[ SQUEAK IT SQUEAK IT SQUEAK IT SQUEAK IT |Gloomi1Squeak]]
+[[ Save the squeaking for later. |Gloomi1NoSqueak]]
+===
+title: Gloomi1Lockout
+tags: Gloomi
+colorID: 0
+position: 324,767
+---
+GLOOMI: Then you never will.
+NARRATOR: You feel like you just permanently missed out on a great conversation...
+<<setnpcstate gloomi 2>>
+===
+title: Gloomi1Squeak
+tags: Gloomi
+colorID: 0
+position: 714,527
+---
+NARRATOR: You squeak the shit out of it. It's so fun. It's so fun. It's so fun. You can understand how this creature lives now.
+GLOOMI: (does a cheerful squeak)
+NARRATOR: A silent sort of understanding blooms between the two of you.
+NARRATOR: It's the kind of understanding only two geniuses could have.
+NARRATOR: The quiet sort of camaraderie that signifies the development of a private sort of rapport that nobody else can infringe upon.
+NARRATOR: You feel spiritually fulfilled holding the Yucklet.
+GLOOMI: (does a resolute sort of good luck squeak)
+TEMP: Take care, little weirdo.
+GLOOMI: (takes it as a compliment)
+<<setnpcstate gloomi 1>>
+===
+title: Gloomi1NoSqueak
+tags: Gloomi
+colorID: 0
+position: 482,530
+---
+NARRATOR: (It pouts, but nods understandingly. It understands that sometimes, squeak time is not all the time.)
+GLOOMI: (does a resolute sort of good luck squeak)
+TEMP: Take care, little weirdo.
+GLOOMI: (takes it as a compliment)
+<<setnpcstate gloomi 1>>
+===
+title: CottonKandi1
+tags: Cotton
+colorID: 0
+position: 975,331
+---
+NARRATOR: (You approach a blue and pink sort of creature playing on a little gray slat with buttons on it.)
+COTTON: C'mon... c'mon... you dumb little plumber...
+TEMP: Oh hey Cotton!
+NARRATOR: (She jumps about five feet straight into the air.)
+COTTON: I'm EPIC GAMING here!
+COTTON: Oh hey, Temp.
+TEMP: I didn't know you were trying to join the Gamer's Guild.
+COTTON: Oh, you know me!
+COTTON: Always trying out something new.
+COTTON: Maybe I'll get a tramp stamp of a gaming controller next.
+COTTON: For fun.
+TEMP+SURPRISED: I mean, you don't have to go THAT far if you're just trying things out...
+COTTON: I guess?
+TEMP: You could try coating your paws in cheese snack dust for a few days and see how that works out for you.
+COTTON: ...
+COTTON: Mmmm...
+COTTON: Mmmmmmmmmmmmm...
+COTTON: Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm...
+COTTON: Is it worth it?
+COTTON: For the gamerscore and the leet cred?
+COTTON: To appeal to all the geeks and gamers in the crowd?
+TEMP: It isn't.
+COTTON: I'll have to think about it.
+COTTON: What's been new at House Ska?
+TEMP: Oh, I'm going to space, is what's new.
+COTTON: Space?
+COTTON: Like...
+COTTON: Space space? On a space ship? For space reasons?
+TEMP: Yeah.
+COTTON: Oh.
+COTTON: Neat.
+<<setnpcstate cotton 1>>
+===
+title: Gloomi2
+tags: Gloomi
+colorID: 0
+position: 613,806
+---
+GLOOMI: (squeaks nicely at you)
+===
+title: GloomiLockout
+tags: Gloomi
+colorID: 0
+position: 325,1000
+---
+GLOOMI: (ignores you)
+===
+title: CottonKandi2
+tags: Cotton
+colorID: 0
+position: 977,542
+---
+TEMP: That's it?
+TEMP: Cool?
+COTTON: Well, yeah.
+COTTON: What else am I supposed to say?
+COTTON: "Good luck on the space?"
+TEMP: I mean...
+TEMP: Maybe?
+COTTON: Good luck on the space?
+TEMP: Now it's not anything!
+COTTON: I mean, it's like...
+COTTON: I'm proud of you for trying something new.
+COTTON: I've known you for a hot second.
+COTTON: And, if I can be a bit of a dick for a second...
+COTTON: You're not really known for trying new things?
+COTTON: So... congrats. Welcome to doing something wild and out of character!
+TEMP: ...
+COTTON: I mean, it shouldn't make you feel bad. You want this, right?
+COTTON: Nobody's like, making you do it, right?
+COTTON: Right?
+-> Right.
+  COTTON: That felt insincere.
+  TEMP: No. I did it 'cause I decided to.
+  COTTON: Because you decided to?
+  TEMP: Yeah?
+  COTTON: But did you want to?
+  TEMP: ...
+
+-> ...I mean...
+  NARRATOR: (Cotton kicks at the bowling alley floor and stands up.)
+  COTTON: Dang it, Temp... you've got to stop letting people push you around.
+  TEMP: ...
+  COTTON: Seriously. Like-
+
+TEMP: I volunteered, okay? I mean, they asked, and it was important, and...
+TEMP: It's this whole big thing, we're going to be reversing entropy, and...
+TEMP: I...
+COTTON: Hey, hey.
+COTTON: Hey, c'mon now.
+COTTON: You've committed, right?
+COTTON: You gotta follow through.
+TEMP: You make it sound so easy, though...
+COTTON: I'm great at committing to things and then not following through.
+COTTON: I figure you can be different.
+COTTON: On account of not being me.
+TEMP: I guess????
+TEMP: That's kind of shitty logic.
+TEMP: But it did make me feel better.
+TEMP: So... thanks?
+COTTON: No problem.
+<<setnpcflag cotton 2>>
+===
+title: CottonKandi3
+tags: Cotton
+colorID: 0
+position: 976,759
+---
+COTTON: Wanna watch me game?
+NARRATOR: (You watch her game.)
+===
+title: R4vynShipBoard
+tags: R4vyn
+colorID: 0
+position: 1254,326
+---
+TEMP+SAD: ...
+R4VYN+CURIOUS: What’s got you looking so sour?
+TEMP+SAD: I...
+TEMP: It just seems really fast?
+TEMP: Like, I figured they called us to their office to give us a full explanation of their tool, right.
+TEMP: The whole entropy-reversing device and all.
+TEMP: But instead they gave us some exposition and sent us on this whole weird ship.
+TEMP: You know Dr. Melo. Is this... normal?
+R4VYN: Yeah.
+R4VYN: Yeah, they’re like that. Look, I've done this once before, I'll guide you through it.
+R4VYN: And you’re not alone. Umbrella-
+UMBRELLA:
+R4VYN: Umbrella’s also never used it.
+UMBRELLA+COCKY: That doesn't mean I'm not going to smoke all you posers at it.
+UMBRELLA+COCKY: I've heard tales of adventurers going further than anyone has in the last millennium.
+UMBRELLA+COCKY: Daring tales of fights against the void!
+UMBRELLA+COCKY: The promise of remaking the universe in your image!
+UMBRELLA+COCKY: Oh, the romance! The drama!
+UMBRELLA+COCKY: You two could never.
+R4VYN: Kind of a weird attitude to take on a cooperative mission, but alright?
+TEMP+CONFUSED:
+TEMP+CONFUSED: Hey what the hell?
+TEMP+CONFUSED: Fights against the void?
+R4VYN: Okay don't worry it'll be fine we'll be fine.
+R4VYN: Let's get on the ship and get into space?
+<<killbgm>> 
+<<switchscene ShipDialogue>>
+===
+title: DrMelo2
+tags: Melo
+colorID: 0
+position: -292,-62
+---
+DR.MELO: I suppose you'd like to play the tutorial again?
+
+<<loadtrack Tutorial>>
+===
+title: OpeningCutscene
+tags: 
+colorID: 0
+position: -285,-478
+---
+<<setbg color #111111 0>>
+<<spawnchar R4vyn MeloExpositionR4vyn>>
+<<spawnchar Umbra MeloExpositionUmbra>>
+<<moveplayer MeloExpositionTemp>>
+<<customwait 0.5>>
+<<clearbg>>
+DR.MELO: Good, you've arrived.
+DR.MELO+SMUG: Thank you, R4vyn. I'll explain.
+<<setbg image melointro1 0>>
+DR.MELO: As you know, we live on the LAST STATION.
+<<setbg image melointro2 1>>
+DR.MELO: Named as such because it is the last holdout of sapient life in the universe.
+<<setbg image melointro3 2>>
+DR.MELO: You see, our universe is very old. In fact, there's only one star left.
+<<setbg image melointro4 3>>
+DR.MELO: The last star in the universe. You know, there used to be billions.
+TEMP: So I've read.
+DR.MELO: Wouldn't you like to see?
+<<clearbg>>
+DR.MELO: I've finally found a solution, you understand. A panacea for the death of the universe.
+DR.MELO+SMUG: Tell me, Temp, Umbrella, have you heard of the concept of entropy?
+UMBRELLA: Of course.
+TEMP: Um...
+DR.MELO: I'll explain it.
+DR.MELO: Entropy is, at its base, the way we perceive time. 
+DR.MELO: It's the reason it's so much easier to break something than it is to fix it.
+DR.MELO: It's the tendency of the universe to fall into heat and ruin, the eternal running-down of the machina of the world.
+DR.MELO+GENUINE: It's inescapable. No matter what you do to fix it, every second you breathe, you contribute to the heat death of the universe.
+DR.MELO+GENUINE: I've learned of a way to reverse it, though. To grasp the hands of time and rip them back.
+DR.MELO+GENUINE: I mean to remake the universe, of course. To bring light back.
+TEMP+HAPPY: Wow...
+TEMP+CURIOUS: So...
+TEMP+CURIOUS: How do I factor in?
+DR.MELO+SMUG: Oh, you three will be doing the remaking, of course.
+DR.MELO: You three alone have the force of will necessary to use my invention.
+DR.MELO: The NOVA interface.
+TEMP: Wow... is it that pink and black crown and gloves thing?
+R4VYN: Yes.
+DR.MELO: Now, we don't have time for you to take it and fumble about with it.
+DR.MELO: It's a very dangerous device.
+DR.MELO: You'll need to learn how to use it with this TUTORIAL PROGRAM.
+TEMP: (There it is...)
+DR.MELO+SMUG: I recorded this a while ago. The principles should be the same, of course.
+DR.MELO+SMUG: Hold still, will you?
+TEMP+SURPRISED: Ack! Get your little mitts off me!
+<<killbgm>> 
+<<playsfx sfx_hangup>>
+<<customwait 0.5>> 
+<<loadtrack Tutorial>>
+===
+title: NewOpeningCutscene
+tags: 
+colorID: 0
+position: -1582,-320
+---
+<<setbg color #111111 0>>
+<<setbgm mus_dramatube>> 
+<<customwait 0.5>>
+<<setbg image intro1 3>>
+DR.MELO: ...hello?
+DR.MELO: ...is the intercom on?
+R4VYN+TUBE: ...
+R4VYN+TUBE: Ngh...
+DR.MELO: Ah!
+DR.MELO: Hello!
+DR.MELO: You can hear me, of course.
+DR.MELO: How are you, dear?
+R4VYN+TUBE: What the hell...
+<<setbg image intro2 0>>
+R4VYN+TUBE: Where am I? Where is everyone?
+R4VYN: I thought I was on the ship...
+R4VYN+SAD: And then...
+R4VYN+SAD: I... there were these...
+R4VYN+SAD: My eye - why can't I feel my eye...
+DR.MELO: Hush, now.
+R4VYN+SAD: You KNEW what was out there.
+R4VYN+SAD: You sent us out to die.
+R4VYN+SAD: Why...
+DR.MELO: I can make it right.
+DR.MELO: I'll let you get back at the people who did this to you.
+DR.MELO: The ones outside this last bastion of life.
+DR.MELO: Our infinite jailors.
+DR.MELO+GENUINE: What do you say, R4vyn? Can you keep some secrets for me?
+<<setbg image intro3 0>>
+R4VYN+SAD: ...what's your game?
+R4VYN: That's what this is, right? Some sort of master plan of yours?
+DR.MELO+GENUINE: You could say that.
+DR.MELO+GENUINE: But your friends' deaths were not part of my plan.
+DR.MELO+GENUINE: I want to destroy those who killed them. I want them gone as much as you.
+DR.MELO+GENUINE: But I need your cooperation.
+R4VYN+SAD: Fine.
+R4VYN: But nobody else dies.
+DR.MELO+SMUG: That's what I like to hear.
+<<setbg image intro4 2>>
+DR.MELO+SMUG: Rest well. We have work to do.
+<<killbgm>>
+<<playsfx sfx_thud>>
+<<setbg image demetabolizerlogo 0>>
+<<customwait 3>>
+<<clearbg>>
+<<setbg color #111111 0>>
+<<playsfx sfx_skaphone>>
+<<customwait 1>>
+<<setbgm mus_awakening>>
+<<setbg image intro5 2>>
+<<playsfx sfx_skaphone>>
+TEMP: Mnghh... what is it...?
+<<setbg image intro6 0>>
+TEMP: Hello?
+R4VYN: Hi, is this, uh, Temp?
+TEMP: Yeah..?
+R4VYN: I'm R4vyn. I'm passing along a message from Dr. Melo...
+TEMP+CONFUSED: Huh? The Dr. Melo?
+TEMP+CURIOUS: The scientist?
+R4VYN: Yeah. It, uh, wants you to come down to the LAB SECTOR for something.
+R4VYN: Some kind of awesome new opportunity for you.
+TEMP+CURIOUS: Alright...
+R4VYN: I'll be outside of the SKA HOUSE in a second to escort you there.
+TEMP+CONFUSED: How do you know where I live?
+<<playsfx sfx_hangup>>
+<<customwait 1>> 
+<<setbg image intro7 0>>
+TEMP: Good thing I always sleep in my clothes.
+<<moveplayer TempRoomSpawn>>
+<<clearbg>> 
+<<setflag GameStarted True>>
+===
+title: Skarp
+tags: 
+colorID: 0
+position: -1582,-108
+---
+NARRATOR: There's a checkered black-and-white creature standing before you.
+SKARP: Hey, Temp! Just the person I wanted to see!
+TEMP: Hey, Skarpy.
+SKARP: You up for a TUTORIAL MUSIC SKANK-OFF?
+TEMP: I would, but I think I'm gonna get tutorialized at in like ten minutes.
+TEMP: Maybe if I come back later, I can unlock an exclusive SKA TRACK (NOT IMPLEMENTED.)
+SKARP: Aw. Dang.
+SKARP: You seem in a rush. Where are you headed?
+TEMP: Down to the labs.
+SKARP: Huh? Why?
+TEMP: No clue.
+SKARP: Well, come back to the SKA HOUSE later.
+===
+title: 2Tone
+tags: 
+colorID: 0
+position: -1587,325
+---
+2TONE: I wish I was sleeping...
+===
+title: Hornpart
+tags: 
+colorID: 0
+position: -1582,110
+---
+HORNPART: Yeah!!!! Ska House for life!!!!
+TEMP: Dude how are you even this hyped. It's like 9.
+HORNPART: I just love living in this awesome frat house!!!!
+HORNPART: We're so awesome! I'm gonna skank until I die!!!!
+===
+title: Checkerz
+tags: 
+colorID: 0
+position: -1363,106
+---
+WORMSGUY: Did you drink all the juice?
+TEMP: Nah. It might have been Hornpart, on account of how hyped he is for no reason.
+WORMSGUY: Huh. That sucks. I was looking forward to my juice.
+===
+title: R4vynMeetTemp
+tags: 
+colorID: 0
+position: -828,-385
+---
+R4VYN: Hey, you're... Temp?
+TEMP: Yeah. You're R4vyn, right?
+R4VYN: (What the hell..?)
+R4VYN: (This kid can't be older than nineteen to twenty-one!)
+R4VYN: (That-)
+R4VYN: Alright, uh, I'll show you to the lab.
+TEMP+CURIOUS: I like your eye glow! Did you get that augmented?
+R4VYN: S-sort of. Look, let's go see Dr. Melo, it'll fill you in on... what's up.
+<<setbg color #111111 0>>
+<<setobjproperties R4vyn cutscene False>>
+<<despawnchar R4vyn>>
+<<customwait 0.5>>
+<<clearbg>>
+===
+title: MeetUmbra
+tags: 
+colorID: 0
+position: -828,-161
+---
+UMBRELLA: Huh.
+TEMP: Huh?
+NARRATOR: There's a red-and-black creature holding a book by their side. They look... so insufferably smug, permanently.
+UMBRELLA: You don't look like much.
+TEMP: Wh-what?
+TEMP: Why would you say that?
+TEMP: R4vyn, who is this?
+NARRATOR: R4vyn heaves a deep sigh. They knead their forehead with their paw, their brow furrowed.
+R4VYN: They're Umbrella, a famous... writer. They're relevant, unfortunately.
+UMBRELLA+HAPPY: You're just jealous.
+R4VYN: I'm not jealous of anything that you are. I'm jealous of the version of me that didn't have to deal with you.
+UMBRELLA+HAPPY: Wow, big words for someone who didn't know who I was from the moment you were born.
+R4VYN: I wish nobody knew who you were.
+R4VYN: Then maybe your ego would deflate a little and we'd have more space in this room.
+UMBRELLA+HAPPY: Buddy, you have no idea how big my ego is.
+TEMP+ANNOYED: (Oh my god, how long are they going to argue about nothing?)
+R4VYN: Shut up! Just shut up.
+R4VYN+SAD: Look. Let's just go to the lab. Dr. Melo is waiting for us.
+UMBRELLA+HAPPY: Absolutely.
+NARRATOR: They smugly fall in line behind you.
+UMBRELLA: Lead the way.
+<<setbg color #111111 0>>
+<<setobjproperties Umbra cutscene False>>
+<<despawnchar Umbra>>
+<<despawnchar R4vyn>>
+<<customwait 0.5>>
+<<clearbg>>
+===
+title: Skarp2
+tags: 
+colorID: 0
+position: -1807,-111
+---
+SKARP: I'll see you later!
+===
+title: OpeningCutscene2
+tags: 
+colorID: 0
+position: -290,-270
+---
+<<setbg color #111111 0>>
+<<setobjproperties Umbra cutscene False>>
+<<setobjproperties R4vyn cutscene False>>
+<<spawnchar R4vyn MeloExpositionR4vyn>>
+<<spawnchar Umbra MeloExpositionUmbra>>
+<<moveplayer MeloExpositionTemp>>
+<<customwait 0.5>>
+<<clearbg>>
+DR.MELO+SMUG: That should teach you all you need to know.
+R4VYN: Doc, how long ago did you make that tutorial.
+DR.MELO: Irrelevant.
+DR.MELO: You three are to go to the port next to the cantina. There's a ship waiting for you.
+UMBRELLA: Already?
+DR.MELO: I don't like to waste time.
+DR.MELO: R4vyn should be able to give you more information.
+R4VYN: You do love to delegate, don't you?
+DR.MELO+SMUG: I do.
+DR.MELO: Okay, leave.
+DR.MELO+GENUINE: Is what I would say if there was actually more content beyond this point.
+DR.MELO+GENUINE: I guess you can go to the cantina and talk to people, or replay the tutorial song by talking to me or something.
+TEMP+CURIOUS: Wait, are we in a vertical slice?
+R4VYN+HAPPY: It appears so.
+UMBRELLA+HAPPY: I guess we'll just have to explore around for easter eggs.
+<<setobjproperties Dr.Melo cutscene False>>
+<<setobjproperties Dr.Melo dialogue True>> 
+<<setobjproperties Dr.Melo key drmelo>>
+<<despawnchar Umbra>>
+<<despawnchar R4vyn>>
+<<setnpcstate drmelo 1>>
+===
+title: TempGuitar
+tags: 
+colorID: 0
+position: -1537,-1245
+---
+NARRATOR: Your guitar. It's kind of dusty...
+===
+title: TempComputer
+tags: 
+colorID: 0
+position: -1318,-1243
+---
+NARRATOR: Your computer. You mostly use it to listen to popular ska bands and play pinball.
+NARRATOR: You went on a forum once. It wasn't your thing.
+===
+title: TempBed
+tags: 
+colorID: 0
+position: -1080,-1244
+---
+NARRATOR: You can't go back to bed! You have things to do!
+===
+title: DormCutout
+tags: 
+colorID: 0
+position: -600,-1239
+---
+NARRATOR: You remember dragging this ancient thing out of the TRASH SECTOR with your friends.
+NARRATOR: It's some sort of effigy of a creature going nuts.
+NARRATOR: It's definitely been around longer than SKA HOUSE though... one of life's most messed up mysteries.
+===
+title: DormFridge
+tags: 
+colorID: 0
+position: -379,-1241
+---
+NARRATOR: It's full of mozzarella sticks.
+NARRATOR: You pride yourself on your nutritionally complete diet, which consists entirely of mozzarella sticks.
+NARRATOR: Nobody's ever told you otherwise.
+===
+title: HallTrash
+tags: 
+colorID: 0
+position: 128,-1232
+---
+NARRATOR: It's a trash can.
+===
+title: HallTrash2
+tags: 
+colorID: 0
+position: 346,-1234
+---
+NARRATOR: It's a trash can't.
+===
+title: Window1
+tags: 
+colorID: 0
+position: 128,-1016
+---
+NARRATOR: You take a moment to look out the window.
+NARRATOR: The LAST STATION'S skyline is really pretty.
+NARRATOR: Even if there's nothing above it.
+===
+title: Window2
+tags: 
+colorID: 0
+position: 346,-1017
+---
+NARRATOR: This is your favorite little cubbyhole.
+NARRATOR: The view looks so peaceful. You can see every rooftop for a few blocks, extending out spiderlike from this arm of the station.
+NARRATOR: Sometimes, you like to curl up in the little spot on the ledge.
+NARRATOR: Even if there's a perfectly serviceable couch.
+===
+title: FlavorSeason
+tags: 
+colorID: 0
+position: 562,-1234
+---
+NARRATOR: A fanmade poster for the famous novel, FLAVOR SEASON, by some author you forget the name of.
+NARRATOR: It's apparently about an amateur chef's psychological struggle after the loss of their best friend.
+NARRATOR: Or something. Apparently, swords and apples are involved, somehow.
+NARRATOR: You've never read it.
+===
+title: Dubstep2
+tags: 
+colorID: 0
+position: 776,-1234
+---
+NARRATOR: Excited for Dubstep 2!
+===
+title: Liooke
+tags: 
+colorID: 0
+position: 560,-1019
+---
+NARRATOR: You look in the "liooke box".
+TEMP+CONFUSED: Just looks like normal likes to me...
+===
+title: Bookshelf
+tags: 
+colorID: 0
+position: 775,-1021
+---
+NARRATOR: Rows upon rows of books.
+NARRATOR: Apparently, these are good.
+NARRATOR: You should give reading a go someday.
+===

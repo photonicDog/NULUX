@@ -1,0 +1,100 @@
+﻿<Window x:Class="DeMetabolizerNovaEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeMetabolizerNovaEditor"
+        xmlns:commands="clr-namespace:DeMetabolizerNovaEditor.UI.Commands"
+        mc:Ignorable="d"
+        Title="NOVA EDITOR" Height="500" Width="800">
+
+
+
+    <Window.Resources>
+        <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type ToggleButton}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#00000000"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter Property="Background" Value="#FF222034"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
+    <Window.InputBindings>
+        <KeyBinding Key="D1"
+                    Command="{Binding KeyCommand.PressNoteButton}"
+                    CommandParameter="heart"/>
+    </Window.InputBindings>
+
+    <Grid Background="#FF222034" HorizontalAlignment="Left" Width="792">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="356"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="auto" MinWidth="630"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" Grid.RowSpan="3" Background="#474459"></StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" Grid.Row="3" Background="#474459">
+            <RadioButton Grid.Column="0" Grid.Row="1" Style="{StaticResource {x:Type ToggleButton}}" Name="heart" Width="32" Height="32" Background="#00000000" Click="OnClickNoteButton" ClickMode="Press">
+                <Image Source="/DeMetabolizerNovaEditor;component/Assets/Images/Note Sprites/heart.png"/>
+            </RadioButton>
+            <RadioButton Grid.Column="1" Style="{StaticResource {x:Type ToggleButton}}" x:Name="diamond" Width="32" Height="32" Background="#00000000" Click="OnClickNoteButton" ClickMode="Press">
+                <Image Source="/DeMetabolizerNovaEditor;component/Assets/Images/Note Sprites/diamond.png"/>
+            </RadioButton>
+            <RadioButton Grid.Column="2" Style="{StaticResource {x:Type ToggleButton}}" Name="star" Width="32" Height="32" Background="#00000000" Click="OnClickNoteButton" ClickMode="Press">
+                <Image Source="/DeMetabolizerNovaEditor;component/Assets/Images/Note Sprites/star.png"/>
+            </RadioButton>
+            <RadioButton Grid.Column="3" Style="{StaticResource {x:Type ToggleButton}}" Name="circle" Width="32" Height="32" Background="#00000000" Click="OnClickNoteButton" ClickMode="Press">
+                <Image Source="/DeMetabolizerNovaEditor;component/Assets/Images/Note Sprites/circle.png"/>
+            </RadioButton>
+            <RadioButton Grid.Column="4" Style="{StaticResource {x:Type ToggleButton}}" Name="line" Width="32" Height="32" Background="#00000000" Click="OnClickNoteButton" ClickMode="Press">
+                <Image Source="/DeMetabolizerNovaEditor;component/Assets/Images/Note Sprites/line.png"/>
+            </RadioButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="6" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox>
+                    <StackPanel>
+                    
+                    </StackPanel>
+                </Viewbox>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
+    
+    

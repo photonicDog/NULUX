@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c553d859abcf89f42a726df504f2d6c7, type: 3}
+  m_Name: MilleFeuille
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: postSongFlagsBool
+      Entry: 6
+      Data: 
+    - Name: postSongFlagsInt
+      Entry: 6
+      Data: 
+  trackName: mille feiulle
+  releaseDate: 
+  genre: 
+  bpm: 182
+  difficulty: 6
+  albumPath: 
+  trackBGPath: 
+  isStoryModeTrack: 0
+  songScenarioState: {fileID: 0}
+  yp: {fileID: 0}
+  Audio: {fileID: 8300000, guid: ebb1d923f3f156f4f8f467180ea5982b, type: 3}
+  PathToChart: feiulle
+  Lines: {fileID: 11400000, guid: 7d6e7d1de2a0322498dfe2128689154e, type: 2}
+  Failable: 0
