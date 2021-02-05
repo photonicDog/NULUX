@@ -215,7 +215,7 @@ MonoBehaviour:
   tailRenderer: {fileID: 4545147027443147708}
   head: {fileID: 5004849641966862921}
   cap: {fileID: 5505751337909594214}
-  hitEffect: {fileID: 5549574198366771408, guid: fed4cc7e46ee000429493cd213b95341, type: 3}
+  hitEffect: {fileID: 7780741581386333024, guid: e9179c6e1189f4b4898c6e670b3aac0b, type: 3}
   telegraphSprite: {fileID: 7261011843413618368}
   activated: 0
 --- !u!212 &5004849641966862921
@@ -367,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3276544764932460554
 Transform:
   m_ObjectHideFlags: 0
