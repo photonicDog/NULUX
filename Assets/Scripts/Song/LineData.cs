@@ -51,22 +51,42 @@ public class LineDataCommand {
 
     public LineState CalculateLineState(float currentBeat) {
         LineState res = new LineState();
-        
-        // Get values based on if they're constant or evaluate at time.
-        float normalTime = Mathf.InverseLerp(startTime, endTime, currentBeat);
-        float currentDir = data.constDirection ? data.Direction : data.DirectionCurve.Evaluate(normalTime);
-        float currentScale = data.constSize ? data.Size : data.SizeCurve.Evaluate(normalTime);
-        Vector2 positionVector = new Vector2(
-            data.constPosX ? data.PosX : data.PosXCurve.Evaluate(normalTime), 
-            data.constPosY ? data.PosY : data.PosYCurve.Evaluate(normalTime)
-        );  
-        
-        Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
 
-        res.position = positionVector;
-        res.rotation = rotationVector;
-        res.scale = currentScale;
+        if (currentBeat < startTime) {
+            // Lead-in interp math.
+            float leadInTime = ((currentBeat - startTime) / (endTime - startTime));
 
+            float currentDir = data.constDirection ? data.Direction : CurveExtrap(data.DirectionCurve, leadInTime);
+            float currentScale = data.constSize ? data.Size : CurveExtrap(data.SizeCurve, leadInTime);
+            Vector2 positionVector = new Vector2(
+                data.constPosX ? data.PosX : CurveExtrap(data.PosXCurve, leadInTime), 
+                data.constPosY ? data.PosY : CurveExtrap(data.PosYCurve, leadInTime)
+            );  
+            
+            Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
+
+            res.position = positionVector;
+            res.rotation = rotationVector;
+            res.scale = currentScale;
+        }
+        else {
+            // Get values based on if they're constant or evaluate at time.
+            float normalTime = Mathf.InverseLerp(startTime, endTime, currentBeat);
+            float currentDir = data.constDirection ? data.Direction : data.DirectionCurve.Evaluate(normalTime);
+            float currentScale = data.constSize ? data.Size : data.SizeCurve.Evaluate(normalTime);
+            Vector2 positionVector = new Vector2(
+                data.constPosX ? data.PosX : data.PosXCurve.Evaluate(normalTime), 
+                data.constPosY ? data.PosY : data.PosYCurve.Evaluate(normalTime)
+            );  
+        
+            Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
+
+            res.position = positionVector;
+            res.rotation = rotationVector;
+            res.scale = currentScale;
+
+ 
+        }
         return res;
     }
 
@@ -85,6 +105,13 @@ public class LineDataCommand {
         }
         Vector2 angle = Quaternion.Euler(0, 0, -(pos/100) * 360f) * Vector3.down;
         return angle * line.scale + line.position;
+    }
+
+    private float CurveExtrap(AnimationCurve curve, float back) {
+        float basePoint = curve.Evaluate(0);
+        float interpPoint = curve.Evaluate(0.1f);
+
+        return basePoint + ((interpPoint-basePoint)/0.1f) * (back);
     }
 }
 
