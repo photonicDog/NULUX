@@ -73,7 +73,7 @@ public class Conductor : MonoBehaviour {
     }
 
     public void SetSongOffset(float offset) {
-        this.offset = offset;
+        this.offset = offset + SettingsManager.Instance.userOffset;
     }
 
     public void SetBPM(float bpm) {

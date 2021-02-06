@@ -178,6 +178,7 @@
           <e p="WalkaroundManager.cs" t="Include" />
           <e p="WindowStateManager.cs" t="Include" />
         </e>
+        <e p="SettingsManager.cs" t="Include" />
       </e>
       <e p="Demetabolizer.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

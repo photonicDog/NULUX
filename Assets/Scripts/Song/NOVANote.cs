@@ -9,6 +9,7 @@ public class NOVANote : SerializedMonoBehaviour {
     public List<LineDataCommand> cmds;
     public List<VisualSet> visualSets;
     public VisualSet currentVisualSet;
+    public Animator fade;
 
     [SerializeField] private LineRenderer tailRenderer;
     
@@ -47,14 +48,11 @@ public class NOVANote : SerializedMonoBehaviour {
 
     public IEnumerator Fade() {
         float startTime = Conductor.Instance.GetSongTime();
+        fade.StartPlayback();
         telegraphSprite.gameObject.SetActive(true);
-        telegraphSprite.transform.localScale = new Vector3(2, 2, 2);
         while (Conductor.Instance.GetSongTime() <= note.Start) {
             float a = Mathf.InverseLerp(startTime, note.Start, Conductor.Instance.GetSongTime());
-            var color = head.color;
-            color = new Color(color.r, color.g, color.b, a);
-            head.color = color;
-            telegraphSprite.transform.localScale = Vector3.Slerp(new Vector3(2, 2, 2), Vector3.one, a);
+            fade.Play(0, -1, a);
             yield return new WaitForEndOfFrame();
         }
     }

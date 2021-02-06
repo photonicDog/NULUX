@@ -194,13 +194,8 @@ public class SongManager : SerializedMonoBehaviour {
         // Note track
         foreach (var midiEvent in mf.Events[1]) {
             if (MidiEvent.IsNoteOn(midiEvent)) {
-                int length = 0;
-                try {
-                    length = ((NoteOnEvent) midiEvent).NoteLength;
-                }
-                catch (Exception c) {
-                    Debug.Log(((NoteOnEvent) midiEvent).AbsoluteTime);
-                }
+                int length = ((NoteOnEvent) midiEvent).NoteLength;
+
                 bool hold = length > 1;
                 if (!hold) {
                     chartNotes.Add(new Note(

@@ -28,7 +28,7 @@ YELLOWCAKE: Yeah, but I don't mind, on account of being immune to radiation.
 title: Yellowcake2
 tags: Yellowcake
 colorID: 0
-position: 79,260
+position: 77,260
 ---
 YELLOWCAKE: So...
 YELLOWCAKE: You're that kid who's supposed to be, like...
@@ -279,7 +279,7 @@ R4VYN: Let's get on the ship and get into space?
 title: DrMelo2
 tags: Melo
 colorID: 0
-position: -292,-62
+position: -286,-45
 ---
 DR.MELO: I suppose you'd like to play the tutorial again?
 
@@ -288,134 +288,128 @@ DR.MELO: I suppose you'd like to play the tutorial again?
 title: OpeningCutscene
 tags: 
 colorID: 0
-position: -285,-478
+position: -285,-483
 ---
-<<setbg color #111111 0>>
+<<setbg color #111111>>
 <<spawnchar R4vyn MeloExpositionR4vyn>>
 <<spawnchar Umbra MeloExpositionUmbra>>
 <<moveplayer MeloExpositionTemp>>
-<<customwait 0.5>>
+<<wait 0.5>>
 <<clearbg>>
 DR.MELO: Good, you've arrived.
-DR.MELO+SMUG: Thank you, R4vyn. I'll explain.
-<<setbg image melointro1 0>>
+DR.MELO: Thank you, R4vyn. I'll explain.
+<<setbg image melointro1>>
 DR.MELO: As you know, we live on the LAST STATION.
-<<setbg image melointro2 1>>
+<<setbg image melointro2>>
 DR.MELO: Named as such because it is the last holdout of sapient life in the universe.
-<<setbg image melointro3 2>>
+<<setbg image melointro3>>
 DR.MELO: You see, our universe is very old. In fact, there's only one star left.
-<<setbg image melointro4 3>>
+<<setbg image melointro4>>
 DR.MELO: The last star in the universe. You know, there used to be billions.
 TEMP: So I've read.
+<<setbg image melointro5>>
 DR.MELO: Wouldn't you like to see?
 <<clearbg>>
 DR.MELO: I've finally found a solution, you understand. A panacea for the death of the universe.
-DR.MELO+SMUG: Tell me, Temp, Umbrella, have you heard of the concept of entropy?
+DR.MELO: Tell me, Temp, Umbrella, have you heard of the concept of entropy?
 UMBRELLA: Of course.
 TEMP: Um...
 DR.MELO: I'll explain it.
 DR.MELO: Entropy is, at its base, the way we perceive time. 
 DR.MELO: It's the reason it's so much easier to break something than it is to fix it.
 DR.MELO: It's the tendency of the universe to fall into heat and ruin, the eternal running-down of the machina of the world.
-DR.MELO+GENUINE: It's inescapable. No matter what you do to fix it, every second you breathe, you contribute to the heat death of the universe.
-DR.MELO+GENUINE: I've learned of a way to reverse it, though. To grasp the hands of time and rip them back.
-DR.MELO+GENUINE: I mean to remake the universe, of course. To bring light back.
-TEMP+HAPPY: Wow...
-TEMP+CURIOUS: So...
-TEMP+CURIOUS: How do I factor in?
-DR.MELO+SMUG: Oh, you three will be doing the remaking, of course.
-DR.MELO: You three alone have the force of will necessary to use my invention.
+DR.MELO: It's inescapable. No matter what you do to fix it, every second you breathe, you contribute to the heat death of the universe.
+DR.MELO: I've learned of a way to reverse it, though. To grasp the hands of time and rip them back.
+DR.MELO: I mean to remake the universe, of course. To bring light back.
+TEMP: Wow...
+TEMP: So...
+TEMP: How do I factor in?
+DR.MELO: Oh, you three will be doing the remaking, of course.
+DR.MELO: You three have the force of will necessary to use my invention.
 DR.MELO: The NOVA interface.
-TEMP: Wow... is it that pink and black crown and gloves thing?
+UMBRELLA: I've already seen it. Dr. Melo had me try it yesterday.
+TEMP: Wow... is it that pink and black crown and hands thing?
 R4VYN: Yes.
 DR.MELO: Now, we don't have time for you to take it and fumble about with it.
 DR.MELO: It's a very dangerous device.
 DR.MELO: You'll need to learn how to use it with this TUTORIAL PROGRAM.
 TEMP: (There it is...)
-DR.MELO+SMUG: I recorded this a while ago. The principles should be the same, of course.
-DR.MELO+SMUG: Hold still, will you?
-TEMP+SURPRISED: Ack! Get your little mitts off me!
-<<killbgm>> 
-<<playsfx sfx_hangup>>
-<<customwait 0.5>> 
+DR.MELO: I recorded this a while ago. The principles should be the same, of course.
 <<loadtrack Tutorial>>
 ===
 title: NewOpeningCutscene
 tags: 
 colorID: 0
-position: -1582,-320
+position: -1580,-333
 ---
 <<setbg color #111111 0>>
 <<setbgm mus_dramatube>> 
 <<customwait 0.5>>
-<<setbg image intro1 3>>
+<<setbg image intro1 0>>
 DR.MELO: ...hello?
-DR.MELO: ...is the intercom on?
-R4VYN+TUBE: ...
-R4VYN+TUBE: Ngh...
+DR.MELO: ...is this thing on?
 DR.MELO: Ah!
 DR.MELO: Hello!
+R4VYN+TUBE: ...
+R4VYN+TUBE: Ngh...
 DR.MELO: You can hear me, of course.
 DR.MELO: How are you, dear?
 R4VYN+TUBE: What the hell...
 <<setbg image intro2 0>>
 R4VYN+TUBE: Where am I? Where is everyone?
-R4VYN: I thought I was on the ship...
-R4VYN+SAD: And then...
-R4VYN+SAD: I... there were these...
-R4VYN+SAD: My eye - why can't I feel my eye...
-DR.MELO: Hush, now.
-R4VYN+SAD: You KNEW what was out there.
-R4VYN+SAD: You sent us out to die.
-R4VYN+SAD: Why...
-DR.MELO: I can make it right.
-DR.MELO: I'll let you get back at the people who did this to you.
-DR.MELO: The ones outside this last bastion of life.
-DR.MELO: Our infinite jailors.
-DR.MELO+GENUINE: What do you say, R4vyn? Can you keep some secrets for me?
+R4VYN+TUBE: I remember...
+R4VYN+TUBE: Oh god. The fire... everyone's gone.
+DR.MELO: I'm sorry.
+R4VYN+TUBEANGRY: You!
+R4VYN+TUBEANGRY: This was your fault!
+DR.MELO: It wouldn't be the first time something was my fault.
+R4VYN+TUBE: What?
+R4VYN+TUBE: What are you talking about?
+DR.MELO: You and your friends were not the first, and won't be the last.
+DR.MELO: But you're a survivor. You managed to get away.
+DR.MELO: You've got fire in you.
+DR.MELO+GENUINE: That's rare.
+DR.MELO+GENUINE: So I'm going to give you an opportunity.
+DR.MELO: To learn why I did what I did.
+DR.MELO: To understand what's really at stake.
+DR.MELO: The fate of the LAST STATION hangs in the balance.
+DR.MELO: What do you say, R4vyn? Can you keep some secrets for me?
 <<setbg image intro3 0>>
-R4VYN+SAD: ...what's your game?
-R4VYN: That's what this is, right? Some sort of master plan of yours?
-DR.MELO+GENUINE: You could say that.
-DR.MELO+GENUINE: But your friends' deaths were not part of my plan.
-DR.MELO+GENUINE: I want to destroy those who killed them. I want them gone as much as you.
-DR.MELO+GENUINE: But I need your cooperation.
-R4VYN+SAD: Fine.
+R4VYN: You know what?
+R4VYN: Fine.
 R4VYN: But nobody else dies.
-DR.MELO+SMUG: That's what I like to hear.
-<<setbg image intro4 2>>
-DR.MELO+SMUG: Rest well. We have work to do.
+DR.MELO: That's what I like to hear.
+<<setbg image intro4 0>>
+DR.MELO: Rest well. We have work to do.
 <<killbgm>>
-<<playsfx sfx_thud>>
-<<setbg image demetabolizerlogo 0>>
+<<customwait 0.5>> 
+<<playsfx sfx_thud>> 
+<<setbg image demetabolizerlogo 0>> 
 <<customwait 3>>
 <<clearbg>>
 <<setbg color #111111 0>>
-<<playsfx sfx_skaphone>>
+<<playsfx sfx_skaphone>> 
 <<customwait 1>>
 <<setbgm mus_awakening>>
-<<setbg image intro5 2>>
-<<playsfx sfx_skaphone>>
+<<clearbg>>
+<<setbg image intro5 0>> 
 TEMP: Mnghh... what is it...?
-<<setbg image intro6 0>>
+<<setbg image intro6 0>> 
 TEMP: Hello?
 R4VYN: Hi, is this, uh, Temp?
 TEMP: Yeah..?
 R4VYN: I'm R4vyn. I'm passing along a message from Dr. Melo...
-TEMP+CONFUSED: Huh? The Dr. Melo?
-TEMP+CURIOUS: The scientist?
-R4VYN: Yeah. It, uh, wants you to come down to the LAB SECTOR for something.
-R4VYN: Some kind of awesome new opportunity for you.
-TEMP+CURIOUS: Alright...
-R4VYN: I'll be outside of the SKA HOUSE in a second to escort you there.
-TEMP+CONFUSED: How do you know where I live?
+TEMP: Huh? The Dr. Melo?
+TEMP: The lead scientist?
+R4VYN: Yeah. It, uh, wants you to come down to the Lab for something.
+TEMP: Alright...
 <<playsfx sfx_hangup>>
 <<customwait 1>> 
-<<setbg image intro7 0>>
-TEMP: Good thing I always sleep in my clothes.
+<<setbg image intro7 0>> 
+TEMP: Good thing I sleep in my clothes.
 <<moveplayer TempRoomSpawn>>
-<<clearbg>> 
-<<setflag GameStarted True>>
+<<setbgm mus_station>>
+<<setflag GameStarted>>
 ===
 title: Skarp
 tags: 
@@ -434,18 +428,20 @@ TEMP: Down to the labs.
 SKARP: Huh? Why?
 TEMP: No clue.
 SKARP: Well, come back to the SKA HOUSE later.
+
+<<setnpcstate skarpy 1>>
 ===
 title: 2Tone
 tags: 
 colorID: 0
-position: -1587,325
+position: -1577,327
 ---
 2TONE: I wish I was sleeping...
 ===
 title: Hornpart
 tags: 
 colorID: 0
-position: -1582,110
+position: -1577,110
 ---
 HORNPART: Yeah!!!! Ska House for life!!!!
 TEMP: Dude how are you even this hyped. It's like 9.
@@ -461,56 +457,44 @@ WORMSGUY: Did you drink all the juice?
 TEMP: Nah. It might have been Hornpart, on account of how hyped he is for no reason.
 WORMSGUY: Huh. That sucks. I was looking forward to my juice.
 ===
-title: R4vynMeetTemp
-tags: 
-colorID: 0
-position: -828,-385
----
-R4VYN: Hey, you're... Temp?
-TEMP: Yeah. You're R4vyn, right?
-R4VYN: (What the hell..?)
-R4VYN: (This kid can't be older than nineteen to twenty-one!)
-R4VYN: (That-)
-R4VYN: Alright, uh, I'll show you to the lab.
-TEMP+CURIOUS: I like your eye glow! Did you get that augmented?
-R4VYN: S-sort of. Look, let's go see Dr. Melo, it'll fill you in on... what's up.
-<<setbg color #111111 0>>
-<<setobjproperties R4vyn cutscene False>>
-<<despawnchar R4vyn>>
-<<customwait 0.5>>
-<<clearbg>>
-===
 title: MeetUmbra
 tags: 
 colorID: 0
-position: -828,-161
+position: -827,-154
 ---
-UMBRELLA: Huh.
-TEMP: Huh?
-NARRATOR: There's a red-and-black creature holding a book by their side. They look... so insufferably smug, permanently.
-UMBRELLA: You don't look like much.
-TEMP: Wh-what?
-TEMP: Why would you say that?
-TEMP: R4vyn, who is this?
-NARRATOR: R4vyn heaves a deep sigh. They knead their forehead with their paw, their brow furrowed.
-R4VYN: They're Umbrella, a famous... writer. They're relevant, unfortunately.
-UMBRELLA+HAPPY: You're just jealous.
-R4VYN: I'm not jealous of anything that you are. I'm jealous of the version of me that didn't have to deal with you.
-UMBRELLA+HAPPY: Wow, big words for someone who didn't know who I was from the moment you were born.
-R4VYN: I wish nobody knew who you were.
-R4VYN: Then maybe your ego would deflate a little and we'd have more space in this room.
-UMBRELLA+HAPPY: Buddy, you have no idea how big my ego is.
-TEMP+ANNOYED: (Oh my god, how long are they going to argue about nothing?)
-R4VYN: Shut up! Just shut up.
-R4VYN+SAD: Look. Let's just go to the lab. Dr. Melo is waiting for us.
-UMBRELLA+HAPPY: Absolutely.
-NARRATOR: They smugly fall in line behind you.
-UMBRELLA: Lead the way.
-<<setbg color #111111 0>>
-<<setobjproperties Umbra cutscene False>>
-<<despawnchar Umbra>>
-<<despawnchar R4vyn>>
-<<customwait 0.5>>
+NARRATOR: There's two creatures arguing in the hall.
+R4VYN+ANGRY: ...and I don't understand why you keep antagonizing me?!
+UMBRA+SMUG: Why not?
+UMBRA+SMUG: I mean, what do I have to lose?
+R4VYN+ANGRY: Nothing, I guess!!!
+R4VYN+ANGRY: I just figured that people act normal to each other???
+R4VYN+ANGRY: As a rule???
+UMBRA: Oh, alright. Rules are rules.
+UMBRA: How's your day? How's the simulated weather?
+UMBRA: Play any new board games lately?
+R4VYN+ANGRY: HOW CAN YOU BE
+R4VYN+ANGRY: SO
+R4VYN+ANGRY: AGGRAVATING!!!!!!!!!!
+TEMP: Uh
+TEMP: Guys?
+NARRATOR: The taller creature turns around in surprise.
+R4VYN: Oh my god I'm sorry.
+R4VYN: You must be Temp?
+TEMP: Yeah??
+R4VYN: Great! Great great great. This
+R4VYN+ANGRY: PERSON
+R4VYN: Is Umbra.
+NARRATOR: The way Umbra smiles at you can best be described as "declared innocent in court."
+UMBRA+SERENESMILE: I write books.
+TEMP: Oh. I'm not big into books.
+UMBRA+SERENESMILE: I know.
+UMBRA+SERENESMILE: Most people aren't.
+
+
+
+<<setbg color #111111>>
+<<despawnnpc umbra>>
+<<wait 0.5>>
 <<clearbg>>
 ===
 title: Skarp2
@@ -523,17 +507,16 @@ SKARP: I'll see you later!
 title: OpeningCutscene2
 tags: 
 colorID: 0
-position: -290,-270
+position: -283,-264
 ---
-<<setbg color #111111 0>>
-<<setobjproperties Umbra cutscene False>>
-<<setobjproperties R4vyn cutscene False>>
+<<setbg color #111111>>
 <<spawnchar R4vyn MeloExpositionR4vyn>>
 <<spawnchar Umbra MeloExpositionUmbra>>
 <<moveplayer MeloExpositionTemp>>
-<<customwait 0.5>>
+<<wait 0.5>>
 <<clearbg>>
-DR.MELO+SMUG: That should teach you all you need to know.
+DR.MELO: That should teach you all you need to know.
+TEMP: ...
 R4VYN: Doc, how long ago did you make that tutorial.
 DR.MELO: Irrelevant.
 DR.MELO: You three are to go to the port next to the cantina. There's a ship waiting for you.
@@ -541,124 +524,12 @@ UMBRELLA: Already?
 DR.MELO: I don't like to waste time.
 DR.MELO: R4vyn should be able to give you more information.
 R4VYN: You do love to delegate, don't you?
-DR.MELO+SMUG: I do.
+DR.MELO: I do.
 DR.MELO: Okay, leave.
-DR.MELO+GENUINE: Is what I would say if there was actually more content beyond this point.
-DR.MELO+GENUINE: I guess you can go to the cantina and talk to people, or replay the tutorial song by talking to me or something.
-TEMP+CURIOUS: Wait, are we in a vertical slice?
-R4VYN+HAPPY: It appears so.
-UMBRELLA+HAPPY: I guess we'll just have to explore around for easter eggs.
-<<setobjproperties Dr.Melo cutscene False>>
-<<setobjproperties Dr.Melo dialogue True>> 
-<<setobjproperties Dr.Melo key drmelo>>
-<<despawnchar Umbra>>
-<<despawnchar R4vyn>>
+DR.MELO: Is what I would say if there was actually more content beyond this point.
+DR.MELO: I guess you can go to the cantina and talk to people, or replay the tutorial song by talking to me or something.
+TEMP: Wait, are we in a vertical slice?
+R4VYN: It appears so.
+UMBRELLA: That sucks.
 <<setnpcstate drmelo 1>>
-===
-title: TempGuitar
-tags: 
-colorID: 0
-position: -1537,-1245
----
-NARRATOR: Your guitar. It's kind of dusty...
-===
-title: TempComputer
-tags: 
-colorID: 0
-position: -1318,-1243
----
-NARRATOR: Your computer. You mostly use it to listen to popular ska bands and play pinball.
-NARRATOR: You went on a forum once. It wasn't your thing.
-===
-title: TempBed
-tags: 
-colorID: 0
-position: -1080,-1244
----
-NARRATOR: You can't go back to bed! You have things to do!
-===
-title: DormCutout
-tags: 
-colorID: 0
-position: -600,-1239
----
-NARRATOR: You remember dragging this ancient thing out of the TRASH SECTOR with your friends.
-NARRATOR: It's some sort of effigy of a creature going nuts.
-NARRATOR: It's definitely been around longer than SKA HOUSE though... one of life's most messed up mysteries.
-===
-title: DormFridge
-tags: 
-colorID: 0
-position: -379,-1241
----
-NARRATOR: It's full of mozzarella sticks.
-NARRATOR: You pride yourself on your nutritionally complete diet, which consists entirely of mozzarella sticks.
-NARRATOR: Nobody's ever told you otherwise.
-===
-title: HallTrash
-tags: 
-colorID: 0
-position: 128,-1232
----
-NARRATOR: It's a trash can.
-===
-title: HallTrash2
-tags: 
-colorID: 0
-position: 346,-1234
----
-NARRATOR: It's a trash can't.
-===
-title: Window1
-tags: 
-colorID: 0
-position: 128,-1016
----
-NARRATOR: You take a moment to look out the window.
-NARRATOR: The LAST STATION'S skyline is really pretty.
-NARRATOR: Even if there's nothing above it.
-===
-title: Window2
-tags: 
-colorID: 0
-position: 346,-1017
----
-NARRATOR: This is your favorite little cubbyhole.
-NARRATOR: The view looks so peaceful. You can see every rooftop for a few blocks, extending out spiderlike from this arm of the station.
-NARRATOR: Sometimes, you like to curl up in the little spot on the ledge.
-NARRATOR: Even if there's a perfectly serviceable couch.
-===
-title: FlavorSeason
-tags: 
-colorID: 0
-position: 562,-1234
----
-NARRATOR: A fanmade poster for the famous novel, FLAVOR SEASON, by some author you forget the name of.
-NARRATOR: It's apparently about an amateur chef's psychological struggle after the loss of their best friend.
-NARRATOR: Or something. Apparently, swords and apples are involved, somehow.
-NARRATOR: You've never read it.
-===
-title: Dubstep2
-tags: 
-colorID: 0
-position: 776,-1234
----
-NARRATOR: Excited for Dubstep 2!
-===
-title: Liooke
-tags: 
-colorID: 0
-position: 560,-1019
----
-NARRATOR: You look in the "liooke box".
-TEMP+CONFUSED: Just looks like normal likes to me...
-===
-title: Bookshelf
-tags: 
-colorID: 0
-position: 775,-1021
----
-NARRATOR: Rows upon rows of books.
-NARRATOR: Apparently, these are good.
-NARRATOR: You should give reading a go someday.
 ===
