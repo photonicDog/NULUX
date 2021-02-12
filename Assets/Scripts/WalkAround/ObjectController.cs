@@ -7,19 +7,20 @@ using UnityEngine.InputSystem;
 public class ObjectController : MonoBehaviour
 {
     public float speed;
-    private Rigidbody2D _rb2d;
+    private Rigidbody _rb;
     public ObjectConfig config;
-    private Renderer _renderer;
-    private Vector2 _movement;
+    public Renderer _renderer;
+    private Vector3 _movement;
 
-    public Vector2 _facing = Vector2.up;
+    public Vector2 _facing = Vector2.right;
+
+    private float speedMul = 1;
 
     // Use this for initialization
     void Start()
     {
-        _rb2d = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody>();
         config = GetComponent<ObjectConfig>();
-        _renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -32,24 +33,51 @@ public class ObjectController : MonoBehaviour
 
         if (config.IsControllable)
         {
-            _rb2d.MovePosition(_rb2d.position + _movement * speed);
+            _rb.MovePosition(_rb.position + _movement * speed * speedMul);
         }
     }
     
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter(Collider collision)
     {
-        Debug.Log($"Collision with {collision.gameObject.name}");
-        ObjectConfig collis;
-        if (collision.gameObject.TryGetComponent(out collis)) {
-            if (collis.IsDoor) {
-                WalkaroundManager.Instance.UseDoor(this.gameObject, collis);
+        Debug.Log($"Look with {collision.gameObject.name}");
+        if (collision.gameObject.TryGetComponent(out ObjectConfig conf)) {
+            if (conf.IsLookable) {
+                conf.Look(config);
             }
+            if (conf.IsInteractable) {
+                WalkaroundManager.Instance.ReadPotentialInteraction(conf);
+            }
+            if (conf.IsDoor) {
+                conf.Door(config);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log($"Collision with {collision.gameObject.name}");
+        if (collision.gameObject.TryGetComponent(out ObjectConfig conf)) {
+
         }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movement = context.ReadValue<Vector2>();
+        _movement = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
         if (_movement.magnitude > 0.1f) _facing = _movement.normalized;
     }
+
+    public void OnMoveScripted(Vector3 end, float speedMul) {
+        this.speedMul = speedMul;
+        StartCoroutine(MoveRoutine(end));
+    }
+    
+    private IEnumerator MoveRoutine(Vector3 end) {
+        while (_rb.position != end) {
+            _movement = Vector3.Normalize(Vector3.MoveTowards(_rb.position, end, 99999));
+            yield return new WaitForEndOfFrame();
+        }
+
+        speedMul = 1;
+    }
+
 }

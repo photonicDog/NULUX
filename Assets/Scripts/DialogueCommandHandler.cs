@@ -16,6 +16,7 @@ public class DialogueCommandHandler : MonoBehaviour {
     
     public DialogueRunner runner;
     public GameObject DialogueContainer;
+    private WalkaroundNPCState currentNPCState;
     void Awake() {
         runner.AddCommandHandler(
             "setnpcstate",
@@ -171,20 +172,34 @@ public class DialogueCommandHandler : MonoBehaviour {
         );
     }
 
+    void WalkCharBlocking(string[] parameters, System.Action onComplete) {
+        GameObject npc = GameObject.Find(parameters[0]);
+        
+        // TODO: add animation.
+
+        StartCoroutine(NPCWalk(
+            npc.transform, 
+            float.Parse(parameters[1]), 
+            float.Parse(parameters[2]), 
+            float.Parse(parameters[3]),
+            onComplete)
+        );
+    }
+
     IEnumerator NPCWalk(Transform t, float x, float y, float time, System.Action onComplete = null) {
         float startTime = Time.time;
 
         while (startTime + time <= Time.time) {
-            Vector2 newPos = new Vector2(
+            Vector2 newPos = new Vector3(
                 Mathf.Lerp(t.position.x, x, (Time.time - startTime)/time),
+                t.position.y,
                 Mathf.Lerp(t.position.y, y, (Time.time - startTime)/time));
             t.position = newPos;
             
             yield return new WaitForEndOfFrame();
         }
 
-        if(onComplete != null)
-            onComplete();
+        onComplete?.Invoke();
     }
 
     IEnumerator WaitForSFX(System.Action onComplete) {
