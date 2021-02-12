@@ -2561,7 +2561,7 @@ MonoBehaviour:
   perfectWindow: 20
   greatWindow: 40
   goodWindow: 90
-  noteFadeInSpeed: 2
+  noteFadeInSpeed: 3
   lineFadeInSpeed: 2
   minWindow: {x: 0, y: 0}
   maxWindow: {x: 0, y: 0}
