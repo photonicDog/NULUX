@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="Door.cs" t="Include" />
         <e p="DoorManager.cs" t="Include" />
+        <e p="FlatTransparent.shader" t="Include" />
         <e p="Intro" t="Include">
           <e p="TextureScroll.cs" t="Include" />
         </e>
@@ -184,6 +185,7 @@
         </e>
         <e p="SettingsManager.cs" t="Include" />
         <e p="SpriteBillboard.cs" t="Include" />
+        <e p="SpriteScroller.cs" t="Include" />
       </e>
       <e p="Demetabolizer.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
