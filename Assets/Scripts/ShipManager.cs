@@ -64,17 +64,7 @@ public class ShipManager : MonoBehaviour {
     private void UpdateSkits() {
         activeNodes.Clear();
         
-        foreach (DialogueCondition skit in skits) {
-            Gamestate g = StoryModeGameManager.Instance._gamestate;
-            // If the conditions are matched
-            if (
-                  (skit.integerFlags.Where(a=>g.integerFlags.ContainsKey(a.Key)).All(a=>a.Value == g.integerFlags[a.Key]))
-               && (skit.booleanFlags.Where(a=>g.booleanFlags.ContainsKey(a.Key)).All(a=>a.Value == g.booleanFlags[a.Key]))
-            )
-            {
-                activeNodes.Add(skit.location, skit.node);
-            }
-        }
+        //update active nodes
         
         UpdateAlerts();
     }

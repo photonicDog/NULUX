@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorManager : MonoBehaviour {
-    public List<Vector3> doors;
+public class NPCState : MonoBehaviour {
+    public string id;
+    
     // Start is called before the first frame update
     void Start()
     {

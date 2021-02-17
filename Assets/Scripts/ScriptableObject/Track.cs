@@ -25,7 +25,6 @@ public class Track : SerializedScriptableObject {
     [TitleGroup("Track Parameters")] public bool Failable;
 
     [TitleGroup("StoryModeParameters")] [ShowIf("isStoryModeTrack")]
-    public Dictionary<string, bool> postSongFlagsBool;
-    [TitleGroup("StoryModeParameters")] [ShowIf("isStoryModeTrack")]
-    public Dictionary<string, int> postSongFlagsInt;
+    public List<GamestateFlag> postSongFlags;
+
 }

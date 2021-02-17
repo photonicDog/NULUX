@@ -42,11 +42,8 @@ public class ResultsPanel : MonoBehaviour {
 
     public void LeaveSong() {
         if (sm.isStoryMode) {
-            foreach (KeyValuePair<string, bool> kv in sm.currentTrack.postSongFlagsBool) {
-                StoryModeGameManager.Instance.SetGamestateFlag(kv.Key, kv.Value);
-            }
-            foreach (KeyValuePair<string, int> kv in sm.currentTrack.postSongFlagsInt) {
-                StoryModeGameManager.Instance.SetGamestateFlag(kv.Key, kv.Value);
+            foreach (GamestateFlag kv in sm.currentTrack.postSongFlags) {
+                StoryModeGameManager.Instance.SetGamestateFlag(kv.id, kv.flag);
             }
             
             LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync(2));

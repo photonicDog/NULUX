@@ -217,9 +217,6 @@ public class DialogueCommandHandler : MonoBehaviour {
         if (val.Equals("True") || val.Equals("False")) {
             StoryModeGameManager.Instance.SetGamestateFlag(parameters[0], bool.Parse(parameters[1]));
         }
-        else {
-            StoryModeGameManager.Instance.SetGamestateFlag(parameters[0], int.Parse(parameters[1]));
-        }
     }
 
     void PlaySFX(string[] parameters) {

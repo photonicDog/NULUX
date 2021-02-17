@@ -1,11 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
+public class DraggablePoint : PropertyAttribute {}
+
 public class Room : MonoBehaviour {
-    public List<CinemachineVirtualCamera> roomCameras;
-    private CinemachineBrain brain; 
+    public List<CinemachineVirtualCamera> RoomCameras;
+    public List<BlockingPosition> Blocks;
+    public List<LightController> LightControllers;
+    
+    private CinemachineBrain brain;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +27,12 @@ public class Room : MonoBehaviour {
 
     public void MoveToRoom(int index) {
         brain.ActiveVirtualCamera.VirtualCameraGameObject.SetActive(false);
-        roomCameras[index].gameObject.SetActive(true);
+        RoomCameras[index].gameObject.SetActive(true);
     }
+}
+
+[Serializable]
+public class BlockingPosition {
+    public string id;
+    public Transform position;
 }

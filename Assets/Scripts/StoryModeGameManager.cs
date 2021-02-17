@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
+using Object = System.Object;
 
 public class StoryModeGameManager : MonoBehaviour
 {
@@ -58,23 +59,15 @@ public class StoryModeGameManager : MonoBehaviour
 		UpdateSkits();
 	}
 
-	public void RegisterNodeAsCompleted()
-	{
-	}
-
 	private void UpdateSkits()
 	{
 		foreach (DialogueCondition flnode in _flnodes)
 		{
 			Gamestate g = _gamestate;
-			if (!flnode.played 
-			    && flnode.location == SceneManager.GetActiveScene().buildIndex 
-			    && flnode.integerFlags
-				    .Where((KeyValuePair<string, int> a) => g.integerFlags
-					    .ContainsKey(a.Key)).All((KeyValuePair<string, int> a) => a.Value == g.integerFlags[a.Key]) 
-			    && flnode.booleanFlags
-				    .Where((KeyValuePair<string, bool> a) => g.booleanFlags
-					    .ContainsKey(a.Key)).All((KeyValuePair<string, bool> a) => a.Value == g.booleanFlags[a.Key]))
+			if (!flnode.played
+			    && flnode.location == SceneManager.GetActiveScene().buildIndex
+			    && flnode.flags.Where(a => g.flags.Exists(b => b.id == a.id))
+				    .All(a => g.flags.Find(c => a.id == c.id).flag == a.flag))
 			{
 				dl.StartDialogue(flnode.node);
 				flnode.played = true;
@@ -84,49 +77,7 @@ public class StoryModeGameManager : MonoBehaviour
 
 	public void SetGamestateFlag(string flag, bool value)
 	{
-		_gamestate.booleanFlags[flag] = value;
-		try
-		{
-			stateUpdate();
-		}
-		catch (NullReferenceException)
-		{
-		}
-	}
-
-	public void SetGamestateFlag(string flag, int value)
-	{
-		_gamestate.integerFlags[flag] = value;
-		try
-		{
-			stateUpdate();
-		}
-		catch (NullReferenceException)
-		{
-		}
-	}
-
-	public void SetGamestateFlag(Dictionary<string, bool> over)
-	{
-		foreach (KeyValuePair<string, bool> item in over)
-		{
-			_gamestate.booleanFlags[item.Key] = item.Value;
-		}
-		try
-		{
-			stateUpdate();
-		}
-		catch (NullReferenceException)
-		{
-		}
-	}
-
-	public void SetGamestateFlag(Dictionary<string, int> over)
-	{
-		foreach (KeyValuePair<string, int> item in over)
-		{
-			_gamestate.integerFlags[item.Key] = item.Value;
-		}
+		_gamestate.SetFlag(flag, value);
 		try
 		{
 			stateUpdate();
