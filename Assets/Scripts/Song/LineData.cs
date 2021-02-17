@@ -93,16 +93,18 @@ public class LineDataCommand {
     public Vector2 GetNotePosition(float currentBeat, float pos) {
         LineState line = CalculateLineState(currentBeat);
 
-        float correctedPosPct = (pos - 50f) * 2f;
+        float correctedPosPct = (pos - (data.Style != LineStyle.CIRCLE?50f:25f)) * 2f;
 
         if (data.Style == LineStyle.STRAIGHT) {
-            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f) / 4;
-            return (Vector2)(line.rotation * (upwardPosition * line.scale * 2)) + line.position ;
-        }
-        if (data.Style == LineStyle.CIRCLE) {
             Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f) / 2;
+            return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position ;
+        }
+        
+        if (data.Style == LineStyle.CIRCLE) {
+            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f);
             return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
         }
+        
         Vector2 angle = Quaternion.Euler(0, 0, -(pos/100) * 360f) * Vector3.down;
         return angle * line.scale + line.position;
     }

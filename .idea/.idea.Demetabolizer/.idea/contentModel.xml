@@ -8,16 +8,12 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Door.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="DraggablePointDrawer.cs" t="Include" />
         </e>
-        <e p="FlatTransparent.shader" t="Include" />
         <e p="Intro" t="Include">
           <e p="TextureScroll.cs" t="Include" />
         </e>
-        <e p="LightController.cs" t="Include" />
-        <e p="NPCState.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">
@@ -124,7 +120,6 @@
             </e>
           </e>
         </e>
-        <e p="Room.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AudioAssetKey.cs" t="Include" />
           <e p="BGMManager.cs" t="Include" />
@@ -135,15 +130,19 @@
           <e p="DialogueCondition.cs" t="Include" />
           <e p="DialogueTalkspriter.cs" t="Include" />
           <e p="DialogueUIDemetabolizer.cs" t="Include" />
+          <e p="Door.cs" t="Include" />
           <e p="FreePlayManager.cs" t="Include" />
           <e p="ImageAssetKey.cs" t="Include" />
+          <e p="LightController.cs" t="Include" />
           <e p="LoadingScreen.cs" t="Include" />
           <e p="MenuOptionBox.cs" t="Include" />
           <e p="MenuSystem.cs" t="Include" />
+          <e p="NPCState.cs" t="Include" />
           <e p="ObjectProximityTrigger.cs" t="Include" />
           <e p="ParallaxBG.cs" t="Include" />
           <e p="PreloadScene.cs" t="Include" />
           <e p="ResultsPanel.cs" t="Include" />
+          <e p="Room.cs" t="Include" />
           <e p="SceneTransitioner.cs" t="Include" />
           <e p="SceneTransitionSetup.cs" t="Include" />
           <e p="ScriptableObject" t="Include">
@@ -153,6 +152,7 @@
             <e p="TrackLines.cs" t="Include" />
             <e p="WalkaroundNPCScenarioState.cs" t="Include" />
           </e>
+          <e p="SettingsManager.cs" t="Include" />
           <e p="SFXManager.cs" t="Include" />
           <e p="ShipManager.cs" t="Include" />
           <e p="ShipMenuManager.cs" t="Include" />
@@ -175,6 +175,8 @@
             <e p="SongUIManager.cs" t="Include" />
             <e p="WarningTelegraph.cs" t="Include" />
           </e>
+          <e p="SpriteBillboard.cs" t="Include" />
+          <e p="SpriteScroller.cs" t="Include" />
           <e p="StoryModeGameManager.cs" t="Include" />
           <e p="WalkAround" t="Include">
             <e p="ObjectController.cs" t="Include" />
@@ -187,9 +189,9 @@
           <e p="WalkaroundManager.cs" t="Include" />
           <e p="WindowStateManager.cs" t="Include" />
         </e>
-        <e p="SettingsManager.cs" t="Include" />
-        <e p="SpriteBillboard.cs" t="Include" />
-        <e p="SpriteScroller.cs" t="Include" />
+        <e p="Shaders" t="Include">
+          <e p="FlatTransparent.shader" t="Include" />
+        </e>
       </e>
       <e p="Demetabolizer.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

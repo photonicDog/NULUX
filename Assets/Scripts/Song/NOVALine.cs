@@ -42,6 +42,7 @@ public class NOVALine : SerializedMonoBehaviour
 	
 	public IEnumerator Fade() {
 		SpriteRenderer lineSpr = lineObject.GetComponent<SpriteRenderer>();
+		if (currentCMD.data.Style == LineStyle.CIRCLE) lineSpr = lineObject.GetChild(0).GetComponent<SpriteRenderer>();
 		float startTime = Conductor.Instance.GetSongTime();
 		float catchConductor = Conductor.Instance.playing ? Conductor.Instance.GetSongTime() : 0;
 		while (catchConductor <= currentCMD.startTime) {
@@ -85,14 +86,23 @@ public class NOVALine : SerializedMonoBehaviour
 	{
 		if (lc != null && !(objTransform == null)) {
 			LineState state = lc.CalculateLineState(currentBeat);
-
-			lineObject.transform.position = state.position;
-			lineObject.transform.rotation = state.rotation;
+			
 			if (currentCMD.data.Style == LineStyle.PULSE) {
 				lrc.radius = state.scale;
-			} else {
+			}
+
+			if (currentCMD.data.Style == LineStyle.CIRCLE) {
+				lineObject.GetChild(0).localScale = new Vector3(lineObject.GetChild(0).localScale.x, state.scale, 1);
+				lineObject.GetChild(0).localPosition = new Vector3(0, state.scale/2, 0);
+			}
+			
+			else {
 				lineObject.localScale = new Vector3(lineObject.localScale.x, state.scale, 1);
 			}
+			
+			lineObject.transform.position = state.position;
+			lineObject.transform.rotation = state.rotation;
+
 			
 			if (lc.endTime < Conductor.Instance.GetSongTime())
 			{

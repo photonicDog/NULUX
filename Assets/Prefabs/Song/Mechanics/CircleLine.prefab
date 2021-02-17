@@ -141,7 +141,7 @@ MonoBehaviour:
       Data: 
   telegraph: {fileID: 0}
   activated: 0
-  lineObject: {fileID: 6740831088558046002}
+  lineObject: {fileID: 6740831089293642094}
 --- !u!1 &6740831089041005359
 GameObject:
   m_ObjectHideFlags: 0
