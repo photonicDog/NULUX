@@ -18,8 +18,8 @@ public class DialogueTalkspriter : SerializedMonoBehaviour {
         talkspritables = FindObjectsOfType<ObjectConfig>().Where(a => a.IsTalkspritable).ToList();
     }
 
-    public void SetEmotion(string id, string emotion) {
-        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
+    public void SetEmotion(string id, bool script, string emotion) {
+        ObjectConfig ts = talkspritables.Find(a => a.ID.Equals(script?scriptToID[id]:id));
         if (ts) ts.talkspriteController.SetAnimation(emotion);
     }
 
@@ -30,5 +30,16 @@ public class DialogueTalkspriter : SerializedMonoBehaviour {
 
     public string GetNameplate(string scriptPlate) {
         return scriptToNameplate[scriptPlate];
+    }
+
+    public void Bubble(string id, bool display) {
+        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
+        if (!ts) return;
+        if (ts.HasInteractBubble) {
+            ts.interactBubble.gameObject.SetActive(false);
+        }
+        if (ts.HasTalkBubble || ts.IsPlayer) {  
+            ts.talkBubble.gameObject.SetActive(display);
+        }
     }
 }

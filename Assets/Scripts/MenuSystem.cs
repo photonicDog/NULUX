@@ -23,11 +23,13 @@ public class MenuSystem : SerializedMonoBehaviour {
 
     
     // Start is called before the first frame update
-    void Start() {
-        BGMManager.Instance.PlayAudio("mus_title");
+    IEnumerator Start() {
+
         isuim = GetComponent<InputSystemUIInputModule>();
         ev = GetComponent<EventSystem>();
         ev.SetSelectedGameObject(firstSelected.gameObject);
+        yield return new WaitForSeconds(1.5f);
+        BGMManager.Instance.PlayAudio("mus_title");
     }
 
     // Update is called once per frame

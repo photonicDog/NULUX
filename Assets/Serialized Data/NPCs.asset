@@ -24,21 +24,17 @@ MonoBehaviour:
   scenarioNPCS:
   - name: Yellowcake
     state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
     nodes: []
   - name: Gloomi
     state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
-    nodes: []
+    nodes:
+    - index: 0
+      node: GloomiLaunch
+    - index: 1
+      node: GloomiKeepGoing
   - name: Cotton
     state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
     nodes: []
   - name: DrMelo
     state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
     nodes: []

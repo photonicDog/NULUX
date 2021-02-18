@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCState : MonoBehaviour {
-    public string id;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int state;
+    public List<IndexNode> nodes;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public string GetDialogueByState() {
+        return nodes.Find(a => a.index == state).node;
     }
 }

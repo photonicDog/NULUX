@@ -23,10 +23,16 @@ public class TalkspriteController : SerializedMonoBehaviour {
     }
 
     public void SetAnimation(string animation) {
-        anim.SetInteger(0, animationDictionary[animation]);
+        anim.SetInteger("Emotion", animationDictionary[animation]);
     }
 
     public void SetState(bool walk, bool set) {
-        anim.SetBool(walk?1:2, set);
+        if (walk) {
+            anim.SetTrigger(set?"Walk":"NoWalk"); 
+        }
+        else {
+            anim.SetTrigger(set?"Talk":"NoTalk"); 
+        }
+        
     }
 }

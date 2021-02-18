@@ -1,20 +1,36 @@
 title: OpeningCutscene
 tags: 
 colorID: 0
-position: -353,-428
+position: -353,-430
 ---
+<<setbg color #111111 0>>
 <<setroom cutscene1>>
 <<switchcam labcam>>
 <<customwait 0.5>>
 <<setlight lablamp True>> 
 <<customwait 0.5>>
 <<setbgm mus_dramatube>>
-DR.MELO: You're going to have to cut me some slack here.
-R4VYN: What, is the walkaround refactor unfinished?
+<<clearbg>>
+DR.MELO: I've been refactoring the entire walkaround to be in 3D so you're going to have to cut me some slack.
+R4VYNTUBE: I'm in a tube.
+R4VYNTUBE: Can we at least show off some of the stuff we can currently do?
+<<switchcam closeupmelo>>
+<<customwait 0.5>>
 DR.MELO: Yeah.
-R4VYN: Oh.
-R4VYN: Ok.
-R4VYN: So what can we expect to see out of the refactor?
+<<setexpression Dr.Melo SMUG>>
+<<customwait 1>>
+<<setexpression Dr.Melo EXCITED>>
+<<customwait 1>>
+<<setexpression Dr.Melo NORMAL>>
+<<walkcharblocking Dr.Melo meloback 1>>
+<<customwait 0.5>>
+<<switchcam closeupr4vyn>>
+<<customwait 0.5>>
+R4VYNTUBE: Oh.
+R4VYNTUBE: Ok.
+<<switchcam labcam>>
+<<walkchar Dr.Melo melostance 1>>
+R4VYNTUBE: So what can we expect to see out of the refactor?
 DR.MELO: Well, this new cutscene system, for one.
 DR.MELO: I'll hand control over to the player now.
 <<killbgm>>
@@ -28,7 +44,7 @@ DR.MELO: I'll hand control over to the player now.
 <<clearbg>>
 TEMP: I think I will talk to that creature inexplicably in my room for the sake of um.
 TEMP: Making sure things still work.
-TEMP: But first, it may be worth interacting with all of my furniture, which looks like absolute garbage for some reason.
+TEMP: I think I will talk to them twice, actually, no matter what they say to me.
 <<setflag GameStarted True>>
 ===
 title: GloomiLaunch
@@ -37,4 +53,15 @@ colorID: 0
 position: -119,-426
 ---
 GLOOMI: Die.
+<<setnpcstate Gloomi 1>>
+===
+title: GloomiKeepGoing
+tags: 
+colorID: 0
+position: -118,-216
+---
+GLOOMI: What are you waiting for?
+GLOOMI: Die.
+<<setflag Tutorialized True>>
+<<loadtrack MilleFeuille>>
 ===

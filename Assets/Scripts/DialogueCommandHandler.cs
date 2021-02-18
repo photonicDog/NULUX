@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Assets.Scripts.WalkAround.Objects.Implementations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,6 +41,15 @@ public class DialogueCommandHandler : MonoBehaviour {
             "despawnchar",
             DespawnChar);
         runner.AddCommandHandler(
+            "walkchar",
+            WalkChar);
+        runner.AddCommandHandler(
+            "walkcharblocking",
+            WalkCharBlocking);
+        runner.AddCommandHandler(
+            "setexpression",
+            SetCharExpression);
+        runner.AddCommandHandler(
             "setflag",
             SetFlag);
         runner.AddCommandHandler(
@@ -57,9 +67,6 @@ public class DialogueCommandHandler : MonoBehaviour {
         runner.AddCommandHandler(
             "playsfxblocking",
             PlaySFXBlocking);
-        runner.AddCommandHandler(
-            "movenpc",
-            MoveNPC);
         runner.AddCommandHandler(
             "moveplayer",
             SpawnPlayer);
@@ -108,7 +115,7 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
 */
     void SetNPCState(string[] parameters) {
-        WalkaroundManager.Instance._currentScenario.ChangeNPCState(parameters[0], int.Parse(parameters[1]));
+        WalkaroundManager.Instance.ChangeNPCState(parameters[0], int.Parse(parameters[1]));
     }
 
     void SetBG(string[] parameters, System.Action onComplete) {
@@ -167,13 +174,13 @@ public class DialogueCommandHandler : MonoBehaviour {
         GameObject npc = GameObject.Find(parameters[0]);
         string node = parameters[1];
         npc.transform.position = 
-            WalkaroundManager.Instance.currentRoom.Blocks[node].position.position;
+            WalkaroundManager.Instance.currentRoom.Blocks[node].position;
     }
 
     void SpawnPlayer(string[] parameters) {
         string node = parameters[0];
         WalkaroundManager.Instance.sys.transform.position = 
-            WalkaroundManager.Instance.currentRoom.Blocks[node].position.position;
+            WalkaroundManager.Instance.currentRoom.Blocks[node].position;
     }
 
     void DespawnChar(string[] parameters) {
@@ -183,46 +190,21 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
 
     void WalkChar(string[] parameters) {
-        GameObject npc = GameObject.Find(parameters[0]);
+        ObjectConfig npc = FindObjectsOfType<ObjectConfig>().First(a => a.IsControllable && a.ID == parameters[0]);
 
-        // TODO: add animation.
-
-        StartCoroutine(NPCWalk(
-            npc.transform,
-            float.Parse(parameters[1]),
-            float.Parse(parameters[2]),
-            float.Parse(parameters[3]))
-        );
+        npc.GetComponent<ObjectController>().OnMoveScripted(
+            WalkaroundManager.Instance.currentRoom.Blocks[parameters[1]].position, 
+            float.Parse(parameters[2]));
     }
 
     void WalkCharBlocking(string[] parameters, System.Action onComplete) {
-        GameObject npc = GameObject.Find(parameters[0]);
-
-        // TODO: add animation.
-
-        StartCoroutine(NPCWalk(
-            npc.transform,
-            float.Parse(parameters[1]),
-            float.Parse(parameters[2]),
-            float.Parse(parameters[3]),
-            onComplete)
-        );
-    }
-
-    IEnumerator NPCWalk(Transform t, float x, float y, float time, System.Action onComplete = null) {
-        float startTime = Time.time;
-
-        while (startTime + time <= Time.time) {
-            Vector2 newPos = new Vector3(
-                Mathf.Lerp(t.position.x, x, (Time.time - startTime) / time),
-                t.position.y,
-                Mathf.Lerp(t.position.y, y, (Time.time - startTime) / time));
-            t.position = newPos;
-
-            yield return new WaitForEndOfFrame();
-        }
-
-        onComplete?.Invoke();
+        ObjectConfig npc = FindObjectsOfType<ObjectConfig>().First(a => a.IsControllable && a.ID == parameters[0]);
+        DialogueContainer.SetActive(false);
+        npc.GetComponent<ObjectController>().OnMoveScripted(
+                WalkaroundManager.Instance.currentRoom.Blocks[parameters[1]].position, 
+                float.Parse(parameters[2]),
+                onComplete, DialogueContainer);
+        DialogueContainer.SetActive(true);
     }
 
     IEnumerator WaitForSFX(System.Action onComplete) {
@@ -235,7 +217,7 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
 
     void SetCharExpression(string[] parameters) {
-        WalkaroundManager.Instance.Talkspriter.SetEmotion(parameters[0], parameters[1]);
+        WalkaroundManager.Instance.Talkspriter.SetEmotion(parameters[0], false, parameters[1]);
     }
     
     void SetFlag(string[] parameters) {
@@ -247,31 +229,21 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
 
     void PlaySFX(string[] parameters) {
-        SFXManager.Instance.PlayAudio(parameters[0]);
+        if (SFXManager.Instance) SFXManager.Instance.PlayAudio(parameters[0]);
     }
 
     void PlaySFXBlocking(string[] parameters, System.Action onComplete) {
-        SFXManager.Instance.PlayAudio(parameters[0]);
+        if (SFXManager.Instance) SFXManager.Instance.PlayAudio(parameters[0]);
 
         if (onComplete != null)
             StartCoroutine(WaitForSFX(onComplete));
     }
-
-    void MoveNPC(string[] parameters, System.Action onComplete) {
-        GameObject npc = GameObject.Find(parameters[0]);
-        StartCoroutine(NPCWalk(npc.transform,
-            float.Parse(parameters[0]),
-            float.Parse(parameters[1]),
-            float.Parse(parameters[2]))
-        );
-    }
-
     void SwitchBGM(string[] parameters) {
-        BGMManager.Instance.PlayAudio(parameters[0]);
+        if (BGMManager.Instance) BGMManager.Instance.PlayAudio(parameters[0]);
     }
 
     void CutBGM(string[] parameters) {
-        BGMManager.Instance.KillAudio();
+        if (BGMManager.Instance) BGMManager.Instance.KillAudio();
     }
 
     void SwitchScene(string[] parameters) {

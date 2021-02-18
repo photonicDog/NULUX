@@ -23,7 +23,6 @@ public class SongManager : SerializedMonoBehaviour {
     private Note[] heldNotes;
     private Queue<ChartDialogueCommand> dcQueue;
 
-    public Vector3 MechanicSpawn;
     [SerializeField] private GameObject introAnimation = default;
     [SerializeField] private AudioSource introAnimationSound = default;
 
@@ -53,7 +52,7 @@ public class SongManager : SerializedMonoBehaviour {
     private float drive = 0.5f;
 
     private List<Note> chartNotes;
-    private float _temporalWindow;
+    private int origNoteCt;
 
     [SerializeField] private OffsetBar ob = default;
 
@@ -92,18 +91,13 @@ public class SongManager : SerializedMonoBehaviour {
             heldNotes[i] = null;
         }
 
-        controlMapping = new Dictionary<string, NoteType>();
-
         ReadMIDI(Application.streamingAssetsPath + "\\"+ currentTrack.PathToChart +".mid", currentTrack.Lines);
         Conductor.Instance.SetSong(currentTrack.Audio);
-
-        int noteCt = 0;
-
+        origNoteCt = chartNotes.Count;
+        
         perfectNoteScore = 1000000f / ((chartNotes.Count));
         if (currentTrack.yp) dialogueRunner.Add(currentTrack.yp);
         driveGauge.fillAmount = drive;
-        
-        ControlMapper();
 
         // Build all necessary components and then turn em off until they're ready.
         
@@ -147,8 +141,6 @@ public class SongManager : SerializedMonoBehaviour {
     }
 
     private void LateUpdate() {
-        _temporalWindow = 60f / Conductor.Instance.bpm;
-
         if (Conductor.Instance.playing) {
             if (Conductor.Instance.GetSongTime() >= endBeat) {
                 Conductor.Instance.StopSong();
@@ -248,7 +240,6 @@ public class SongManager : SerializedMonoBehaviour {
 
     // Input method.
     public void SongKey(InputAction.CallbackContext context) {        
-        NoteType button = controlMapping[context.control.name];
         mechanic.QueryInput(context);
     }
 
@@ -271,7 +262,7 @@ public class SongManager : SerializedMonoBehaviour {
         score += add*perfectNoteScore;
         scoreboard.text = ((int)score).ToString("D7");
 
-        float diff = 1f/(chartNotes.Count*6f);
+        float diff = 1f/(origNoteCt*6f);
         
         if (add < 0.25) {
             drive -= diff * 4;
@@ -296,13 +287,6 @@ public class SongManager : SerializedMonoBehaviour {
 
     private void OffsetBarManager(float offset) {
         ob.MakeMark(offset);
-    }
-
-    private void ControlMapper() {
-        controlMapping.Add("s", NoteType.L1);
-        controlMapping.Add("d", NoteType.L2);
-        controlMapping.Add("f", NoteType.L3);
-        controlMapping.Add("k", NoteType.L4);
     }
     
     public void ReturnToMenu() {

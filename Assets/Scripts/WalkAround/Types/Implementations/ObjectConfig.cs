@@ -15,24 +15,35 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
     }
 
     public class ObjectConfig : MonoBehaviour {
+        [Header("Basic Attributes")]
         public bool IsPlayer;
         public bool HasCollision;
         public bool IsVisible;
         public bool IsControllable;
+        [Header("Interaction")]
         public bool IsInteractable;
         public bool IsTalkspritable;
-        public bool IsDialogueTrigger;
+        public bool IsStated;
+        [ShowIf("IsStated")] public bool IsDialogueTrigger;
         public bool IsSimpleDialogue;
         public bool IsLookable;
+        [ShowIf("IsLookable")] public bool HasInteractBubble;
+        [ShowIf("@this.IsDialogueTrigger || this.IsSimpleDialogue || this.IsTalkspritable")]
+        public bool HasTalkBubble;
+        [Header("Special")]
         public bool IsDoor;
         public bool IsCutsceneTrigger;
         public string ID;
 
         [ShowIf("IsInteractable")] public InteractEvent onInteract;
         [ShowIf("IsLookable")] public InteractEvent onRadius;
+        [ShowIf("IsLookable")] public InteractEvent offRadius;
         [ShowIf("IsDoor")] public InteractEvent onDoor;
         [ShowIf("IsTalkspritable")] public TalkspriteController talkspriteController;
         [ShowIf("@this.IsDialogueTrigger || this.IsSimpleDialogue")] public string dialogueKey;
+        [ShowIf("IsStated")] public NPCState npcState;
+        [ShowIf("HasInteractBubble")] public SpriteRenderer interactBubble;
+        [ShowIf("@this.HasTalkBubble || this.IsPlayer")] public SpriteRenderer talkBubble;
         
         public void ToggleCollision()
         {
@@ -68,6 +79,9 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
             onRadius.Invoke(trigger);
         }
 
+        public void Leave(ObjectConfig trigger) {
+            offRadius.Invoke(trigger);
+        }
         public void Interact(ObjectConfig trigger) {
             onInteract.Invoke(trigger);
         }

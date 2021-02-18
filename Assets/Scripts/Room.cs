@@ -9,7 +9,7 @@ public class DraggablePoint : PropertyAttribute {}
 
 public class Room : SerializedMonoBehaviour {
     public Dictionary<string, CinemachineVirtualCamera> RoomCameras;
-    public Dictionary<string, BlockingPosition> Blocks;
+    public Dictionary<string, Transform> Blocks;
     public Dictionary<string, LightController> LightControllers;
     
     private CinemachineBrain brain;
@@ -38,10 +38,4 @@ SwitchCamera(index);
         LightController lc = LightControllers[index];
         if (active) lc.EnableLamp(); else lc.DisableLamp();
     }
-}
-
-[Serializable]
-public class BlockingPosition {
-    public string id;
-    public Transform position;
 }

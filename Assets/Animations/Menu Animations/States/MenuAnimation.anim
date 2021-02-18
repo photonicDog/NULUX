@@ -33,7 +33,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: Canvas/Start+Main Panel
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -52,7 +52,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.y
-    path: Canvas/Start+Main Panel
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -71,7 +71,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Start+Main Panel/LogoSpacer/HorizontalLayout
+    path: CanvasParent/Canvas/Start+Main Panel/LogoSpacer/HorizontalLayout
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -90,7 +90,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Start+Main Panel/LogoSpacer/InitializeButton
+    path: CanvasParent/Canvas/Unimplemented Feature Window
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -98,7 +98,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -109,7 +109,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Unimplemented Feature Window
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -121,35 +121,35 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3284002122
+      path: 402034799
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3396378742
+      path: 1141369282
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2112101140
+      path: 2564307106
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1786342582
+      path: 2564307106
       attribute: 1967290853
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1786342582
+      path: 2564307106
       attribute: 38095219
       script: {fileID: 0}
       typeID: 224
@@ -193,7 +193,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: Canvas/Start+Main Panel
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -212,7 +212,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.y
-    path: Canvas/Start+Main Panel
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -231,7 +231,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Start+Main Panel/LogoSpacer/HorizontalLayout
+    path: CanvasParent/Canvas/Start+Main Panel/LogoSpacer/HorizontalLayout
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -250,7 +250,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Start+Main Panel/LogoSpacer/InitializeButton
+    path: CanvasParent/Canvas/Unimplemented Feature Window
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -258,7 +258,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -269,7 +269,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Canvas/Unimplemented Feature Window
+    path: CanvasParent/Canvas/Start+Main Panel
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

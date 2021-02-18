@@ -49,14 +49,34 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		_currentScenario.scenarioNPCS = new List<WalkaroundNPCState>();
 		foreach (WalkaroundNPCState scenarioNPC in currentScenario.scenarioNPCS)
 		{
-			_currentScenario.scenarioNPCS.Add(new WalkaroundNPCState(scenarioNPC.name, scenarioNPC.state, scenarioNPC.talksprites, scenarioNPC.npcBody, scenarioNPC.nodes));
+			_currentScenario.scenarioNPCS.Add(new WalkaroundNPCState(scenarioNPC.name, scenarioNPC.state, scenarioNPC.nodes));
 		}
+		
+		LoadNPCs();
 
 		foreach (Room room in rooms.Values) {
 			foreach (CinemachineVirtualCamera vc in room.RoomCameras.Values) {
 				vc.gameObject.SetActive(false);
 			}
 		}
+	}
+
+	private void LoadNPCs() {
+		List<ObjectConfig> npcs = FindObjectsOfType<ObjectConfig>().Where(a => a.IsStated).ToList();
+		foreach (WalkaroundNPCState scenarioNPC in _currentScenario.scenarioNPCS) {
+			ObjectConfig npc = npcs.Find(a => a.ID.Equals(scenarioNPC.name));
+			if (npc == null) continue;
+			npc.npcState.state = scenarioNPC.state;
+			npc.npcState.nodes = scenarioNPC.nodes;
+		}
+	}
+
+	public void ChangeNPCState(string id, int state) {
+		FindObjectsOfType<ObjectConfig>()
+			.Where(a => a.IsStated)
+			.ToList()
+			.Find(a => a.ID == id)
+			.npcState.state = state;
 	}
 
 	public void ReadPotentialInteraction(ObjectConfig interactable)
@@ -77,7 +97,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 			sys.DeactivateInput();
 			if (currentInteractable.IsDialogueTrigger)
 			{
-				DialogueRunner.StartDialogue(_currentScenario.GetCurrentNode(currentInteractable.dialogueKey));
+				DialogueRunner.StartDialogue(currentInteractable.npcState.GetDialogueByState());
 			}
 			else if (currentInteractable.IsSimpleDialogue)
 			{
@@ -86,12 +106,12 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		}
 	}
 
-	public void UseDoor(GameObject mover, Door door)
+	public void UseDoor(GameObject mover, string room, string camera, Door door)
 	{
-		StartCoroutine(DoorAnimation(mover, door));
+		StartCoroutine(DoorAnimation(mover, room, camera, door));
 	}
 
-	private IEnumerator DoorAnimation(GameObject mover, Door door)
+	private IEnumerator DoorAnimation(GameObject mover, string room, string camera, Door door)
 	{
 		sys.DeactivateInput();
 		backgroundImage.color = Color.black - new Color(0f, 0f, 0f, 1f);
@@ -101,9 +121,13 @@ public class WalkaroundManager : SerializedMonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 		backgroundImage.color = Color.black;
-		Vector3 position = door.destinationPosn;
+		
+		Vector3 position = door.destinationPosn.position;
 		mover.transform.position = position;
+		SetRoomContext(room);
+		currentRoom.SwitchCamera(camera);
 		yield return new WaitForSeconds(0.2f);
+		
 		while (backgroundImage.color.a > 0f)
 		{
 			backgroundImage.color -= new Color(0f, 0f, 0f, 0.02f);

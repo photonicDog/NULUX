@@ -25,16 +25,12 @@ public class WalkaroundNPCScenarioState : SerializedScriptableObject {
 public class WalkaroundNPCState {
     public string name;
     public int state;
-    public CharacterTalksprites talksprites;
-    public ObjectController npcBody;
     public List<IndexNode> nodes;
 
-    public WalkaroundNPCState(string name, int state, CharacterTalksprites talksprites, ObjectController npcBody, List<IndexNode> nodes) {
+    public WalkaroundNPCState(string name, int state, List<IndexNode> nodes) {
         this.name = name;
-        this.npcBody = npcBody;
         this.state = state;
         this.nodes = nodes;
-        this.talksprites = talksprites;
     }
 }
 

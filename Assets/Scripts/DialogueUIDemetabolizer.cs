@@ -227,6 +227,7 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
 
     private string currentSpeaker;
     private string currentEmotion;
+    private string lastSpeaker = "";
         
     internal void Awake ()
     {
@@ -271,8 +272,12 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             charName = split[0];
             string expression = split.Length > 1 ? split[1] : "NORMAL";
             
+            if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
             WalkaroundManager.Instance.Talkspriter.SetState(charName, false, true);
-            WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, expression);
+            WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, true,expression);
+            WalkaroundManager.Instance.Talkspriter.Bubble(charName, true);
+            lastSpeaker = charName;
+            
             onNameplateUpdate?.Invoke(WalkaroundManager.Instance.Talkspriter.GetNameplate(charName));
 
             text = text.Split(':')[1].TrimStart();
@@ -417,7 +422,8 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
     public override void DialogueComplete ()
     {
         onDialogueEnd?.Invoke();
-
+        if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
+        
         // Hide the dialogue interface.
         if (dialogueContainer != null)
             dialogueContainer.SetActive(false);
