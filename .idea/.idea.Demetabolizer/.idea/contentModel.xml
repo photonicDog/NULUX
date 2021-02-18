@@ -192,6 +192,7 @@
         <e p="Shaders" t="Include">
           <e p="FlatTransparent.shader" t="Include" />
         </e>
+        <e p="TalkspriteController.cs" t="Include" />
       </e>
       <e p="Demetabolizer.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

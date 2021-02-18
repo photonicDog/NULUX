@@ -1,7 +1,7 @@
 title: OpeningCutscene
 tags: 
 colorID: 0
-position: -353,-429
+position: -353,-428
 ---
 <<setroom cutscene1>>
 <<switchcam labcam>>
@@ -30,4 +30,11 @@ TEMP: I think I will talk to that creature inexplicably in my room for the sake 
 TEMP: Making sure things still work.
 TEMP: But first, it may be worth interacting with all of my furniture, which looks like absolute garbage for some reason.
 <<setflag GameStarted True>>
+===
+title: GloomiLaunch
+tags: 
+colorID: 0
+position: -119,-426
+---
+GLOOMI: Die.
 ===

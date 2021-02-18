@@ -1,76 +1,34 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.WalkAround.Objects.Implementations;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueTalkspriter : MonoBehaviour {
+public class DialogueTalkspriter : SerializedMonoBehaviour {
 
-    [SerializeField]
-    private Animator anim = default;
+    private List<ObjectConfig> talkspritables;
 
-    [SerializeField]
-    private List<CharacterTalksprites> talksprites = default;
-
-    public Image talkspr;
-
-    public GameObject nameplate;
-
-    [SerializeField] private float fps = 4;
-
-
-    public AnimationClip blankClip;
-    public AnimationClip defaultClip;
-
-    private AnimationClip clip;
-    private AnimatorOverrideController animatorOverride;
+    public Dictionary<string, string> scriptToID;
+    public Dictionary<string, string> scriptToNameplate;
     
-    // Start is called before the first frame update
     void Awake() {
-        StopAnimation();
+        talkspritables = FindObjectsOfType<ObjectConfig>().Where(a => a.IsTalkspritable).ToList();
     }
 
-    public void SetSprite(string name, string key) {
-        if (name == "NARRATOR") {
-            clip = blankClip;
-            nameplate.SetActive(false);
-        } else {
-            nameplate.SetActive(true);
-            if (talksprites.Exists(a => a.Nametag.Equals(name))) {
-                CharacterTalksprites t = talksprites.Find(a => a.Nametag.Equals(name));
-                if (t) {
-                    try {
-                        clip = t.talkspriteList[key];
-                    }
-                    catch (KeyNotFoundException) {
-                        clip = t.talkspriteList["NORMAL"];
-                    }
-                }
-                else {
-                    clip = defaultClip;
-                }
-            }
-            else {
-                clip = blankClip;
-            }
-        }
-
-        anim.Play(clip.name);
+    public void SetEmotion(string id, string emotion) {
+        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
+        if (ts) ts.talkspriteController.SetAnimation(emotion);
     }
 
-    public void StartAnimation() {
-        anim.enabled = true;
-    }
-    
-    public void StopAnimation() {
-        anim.enabled = false;
+    public void SetState(string id, bool walk, bool set) {
+        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
+        if (ts) ts.talkspriteController.SetState(walk, set);
     }
 
-    public void ChangeSpeed(string code, float fps) {
-        this.fps = fps;
-    }
-
-    public void ImportAllTalksprites(List<CharacterTalksprites> ts) {
-        talksprites.AddRange(ts);
+    public string GetNameplate(string scriptPlate) {
+        return scriptToNameplate[scriptPlate];
     }
 }

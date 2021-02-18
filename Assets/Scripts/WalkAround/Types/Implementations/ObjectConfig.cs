@@ -20,15 +20,19 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
         public bool IsVisible;
         public bool IsControllable;
         public bool IsInteractable;
+        public bool IsTalkspritable;
         public bool IsDialogueTrigger;
+        public bool IsSimpleDialogue;
         public bool IsLookable;
         public bool IsDoor;
         public bool IsCutsceneTrigger;
-        [FormerlySerializedAs("NPCKey")] public string Key;
+        public string ID;
 
         [ShowIf("IsInteractable")] public InteractEvent onInteract;
         [ShowIf("IsLookable")] public InteractEvent onRadius;
         [ShowIf("IsDoor")] public InteractEvent onDoor;
+        [ShowIf("IsTalkspritable")] public TalkspriteController talkspriteController;
+        [ShowIf("@this.IsDialogueTrigger || this.IsSimpleDialogue")] public string dialogueKey;
         
         public void ToggleCollision()
         {
@@ -57,7 +61,7 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
         
         public void SetKey(string trigger)
         {
-            Key = trigger;
+            ID = trigger;
         }
 
         public void Look(ObjectConfig trigger) {

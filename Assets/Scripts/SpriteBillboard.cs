@@ -14,6 +14,6 @@ public class SpriteBillboard : MonoBehaviour {
     void Update() 
     {
         if (brain)
-        transform.LookAt(brain.ActiveVirtualCamera.VirtualCameraGameObject.transform.position, Vector3.up);
+        transform.LookAt(WalkaroundManager.Instance.currentCam.transform.position, Vector3.up);
     }
 }

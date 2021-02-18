@@ -33,8 +33,10 @@ public class WalkaroundManager : SerializedMonoBehaviour
 
 	public Dictionary<string, Room> rooms;
 	[HideInInspector] public Room currentRoom;
+	
 
 	private CinemachineBrain brain;
+	public CinemachineVirtualCamera currentCam;
 
 	private void Awake()
 	{
@@ -49,10 +51,6 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		{
 			_currentScenario.scenarioNPCS.Add(new WalkaroundNPCState(scenarioNPC.name, scenarioNPC.state, scenarioNPC.talksprites, scenarioNPC.npcBody, scenarioNPC.nodes));
 		}
-		Talkspriter.ImportAllTalksprites((from a in _currentScenario.scenarioNPCS
-			select a.talksprites into a
-			where a != null
-			select a).ToList());
 
 		foreach (Room room in rooms.Values) {
 			foreach (CinemachineVirtualCamera vc in room.RoomCameras.Values) {
@@ -67,9 +65,9 @@ public class WalkaroundManager : SerializedMonoBehaviour
 	}
 
 	public void SetCamera(CinemachineVirtualCamera vc) {
-		brain.ActiveVirtualCamera.VirtualCameraGameObject.SetActive(false);
-		vc.VirtualCameraGameObject.SetActive(true);
-		
+		if (currentCam) currentCam.gameObject.SetActive(false);
+		vc.gameObject.SetActive(true);
+		currentCam = vc;
 	}
 
 	public void ExecuteDialogueInteraction(InputAction.CallbackContext context)
@@ -79,11 +77,11 @@ public class WalkaroundManager : SerializedMonoBehaviour
 			sys.DeactivateInput();
 			if (currentInteractable.IsDialogueTrigger)
 			{
-				DialogueRunner.StartDialogue(_currentScenario.GetCurrentNode(currentInteractable.Key));
+				DialogueRunner.StartDialogue(_currentScenario.GetCurrentNode(currentInteractable.dialogueKey));
 			}
-			else if (currentInteractable.IsLookable)
+			else if (currentInteractable.IsSimpleDialogue)
 			{
-				DialogueRunner.StartDialogue(currentInteractable.Key);
+				DialogueRunner.StartDialogue(currentInteractable.dialogueKey);
 			}
 		}
 	}
@@ -117,6 +115,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 
 	public void SetRoomContext(string key) {
 		currentRoom = rooms[key];
+		SetCamera(currentRoom.RoomCameras.First().Value);
 	}
 
 	public void ReactivatePlayerControls()

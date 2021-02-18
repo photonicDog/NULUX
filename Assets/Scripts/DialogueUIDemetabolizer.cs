@@ -265,17 +265,19 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
 
 
         string nameplate = text.Split(':')[0];
+        string charName = "";
         if (nameplate != "") {
             string[] split = nameplate.Split('+');
-            string charName = split[0];
+            charName = split[0];
             string expression = split.Length > 1 ? split[1] : "NORMAL";
-                
-            talkspriteManager.SetSprite(charName, expression);
-            onNameplateUpdate?.Invoke(charName);
-            text = text.Split(':')[1].TrimStart();
             
-            talkspriteManager.StartAnimation();
+            WalkaroundManager.Instance.Talkspriter.SetState(charName, false, true);
+            WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, expression);
+            onNameplateUpdate?.Invoke(WalkaroundManager.Instance.Talkspriter.GetNameplate(charName));
+
+            text = text.Split(':')[1].TrimStart();
         }
+        
         if (textSpeed > 0.0f) {
             // Display the line one character at a time
             var stringBuilder = new StringBuilder ();
@@ -298,11 +300,12 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
 
         // We're now waiting for the player to move on to the next line
         userRequestedNextLine = false;
-        talkspriteManager.StopAnimation();
 
         // Indicate to the rest of the game that the line has finished being delivered
         onLineFinishDisplaying?.Invoke();
-
+        
+        if (charName != "") WalkaroundManager.Instance.Talkspriter.SetState(charName, false, false);
+        
         while (userRequestedNextLine == false) {
             yield return null;
         }

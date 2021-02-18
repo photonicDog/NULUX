@@ -42,13 +42,3 @@ MonoBehaviour:
     talksprites: {fileID: 0}
     npcBody: {fileID: 0}
     nodes: []
-  - name: 
-    state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
-    nodes: []
-  - name: 
-    state: 0
-    talksprites: {fileID: 0}
-    npcBody: {fileID: 0}
-    nodes: []

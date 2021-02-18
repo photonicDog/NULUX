@@ -73,7 +73,7 @@ public class DialogueCommandHandler : MonoBehaviour {
             "loadtrack",
             BuildSong);
         runner.AddCommandHandler(
-            "setroomcontext",
+            "setroom",
             SetRoomContext);
         runner.AddCommandHandler(
             "setlight",
@@ -234,6 +234,10 @@ public class DialogueCommandHandler : MonoBehaviour {
         onComplete();
     }
 
+    void SetCharExpression(string[] parameters) {
+        WalkaroundManager.Instance.Talkspriter.SetEmotion(parameters[0], parameters[1]);
+    }
+    
     void SetFlag(string[] parameters) {
         string val = parameters[1];
 

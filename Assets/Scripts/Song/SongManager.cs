@@ -84,7 +84,6 @@ public class SongManager : SerializedMonoBehaviour {
         rp = GetComponent<ResultsPanel>();
         mechanic = mechanicObject.GetComponent<NOVAMechanic>();
         mechanic.BuildMechanic(ComboManager, ScoreManager, OffsetBarManager);
-        if (currentTrack.yp != null) talkspriter.ImportAllTalksprites(currentTrack.songScenarioState.scenarioNPCS.Select(a=>a.talksprites).ToList());
         Build();
     }
 

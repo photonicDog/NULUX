@@ -17,17 +17,17 @@ public class ObjectProximityTrigger : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter(Collider other) {
         if (!objConfig.IsInteractable) return;
         if (other.gameObject.CompareTag("Player")) {
             GameObject playerObject = other.gameObject;
             if (objConfig.IsCutsceneTrigger) {
-                WalkaroundManager.Instance.DialogueRunner.StartDialogue(objConfig.Key);
+                WalkaroundManager.Instance.DialogueRunner.StartDialogue(objConfig.ID);
             }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
+    private void OnTriggerStay(Collider other) {
         if (!objConfig.IsInteractable) return;
         if (!other.tag.Equals("Player")) return;
         
@@ -54,7 +54,7 @@ public class ObjectProximityTrigger : MonoBehaviour {
         }
     }
     
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
             WalkaroundManager.Instance.ReadPotentialInteraction(null);
         }
