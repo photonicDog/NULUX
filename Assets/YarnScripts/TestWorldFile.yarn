@@ -1,0 +1,33 @@
+title: OpeningCutscene
+tags: 
+colorID: 0
+position: -353,-429
+---
+<<setroom cutscene1>>
+<<switchcam labcam>>
+<<customwait 0.5>>
+<<setlight lablamp True>> 
+<<customwait 0.5>>
+<<setbgm mus_dramatube>>
+DR.MELO: You're going to have to cut me some slack here.
+R4VYN: What, is the walkaround refactor unfinished?
+DR.MELO: Yeah.
+R4VYN: Oh.
+R4VYN: Ok.
+R4VYN: So what can we expect to see out of the refactor?
+DR.MELO: Well, this new cutscene system, for one.
+DR.MELO: I'll hand control over to the player now.
+<<killbgm>>
+<<customwait 0.5>> 
+<<playsfx sfx_thud>> 
+<<setbg color #111111 0>>
+<<customwait 3>>
+<<setroom temproom>>
+<<switchcam roomcam>>
+<<setbgm mus_awakening>>
+<<clearbg>>
+TEMP: I think I will talk to that creature inexplicably in my room for the sake of um.
+TEMP: Making sure things still work.
+TEMP: But first, it may be worth interacting with all of my furniture, which looks like absolute garbage for some reason.
+<<setflag GameStarted True>>
+===

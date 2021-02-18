@@ -33,7 +33,7 @@ public class ObjectController : MonoBehaviour
 
         if (config.IsControllable)
         {
-            _rb.MovePosition(_rb.position + _movement * speed * speedMul);
+            _rb.velocity = (_movement * speed * speedMul);
         }
     }
     

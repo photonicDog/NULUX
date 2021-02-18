@@ -19,11 +19,11 @@ public class LightController : MonoBehaviour {
         
     }
 
-    void EnableLamp() {
+    public void EnableLamp() {
         OnEnableLamp.Invoke();
     }
 
-    void DisableLamp() {
+    public void DisableLamp() {
         OnDisableLamp.Invoke();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public Vector3 destinationPosn;
     public Room room;
-    public int cameraIndex;
+    public string cameraIndex;
     private Animator doorAnimation;
 
     void Start() {

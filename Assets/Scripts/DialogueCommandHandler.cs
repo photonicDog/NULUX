@@ -9,14 +9,14 @@ using UnityEngine.UI;
 using Yarn.Unity;
 
 public class DialogueCommandHandler : MonoBehaviour {
-
     public CutsceneBG CutsceneBg;
     public CutsceneBG CutsceneBgBuffer;
     public CutsceneFG CutsceneFg;
-    
+
     public DialogueRunner runner;
     public GameObject DialogueContainer;
     private WalkaroundNPCState currentNPCState;
+
     void Awake() {
         runner.AddCommandHandler(
             "setnpcstate",
@@ -72,18 +72,25 @@ public class DialogueCommandHandler : MonoBehaviour {
         runner.AddCommandHandler(
             "loadtrack",
             BuildSong);
+        runner.AddCommandHandler(
+            "setroomcontext",
+            SetRoomContext);
+        runner.AddCommandHandler(
+            "setlight",
+            SetLight);
+        runner.AddCommandHandler(
+            "switchcam",
+            SwitchCam);
     }
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
     }
+
 /*
     public void ParseCommand(string s) {
         string[] choppedCommands = s.Split(' ');
@@ -120,17 +127,18 @@ public class DialogueCommandHandler : MonoBehaviour {
         if (parameters[0].Equals("image")) {
             if (parameters[2] == "0") {
                 CutsceneBg.SetBGInstant(WalkaroundManager.Instance.bgImages.LookupAsset(parameters[1]));
-                onComplete();  
+                onComplete();
             }
             else
-                CutsceneBgBuffer.SetBG(WalkaroundManager.Instance.bgImages.LookupAsset(parameters[1]), int.Parse(parameters[2]), CutsceneBg, onComplete, DialogueContainer);
+                CutsceneBgBuffer.SetBG(WalkaroundManager.Instance.bgImages.LookupAsset(parameters[1]),
+                    int.Parse(parameters[2]), CutsceneBg, onComplete, DialogueContainer);
         }
     }
 
     void ClearBG(string[] parameters) {
         CutsceneBg.ClearBG();
     }
-    
+
     void SetFG(string[] parameters) {
         float x = float.Parse(parameters[1]);
         float y = float.Parse(parameters[2]);
@@ -138,49 +146,64 @@ public class DialogueCommandHandler : MonoBehaviour {
         float h = 0;
         CutsceneFg.SetFG(WalkaroundManager.Instance.fgImages.LookupAsset(parameters[0]), x, y, w, h);
     }
-    
+
     void ClearFG(string[] parameters) {
         CutsceneFg.ClearFG();
+    }
+
+    void SetRoomContext(string[] parameters) {
+        WalkaroundManager.Instance.SetRoomContext(parameters[0]);
+    }
+
+    void SwitchCam(string[] parameters) {
+        WalkaroundManager.Instance.currentRoom.SwitchCamera(parameters[0]);
+    }
+    
+    void SetLight(string[] parameters) {
+        WalkaroundManager.Instance.currentRoom.SetLight(parameters[0], bool.Parse(parameters[1]));
     }
     
     void SpawnChar(string[] parameters) {
         GameObject npc = GameObject.Find(parameters[0]);
         string node = parameters[1];
-        npc.transform.position = WalkaroundManager.Instance.KeyPoints[node].position;
+        npc.transform.position = 
+            WalkaroundManager.Instance.currentRoom.Blocks[node].position.position;
     }
-    
-    void SpawnPlayer(string[] parameters) {        
+
+    void SpawnPlayer(string[] parameters) {
         string node = parameters[0];
-        WalkaroundManager.Instance.sys.transform.position = WalkaroundManager.Instance.KeyPoints[node].position;
+        WalkaroundManager.Instance.sys.transform.position = 
+            WalkaroundManager.Instance.currentRoom.Blocks[node].position.position;
     }
-    
+
     void DespawnChar(string[] parameters) {
         GameObject npc = GameObject.Find(parameters[0]);
-        
+
         npc.transform.position = new Vector3(9999, 9999, 0);
     }
+
     void WalkChar(string[] parameters) {
         GameObject npc = GameObject.Find(parameters[0]);
-        
+
         // TODO: add animation.
 
         StartCoroutine(NPCWalk(
-            npc.transform, 
-            float.Parse(parameters[1]), 
-            float.Parse(parameters[2]), 
+            npc.transform,
+            float.Parse(parameters[1]),
+            float.Parse(parameters[2]),
             float.Parse(parameters[3]))
         );
     }
 
     void WalkCharBlocking(string[] parameters, System.Action onComplete) {
         GameObject npc = GameObject.Find(parameters[0]);
-        
+
         // TODO: add animation.
 
         StartCoroutine(NPCWalk(
-            npc.transform, 
-            float.Parse(parameters[1]), 
-            float.Parse(parameters[2]), 
+            npc.transform,
+            float.Parse(parameters[1]),
+            float.Parse(parameters[2]),
             float.Parse(parameters[3]),
             onComplete)
         );
@@ -191,11 +214,11 @@ public class DialogueCommandHandler : MonoBehaviour {
 
         while (startTime + time <= Time.time) {
             Vector2 newPos = new Vector3(
-                Mathf.Lerp(t.position.x, x, (Time.time - startTime)/time),
+                Mathf.Lerp(t.position.x, x, (Time.time - startTime) / time),
                 t.position.y,
-                Mathf.Lerp(t.position.y, y, (Time.time - startTime)/time));
+                Mathf.Lerp(t.position.y, y, (Time.time - startTime) / time));
             t.position = newPos;
-            
+
             yield return new WaitForEndOfFrame();
         }
 
@@ -204,7 +227,7 @@ public class DialogueCommandHandler : MonoBehaviour {
 
     IEnumerator WaitForSFX(System.Action onComplete) {
         DialogueContainer.SetActive(false);
-        while(SFXManager.Instance.GetAudio().isPlaying)
+        while (SFXManager.Instance.GetAudio().isPlaying)
             yield return new WaitForEndOfFrame();
         DialogueContainer.SetActive(true);
 
@@ -222,23 +245,22 @@ public class DialogueCommandHandler : MonoBehaviour {
     void PlaySFX(string[] parameters) {
         SFXManager.Instance.PlayAudio(parameters[0]);
     }
-    
+
     void PlaySFXBlocking(string[] parameters, System.Action onComplete) {
         SFXManager.Instance.PlayAudio(parameters[0]);
-        
-        if(onComplete != null)
+
+        if (onComplete != null)
             StartCoroutine(WaitForSFX(onComplete));
     }
 
     void MoveNPC(string[] parameters, System.Action onComplete) {
         GameObject npc = GameObject.Find(parameters[0]);
         StartCoroutine(NPCWalk(npc.transform,
-                               float.Parse(parameters[0]),
-                               float.Parse(parameters[1]),
-                               float.Parse(parameters[2]))
+            float.Parse(parameters[0]),
+            float.Parse(parameters[1]),
+            float.Parse(parameters[2]))
         );
     }
-    
 
     void SwitchBGM(string[] parameters) {
         BGMManager.Instance.PlayAudio(parameters[0]);
@@ -288,4 +310,6 @@ public class DialogueCommandHandler : MonoBehaviour {
     void BuildSong(string[] parameters) {
         StoryModeGameManager.Instance.BuildSong(parameters[0]);
     }
+
+
 }

@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 7b65019a6ba6fa84d964d801a0964ad5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - TestWorldFile-OpeningCutscene-0
+  - TestWorldFile-OpeningCutscene-1
+  - TestWorldFile-OpeningCutscene-2
+  - TestWorldFile-OpeningCutscene-3
+  - TestWorldFile-OpeningCutscene-4
+  - TestWorldFile-OpeningCutscene-5
+  - TestWorldFile-OpeningCutscene-6
+  - TestWorldFile-OpeningCutscene-7
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {instanceID: 0}
+  localizations: []

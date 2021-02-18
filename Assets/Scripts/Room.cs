@@ -2,21 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class DraggablePoint : PropertyAttribute {}
 
-public class Room : MonoBehaviour {
-    public List<CinemachineVirtualCamera> RoomCameras;
-    public List<BlockingPosition> Blocks;
-    public List<LightController> LightControllers;
+public class Room : SerializedMonoBehaviour {
+    public Dictionary<string, CinemachineVirtualCamera> RoomCameras;
+    public Dictionary<string, BlockingPosition> Blocks;
+    public Dictionary<string, LightController> LightControllers;
     
     private CinemachineBrain brain;
     
     // Start is called before the first frame update
     void Start()
     {
-        brain = Camera.main.GetComponent<CinemachineBrain>();
+
     }
 
     // Update is called once per frame
@@ -25,9 +26,17 @@ public class Room : MonoBehaviour {
         
     }
 
-    public void MoveToRoom(int index) {
-        brain.ActiveVirtualCamera.VirtualCameraGameObject.SetActive(false);
-        RoomCameras[index].gameObject.SetActive(true);
+    public void MoveToRoom(string index) {
+SwitchCamera(index);
+    }
+
+    public void SwitchCamera(string index) {
+        WalkaroundManager.Instance.SetCamera(RoomCameras[index]);
+    }
+
+    public void SetLight(string index, bool active) {
+        LightController lc = LightControllers[index];
+        if (active) lc.EnableLamp(); else lc.DisableLamp();
     }
 }
 
