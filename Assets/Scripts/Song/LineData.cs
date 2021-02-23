@@ -33,8 +33,7 @@ public class LineData {
     [BoxGroup("Data/Misc/Telegraphing")] public float warnTime;
     [BoxGroup("Data/Misc/Telegraphing")] public float fadeLength;
     [BoxGroup("Data/Misc/TypeData")] public int index;
-
-    public LineStyle Style = LineStyle.NULL; 
+    [BoxGroup("Data/Misc/TypeData")]public LineStyle Style = LineStyle.NULL; 
 
 }
 

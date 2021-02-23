@@ -68,15 +68,6 @@ public class NOVALine : SerializedMonoBehaviour
 		}
 	}
 
-	public void UpdateCMD(LineDataCommand cmd) {
-		currentCMD = cmd;
-		
-		if (cmd.data.Style == LineStyle.PULSE)
-		{
-			lrc = lineObject.gameObject.GetComponent<LineRendererCircle>();
-		}
-	}
-
 	public void CalculateHitLineMovement(float currentBeat)
 	{
 		CalculateHitLineMovement(currentCMD, currentBeat, lineObject);

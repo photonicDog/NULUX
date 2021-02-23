@@ -7780,7 +7780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e6af33ed34f079feee3245301976d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prototypeTrack: {fileID: 11400000, guid: 60a4f145474ef1849961786fa236bf17, type: 2}
+  prototypeTrack: {fileID: 11400000, guid: cc4c9c70855678e4a81162ca0f9f2acd, type: 2}
 --- !u!4 &2107124017
 Transform:
   m_ObjectHideFlags: 0

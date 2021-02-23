@@ -34,11 +34,7 @@ public class NOVANote : SerializedMonoBehaviour {
         cap.sprite = currentVisualSet.cap;
         tailRenderer.material = currentVisualSet.arcMaterial;
 
-        if (n.Duration > 0) {
-            tailRenderer.gameObject.SetActive(true);
-            tailRenderer.gameObject.SetActive(true);
-            cap.gameObject.SetActive(true);
-        }
+        head.sortingOrder = 10000000 - (int)(note.Start * 480);
     }
 
     public void FadeIn(float fadeSpeed) {
@@ -48,6 +44,12 @@ public class NOVANote : SerializedMonoBehaviour {
 
     public IEnumerator Fade() {
         float startTime = Conductor.Instance.GetSongTime();
+        if (note.Duration > 0) {
+            tailRenderer.gameObject.SetActive(true);
+            tailRenderer.gameObject.SetActive(true);
+            cap.gameObject.SetActive(true);
+        }
+        
         fade.StartPlayback();
         telegraphSprite.gameObject.SetActive(true);
         while (Conductor.Instance.GetSongTime() <= note.Start) {

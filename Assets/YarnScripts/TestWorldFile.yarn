@@ -65,3 +65,22 @@ GLOOMI: Die.
 <<setflag Tutorialized True>>
 <<loadtrack MilleFeuille>>
 ===
+title: ExitDormCutscene
+tags: 
+colorID: 0
+position: 674,-44
+---
+NARRATOR: The dim glare of LED strips lines the hall away from your home.
+NARRATOR: The air, as always, is filled with the scent of neon and petrichor.
+NARRATOR: It's the smell of quiet tension. It's the smell of a spring wound tight, but not tight enough to explode.
+NARRATOR: Something about the way this place is laid out brings the taste of copper to your tongue.
+NARRATOR: You don't hate the place. It just feels foreign. It doesn't feel like it was made to be lived in, no matter how many people call it home.
+NARRATOR: No matter how badly everybody makes it feel like home.
+NARRATOR: There are voices down the hall, behind doors, living to their fullest.
+NARRATOR: Revelry is common in this place. So common that it's lost its charm on you, like an Elysium-bound soul.
+NARRATOR: There's little left to do but revel in this world - this world at the brink of darkness.
+NARRATOR: This is the Last Station...
+NARRATOR: Orbiting the Last Star...
+NARRATOR: In a universe at its end.
+NARRATOR: Your name is Temp, and there's nowhere to go but forward.
+===

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c553d859abcf89f42a726df504f2d6c7, type: 3}
+  m_Name: DogbiteGlow
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  trackName: Dogbite
+  releaseDate: 2020
+  genre: Huge
+  bpm: 195
+  difficulty: 5
+  albumPath: 
+  trackBGPath: 
+  isStoryModeTrack: 0
+  songScenarioState: {fileID: 0}
+  yp: {fileID: 0}
+  Audio: {fileID: 8300000, guid: e323e43f066f4a9479fb4266a08ddeba, type: 3}
+  PathToChart: dogbite_chart_glow
+  Lines: {fileID: 11400000, guid: 57078af78e36efa4a98999dde0f0d4b8, type: 2}
+  Failable: 0
+  postSongFlags: []
