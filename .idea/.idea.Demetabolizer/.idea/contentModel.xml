@@ -11,9 +11,6 @@
         <e p="Editor" t="Include">
           <e p="DraggablePointDrawer.cs" t="Include" />
         </e>
-        <e p="Intro" t="Include">
-          <e p="TextureScroll.cs" t="Include" />
-        </e>
         <e p="Plugins" t="Include">
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">
@@ -141,7 +138,6 @@
           <e p="ObjectProximityTrigger.cs" t="Include" />
           <e p="ParallaxBG.cs" t="Include" />
           <e p="PreloadScene.cs" t="Include" />
-          <e p="ResultsPanel.cs" t="Include" />
           <e p="Room.cs" t="Include" />
           <e p="SceneTransitioner.cs" t="Include" />
           <e p="SceneTransitionSetup.cs" t="Include" />
@@ -171,6 +167,7 @@
             <e p="NOVANote.cs" t="Include" />
             <e p="OffsetBar.cs" t="Include" />
             <e p="ReadPart.cs" t="Include" />
+            <e p="ResultsPanel.cs" t="Include" />
             <e p="SongManager.cs" t="Include" />
             <e p="SongUIManager.cs" t="Include" />
             <e p="WarningTelegraph.cs" t="Include" />
@@ -191,6 +188,11 @@
         </e>
         <e p="Shaders" t="Include">
           <e p="FlatTransparent.shader" t="Include" />
+        </e>
+        <e p="Sprites" t="Include">
+          <e p="Intro" t="Include">
+            <e p="TextureScroll.cs" t="Include" />
+          </e>
         </e>
         <e p="TalkspriteController.cs" t="Include" />
       </e>

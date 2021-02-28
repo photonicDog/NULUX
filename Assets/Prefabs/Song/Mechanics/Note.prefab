@@ -210,8 +210,8 @@ MonoBehaviour:
     arcMaterial: {fileID: 2100000, guid: c2f23ec154353cd40ab609ceeb75c0ad, type: 2}
     telegraph: {fileID: 21300000, guid: 91f4e793869e11348a79640a6c62c4db, type: 3}
   - head: {fileID: 21300000, guid: 12ce56e9ccc132d4f96561126e1ffd5a, type: 3}
-    cap: {fileID: 21300000, guid: 12ce56e9ccc132d4f96561126e1ffd5a, type: 3}
-    arcMaterial: {fileID: 0}
+    cap: {fileID: 21300000, guid: 47b3fc35b2c6e144396b97dcc8152033, type: 3}
+    arcMaterial: {fileID: 2100000, guid: 9a1e45015ce327548b4418e2975d4432, type: 2}
     telegraph: {fileID: 0}
   currentVisualSet:
     head: {fileID: 0}

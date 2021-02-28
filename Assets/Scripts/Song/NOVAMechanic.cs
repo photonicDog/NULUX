@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 
 public class NOVAMechanic : SerializedMonoBehaviour
 {
-	public delegate void ScoringSystem(float score);
+	public delegate void ScoringSystem(ScoringHeuristic score);
 
 	public delegate void HandleCombo(int add);
 
@@ -251,43 +251,40 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience)
 	{
-		float num = 1f;
 		OffsetBar(hitTiming);
 		if (Mathf.Abs(hitTiming) < perfectWindow * lenience)
 		{
 			fbtext.DisplayFeedback(0, noteMap[note].transform);
-			Score(num);
-			note.Hit = true;
+			Score(ScoringHeuristic.PERFECT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			Debug.Log(string.Concat("Perfect note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+			//Debug.Log(string.Concat("Perfect note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 		}
 		else if (Mathf.Abs(hitTiming) < greatWindow * lenience)
 		{
 			fbtext.DisplayFeedback(1, noteMap[note].transform);
-			Score(num * 0.5f);
-			note.Hit = true;
+			Score(ScoringHeuristic.GREAT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			Debug.Log(string.Concat("Great note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+			//Debug.Log(string.Concat("Great note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 		}
 		else if (Mathf.Abs(hitTiming) <= goodWindow * lenience || (releaseNote && hitTiming > 0f))
 		{
 			fbtext.DisplayFeedback(2, noteMap[note].transform);
-			Score(num * 0.25f);
-			note.Hit = true;
+			Score(ScoringHeuristic.GOOD);
 			Combo(0);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			Debug.Log(string.Concat("Good note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+			//Debug.Log(string.Concat("Good note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 		}
 		else
 		{
 			fbtext.DisplayFeedback(3, noteMap[note].transform);
-			Debug.Log(string.Concat("Did not hit note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+			//Debug.Log(string.Concat("Did not hit note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 			PushInputToPart(noteMap[note], hit: false, releaseNote);
-			note.Hit = true;
+			Score(ScoringHeuristic.MISS);
 			Combo(0);
 		}
+		note.Hit = true;
 		currentlyActiveNotes.Remove(note);
 		EliminateOffscreenNotes();
 	}
@@ -356,4 +353,11 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			}
 		};
 	}
+}
+
+public enum ScoringHeuristic {
+	PERFECT,
+	GREAT,
+	GOOD,
+	MISS
 }

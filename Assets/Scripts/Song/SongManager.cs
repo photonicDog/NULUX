@@ -17,6 +17,8 @@ using Yarn.Unity;
 
 public class SongManager : SerializedMonoBehaviour {
     // Start is called before the first frame update
+    public static SongManager Instance;
+    
     public Track currentTrack;
     public List<LineDataCommand> lcList;
 
@@ -25,9 +27,6 @@ public class SongManager : SerializedMonoBehaviour {
 
     [SerializeField] private GameObject introAnimation = default;
     [SerializeField] private AudioSource introAnimationSound = default;
-
-
-    private Dictionary<string, NoteType> controlMapping;
     
     [SerializeField] private GameObject mechanicObject = default;
     private NOVAMechanic mechanic;
@@ -35,6 +34,7 @@ public class SongManager : SerializedMonoBehaviour {
     public float score = 0;
     public TextMeshProUGUI scoreboard;
     private ResultsPanel rp;
+    [HideInInspector] public Dictionary<ScoringHeuristic, int> noteResults;
 
     [SerializeReference] private DialogueRunner dialogueRunner = default;
     [SerializeReference] private Button dialogueAdvanceButton = default;
@@ -55,16 +55,20 @@ public class SongManager : SerializedMonoBehaviour {
     private int origNoteCt;
 
     [SerializeField] private OffsetBar ob = default;
+    [HideInInspector] public List<float> recordedOffsets;
 
     public int combo;
     private float endBeat;
 
     public Image endFade;
-    
-    private float mTiming = -1;
 
     void Start() {
+        Instance = this;
         StartCoroutine(WaitForTrackSignal());
+    }
+
+    private void OnDestroy() {
+        Instance = null;
     }
 
     public void SetCurrentTrack(Track t) {
@@ -83,6 +87,14 @@ public class SongManager : SerializedMonoBehaviour {
         rp = GetComponent<ResultsPanel>();
         mechanic = mechanicObject.GetComponent<NOVAMechanic>();
         mechanic.BuildMechanic(ComboManager, ScoreManager, OffsetBarManager);
+        
+        noteResults = new Dictionary<ScoringHeuristic, int>() {
+            {ScoringHeuristic.PERFECT, 0},
+            {ScoringHeuristic.GREAT, 0},
+            {ScoringHeuristic.GOOD, 0},
+            {ScoringHeuristic.MISS, 0}
+        };
+        
         Build();
     }
 
@@ -211,7 +223,7 @@ public class SongManager : SerializedMonoBehaviour {
                 lcList.Add(new LineDataCommand(
                     asscTrack.trackLines[nev.NoteNumber], 
                     nev.AbsoluteTime/480f, 
-                    nev.AbsoluteTime/480f + nev.NoteLength/480f)
+                    nev.AbsoluteTime/480f + (nev.NoteLength-1)/480f)
                 );
             }
         }
@@ -258,7 +270,23 @@ public class SongManager : SerializedMonoBehaviour {
         else combo += add;
     }
 
-    private void ScoreManager(float add) {
+    private void ScoreManager(ScoringHeuristic heur) {
+        float add = 0;
+        switch (heur) {
+            case ScoringHeuristic.PERFECT:
+                add = 1f;
+                break;
+            case ScoringHeuristic.GREAT:
+                add = 0.5f;
+                break;
+            case ScoringHeuristic.GOOD:
+                add = 0.25f;
+                break;
+            case ScoringHeuristic.MISS:
+                add = 0f;
+                break;
+        }
+        noteResults[heur]++;
         score += add*perfectNoteScore;
         scoreboard.text = ((int)score).ToString("D7");
 
@@ -286,6 +314,7 @@ public class SongManager : SerializedMonoBehaviour {
     }
 
     private void OffsetBarManager(float offset) {
+        recordedOffsets.Add(offset);
         ob.MakeMark(offset);
     }
     
