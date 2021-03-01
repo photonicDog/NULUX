@@ -285,6 +285,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			Combo(0);
 		}
 		note.Hit = true;
+		SFXManager.Instance.PlayAudio("song_hitsound");
 		currentlyActiveNotes.Remove(note);
 		EliminateOffscreenNotes();
 	}
@@ -304,7 +305,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 				{
 					fbtext.DisplayFeedback(3, noteMap[currentlyActiveNote].transform);
 					Combo(0);
-					Score(0f);
+					Score(ScoringHeuristic.MISS);
 					currentlyActiveNote.Hit = true;
 				}
 				PushInputToPart(noteMap[currentlyActiveNote], hit: false, release: false);
