@@ -11,6 +11,7 @@
         <e p="Editor" t="Include">
           <e p="DraggablePointDrawer.cs" t="Include" />
         </e>
+        <e p="HoldParticle.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">

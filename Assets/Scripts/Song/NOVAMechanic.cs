@@ -112,7 +112,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	{
 		foreach (Note item in notes)
 		{
-			if (item.Start <= Conductor.Instance.GetSongTime() + noteFadeInSpeed && !noteMap[item].activated)
+			if (noteMap.ContainsKey(item) && item.Start <= Conductor.Instance.GetSongTime() + noteFadeInSpeed && !noteMap[item].activated)
 			{
 				noteMap[item].PlaceNote(novaLines.Find(a => a.currentCMD.data.index == noteMap[item].note.Index));
 				noteMap[item].FadeIn(noteFadeInSpeed);
