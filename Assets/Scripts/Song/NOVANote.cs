@@ -17,10 +17,11 @@ public class NOVANote : SerializedMonoBehaviour {
     public SpriteRenderer cap = default;
 
     [SerializeField] private GameObject hitEffect = default;
+    [SerializeField] private GameObject holdEffect = default;
     [SerializeField] private SpriteRenderer telegraphSprite;
 
-    private float speedScale = 0;
-    private float angle = 0;
+    private HoldParticle _holdBurn;
+    private float _distanceIntoHold;
 
     public bool activated;
     
@@ -63,19 +64,35 @@ public class NOVANote : SerializedMonoBehaviour {
         transform.position = CalculateNotePosition();
     }
 
-    public void HitHold(bool hit) {
-        if (hit) {
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-        }
+    public HoldParticle HitHold() {
+        HoldParticle hp = Instantiate(holdEffect, transform.position, Quaternion.identity).GetComponent<HoldParticle>();
+        hp.noteObject = note;
+        return hp;
     }
     public void Kill(bool hit) {
         if (hit) {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
         
-        Destroy(this.gameObject);
+        head.enabled = false;
+    }
+
+    public void StartAnimateHold() {
+        _holdBurn = HitHold();
         
     }
+
+    public void AnimateHold(float currentTime) {
+        LineDataCommand ldc = DetermineCurrentCMD(currentTime);
+        Vector2 cursorPosition = ldc.GetNotePosition(currentTime, note.Position);
+        head.gameObject.transform.position = cursorPosition;
+        _holdBurn.gameObject.transform.position = cursorPosition;
+    }
+
+    public void EndAnimateHold() {
+        if (_holdBurn) Destroy(_holdBurn.gameObject);
+    }
+    
     public Vector2 CalculateNotePosition() {
         Vector2 res = new Vector2();
 
@@ -88,7 +105,8 @@ public class NOVANote : SerializedMonoBehaviour {
             for (int i = 0; i <= 20; i++) {
                 float increment = Mathf.Lerp(note.Start, note.Start + note.Duration, (float)i / 20f);
                 if (increment > cmds[lineAccumulator].endTime) lineAccumulator++;
-                incrementalPosition = cmds[0].GetNotePosition(increment, note.Position);
+                if (lineAccumulator >= cmds.Count) lineAccumulator--;
+                incrementalPosition = cmds[lineAccumulator].GetNotePosition(increment, note.Position);
                 tailRenderer.SetPosition(i, incrementalPosition + new Vector2(0, 0.001f));
             }
 
@@ -96,6 +114,15 @@ public class NOVANote : SerializedMonoBehaviour {
         }
         
         return res;
+    }
+
+    private LineDataCommand DetermineCurrentCMD(float time) {
+        int lineAccumulator = 0;
+        while (true) {
+            if (time > cmds[lineAccumulator].endTime) lineAccumulator++;
+            else return cmds[lineAccumulator];
+            if (lineAccumulator >= cmds.Count) return cmds[lineAccumulator-1];
+        }
     }
 }
 

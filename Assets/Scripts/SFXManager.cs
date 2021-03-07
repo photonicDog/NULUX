@@ -5,7 +5,7 @@ public class SFXManager : MonoBehaviour
 {
     public AudioAssetKey audioKey;
 
-    private AudioSource audio;
+    private new AudioSource audio;
 
     public static SFXManager Instance;
 
@@ -39,5 +39,14 @@ public class SFXManager : MonoBehaviour
     public AudioSource GetAudio()
     {
         return audio;
+    }
+
+    public void ResetAudio() {
+        audio.Stop();
+        audio.time = 0;
+    }
+
+    public void PlayCurrent() {
+        audio.Play();
     }
 }

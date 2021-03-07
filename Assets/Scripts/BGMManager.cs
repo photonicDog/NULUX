@@ -5,7 +5,7 @@ public class BGMManager : MonoBehaviour
 {
     public AudioAssetKey audioKey;
 
-    public AudioSource audio;
+    public new AudioSource audio;
 
     public AudioSource loopSource;
 

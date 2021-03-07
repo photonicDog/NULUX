@@ -38,7 +38,6 @@ public class SongManager : SerializedMonoBehaviour {
 
     [SerializeReference] private DialogueRunner dialogueRunner = default;
     [SerializeReference] private Button dialogueAdvanceButton = default;
-    [SerializeField] private DialogueTalkspriter talkspriter = default;
 
     private float perfectNoteScore;
 
@@ -55,7 +54,7 @@ public class SongManager : SerializedMonoBehaviour {
     private int origNoteCt;
 
     [SerializeField] private OffsetBar ob = default;
-    [HideInInspector] public List<float> recordedOffsets;
+    [HideInInspector] public List<HitData> recordedData;
 
     public int combo;
     private float endBeat;
@@ -86,8 +85,9 @@ public class SongManager : SerializedMonoBehaviour {
         heldNotes = new Note[4];
         rp = GetComponent<ResultsPanel>();
         mechanic = mechanicObject.GetComponent<NOVAMechanic>();
-        mechanic.BuildMechanic(ComboManager, ScoreManager, OffsetBarManager);
+        mechanic.BuildMechanic(ComboManager, ScoreManager, RecordDataManager);
         
+        recordedData = new List<HitData>();
         noteResults = new Dictionary<ScoringHeuristic, int>() {
             {ScoringHeuristic.PERFECT, 0},
             {ScoringHeuristic.GREAT, 0},
@@ -313,9 +313,9 @@ public class SongManager : SerializedMonoBehaviour {
         driveGauge.fillAmount = drive;
     }
 
-    private void OffsetBarManager(float offset) {
-        recordedOffsets.Add(offset);
-        ob.MakeMark(offset);
+    private void RecordDataManager(HitData data) {
+        recordedData.Add(data);
+        ob.MakeMark(data.offset);
     }
     
     public void ReturnToMenu() {

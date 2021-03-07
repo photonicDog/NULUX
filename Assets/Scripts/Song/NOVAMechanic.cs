@@ -1,5 +1,6 @@
 // NOVAMechanic
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
@@ -10,71 +11,40 @@ using UnityEngine.InputSystem;
 public class NOVAMechanic : SerializedMonoBehaviour
 {
 	public delegate void ScoringSystem(ScoringHeuristic score);
-
 	public delegate void HandleCombo(int add);
-
-	public delegate void AddToOffsetBar(float offset);
-
-	protected List<Note> notes;
-
-	protected Dictionary<Note, NOVANote> noteMap;
-
-	protected List<LineDataCommand> cmdList;
-
-	protected List<Note> currentlyActiveNotes;
-
-	[SerializeField]
-	private GameObject noteObject;
-
-	[SerializeField]
-	private Transform noteCanvas;
-
-	[SerializeField]
-	private List<NOVALine> novaLines;
+	public delegate void RecordNoteData(HitData data);
+	private HandleCombo Combo;
+	private ScoringSystem Score;
+	private RecordNoteData RecordData;
 	
-	[SerializeField]
-	private Dictionary<LineStyle, GameObject> novaPrefabs;
+	private List<Note> notes;
+	private Dictionary<Note, NOVANote> noteMap;
+	private List<LineDataCommand> cmdList;
+	private List<Note> currentlyActiveNotes;
 
-
+	private List<NOVALine> novaLines;
+	private List<NOVALine> activeLines;
+	
+	private Note[] _heldNotes;
+	private List<HoldParticle> _holdParticles;
+	
+	[SerializeField] private GameObject noteObject;
+	[SerializeField] private Transform noteCanvas;
+	[SerializeField] private Dictionary<LineStyle, GameObject> novaPrefabs;
+	[SerializeField] private WarningTelegraph warning;
+	public FeedbackText fbtext;
+	
 	public float offset;
 
-	protected Dictionary<string, NoteType> _controlMapping;
+	private Dictionary<string, NoteType> _controlMapping;
 
-	public float scrollSpeed;
-
-	[SerializeField]
-	private WarningTelegraph warning;
-
-	protected HandleCombo Combo;
-
-	protected ScoringSystem Score;
-
-	protected AddToOffsetBar OffsetBar;
-
-	public FeedbackText fbtext;
-
-	private Note[] _heldNotes;
-
-	[SerializeField]
-	private float perfectWindow = 20f;
-
-	[SerializeField]
-	private float greatWindow = 40f;
-
-	[SerializeField]
-	private float goodWindow = 90f;
-
-	[SerializeField]
-	private float noteFadeInSpeed = 1f;
-
-	[SerializeField]
-	private float lineFadeInSpeed = 1f;
-
-	[SerializeField]
-	private Vector2 minWindow;
-
-	[SerializeField]
-	private Vector2 maxWindow;
+	[SerializeField] private float perfectWindow = 20f;
+	[SerializeField] private float greatWindow = 40f;
+	[SerializeField] private float goodWindow = 90f;
+	[SerializeField] private float noteFadeInSpeed = 1f;	
+	[SerializeField] private float lineFadeInSpeed = 1f;
+	[SerializeField] private Vector2 minWindow;
+	[SerializeField] private Vector2 maxWindow;
 
 	public void Update()
 	{
@@ -96,16 +66,23 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	public void UpdateLines()
 	{
 		foreach (NOVALine novaLine in novaLines) {
-			
 			if (novaLine.currentCMD.startTime <= Conductor.Instance.GetSongTime() + novaLine.currentCMD.data.fadeLength && !novaLine.activated)
 			{
 				novaLine.FadeIn();
+				activeLines.Add(novaLine);
 			}
-			
 			novaLine.CalculateHitLineMovement(Conductor.Instance.GetSongTime());
 		}
 		
-		
+		List<NOVALine> slatedToRemove = new List<NOVALine>();
+		foreach (NOVALine novaLine in activeLines) {
+			
+			if (novaLine.currentCMD.endTime < Conductor.Instance.GetSongTime()) {
+				slatedToRemove.Add(novaLine);
+			}
+		}
+
+		activeLines = activeLines.Except(slatedToRemove).ToList();
 	}
 
 	public void UpdateNotes()
@@ -124,8 +101,12 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	public void ImportNotes(List<Note> notes, List<LineDataCommand> lineCommands)
 	{
 		this.notes = notes;
+		
 		cmdList = lineCommands;
 		noteMap = new Dictionary<Note, NOVANote>();
+		novaLines = new List<NOVALine>();
+		activeLines = new List<NOVALine>();
+		_holdParticles = new List<HoldParticle>();
 
 		foreach (LineDataCommand ldc in cmdList) {
 			GameObject go = Instantiate(novaPrefabs[ldc.data.Style]);
@@ -156,13 +137,15 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		currentlyActiveNotes = new List<Note>();
 	}
 
-	public virtual void BuildMechanic(HandleCombo combo, ScoringSystem score, AddToOffsetBar offsetBar)
+	public virtual void BuildMechanic(HandleCombo combo, ScoringSystem score, RecordNoteData recordData)
 	{
 		ControlMapper();
 		Combo = (HandleCombo)Delegate.Combine(Combo, combo);
 		Score = (ScoringSystem)Delegate.Combine(Score, score);
-		OffsetBar = (AddToOffsetBar)Delegate.Combine(OffsetBar, offsetBar);
+		RecordData = (RecordNoteData)Delegate.Combine(RecordData, recordData);
 		_heldNotes = new Note[4];
+		SFXManager.Instance.PlayAudio("song_hitsound");
+		SFXManager.Instance.ResetAudio();
 	}
 
 	public void ToggleWarning()
@@ -179,10 +162,6 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			if (context.canceled)
 			{
 				QueryEnded(translatedNote, songTime);
-			}
-			else if (context.performed)
-			{
-				QueryPerformed(translatedNote, songTime);
 			}
 			else if (context.started)
 			{
@@ -214,17 +193,27 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		}
 		else if ((int)note.NoteType % 4 == translatedNote)
 		{
+			ScoreLogic(note, PreciseHitTiming(note, 0f), releaseNote: false);
+			notes.Remove(note);
 			if (note.Duration > 0f)
 			{
 				_heldNotes[translatedNote] = note;
+				StartCoroutine(QueryPerformed(translatedNote, currentPos));
 			}
-			ScoreLogic(note, PreciseHitTiming(note, 0f), releaseNote: false);
-			notes.Remove(note);
 		}
 	}
 
-	private void QueryPerformed(int translatedNote, float currentPos)
+	private IEnumerator QueryPerformed(int translatedNote, float currentPos)
 	{
+		while (true) {
+			foreach (Note note in _heldNotes) {
+				if (note == null) continue;
+				NOVANote nnote = noteMap[note];
+				nnote.AnimateHold(Conductor.Instance.GetSongTime());
+			}
+			
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 	protected virtual void QueryEnded(int translatedNote, float currentPos)
@@ -232,6 +221,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		Note note = _heldNotes[translatedNote];
 		if (note != null)
 		{
+			StopCoroutine(QueryPerformed(translatedNote, currentPos));
 			ScoreLogic(note, PreciseHitTiming(note, note.Duration), releaseNote: true);
 			_heldNotes[translatedNote] = null;
 		}
@@ -239,22 +229,20 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	private float PreciseHitTiming(Note note, float holdOffset)
 	{
-		float num = Conductor.Instance.GetSongTimeMS();
-		float num2 = 1f / (Conductor.Instance.bpm / 60f) * (note.Start + holdOffset) * 1000f;
-		return -1f * (num - num2);
+		float cTime = Conductor.Instance.GetSongTimeMS();
+		float hTime = 1f / (Conductor.Instance.bpm / 60f) * (note.Start + holdOffset) * 1000f;
+		return (cTime - hTime);
 	}
 
-	private void ScoreLogic(Note note, float hitTiming, bool releaseNote)
+	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience = 1f)
 	{
-		ScoreLogic(note, hitTiming, releaseNote, 1f);
-	}
+		RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming));
 
-	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience)
-	{
-		OffsetBar(hitTiming);
+		Transform textPosition = noteMap[note].head.transform;
+		
 		if (Mathf.Abs(hitTiming) < perfectWindow * lenience)
 		{
-			fbtext.DisplayFeedback(0, noteMap[note].transform);
+			fbtext.DisplayFeedback(0, textPosition);
 			Score(ScoringHeuristic.PERFECT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
@@ -262,7 +250,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		}
 		else if (Mathf.Abs(hitTiming) < greatWindow * lenience)
 		{
-			fbtext.DisplayFeedback(1, noteMap[note].transform);
+			fbtext.DisplayFeedback(1, textPosition);
 			Score(ScoringHeuristic.GREAT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
@@ -270,7 +258,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		}
 		else if (Mathf.Abs(hitTiming) <= goodWindow * lenience || (releaseNote && hitTiming > 0f))
 		{
-			fbtext.DisplayFeedback(2, noteMap[note].transform);
+			fbtext.DisplayFeedback(2, textPosition);
 			Score(ScoringHeuristic.GOOD);
 			Combo(0);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
@@ -278,14 +266,14 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		}
 		else
 		{
-			fbtext.DisplayFeedback(3, noteMap[note].transform);
+			fbtext.DisplayFeedback(3, textPosition);
 			//Debug.Log(string.Concat("Did not hit note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 			PushInputToPart(noteMap[note], hit: false, releaseNote);
 			Score(ScoringHeuristic.MISS);
 			Combo(0);
 		}
 		note.Hit = true;
-		SFXManager.Instance.PlayAudio("song_hitsound");
+		SFXManager.Instance.PlayCurrent();
 		currentlyActiveNotes.Remove(note);
 		EliminateOffscreenNotes();
 	}
@@ -308,8 +296,8 @@ public class NOVAMechanic : SerializedMonoBehaviour
 					Score(ScoringHeuristic.MISS);
 					currentlyActiveNote.Hit = true;
 				}
-				PushInputToPart(noteMap[currentlyActiveNote], hit: false, release: false);
-				Debug.Log(string.Concat("Missed note ", currentlyActiveNote.NoteType, " at ", currentlyActiveNote.Start));
+				PushInputToPart(noteMap[currentlyActiveNote], hit: false, release: currentlyActiveNote.Duration > 0);
+				//Debug.Log(string.Concat("Missed note ", currentlyActiveNote.NoteType, " at ", currentlyActiveNote.Start));
 				list.Add(currentlyActiveNote);
 			}
 		}
@@ -318,17 +306,25 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	private void PushInputToPart(NOVANote note, bool hit, bool release)
 	{
-		if (!hit)
+		if (!(note.note.Duration > 0f))
 		{
+			// Tap note destruction logic
 			note.Kill(hit);
+			Destroy(note.gameObject);
 			noteMap.Remove(note.note);
 			notes.Remove(note.note);
-		}
-		if (release || !(note.note.Duration > 0f))
-		{
-			note.Kill(hit);
-			noteMap.Remove(note.note);
-			notes.Remove(note.note);
+		} else {
+			if (release) {
+				// Release note destruction logic
+				note.EndAnimateHold();
+				Destroy(note.gameObject);
+				noteMap.Remove(note.note);
+				notes.Remove(note.note);
+
+			}
+			else {
+				note.StartAnimateHold();
+			}
 		}
 	}
 

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI.Extensions;
 
 public class ResultsPanel : SerializedMonoBehaviour {
 
@@ -15,6 +18,7 @@ public class ResultsPanel : SerializedMonoBehaviour {
     public GameObject continueButton;
     public EventSystem ui;
     public SongManager sm;
+    public UILineRenderer lrui;
 
     public Dictionary<ScoringHeuristic, TextMeshProUGUI> resultText;
     
@@ -34,8 +38,15 @@ public class ResultsPanel : SerializedMonoBehaviour {
     public void SetScore(int score) {
         resultsScreen.SetActive(true);
         noteResults = SongManager.Instance.noteResults;
-        scoreResult.text = score.ToString("D7");
+        ShowScore(score);
+        ShowOffsets(SongManager.Instance.recordedData);
+        
+        ui.SetSelectedGameObject(continueButton);
+    }
 
+    private void ShowScore(int score) {    
+        scoreResult.text = score.ToString("D7");
+        
         foreach (var res in noteResults) {
             resultText[res.Key].text = res.Value.ToString();
         }
@@ -48,8 +59,22 @@ public class ResultsPanel : SerializedMonoBehaviour {
         if (score > 950000) rankResult.text = "S";
         if (score > 975000) rankResult.text = "SS";
         if (score > 999999) rankResult.text = "X";
-        
-        ui.SetSelectedGameObject(continueButton);
+    }
+
+    private void ShowOffsets(List<HitData> data) {
+        int maxCt = 0;
+        float pointCt = 39;
+        List<Vector2> pointList = new List<Vector2>();
+
+        for (int i = 0; i <= pointCt; i++) {
+            int ct = data.FindAll(a => a.offset < Mathf.Lerp(-90, 90, i / pointCt)).Count;
+            if (ct > maxCt) maxCt = ct;
+            pointList.Add(new Vector2(i, ct));
+        }
+
+        pointList.ForEach(a => a.Scale(new Vector2(1, 1/(float)maxCt)));
+        lrui.Points = new Vector2[40];
+        lrui.Points = pointList.ToArray();
     }
 
     public void LeaveSong() {

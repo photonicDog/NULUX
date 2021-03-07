@@ -157,6 +157,7 @@
             <e p="AudioScrubber.cs" t="Include" />
             <e p="Conductor.cs" t="Include" />
             <e p="FeedbackText.cs" t="Include" />
+            <e p="HitData.cs" t="Include" />
             <e p="HitParticle.cs" t="Include" />
             <e p="IFeedbackedMechanic.cs" t="Include" />
             <e p="LineData.cs" t="Include" />
@@ -176,6 +177,9 @@
           <e p="SpriteBillboard.cs" t="Include" />
           <e p="SpriteScroller.cs" t="Include" />
           <e p="StoryModeGameManager.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="UIGridRenderer.cs" t="Include" />
+          </e>
           <e p="WalkAround" t="Include">
             <e p="ObjectController.cs" t="Include" />
             <e p="Types" t="Include">
