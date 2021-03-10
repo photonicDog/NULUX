@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
@@ -18,7 +19,11 @@ public class ResultsPanel : SerializedMonoBehaviour {
     public GameObject continueButton;
     public EventSystem ui;
     public SongManager sm;
-    public UILineRenderer lrui;
+    public UILineRenderer offsetLine;
+    public UILineRenderer timeLine;
+    public TextMeshProUGUI offsetText;
+
+    public float endBeat;
 
     public Dictionary<ScoringHeuristic, TextMeshProUGUI> resultText;
     
@@ -39,7 +44,8 @@ public class ResultsPanel : SerializedMonoBehaviour {
         resultsScreen.SetActive(true);
         noteResults = SongManager.Instance.noteResults;
         ShowScore(score);
-        ShowOffsets(SongManager.Instance.recordedData);
+        ShowOffsetsFrequency(SongManager.Instance.recordedData);
+        ShowOffsetsTime(SongManager.Instance.recordedData);
         
         ui.SetSelectedGameObject(continueButton);
     }
@@ -61,20 +67,51 @@ public class ResultsPanel : SerializedMonoBehaviour {
         if (score > 999999) rankResult.text = "X";
     }
 
-    private void ShowOffsets(List<HitData> data) {
+    private void ShowOffsetsFrequency(List<HitData> data) {
         int maxCt = 0;
-        float pointCt = 39;
+        int rollingCt = 0;
+        float pointCt = 99;
         List<Vector2> pointList = new List<Vector2>();
+        int ct = 0;
 
         for (int i = 0; i <= pointCt; i++) {
-            int ct = data.FindAll(a => a.offset < Mathf.Lerp(-90, 90, i / pointCt)).Count;
+            ct = data.FindAll(a => a.offset < Mathf.Lerp(-90, 90, i / pointCt)).Count - rollingCt;
             if (ct > maxCt) maxCt = ct;
             pointList.Add(new Vector2(i, ct));
+            rollingCt += ct;
         }
 
-        pointList.ForEach(a => a.Scale(new Vector2(1, 1/(float)maxCt)));
-        lrui.Points = new Vector2[40];
-        lrui.Points = pointList.ToArray();
+        List<Vector2> transformed = new List<Vector2>();
+
+        foreach (Vector2 a in pointList) {
+            transformed.Add(new Vector2(a.x / pointCt, a.y / maxCt));
+        }
+
+        offsetLine.Points = transformed.ToArray();
+
+        offsetText.text = "AVERAGE OFFSET: " + data.Average(a => a.offset);
+    }
+
+    private void ShowOffsetsTime(List<HitData> data) {
+        float pointCt = 999;
+        List<Vector2> transformed = new List<Vector2>();
+        float regionAverage = 0;
+        for (int i = 0; i <= pointCt; i++) {
+            try {
+                regionAverage =
+                    data.FindAll(a =>
+                            a.time > Mathf.Lerp(0, endBeat, i / pointCt) &&
+                            a.time <= Mathf.Lerp(0, endBeat, i + 1 / pointCt))
+                        .Where(a => Math.Abs(a.offset) > 0.5f)
+                        .Average(a => a.offset);
+            }
+            catch (Exception e) {
+                regionAverage = 0;
+            };
+            transformed.Add(new Vector2(i / pointCt, regionAverage / 90f / 2 + 0.5f));
+        }
+        
+        timeLine.Points = transformed.ToArray();
     }
 
     public void LeaveSong() {

@@ -229,21 +229,20 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	private float PreciseHitTiming(Note note, float holdOffset)
 	{
-		float cTime = Conductor.Instance.GetSongTimeMS();
-		float hTime = 1f / (Conductor.Instance.bpm / 60f) * (note.Start + holdOffset) * 1000f;
-		return (cTime - hTime);
+		float hitTime = Conductor.Instance.GetSongTimeMS();
+		float noteTime = 1f / (Conductor.Instance.bpm / 60f) * (note.Start + holdOffset) * 1000f;
+		return (hitTime - noteTime);
 	}
 
 	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience = 1f)
 	{
-		RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming));
-
 		Transform textPosition = noteMap[note].head.transform;
+		ScoringHeuristic h;
 		
 		if (Mathf.Abs(hitTiming) < perfectWindow * lenience)
 		{
 			fbtext.DisplayFeedback(0, textPosition);
-			Score(ScoringHeuristic.PERFECT);
+			Score(h = ScoringHeuristic.PERFECT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
 			//Debug.Log(string.Concat("Perfect note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
@@ -251,7 +250,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		else if (Mathf.Abs(hitTiming) < greatWindow * lenience)
 		{
 			fbtext.DisplayFeedback(1, textPosition);
-			Score(ScoringHeuristic.GREAT);
+			Score(h = ScoringHeuristic.GREAT);
 			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
 			//Debug.Log(string.Concat("Great note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
@@ -259,8 +258,8 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		else if (Mathf.Abs(hitTiming) <= goodWindow * lenience || (releaseNote && hitTiming > 0f))
 		{
 			fbtext.DisplayFeedback(2, textPosition);
-			Score(ScoringHeuristic.GOOD);
-			Combo(0);
+			Score(h = ScoringHeuristic.GOOD);
+			Combo(1);
 			PushInputToPart(noteMap[note], hit: true, releaseNote);
 			//Debug.Log(string.Concat("Good note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 		}
@@ -269,9 +268,11 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			fbtext.DisplayFeedback(3, textPosition);
 			//Debug.Log(string.Concat("Did not hit note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
 			PushInputToPart(noteMap[note], hit: false, releaseNote);
-			Score(ScoringHeuristic.MISS);
+			Score(h = ScoringHeuristic.MISS);
 			Combo(0);
 		}
+		
+		RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming, h));
 		note.Hit = true;
 		SFXManager.Instance.PlayCurrent();
 		currentlyActiveNotes.Remove(note);

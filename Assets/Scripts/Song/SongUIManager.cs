@@ -2,25 +2,46 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SongUIManager : MonoBehaviour {
 
     public TextMeshProUGUI comboCounter;
+    public TextMeshProUGUI floatingCombo;
+    public Animation floatingComboPulse;
 
-    public SongManager sm;
+    public Image driveFill;
+    public TextMeshProUGUI drivePercentage;
+    public Image drivePacemaker;
 
-    private void Awake() {
+    public TextMeshProUGUI songTitle;
+    
+    private int trackedCombo;
+    public void UpdateCombo(int combo) {
+        if (combo != trackedCombo) {
+            if (combo > 3) {
+                floatingCombo.text = combo.ToString();
+                floatingComboPulse.Rewind();
+                floatingComboPulse.Play();
+            }
+            else {
+                floatingCombo.text = "";
+            }
+        }
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        comboCounter.text = combo.ToString("D4");
         
+        trackedCombo = combo;
     }
 
-    // Update is called once per frame
-    void Update() {
-        comboCounter.text = sm.combo.ToString("D4");
+    public void UpdateDrive(float percentage, float pacemaker) {
+        driveFill.fillAmount = percentage;
+        drivePercentage.text = percentage.ToString("F2") + "%";
+        drivePacemaker.transform.position = 
+            new Vector3(Mathf.Lerp(0, 1880, pacemaker), drivePacemaker.transform.position.y, 0);
+    }
+
+    public void UpdateSongAttributes(string title) {
+        songTitle.text = title;
     }
 }

@@ -16,7 +16,7 @@ using UnityEngine.UI;
 using Yarn.Unity;
 
 public class SongManager : SerializedMonoBehaviour {
-    // Start is called before the first frame update
+    // TODO: Organize this PLEASE
     public static SongManager Instance;
     
     public Track currentTrack;
@@ -33,6 +33,7 @@ public class SongManager : SerializedMonoBehaviour {
 
     public float score = 0;
     public TextMeshProUGUI scoreboard;
+    [SerializeField] private SongUIManager ui;
     private ResultsPanel rp;
     [HideInInspector] public Dictionary<ScoringHeuristic, int> noteResults;
 
@@ -48,7 +49,8 @@ public class SongManager : SerializedMonoBehaviour {
     public float goodWindow = 90;
 
     public Image driveGauge;
-    private float drive = 0.5f;
+    private float drive = 0f;
+    private float pacemaker = 0f;
 
     private List<Note> chartNotes;
     private int origNoteCt;
@@ -103,13 +105,15 @@ public class SongManager : SerializedMonoBehaviour {
             heldNotes[i] = null;
         }
 
-        ReadMIDI(Application.streamingAssetsPath + "\\"+ currentTrack.PathToChart +".mid", currentTrack.Lines);
+        ReadMIDI(Application.streamingAssetsPath + "\\"+ currentTrack.PathToChart +".mid", currentTrack);
         Conductor.Instance.SetSong(currentTrack.Audio);
         origNoteCt = chartNotes.Count;
         
         perfectNoteScore = 1000000f / ((chartNotes.Count));
         if (currentTrack.yp) dialogueRunner.Add(currentTrack.yp);
         driveGauge.fillAmount = drive;
+        
+        ui.UpdateSongAttributes(currentTrack.trackName);
 
         // Build all necessary components and then turn em off until they're ready.
         
@@ -174,11 +178,13 @@ public class SongManager : SerializedMonoBehaviour {
         }
         
         mechanicObject.SetActive(false);
+        rp.endBeat = endBeat;
         rp.SetScore((int)score);
     }
 
     // Read midi from path.
-    void ReadMIDI(string midiPath, TrackLines asscTrack) {
+    void ReadMIDI(string midiPath, Track track) {
+        TrackLines asscTrack = track.Lines;
         MidiFile mf = new MidiFile(midiPath, false);
         dcQueue = new Queue<ChartDialogueCommand>();
 
@@ -268,54 +274,46 @@ public class SongManager : SerializedMonoBehaviour {
     private void ComboManager(int add) {
         if (add == 0) combo = 0;
         else combo += add;
+
+        ui.UpdateCombo(combo);
     }
 
     private void ScoreManager(ScoringHeuristic heur) {
         float add = 0;
+        float diff = 1f/(origNoteCt);
+        pacemaker += diff * 0.76f;
+        
         switch (heur) {
             case ScoringHeuristic.PERFECT:
                 add = 1f;
+                drive += diff;
                 break;
             case ScoringHeuristic.GREAT:
-                add = 0.5f;
+                add = 0.75f;
+                drive += diff*0.75f;
                 break;
             case ScoringHeuristic.GOOD:
-                add = 0.25f;
+                add = 0.5f;
+                drive += diff*0.5f;
                 break;
             case ScoringHeuristic.MISS:
                 add = 0f;
+                drive += 0;
                 break;
         }
         noteResults[heur]++;
         score += add*perfectNoteScore;
-        scoreboard.text = ((int)score).ToString("D7");
-
-        float diff = 1f/(origNoteCt*6f);
-        
-        if (add < 0.25) {
-            drive -= diff * 4;
-        }
-        else if (add < 0.5f) {
-            drive -= diff * 2;
-        }
-        else if (add < 0.75f) {
-            drive += 0;
-        }
-        else if (add < 1f) {
-            drive += diff;
-        }
-        else {
-            drive += diff * 2;
-        }
 
         drive = Mathf.Clamp01(drive);
+        pacemaker = Mathf.Clamp01(pacemaker);
         
-        driveGauge.fillAmount = drive;
+        // TODO: Add to UI
+        ui.UpdateDrive(drive, pacemaker);
     }
 
     private void RecordDataManager(HitData data) {
         recordedData.Add(data);
-        ob.MakeMark(data.offset);
+        ob.MakeMark(data.offset, data.heur);
     }
     
     public void ReturnToMenu() {
