@@ -36,7 +36,7 @@ public class SongUIManager : MonoBehaviour {
 
     public void UpdateDrive(float percentage, float pacemaker) {
         driveFill.fillAmount = percentage;
-        drivePercentage.text = percentage.ToString("F2") + "%";
+        drivePercentage.text = (percentage*100f).ToString("F2") + "%";
         drivePacemaker.transform.position = 
             new Vector3(Mathf.Lerp(0, 1880, pacemaker), drivePacemaker.transform.position.y, 0);
     }

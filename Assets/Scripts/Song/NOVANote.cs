@@ -24,6 +24,7 @@ public class NOVANote : SerializedMonoBehaviour {
     private float _distanceIntoHold;
 
     public bool activated;
+    public bool mobileNote;
     
     public void Initialize(Note n, List<LineDataCommand> lc) {
         note = n;
@@ -41,6 +42,12 @@ public class NOVANote : SerializedMonoBehaviour {
     public void FadeIn(float fadeSpeed) {
         activated = true;
         StartCoroutine(Fade());
+    }
+
+    private void Update() {
+        if (activated && mobileNote) {
+            transform.position = CalculateMovingNotePosition();
+        }
     }
 
     public IEnumerator Fade() {
@@ -61,6 +68,7 @@ public class NOVANote : SerializedMonoBehaviour {
     }
 
     public void PlaceNote(NOVALine nl) {
+        activated = cmds[0].data.Mobile;
         transform.position = CalculateNotePosition();
     }
 
@@ -97,6 +105,29 @@ public class NOVANote : SerializedMonoBehaviour {
         Vector2 res = new Vector2();
 
         res = cmds[0].GetNotePosition(note.Start, note.Position);
+
+        if (note.Duration > 0) {
+            tailRenderer.positionCount = 21;
+            Vector2 incrementalPosition = Vector2.zero;
+            int lineAccumulator = 0;
+            for (int i = 0; i <= 20; i++) {
+                float increment = Mathf.Lerp(note.Start, note.Start + note.Duration, (float)i / 20f);
+                if (increment > cmds[lineAccumulator].endTime) lineAccumulator++;
+                if (lineAccumulator >= cmds.Count) lineAccumulator--;
+                incrementalPosition = cmds[lineAccumulator].GetNotePosition(increment, note.Position);
+                tailRenderer.SetPosition(i, incrementalPosition + new Vector2(0, 0.001f));
+            }
+
+            cap.gameObject.transform.localPosition = incrementalPosition - res;
+        }
+        
+        return res;
+    }
+    
+    public Vector2 CalculateMovingNotePosition() {
+        Vector2 res = new Vector2();
+
+        res = cmds[0].GetMobileNotePosition(note.Start + (note.Start + note.Duration) - Conductor.Instance.GetSongTime(), note.Position);
 
         if (note.Duration > 0) {
             tailRenderer.positionCount = 21;
