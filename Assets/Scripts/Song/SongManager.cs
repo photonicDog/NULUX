@@ -91,6 +91,7 @@ public class SongManager : SerializedMonoBehaviour {
         
         recordedData = new List<HitData>();
         noteResults = new Dictionary<ScoringHeuristic, int>() {
+            {ScoringHeuristic.STELLAR, 0},
             {ScoringHeuristic.PERFECT, 0},
             {ScoringHeuristic.GREAT, 0},
             {ScoringHeuristic.GOOD, 0},
@@ -278,30 +279,15 @@ public class SongManager : SerializedMonoBehaviour {
         ui.UpdateCombo(combo);
     }
 
-    private void ScoreManager(ScoringHeuristic heur) {
+    private void ScoreManager(ScoringJudgement judgement) {
         float add = 0;
         float diff = 1f/(origNoteCt);
         pacemaker += diff * 0.76f;
+
+        add = judgement.scoreMultiplier;
+        drive += diff * judgement.clearMultiplier;
+        noteResults[judgement.heur]++;
         
-        switch (heur) {
-            case ScoringHeuristic.PERFECT:
-                add = 1f;
-                drive += diff;
-                break;
-            case ScoringHeuristic.GREAT:
-                add = 0.75f;
-                drive += diff*0.75f;
-                break;
-            case ScoringHeuristic.GOOD:
-                add = 0.5f;
-                drive += diff*0.5f;
-                break;
-            case ScoringHeuristic.MISS:
-                add = 0f;
-                drive += 0;
-                break;
-        }
-        noteResults[heur]++;
         score += add*perfectNoteScore;
 
         drive = Mathf.Clamp01(drive);

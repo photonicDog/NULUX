@@ -4,31 +4,17 @@ using UnityEngine;
 
 public class FeedbackText : MonoBehaviour {
 
-    public List<GameObject> feedback;
-    
+    private GameObject currentText;
     // Start is called before the first frame update
 
-    public void DisplayFeedback(int i, Transform source) {
-        StopCoroutine("TextFade");
+    public void DisplayFeedback(GameObject go, Transform source) {
+        Destroy(currentText);
         
-        foreach (GameObject g in feedback) {
-            g.SetActive(false);
-        }
-
-        transform.position = source.position + (Vector3.up * 0.5f);
-        feedback[i].SetActive(true);
-
-        StartCoroutine(TextFade(500f));
+        currentText = Instantiate(go, source.position, Quaternion.identity, transform);
+        currentText.transform.position = source.position + (Vector3.up * 0.5f);
     }
 
     public void ResetFeedback() {
-        foreach (GameObject g in feedback) {
-            g.SetActive(false);
-        }
-    }
-
-    IEnumerator TextFade(float speedInMS) {
-        yield return new WaitForSeconds((speedInMS * 0.001f));
-        ResetFeedback();
+        Destroy(currentText);
     }
 }

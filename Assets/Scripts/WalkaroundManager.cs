@@ -71,7 +71,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		}
 	}
 
-	public void ChangeNPCState(string id, int state) {
+	public void SetNPCState(string id, int state) {
 		FindObjectsOfType<ObjectConfig>()
 			.Where(a => a.IsStated)
 			.ToList()

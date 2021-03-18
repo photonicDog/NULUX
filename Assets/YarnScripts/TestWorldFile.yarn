@@ -1,7 +1,7 @@
 title: OpeningCutscene
 tags: 
 colorID: 0
-position: -353,-430
+position: -353,-431
 ---
 <<setbg color #111111 0>>
 <<setroom cutscene1>>
@@ -73,14 +73,114 @@ position: 674,-44
 NARRATOR: The dim glare of LED strips lines the hall away from your home.
 NARRATOR: The air, as always, is filled with the scent of neon and petrichor.
 NARRATOR: It's the smell of quiet tension. It's the smell of a spring wound tight, but not tight enough to explode.
+<<setemotion Temp MALAISE>>
 NARRATOR: Something about the way this place is laid out brings the taste of copper to your tongue.
-NARRATOR: You don't hate the place. It just feels foreign. It doesn't feel like it was made to be lived in, no matter how many people call it home.
+NARRATOR: You don't hate the place. It just feels foreign. Monolithic.
+NARRATOR: It doesn't feel like it was made to be lived in, no matter how many people call it home.
 NARRATOR: No matter how badly everybody makes it feel like home.
+<<setcamerablocking pullout0>>
 NARRATOR: There are voices down the hall, behind doors, living to their fullest.
+<<setcamerablocking pullout1>>
 NARRATOR: Revelry is common in this place. So common that it's lost its charm on you, like an Elysium-bound soul.
+<<setcamerablocking pullout2>>
 NARRATOR: There's little left to do but revel in this world - this world at the brink of darkness.
-NARRATOR: This is the Last Station...
+<<setcamerablocking pullout3>>
+NARRATOR: After all, this is the Last Station...
+<<setbg image ExitDormArt1>>
+<<customwait 3>>
 NARRATOR: Orbiting the Last Star...
+<<setbg image ExitDormArt2>>
+<<customwait 3>>
 NARRATOR: In a universe at its end.
-NARRATOR: Your name is Temp, and there's nowhere to go but forward.
+<<setbg image ExitDormArt3>>
+<<setcamerablocking hallcam0>>
+<<customwait 3>>
+<<clearbg>>
+<<setemotion Temp NEUTRAL>>
+===
+title: OpeningTest
+tags: 
+colorID: 0
+position: -358,-215
+---
+DR.MELO: R4vyn, do you see what's out the window?
+R4VYN: Yes. It's the Last Station, of course.
+DR.MELO: Above it, in the sky.
+R4VYN: The Last Star.
+DR.MELO: And around it?
+R4VYN: Nothing. Empty space, forever.
+R4VYN: That's what last means, of course. No other ones.
+R4VYN: It really bothers you that much, huh?
+DR.MELO: Yes, well. We're used to it.
+DR.MELO: Imagine, as it were, living in a place where you could look up and see a thousand stars.
+DR.MELO: Dotting the skies in waves and spirals. Nebulae trapped in states of cosmic explosion.
+===
+title: VSlice1
+tags: 
+colorID: 0
+position: -689,248
+---
+<<setbg color #111111 0>>
+<<setroom cutscene1>>
+<<switchcam labcam>>
+<<customwait 0.5>>
+<<setlight lablamp True>> 
+<<customwait 0.5>>
+<<setbgm mus_dramatube>>
+<<clearbg>>
+DR.MELO: Cutscene cutscene cutscene cutscene cutscene wham line.
+<<killbgm>>
+<<customwait 0.5>> 
+<<playsfx sfx_thud>> 
+<<setbg color #111111 0>>
+<<customwait 3>>
+<<setroom temproom>>
+<<switchcam roomcam>>
+<<setbgm mus_awakening>>
+<<clearbg>>
+TEMP: Cutscene cutscene cutscene.
+<<setflag GameStarted True>>
+===
+title: VSlice2
+tags: 
+colorID: 0
+position: -473,247
+---
+<<setbg color #111111 0.5>>
+<<clearbg>>
+R4VYN: Cutscene cutscene cutscene cutscene.
+TEMP: Huh? Cutscene.
+R4VYN: Cutscene cutscene.
+<<setflag MetR4vyn True>>
+===
+title: VSlice3
+tags: 
+colorID: 0
+position: -252,248
+---
+UMBRA: Cutscene cutscene.
+R4VYN: Cutscene cutscene!
+UMBRA: Cutscene cutscene cutscene.
+TEMP: Cutscene?
+UMBRA: Cutscene.
+<<setflag MetUmbra True>>
+===
+title: VSlice4
+tags: 
+colorID: 0
+position: -26,249
+---
+TEMP: Cutscene cutscene?
+R4VYN: Cutscene.
+UMBRA: ...
+R4VYN: Cutscene cutscene.
+DR.MELO: Cutscene.
+DR,MELO: Cutscene cutscene cutscene.
+DR.MELO: Exposition.
+DR.MELO: Exposition.
+DR.MELO: Exposition.
+DR.MELO: Exposition exposition exposition.
+R4VYN: Cutscene.
+DR.MELO: Ok tutorial now.
+TEMP: WHAT
 ===

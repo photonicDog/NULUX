@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 public class NOVAMechanic : SerializedMonoBehaviour
 {
-	public delegate void ScoringSystem(ScoringHeuristic score);
+	public delegate void ScoringSystem(ScoringJudgement score);
 	public delegate void HandleCombo(int add);
 	public delegate void RecordNoteData(HitData data);
 	private HandleCombo Combo;
@@ -38,9 +38,11 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	private Dictionary<string, NoteType> _controlMapping;
 
-	[SerializeField] private float perfectWindow = 20f;
-	[SerializeField] private float greatWindow = 40f;
-	[SerializeField] private float goodWindow = 90f;
+	public List<ScoringJudgement> judgements;
+	private float earlyCutoff;
+	private float lateCutoff;
+	[SerializeField] private ScoringJudgement missJudgement;
+	
 	[SerializeField] private float noteFadeInSpeed = 1f;	
 	[SerializeField] private float lineFadeInSpeed = 1f;
 	[SerializeField] private Vector2 minWindow;
@@ -108,6 +110,11 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		activeLines = new List<NOVALine>();
 		_holdParticles = new List<HoldParticle>();
 
+		earlyCutoff = judgements.Select(a => a.leftMS).Min();
+		lateCutoff = judgements.Select(a => a.rightMS).Max();
+
+		SFXManager.Instance.LoadHitsounds(judgements);
+		
 		foreach (LineDataCommand ldc in cmdList) {
 			GameObject go = Instantiate(novaPrefabs[ldc.data.Style]);
 			NOVALine nl = go.GetComponent<NOVALine>();
@@ -176,23 +183,24 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		{
 			return;
 		}
+		
 		Note note = notes.First((Note a) => a.NoteType == (NoteType)translatedNote);
 		if (note == null)
 		{
 			return;
 		}
+		
 		if (note.Hit)
 		{
 			notes.Remove(note);
-			fbtext.ResetFeedback();
 			QueryStarted(translatedNote, currentPos);
 		}
-		if (Mathf.Abs(PreciseHitTiming(note, 0f)) > goodWindow)
+		
+		if (Mathf.Abs(PreciseHitTiming(note, 0f)) > lateCutoff)
 		{
-			fbtext.ResetFeedback();
-		}
-		else if ((int)note.NoteType % 4 == translatedNote)
-		{
+			//fbtext.ResetFeedback();
+		} 
+		else if ((int)note.NoteType % 4 == translatedNote) {
 			ScoreLogic(note, PreciseHitTiming(note, 0f), releaseNote: false);
 			notes.Remove(note);
 			if (note.Duration > 0f)
@@ -237,44 +245,26 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience = 1f)
 	{
 		Transform textPosition = noteMap[note].head.transform;
-		ScoringHeuristic h;
-		
-		if (Mathf.Abs(hitTiming) < perfectWindow * lenience)
-		{
-			fbtext.DisplayFeedback(0, textPosition);
-			Score(h = ScoringHeuristic.PERFECT);
-			Combo(1);
-			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			//Debug.Log(string.Concat("Perfect note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+		ScoringJudgement judge = judgements.Find(a => a.leftMS < hitTiming && a.rightMS >= hitTiming);
+
+		if (judge != null) {
+			fbtext.DisplayFeedback(judge.feedbackText, textPosition);
+			Score(judge);
+			Combo(judge.combo);
+			PushInputToPart(noteMap[note], judge.countsAsHit, releaseNote);
+			RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming, judge.heur));
+			SFXManager.Instance.PlayHitsound(judge.leftMS);
 		}
-		else if (Mathf.Abs(hitTiming) < greatWindow * lenience)
-		{
-			fbtext.DisplayFeedback(1, textPosition);
-			Score(h = ScoringHeuristic.GREAT);
-			Combo(1);
-			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			//Debug.Log(string.Concat("Great note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
-		}
-		else if (Mathf.Abs(hitTiming) <= goodWindow * lenience || (releaseNote && hitTiming > 0f))
-		{
-			fbtext.DisplayFeedback(2, textPosition);
-			Score(h = ScoringHeuristic.GOOD);
-			Combo(1);
-			PushInputToPart(noteMap[note], hit: true, releaseNote);
-			//Debug.Log(string.Concat("Good note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
-		}
-		else
-		{
-			fbtext.DisplayFeedback(3, textPosition);
+		else {
+			fbtext.DisplayFeedback(missJudgement.feedbackText, textPosition);
 			//Debug.Log(string.Concat("Did not hit note ", note.NoteType, " at ", note.Start, " with offset of ", hitTiming));
+			Score(missJudgement);
+			Combo(missJudgement.combo);
 			PushInputToPart(noteMap[note], hit: false, releaseNote);
-			Score(h = ScoringHeuristic.MISS);
-			Combo(0);
 		}
 		
-		RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming, h));
 		note.Hit = true;
-		SFXManager.Instance.PlayCurrent();
+
 		currentlyActiveNotes.Remove(note);
 		EliminateOffscreenNotes();
 	}
@@ -292,9 +282,9 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			{
 				if (!currentlyActiveNote.Hit)
 				{
-					fbtext.DisplayFeedback(3, noteMap[currentlyActiveNote].transform);
+					fbtext.DisplayFeedback(missJudgement.feedbackText, noteMap[currentlyActiveNote].transform);
 					Combo(0);
-					Score(ScoringHeuristic.MISS);
+					Score(missJudgement);
 					currentlyActiveNote.Hit = true;
 				}
 				PushInputToPart(noteMap[currentlyActiveNote], hit: false, release: currentlyActiveNote.Duration > 0);
@@ -354,8 +344,26 @@ public class NOVAMechanic : SerializedMonoBehaviour
 }
 
 public enum ScoringHeuristic {
+	STELLAR,
 	PERFECT,
 	GREAT,
 	GOOD,
 	MISS
+}
+
+[Serializable]
+public class ScoringJudgement {
+	[HorizontalGroup("Data")]
+	[BoxGroup("Data/Judgement")] [LabelWidth(100)] public ScoringHeuristic heur;
+	[BoxGroup("Data/Judgement")] [LabelWidth(100)]public int leftMS;
+	[BoxGroup("Data/Judgement")] [LabelWidth(100)]public int rightMS;
+	
+	[BoxGroup("Data/Score")] [LabelWidth(100)] public float scoreMultiplier;
+	[BoxGroup("Data/Score")][LabelWidth(100)] public float clearMultiplier;
+	[BoxGroup("Data/Score")][LabelWidth(100)]public int combo;
+	[BoxGroup("Data/Score")][LabelWidth(100)]public bool countsAsHit;
+	
+	[BoxGroup("Feedback")] public GameObject feedbackText;
+	[BoxGroup("Feedback")] public AudioClip feedbackAudio;
+
 }

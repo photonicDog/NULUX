@@ -36,7 +36,9 @@ public class NOVANote : SerializedMonoBehaviour {
         cap.sprite = currentVisualSet.cap;
         tailRenderer.material = currentVisualSet.arcMaterial;
 
-        head.sortingOrder = 10000000 - (int)(note.Start * 480);
+        head.sortingOrder += 10000000 - (int)(note.Start * 480);
+        tailRenderer.sortingOrder += 10000000 - (int)(note.Start * 480);
+        cap.sortingOrder += 10000000 - (int)(note.Start * 480);
     }
 
     public void FadeIn(float fadeSpeed) {

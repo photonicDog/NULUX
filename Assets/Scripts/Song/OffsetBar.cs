@@ -42,6 +42,9 @@ public class OffsetBar : MonoBehaviour {
         Color c;
 
         switch (score) {
+            case ScoringHeuristic.STELLAR:
+                c = Color.magenta;
+                break;
             case ScoringHeuristic.PERFECT:
                 c = Color.cyan;
                 break;

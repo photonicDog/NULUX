@@ -98,24 +98,8 @@ public class DialogueCommandHandler : MonoBehaviour {
     void Update() {
     }
 
-/*
-    public void ParseCommand(string s) {
-        string[] choppedCommands = s.Split(' ');
-
-        string command = choppedCommands[0];
-
-        switch (command) {
-            case "setnpcstate":
-                SetNPCState(choppedCommands[1], int.Parse(choppedCommands[2]));
-                break;
-            default:
-                Debug.Log("Command not implemented!");
-                break;   
-        }
-    }
-*/
     void SetNPCState(string[] parameters) {
-        WalkaroundManager.Instance.ChangeNPCState(parameters[0], int.Parse(parameters[1]));
+        WalkaroundManager.Instance.SetNPCState(parameters[0], int.Parse(parameters[1]));
     }
 
     void SetBG(string[] parameters, System.Action onComplete) {
@@ -204,7 +188,6 @@ public class DialogueCommandHandler : MonoBehaviour {
                 WalkaroundManager.Instance.currentRoom.Blocks[parameters[1]].position, 
                 float.Parse(parameters[2]),
                 onComplete, DialogueContainer);
-        DialogueContainer.SetActive(true);
     }
 
     IEnumerator WaitForSFX(System.Action onComplete) {
