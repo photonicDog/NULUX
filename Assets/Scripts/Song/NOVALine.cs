@@ -81,12 +81,10 @@ public class NOVALine : SerializedMonoBehaviour
 			if (currentCMD.data.Style == LineStyle.PULSE) {
 				lrc.radius = state.scale;
 			}
-
 			if (currentCMD.data.Style == LineStyle.CIRCLE) {
 				lineObject.GetChild(0).localScale = new Vector3(lineObject.GetChild(0).localScale.x, state.scale, 1);
 				lineObject.GetChild(0).localPosition = new Vector3(0, state.scale/2, 0);
 			}
-			
 			else {
 				lineObject.localScale = new Vector3(lineObject.localScale.x, state.scale, 1);
 			}

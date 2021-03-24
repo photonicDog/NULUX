@@ -1,7 +1,7 @@
 title: OpeningCutscene
 tags: 
 colorID: 0
-position: -353,-431
+position: -353,-430
 ---
 <<setbg color #111111 0>>
 <<setroom cutscene1>>
@@ -52,7 +52,8 @@ tags:
 colorID: 0
 position: -119,-426
 ---
-GLOOMI: Die.
+GLOOMI: I'm a test NPC. Talk to me again to launch into a song.
+TEMP: Neat!
 <<setnpcstate Gloomi 1>>
 ===
 title: GloomiKeepGoing
@@ -60,8 +61,8 @@ tags:
 colorID: 0
 position: -118,-216
 ---
-GLOOMI: What are you waiting for?
-GLOOMI: Die.
+GLOOMI: Okay, watch out for the battle.
+TEMP+CONCERNED: Uh oh.
 <<setflag Tutorialized True>>
 <<loadtrack MilleFeuille>>
 ===
@@ -101,50 +102,110 @@ NARRATOR: In a universe at its end.
 title: OpeningTest
 tags: 
 colorID: 0
-position: -358,-215
+position: -924,248
 ---
-DR.MELO: R4vyn, do you see what's out the window?
-R4VYN: Yes. It's the Last Station, of course.
+<<setbg color #111111 0>>
+<<setroom intro>>
+<<switchcam IntroCam>>
+<<customwait 0.5>> 
+<<setbgm mus_dramatube>>
+<<clearbg>>
+<<customwait 0.5>>
+???/DR.MELO: R4vyn, do you see what's out the window?
+???/R4VYN: Yes, Dr. Melodii. It's the Last Station, of course.
+???/R4VYN: Our home.
 DR.MELO: Above it, in the sky.
+<<switchcam CloserCam>>
 R4VYN: The Last Star.
 DR.MELO: And around it?
 R4VYN: Nothing. Empty space, forever.
 R4VYN: That's what last means, of course. No other ones.
-R4VYN: It really bothers you that much, huh?
+R4VYN: ...it really bothers you that much, huh?
 DR.MELO: Yes, well. We're used to it.
 DR.MELO: Imagine, as it were, living in a place where you could look up and see a thousand stars.
 DR.MELO: Dotting the skies in waves and spirals. Nebulae trapped in states of cosmic explosion.
+R4VYN: That sounds wild.
+R4VYN: And bright. You wouldn't be able to go outside.
+DR.MELO: No, but they'd be far away.
+DR.MELO: And very small, from our perspective.
+R4VYN: Then what's the point?
+DR.MELO: Well, around those stars, there might be planets, fed from those stars' energies.
+DR.MELO: And on those planets, life.
+DR.MELO: Free to roam thousands and thousands of miles, unconstrained by concrete walls and an artificial atmosphere.
+DR.MELO: Doesn't that sound grand, R4vyn? Doesn't that sound like a dream someone could dedicate their life to?
+R4VYN: I guess.
+R4VYN: I could see someone going through a lot of trouble to make that a reality.
+<<setbg color #111111 0>>
+<<killbgm>>
+<<customwait 1>>
+<<setflag IntroComplete True>>
 ===
 title: VSlice1
 tags: 
 colorID: 0
-position: -689,248
+position: -697,243
 ---
 <<setbg color #111111 0>>
-<<setroom cutscene1>>
-<<switchcam labcam>>
-<<customwait 0.5>>
-<<setlight lablamp True>> 
-<<customwait 0.5>>
-<<setbgm mus_dramatube>>
-<<clearbg>>
-DR.MELO: Cutscene cutscene cutscene cutscene cutscene wham line.
-<<killbgm>>
-<<customwait 0.5>> 
-<<playsfx sfx_thud>> 
-<<setbg color #111111 0>>
-<<customwait 3>>
 <<setroom temproom>>
-<<switchcam roomcam>>
+<<switchcam BedCam>>
 <<setbgm mus_awakening>>
+<<switchsprite Bed doomscroll>>
+<<customwait 3>>
 <<clearbg>>
-TEMP: Cutscene cutscene cutscene.
+<<customwait 1>>
+THINKING/TEMP: This post sucks. This post sucks. This post is... okay.. but this post sucks.
+NARRATOR: You continue to ambiently drag your thumbs across the touchscreen, as if this will change the quality of the contents rendered on them in any noticeable way.
+NARRATOR: It’s 12:00 PM and you haven’t gotten out of bed. Your shorts are noticeably stuck to your legs with sweat, not on account of the heat, but on account of the lack of movement.
+NARRATOR: You’re too uncomfortable to relax, and yet, you’re not even slightly motivated to try and find something worthwhile to do.
+NARRATOR: So here you are, scrolling through your social media as your eyes continue to adjust to the waking world.
+NARRATOR: Browsing. "Chilling". Waiting.
+THINKING/TEMP: I hate this app.
+NARRATOR: Your name is Temp, and you genuinely have nothing going on in your life.
+NARRATOR: You are 23 years old. Your sole personality trait is pretty much your enjoyment of ska music. You’re pretty alright at dancing.
+NARRATOR: You live with six other people in what could be generously referred to as a "frat house" based around your mutual enjoyment of ska music, which seems to be everyone else’s sole personality trait as well, which makes for riveting and surprisingly heated living room conversation.
+NARRATOR: Yeah. That's about it.
+NARRATOR: You turn your phone screen off with an undeserved amount of frustration.
+THINKING/TEMP: This timeline womps. I’m gonna hit snooze an-
+<<playsfx sfx_skaphone>>
+NARRATOR: You then nearly drop your phone as it rings. You’ve got a call.
+<<switchsprite Bed phone>>
+TEMP: Huh?
+TEMP: Uh, hello?
+???/R4VYN: Is this Temp?
+TEMP: Yeah?
+???/R4VYN: Ok, cool.
+TEMP: ...
+???/R4VYN: ...
+TEMP: Whooooo… is this...?
+???/R4VYN: Oh, uh. I’m R4vyn.
+R4VYN: With a 4.
+TEMP: Oh. Neat. 
+TEMP: Soooo…
+R4VYN: What is it?
+R4VYN: ...
+R4VYN: Oh, right.
+R4VYN: You’re wanted down at the labs. I’ll be there shortly to escort you down.
+TEMP: Huh?
+TEMP: Am I in trouble?
+R4VYN: No. Maybe? Depends.
+R4VYN: The doc wants you for a "very special opportunity".
+R4VYN: It’s really important, so... you should get over there as soon as possible.
+TEMP: Alright.
+TEMP: I guess that’s fine.
+<<playsfx sfx_hangup>>
+TEMP: Good thing I sleep in my clothes...?
+<<setbg color #111111 0>>
+<<switchsprite Bed empty>>
+<<moveplayer PlayerSpawn>>
+<<switchcam TempRoomCam>>
+<<customwait 0.5>>
+<<clearbg>>
 <<setflag GameStarted True>>
 ===
 title: VSlice2
 tags: 
 colorID: 0
-position: -473,247
+position: -143,539
 ---
 <<setbg color #111111 0.5>>
 <<clearbg>>
@@ -183,4 +244,39 @@ DR.MELO: Exposition exposition exposition.
 R4VYN: Cutscene.
 DR.MELO: Ok tutorial now.
 TEMP: WHAT
+<<loadtrack Tutorial>>
+===
+title: VSlice5
+tags: 
+colorID: 0
+position: 201,249
+---
+DR.MELO: Ok tutorial tutorial over.
+TEMP: Cutscene!
+R4VYN: Cutscene!
+UMBRA: Cutscene...
+UMBRA: Cutscene.
+<<setflag TutorialSequence true>>
+===
+title: VSliceShortcut
+tags: 
+colorID: 0
+position: -546,579
+---
+<<setbg color #111111 0>>
+<<setcam shortcutcutscenecam>>
+<<moveplayer shortcut_tblock>>
+<<movenpc shortcut_rblock>>
+<<clearbg>>
+R4VYN: Hi.
+R4VYN: Um.
+TEMP: Oh, we're just cutting corners to avoid showing more unfinished content, now.
+TEMP+CONCERNED: That's pretty rude.
+TEMP+CONCERNED: I wanted to do a cool elevator ride scene. Maybe meet another pair of major characters.
+R4VYN: Don't blame me!
+R4VYN: I...
+R4VYN: Uhh...
+R4VYN: We're just going to do the tutorial now.
+R4VYN: Get ready!
+<<loadtrack Tutorial>>
 ===

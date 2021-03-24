@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
+using Debug = UnityEngine.Debug;
 
 public class DialogueCommandHandler : MonoBehaviour {
     public CutsceneBG CutsceneBg;
@@ -88,6 +89,9 @@ public class DialogueCommandHandler : MonoBehaviour {
         runner.AddCommandHandler(
             "switchcam",
             SwitchCam);
+        runner.AddCommandHandler(
+            "switchsprite",
+            SwitchSprite);
     }
 
     // Start is called before the first frame update
@@ -205,7 +209,8 @@ public class DialogueCommandHandler : MonoBehaviour {
     
     void SetFlag(string[] parameters) {
         string val = parameters[1];
-
+        Debug.Log("Set gamestate flag " + parameters[0] + " to " + parameters[1]);
+        
         if (val.Equals("True") || val.Equals("False")) {
             StoryModeGameManager.Instance.SetGamestateFlag(parameters[0], bool.Parse(parameters[1]));
         }
@@ -269,6 +274,8 @@ public class DialogueCommandHandler : MonoBehaviour {
     void BuildSong(string[] parameters) {
         StoryModeGameManager.Instance.BuildSong(parameters[0]);
     }
-
-
+    
+    void SwitchSprite(string[] parameters) {
+        WalkaroundManager.Instance.SwitchSprite(parameters[0],  parameters[1]);
+    }
 }

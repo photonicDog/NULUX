@@ -8,7 +8,7 @@ public class SpriteBillboard : MonoBehaviour {
 
     IEnumerator Start() {
         yield return new WaitForEndOfFrame();
-        brain = Camera.main.GetComponent<CinemachineBrain>();
+        brain = WalkaroundManager.Instance.spriteCamBrain;
     }
 
     void Update() 

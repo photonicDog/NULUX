@@ -20,6 +20,7 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
         public bool HasCollision;
         public bool IsVisible;
         public bool IsControllable;
+        public bool IsSwitchableSprite;
         [Header("Interaction")]
         public bool IsInteractable;
         public bool IsTalkspritable;
@@ -44,6 +45,7 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
         [ShowIf("IsStated")] public NPCState npcState;
         [ShowIf("HasInteractBubble")] public SpriteRenderer interactBubble;
         [ShowIf("@this.HasTalkBubble || this.IsPlayer")] public SpriteRenderer talkBubble;
+        [ShowIf("IsSwitchableSprite")] public SpriteSwitcher switcher;
         
         public void ToggleCollision()
         {

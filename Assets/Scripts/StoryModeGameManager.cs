@@ -78,6 +78,7 @@ public class StoryModeGameManager : MonoBehaviour
 	public void SetGamestateFlag(string flag, bool value)
 	{
 		_gamestate.SetFlag(flag, value);
+		
 		try
 		{
 			stateUpdate();

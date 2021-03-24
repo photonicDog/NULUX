@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
@@ -264,65 +265,115 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             text = line.ID;
         }
 
-
-        string nameplate = text.Split(':')[0];
-        string charName = "";
-        if (nameplate != "") {
-            string[] split = nameplate.Split('+');
-            charName = split[0];
-            string expression = split.Length > 1 ? split[1] : "NORMAL";
-            
-            if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
-            WalkaroundManager.Instance.Talkspriter.SetState(charName, false, true);
-            WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, true,expression);
-            WalkaroundManager.Instance.Talkspriter.Bubble(charName, true);
-            lastSpeaker = charName;
-            
-            onNameplateUpdate?.Invoke(WalkaroundManager.Instance.Talkspriter.GetNameplate(charName));
-
-            text = text.Split(':')[1].TrimStart();
-        }
+        if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
         
-        if (textSpeed > 0.0f) {
-            // Display the line one character at a time
-            var stringBuilder = new StringBuilder ();
+        string[] initialSplit = text.Split(':');
+        if (initialSplit.Length <= 1) {
 
-            foreach (char c in text) {
-                stringBuilder.Append (c);
-                onLineUpdate?.Invoke(stringBuilder.ToString ());
-                if (userRequestedNextLine) {
-                    // We've requested a skip of the entire line.
-                    // Display all of the text immediately.
-                    onLineUpdate?.Invoke(text);
-                    break;
-                }
-                yield return new WaitForSeconds (textSpeed);
+            
+            
+        }
+        else {
+            string nameplate = initialSplit[0];
+            text = SpliceRemainder(initialSplit);
+            string charName = "";
+            string modifier;
+
+            if (nameplate == "NARRATOR") {
+                modifier = "NARRATION";
+                onNameplateUpdate?.Invoke("");
             }
-        } else {
-            // Display the entire line immediately if textSpeed <= 0
-            onLineUpdate?.Invoke(text);
+            else if (nameplate != "") {
+                string[] emote = nameplate.Split('+');
+                string[] mod = nameplate.Split('/');
+                string expression = emote.Length > 1 ? emote[1] : "NORMAL";
+                if (mod.Length > 1) {
+                    modifier = mod[0];
+                    charName = mod[1].Split('+')[0];
+                }
+                else {
+                    modifier = "";
+                    charName = emote[0];
+                }
+
+                WalkaroundManager.Instance.Talkspriter.SetState(charName, false, true);
+                WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, true, expression);
+                WalkaroundManager.Instance.Talkspriter.Bubble(charName, true);
+                lastSpeaker = charName;
+
+                if (modifier == "???") {
+                    onNameplateUpdate?.Invoke("???");
+                }
+                else {
+                    onNameplateUpdate?.Invoke(WalkaroundManager.Instance.Talkspriter.GetNameplate(charName));
+                }
+
+            }
+            else {
+                modifier = "";
+            }
+
+            if (textSpeed > 0.0f) {
+                // Display the line one character at a time
+                var stringBuilder = new StringBuilder();
+                string modPrefix = "";
+
+                if (modifier == "THINKING") {
+                    modPrefix = "<color=#999999>";
+                }
+
+                if (modifier == "NARRATION") {
+                    modPrefix = "<i>";
+                }
+
+                stringBuilder.Append(modPrefix);
+
+                foreach (char c in text) {
+                    stringBuilder.Append(c);
+                    onLineUpdate?.Invoke(stringBuilder.ToString());
+                    if (userRequestedNextLine) {
+                        // We've requested a skip of the entire line.
+                        // Display all of the text immediately.
+                        onLineUpdate?.Invoke(modPrefix + text);
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(textSpeed);
+                }
+            }
+            else {
+                // Display the entire line immediately if textSpeed <= 0
+                onLineUpdate?.Invoke(text);
+            }
+
+            // We're now waiting for the player to move on to the next line
+            userRequestedNextLine = false;
+
+            // Indicate to the rest of the game that the line has finished being delivered
+            onLineFinishDisplaying?.Invoke();
+
+            if (charName != "") WalkaroundManager.Instance.Talkspriter.SetState(charName, false, false);
+
+            while (userRequestedNextLine == false) {
+                yield return null;
+            }
+
+            // Avoid skipping lines if textSpeed == 0
+            yield return new WaitForEndOfFrame();
+
+            // Hide the text and prompt
+            onLineEnd?.Invoke();
+
+            onComplete();
         }
 
-        // We're now waiting for the player to move on to the next line
-        userRequestedNextLine = false;
+    }
 
-        // Indicate to the rest of the game that the line has finished being delivered
-        onLineFinishDisplaying?.Invoke();
-        
-        if (charName != "") WalkaroundManager.Instance.Talkspriter.SetState(charName, false, false);
-        
-        while (userRequestedNextLine == false) {
-            yield return null;
-        }
-
-        // Avoid skipping lines if textSpeed == 0
-        yield return new WaitForEndOfFrame();
-
-        // Hide the text and prompt
-        onLineEnd?.Invoke();
-
-        onComplete();
-
+    private string SpliceRemainder(string[] strings) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < strings.Length; i++)
+        sb.Append(strings[i]);
+        return sb.ToString();
     }
 
     /// Runs a set of options.

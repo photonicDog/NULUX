@@ -41,7 +41,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: MilleFeuille
+      Data: Tutorial
     - Name: $v
       Entry: 10
       Data: 0
@@ -55,7 +55,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
   flags:
+  - id: IntroComplete
+    flag: 0
   - id: GameStarted
+    flag: 0
+  - id: MetR4vyn
+    flag: 0
+  - id: MetUmbra
     flag: 0
   - id: Tutorialized
     flag: 0

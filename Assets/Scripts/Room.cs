@@ -5,33 +5,15 @@ using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class DraggablePoint : PropertyAttribute {}
-
 public class Room : SerializedMonoBehaviour {
-    public Dictionary<string, CinemachineVirtualCamera> RoomCameras;
+    public List<WalkaroundCamera> RoomCameras;
     public Dictionary<string, Transform> Blocks;
     public Dictionary<string, LightController> LightControllers;
     
     private CinemachineBrain brain;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void MoveToRoom(string index) {
-SwitchCamera(index);
-    }
-
     public void SwitchCamera(string index) {
-        WalkaroundManager.Instance.SetCamera(RoomCameras[index]);
+        WalkaroundManager.Instance.SetCamera(RoomCameras.Find(a => a.index == index));
     }
 
     public void SetLight(string index, bool active) {

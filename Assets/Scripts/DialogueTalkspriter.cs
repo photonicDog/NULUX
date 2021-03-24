@@ -18,21 +18,21 @@ public class DialogueTalkspriter : SerializedMonoBehaviour {
         talkspritables = FindObjectsOfType<ObjectConfig>().Where(a => a.IsTalkspritable).ToList();
     }
 
-    public void SetEmotion(string id, bool script, string emotion) {
+    public virtual void SetEmotion(string id, bool script, string emotion) {
         ObjectConfig ts = talkspritables.Find(a => a.ID.Equals(script?scriptToID[id]:id));
         if (ts) ts.talkspriteController.SetAnimation(emotion);
     }
 
-    public void SetState(string id, bool walk, bool set) {
+    public virtual void SetState(string id, bool walk, bool set) {
         ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
         if (ts) ts.talkspriteController.SetState(walk, set);
     }
 
-    public string GetNameplate(string scriptPlate) {
+    public virtual string GetNameplate(string scriptPlate) {
         return scriptToNameplate[scriptPlate];
     }
 
-    public void Bubble(string id, bool display) {
+    public virtual void Bubble(string id, bool display) {
         ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
         if (!ts) return;
         if (ts.HasInteractBubble) {

@@ -104,7 +104,7 @@ public class ResultsPanel : SerializedMonoBehaviour {
                         .Where(a => Math.Abs(a.offset) != 0f)
                         .Average(a => a.offset);
             }
-            catch (Exception e) {
+            catch (Exception) {
                 regionAverage = 0;
             };
             transformed.Add(new Vector2(i / pointCt, regionAverage / 90f + 0.5f));

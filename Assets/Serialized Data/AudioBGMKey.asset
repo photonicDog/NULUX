@@ -18,7 +18,8 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 8300000, guid: 9f35003374f3d654a8eb2349e5582a9b, type: 3}
     - {fileID: 8300000, guid: ca9ba5daa64195247892a72d9031fc38, type: 3}
-    - {fileID: 8300000, guid: f9881dbaecdcd174c95925352384b562, type: 3}
+    - {fileID: 8300000, guid: e79daaace78385b40add6dbcc2f3cadd, type: 3}
+    - {fileID: 8300000, guid: fbedcc2b6bdc39b4a935942435dd0465, type: 3}
     - {fileID: 8300000, guid: 2cb0dbbfa61a650439baae2cca6bad6f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -91,8 +92,8 @@ MonoBehaviour:
       Entry: 7
       Data: 4|LoopableAudio, Assembly-CSharp
     - Name: audio
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: start
       Entry: 6
       Data: 
@@ -113,7 +114,7 @@ MonoBehaviour:
       Data: 5|LoopableAudio, Assembly-CSharp
     - Name: audio
       Entry: 10
-      Data: 3
+      Data: 4
     - Name: start
       Entry: 6
       Data: 

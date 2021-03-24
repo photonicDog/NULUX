@@ -22,6 +22,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 	public DialogueTalkspriter Talkspriter;
 	public PlayerInput sys;
 	public WalkaroundNPCScenarioState currentScenario;
+	public CinemachineBrain spriteCamBrain;
 
 	[HideInInspector]
 	public WalkaroundNPCScenarioState _currentScenario;
@@ -36,9 +37,9 @@ public class WalkaroundManager : SerializedMonoBehaviour
 	
 
 	private CinemachineBrain brain;
-	public CinemachineVirtualCamera currentCam;
+	public WalkaroundCamera currentCam;
 
-	private void Awake()
+	private void Start()
 	{
 		if (Instance == null)
 		{
@@ -55,8 +56,8 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		LoadNPCs();
 
 		foreach (Room room in rooms.Values) {
-			foreach (CinemachineVirtualCamera vc in room.RoomCameras.Values) {
-				vc.gameObject.SetActive(false);
+			foreach (WalkaroundCamera vc in room.RoomCameras) {
+				vc.DeactivateCamera();
 			}
 		}
 	}
@@ -84,9 +85,9 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		currentInteractable = interactable;
 	}
 
-	public void SetCamera(CinemachineVirtualCamera vc) {
-		if (currentCam) currentCam.gameObject.SetActive(false);
-		vc.gameObject.SetActive(true);
+	public void SetCamera(WalkaroundCamera vc) {
+		if (currentCam) currentCam.DeactivateCamera();
+		vc.ActivateCamera();
 		currentCam = vc;
 	}
 
@@ -106,12 +107,12 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		}
 	}
 
-	public void UseDoor(GameObject mover, string room, string camera, Door door)
+	public void UseDoor(GameObject mover, Room room, WalkaroundCamera camera, Door door)
 	{
 		StartCoroutine(DoorAnimation(mover, room, camera, door));
 	}
 
-	private IEnumerator DoorAnimation(GameObject mover, string room, string camera, Door door)
+	private IEnumerator DoorAnimation(GameObject mover, Room room, WalkaroundCamera camera, Door door)
 	{
 		sys.DeactivateInput();
 		backgroundImage.color = Color.black - new Color(0f, 0f, 0f, 1f);
@@ -125,7 +126,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		Vector3 position = door.destinationPosn.position;
 		mover.transform.position = position;
 		SetRoomContext(room);
-		currentRoom.SwitchCamera(camera);
+		SetCamera(camera);
 		yield return new WaitForSeconds(0.2f);
 		
 		while (backgroundImage.color.a > 0f)
@@ -138,13 +139,25 @@ public class WalkaroundManager : SerializedMonoBehaviour
 	}
 
 	public void SetRoomContext(string key) {
-		currentRoom = rooms[key];
-		SetCamera(currentRoom.RoomCameras.First().Value);
+		SetRoomContext(rooms[key]);
+		SetCamera(currentRoom.RoomCameras.First());
+	}
+
+	public void SetRoomContext(Room room) {
+		currentRoom = room;
+		SetCamera(currentRoom.RoomCameras.First());
 	}
 
 	public void ReactivatePlayerControls()
 	{
 		sys.ActivateInput();
+	}
+
+	public void SwitchSprite(string name, string index) {
+		ObjectConfig sprite = currentRoom.transform.Find("InteractiveFurniture").Find(name).GetComponent<ObjectConfig>();
+		if (sprite.IsSwitchableSprite) {
+			sprite.switcher.SwitchSprite(index);
+		}
 	}
 
 	public void ReturnToMenu()

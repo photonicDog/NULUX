@@ -1,30 +1,66 @@
-﻿title: Start
-tags:
+title: 1
+tags: 
+colorID: 0
+position: -533,-285
 ---
-TEMP+surprised: Hey, what's that song on?
-TEMP: I can skank to that.
-TEMP: Like-
-TEMP: Like, hold on, let me get into the flow.
-TEMP: like do-do-do, shak-shak, do-do, chik-
-UMBRELLA: What is that jam?
-TEMP: I don't know? I thought you put it on the intercom.
-UMBRELLA: I didn't. But I can kind of dig it.
-UMBRELLA: Like-
-UMBRELLA+evil: It's got that synthpop kind of feel to it.
-UMBRELLA+evil: It's got a groove too!
-TEMP: I don't know!
-TEMP+surprised: It's kind of a jam!
-TEMP: Doesn't it make you want to get down?
-UMBRELLA: Yeah…
-UMBRELLA+evil: Yeah!
-TEMP: Come on! Come on! Yeah!
-TEMP: Feel it!
-TEMP: Do-do-do, shak-shak, do-do, chik-ha, do-do-do, shak-shak, do-do, chik-ha!
-R4VYN+angry: ARE YOU TWO
-R4VYN+angry: DANCING
-R4VYN+angry: TO THE SHIP COMMS RINGTONE
-TEMP+surprised: Oh, is that what it is?
-TEMP: It's kind of pog.
-R4VYN: (I can see where they're coming from…)
-R4VYN: (It is kind of pog, damn it.)
+DR.MELO: Welcome to the quickstart guide for the NOVA interface!
+DR.MELO: I'm Doctor Melodii Melomimi, and I'll be showing you how to use this thing.
+DR.MELO: The use of this interface can be abstracted into a sort of "rhythm game".
+DR.MELO: You must hit keys to the time of the song.
+DR.MELO: NOTES will fade onto the screen. The NOTEs color and shape determines what button you press.
+DR.MELO: Blue is S, pink is D, green is F. Remember this!
+DR.MELO: When a LINE goes over the NOTE, you must hit it.
+DR.MELO: Ok, let's try!
+===
+title: 2
+tags: 
+colorID: 0
+position: -323,-287
+---
+DR.MELO: Ok, great job!
+DR.MELO: Of course, it's not that simple.
+DR.MELO: LINEs come in a lot of varieties. They can spin, grow, shrink, or even be circles.
+DR.MELO: It's important to keep your eyes peeled for approaching LINEs.
+DR.MELO: Additionally, sometimes, notes may APPROACH LINEs, rather than the other way around.
+DR.MELO: Versatile, isn't it?
+DR.MELO: Let's show off some of what LINEs can do.
+DR.MELO: Get ready!
+===
+title: 3
+tags: 
+colorID: 0
+position: -109,-287
+---
+DR.MELO: Great job!
+DR.MELO: NOTEs can also have varieties.
+DR.MELO: Some NOTEs have tails. These are HOLD NOTEs. Keep the key down while the LINE is over the tail!
+DR.MELO: Releasing at the right time is important, too.
+DR.MELO: Additionally, there are sometimes yellow notes called BAR NOTEs.
+DR.MELO: They're rare, but very important. Hit them with the space bar!
+DR.MELO: Keep these note types in mind when using the NOVA interface.
+DR.MELO: Ok, let's try!
+===
+title: 4
+tags: 
+colorID: 0
+position: 102,-287
+---
+DR.MELO: You're doing great!
+DR.MELO: Now that we've talked about how to use the device, let's discuss the interface.
+DR.MELO: At the top left is the song the device is synchronized to. Don't just use your eyes, use your ears, too!
+DR.MELO: At the top right is your score and your combo. Build combo by hitting notes in succession without missing.
+DR.MELO: At the bottom is your DRIVE gauge and your PACEMAKER. To successfully use the interface, you'll need to exceed the PACEMAKER.
+DR.MELO: Otherwise, it'll spell failure for you.
+DR.MELO: On top of that is your OFFSET. This is a more granular display of your average accuracy. Keep the arrow in the middle!
+DR.MELO: Let's put it all together!
+===
+title: 5
+tags: 
+colorID: 0
+position: 316,-286
+---
+DR.MELO: You've successfully completed the quickstart guide to the NOVA interface.
+DR.MELO: Congratulations!
+DR.MELO: Note that this guide has not covered any auxiliary functions of the interface.
+DR.MELO: Now you're ready to get out there and remake the universe!
 ===
