@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.WalkAround.Objects.Implementations;
 using UnityEngine;
 
@@ -21,8 +22,13 @@ public class ObjectProximityTrigger : MonoBehaviour {
         if (!objConfig.IsInteractable) return;
         if (other.gameObject.CompareTag("Player")) {
             GameObject playerObject = other.gameObject;
+            Debug.Log("Player object " + playerObject.name + " entered trigger!");
             if (objConfig.IsCutsceneTrigger) {
+                foreach (KeyValuePair<string, bool> neg in objConfig.negateIf) {
+                    if (StoryModeGameManager.Instance._gamestate.GetFlag(neg.Key) == neg.Value) return;
+                }
                 WalkaroundManager.Instance.DialogueRunner.StartDialogue(objConfig.ID);
+                Destroy(this.gameObject);
             }
         }
     }

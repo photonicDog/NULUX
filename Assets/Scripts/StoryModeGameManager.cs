@@ -41,6 +41,9 @@ public class StoryModeGameManager : MonoBehaviour
 			Debug.Log("Multiple StoryManagers in the scene!");
 			UnityEngine.Object.Destroy(base.gameObject);
 		}
+		
+		if (SceneManager.GetActiveScene().buildIndex == 1) Destroy(this.gameObject);
+		
 		_gamestate = UnityEngine.Object.Instantiate(gamestate);
 		SceneManager.sceneLoaded += GrabDialogueManager;
 		foreach (DialogueCondition flnode in flnodes)

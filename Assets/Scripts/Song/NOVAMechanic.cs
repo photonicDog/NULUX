@@ -132,7 +132,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			
 			if (lineCommand.Count <= 0)
 			{
-				Debug.Log(string.Concat("Could not find a line for note ", i.NoteType, " at measure ", i.Start / 4f, 1));
+				Debug.Log(string.Concat("Could not find a line for note ", i.NoteType, " at measure ", i.Start / 4f / 480f, 1));
 			}
 			else
 			{

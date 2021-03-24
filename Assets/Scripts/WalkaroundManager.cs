@@ -39,12 +39,15 @@ public class WalkaroundManager : SerializedMonoBehaviour
 	private CinemachineBrain brain;
 	public WalkaroundCamera currentCam;
 
-	private void Start()
+	private void Awake()
 	{
 		if (Instance == null)
 		{
 			Instance = this;
 		}
+	}
+
+	void Start() {
 		brain = Camera.main.GetComponent<CinemachineBrain>();
 		_currentScenario = ScriptableObject.CreateInstance<WalkaroundNPCScenarioState>();
 		_currentScenario.scenarioNPCS = new List<WalkaroundNPCState>();
@@ -103,6 +106,9 @@ public class WalkaroundManager : SerializedMonoBehaviour
 			else if (currentInteractable.IsSimpleDialogue)
 			{
 				DialogueRunner.StartDialogue(currentInteractable.dialogueKey);
+			}
+			else {
+				sys.ActivateInput();
 			}
 		}
 	}

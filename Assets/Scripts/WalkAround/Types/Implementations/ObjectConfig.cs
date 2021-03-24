@@ -14,7 +14,7 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
     public class InteractEvent : UnityEvent<ObjectConfig> {
     }
 
-    public class ObjectConfig : MonoBehaviour {
+    public class ObjectConfig : SerializedMonoBehaviour {
         [Header("Basic Attributes")]
         public bool IsPlayer;
         public bool HasCollision;
@@ -46,6 +46,7 @@ namespace Assets.Scripts.WalkAround.Objects.Implementations
         [ShowIf("HasInteractBubble")] public SpriteRenderer interactBubble;
         [ShowIf("@this.HasTalkBubble || this.IsPlayer")] public SpriteRenderer talkBubble;
         [ShowIf("IsSwitchableSprite")] public SpriteSwitcher switcher;
+        [ShowIf("IsCutsceneTrigger")] public Dictionary<string, bool> negateIf;
         
         public void ToggleCollision()
         {

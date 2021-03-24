@@ -197,6 +197,7 @@
           </e>
         </e>
         <e p="SpriteSwitcher.cs" t="Include" />
+        <e p="SpriteToImage.cs" t="Include" />
         <e p="TalkspriteController.cs" t="Include" />
         <e p="WalkaroundCamera.cs" t="Include" />
         <e p="WalkaroundCameraSwitcher.cs" t="Include" />

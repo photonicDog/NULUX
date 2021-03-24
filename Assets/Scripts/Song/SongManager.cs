@@ -34,6 +34,7 @@ public class SongManager : SerializedMonoBehaviour {
     public float score = 0;
     public TextMeshProUGUI scoreboard;
     [SerializeField] private SongUIManager ui;
+    public DialogueTalkspriter Talkspriter;
     private ResultsPanel rp;
     [HideInInspector] public Dictionary<ScoringHeuristic, int> noteResults;
 
@@ -63,7 +64,7 @@ public class SongManager : SerializedMonoBehaviour {
 
     public Image endFade;
 
-    void Start() {
+    void Awake() {
         Instance = this;
         StartCoroutine(WaitForTrackSignal());
     }
@@ -106,7 +107,7 @@ public class SongManager : SerializedMonoBehaviour {
             heldNotes[i] = null;
         }
 
-        ReadMIDI(Application.streamingAssetsPath + "\\"+ currentTrack.PathToChart +".mid", currentTrack);
+        ReadMIDI(Application.streamingAssetsPath + "/" + currentTrack.PathToChart +".mid", currentTrack);
         Conductor.Instance.SetSong(currentTrack.Audio);
         origNoteCt = chartNotes.Count;
         
@@ -137,6 +138,7 @@ public class SongManager : SerializedMonoBehaviour {
             // Chart dialogue
             if (dcQueue.Peek().timing < Conductor.Instance.GetSongTime()) {
                 ChartDialogueCommand dcm = dcQueue.Dequeue();
+                Debug.Log("Running command " + dcm.command[0]);
                 switch (dcm.command[0]) {
                     case "PLAY":
                         RunDialogueNode(dcm.command[1]);
@@ -241,15 +243,17 @@ public class SongManager : SerializedMonoBehaviour {
         foreach (var midiEvent in mf.Events[3]) {
             if (midiEvent is TextEvent && ((TextEvent) midiEvent).MetaEventType == MetaEventType.Marker) {
                 TextEvent tev = midiEvent as TextEvent;
-                string[] cmds = tev.Text.Split(',');
+                string[] cmds = tev.Text.Split(' ');
                 dcQueue.Enqueue(new ChartDialogueCommand(cmds, (float) midiEvent.AbsoluteTime / 480));
             }
         }
 
         //End track
         foreach (var midiEvent in mf.Events[4]) {
-            if (MidiEvent.IsNoteOn(midiEvent))
-            endBeat = ((NoteOnEvent) midiEvent).AbsoluteTime / 480f;
+            if (MidiEvent.IsNoteOn(midiEvent)) {
+                endBeat = ((NoteOnEvent) midiEvent).AbsoluteTime / 480f;
+                break;
+            }
         }
     }
 
@@ -294,6 +298,7 @@ public class SongManager : SerializedMonoBehaviour {
         pacemaker = Mathf.Clamp01(pacemaker);
         
         // TODO: Add to UI
+        ui.UpdateScore((int)score);
         ui.UpdateDrive(drive, pacemaker);
     }
 

@@ -7,10 +7,13 @@ using UnityEngine.InputSystem;
 public class ObjectController : MonoBehaviour
 {
     public float speed;
+    public bool canIdle;
     private Rigidbody _rb;
     public ObjectConfig config;
     public SpriteRenderer _renderer;
     private Vector3 _movement;
+
+    private float idleTimer;
 
     public Animator talksprite;
 
@@ -23,6 +26,7 @@ public class ObjectController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         config = GetComponent<ObjectConfig>();
+        idleTimer = 0f;
     }
 
     // Update is called once per frame
@@ -38,9 +42,19 @@ public class ObjectController : MonoBehaviour
             _rb.velocity = (_movement * speed * speedMul);
         }
 
-        if (_facing.x < -0.1) _renderer.flipX = true;
-        else _renderer.flipX = false;
-        
+        if (_facing.x < -0.1) _renderer.flipX = false;
+        else _renderer.flipX = true;
+
+        idleTimer += Time.fixedDeltaTime;
+
+        if (canIdle && idleTimer > 20f) {
+            talksprite.SetTrigger("Idle");
+            idleTimer = -6f;
+        }
+    }
+
+    public void ResetIdle() {
+        idleTimer = 0f;
     }
     
     void OnTriggerEnter(Collider collision)
@@ -79,8 +93,8 @@ public class ObjectController : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
+    public void OnMove(InputAction.CallbackContext context) {
+        idleTimer = 0f;
         _movement = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
         if (_movement.magnitude > 0.1f) _facing = _movement.normalized;
         if (config.IsTalkspritable) {

@@ -159,7 +159,7 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
     
     void SpawnChar(string[] parameters) {
-        GameObject npc = GameObject.Find(parameters[0]);
+        GameObject npc = GameObject.Find(WalkaroundManager.Instance.Talkspriter.scriptToID[parameters[0]]);
         string node = parameters[1];
         npc.transform.position = 
             WalkaroundManager.Instance.currentRoom.Blocks[node].position;
@@ -169,10 +169,11 @@ public class DialogueCommandHandler : MonoBehaviour {
         string node = parameters[0];
         WalkaroundManager.Instance.sys.transform.position = 
             WalkaroundManager.Instance.currentRoom.Blocks[node].position;
+        WalkaroundManager.Instance.sys.GetComponent<ObjectController>().ResetIdle();
     }
 
     void DespawnChar(string[] parameters) {
-        GameObject npc = GameObject.Find(parameters[0]);
+        GameObject npc = GameObject.Find(WalkaroundManager.Instance.Talkspriter.scriptToID[parameters[0]]);
 
         npc.transform.position = new Vector3(9999, 9999, 0);
     }

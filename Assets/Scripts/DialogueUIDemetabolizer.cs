@@ -229,8 +229,9 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
     private string currentSpeaker;
     private string currentEmotion;
     private string lastSpeaker = "";
-        
-    internal void Awake ()
+
+    private DialogueTalkspriter ts;
+    void Start ()
     {
         // Start by hiding the container
         if (dialogueContainer != null)
@@ -238,6 +239,16 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
 
         foreach (var button in optionButtons) {
             button.gameObject.SetActive (false);
+        }
+        
+        if (WalkaroundManager.Instance != null) {
+            Debug.Log("Initialized walk-style talksprites!");
+            ts = WalkaroundManager.Instance.Talkspriter; 
+        }
+
+        if (SongManager.Instance != null) {
+            Debug.Log("Initialized song-style talksprites!");
+            ts = SongManager.Instance.Talkspriter;
         }
     }
 
@@ -265,7 +276,7 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             text = line.ID;
         }
 
-        if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
+        if (lastSpeaker != "") ts.Bubble(lastSpeaker, false);
         
         string[] initialSplit = text.Split(':');
         if (initialSplit.Length <= 1) {
@@ -296,16 +307,17 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
                     charName = emote[0];
                 }
 
-                WalkaroundManager.Instance.Talkspriter.SetState(charName, false, true);
-                WalkaroundManager.Instance.Talkspriter.SetEmotion(charName, true, expression);
-                WalkaroundManager.Instance.Talkspriter.Bubble(charName, true);
+                ts.SetState(charName, false, true);
+                ts.SetEmotion(charName, true, expression);
+                ts.Bubble(charName, true);
+
                 lastSpeaker = charName;
 
                 if (modifier == "???") {
                     onNameplateUpdate?.Invoke("???");
                 }
                 else {
-                    onNameplateUpdate?.Invoke(WalkaroundManager.Instance.Talkspriter.GetNameplate(charName));
+                    onNameplateUpdate?.Invoke(ts.GetNameplate(charName));
                 }
 
             }
@@ -352,7 +364,7 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             // Indicate to the rest of the game that the line has finished being delivered
             onLineFinishDisplaying?.Invoke();
 
-            if (charName != "") WalkaroundManager.Instance.Talkspriter.SetState(charName, false, false);
+            if (charName != "") ts.SetState(charName, false, false);
 
             while (userRequestedNextLine == false) {
                 yield return null;
@@ -369,10 +381,11 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
 
     }
 
+    // If text has a colon in it, this re-splices the text.
     private string SpliceRemainder(string[] strings) {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < strings.Length; i++)
-        sb.Append(strings[i]);
+        sb.Append(strings[i] + (i<strings.Length-1?":":""));
         return sb.ToString();
     }
 
@@ -473,7 +486,7 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
     public override void DialogueComplete ()
     {
         onDialogueEnd?.Invoke();
-        if (lastSpeaker != "") WalkaroundManager.Instance.Talkspriter.Bubble(lastSpeaker, false);
+        if (lastSpeaker != "") ts.Bubble(lastSpeaker, false);
         
         // Hide the dialogue interface.
         if (dialogueContainer != null)

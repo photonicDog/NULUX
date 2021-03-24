@@ -63,8 +63,8 @@ position: -118,-216
 ---
 GLOOMI: Okay, watch out for the battle.
 TEMP+CONCERNED: Uh oh.
-<<setflag Tutorialized True>>
-<<loadtrack MilleFeuille>>
+<<customwait 1>>
+<<loadtrack Dogbite>>
 ===
 title: ExitDormCutscene
 tags: 
@@ -143,7 +143,7 @@ R4VYN: I could see someone going through a lot of trouble to make that a reality
 title: VSlice1
 tags: 
 colorID: 0
-position: -697,243
+position: -704,249
 ---
 <<setbg color #111111 0>>
 <<setroom temproom>>
@@ -261,22 +261,77 @@ UMBRA: Cutscene.
 title: VSliceShortcut
 tags: 
 colorID: 0
-position: -546,579
+position: -824,475
 ---
 <<setbg color #111111 0>>
-<<setcam shortcutcutscenecam>>
+<<setroom introhall>>
+<<switchcam ShortcutCam>>
 <<moveplayer shortcut_tblock>>
-<<movenpc shortcut_rblock>>
+<<spawnchar R4VYNH shortcut_rblock>>
+<<customwait 1>>
 <<clearbg>>
-R4VYN: Hi.
-R4VYN: Um.
-TEMP: Oh, we're just cutting corners to avoid showing more unfinished content, now.
-TEMP+CONCERNED: That's pretty rude.
+R4VYNH: Hi.
+R4VYNH: Um.
+R4VYNH: I said I was going to escort you to the lab, but it doesn't currently exist.
+R4VYNH: How about we just do the tutorial right now?
+TEMP: You know, there's supposed to be a few more scenes before we get to the tutorial, right?
+TEMP+CONCERNED: Worldbuilding? That sort of thing?
 TEMP+CONCERNED: I wanted to do a cool elevator ride scene. Maybe meet another pair of major characters.
-R4VYN: Don't blame me!
-R4VYN: I...
-R4VYN: Uhh...
-R4VYN: We're just going to do the tutorial now.
-R4VYN: Get ready!
+R4VYNH: Yeah, but let's just skip to the tutorial.
+R4VYNH: Also, we're missing most of those assets. It's a whole lot of hallway.
+TEMP+CONCERNED: Usually you're not supposed to say what a demo is missing!
 <<loadtrack Tutorial>>
+===
+title: VSlicePostTutorial
+tags: 
+colorID: 0
+position: -825,693
+---
+<<setbg color #111111 0>>
+<<setroom introhall>>
+<<switchcam ShortcutCam>>
+<<moveplayer shortcut_tblock>>
+<<spawnchar R4VYNH shortcut_rblock>>
+<<customwait 1>>
+<<clearbg>>
+R4VYNH: Ok, good job. I'm going to disappear now.
+TEMP+CONCERNED: What? Why?
+R4VYNH: So you can walk past where I was and talk to the test NPC.
+R4VYNH: To show off the fact that characters have alterable states changed by dialog.
+R4VYNH: Also to play the other song in the game, which is accessible through the Free Play option as well.
+TEMP: Ok, that makes sense!
+<<setbg color #111111 0>>
+<<despawnchar R4VYNH>>
+<<switchcam EntrywayCam>>
+<<customwait 1>>
+<<clearbg>>
+===
+title: Guitar
+tags: 
+colorID: 0
+position: 676,240
+---
+THINKING/TEMP: My guitar.
+THINKING/TEMP: I don't play it much...
+THINKING/TEMP: I'm not very good at it.
+===
+title: Fridge
+tags: 
+colorID: 0
+position: 899,244
+---
+NARRATOR: You're happy to see that the fridge is fully stocked.
+NARRATOR: You actually maintain a healthy and balanced diet.
+NARRATOR: Consisting entirely of mozzarella sticks.
+===
+title: SkaGuy
+tags: 
+colorID: 0
+position: 677,466
+---
+NARRATOR: You're really not sure who this guy is.
+NARRATOR: You and a few friends dug this huge standee out of the trash a few years ago.
+NARRATOR: The guy has been keeping a silent mid-skank vigil over your living room ever since.
+NARRATOR: He looks...
+THINKING/TEMP: Ancient.
 ===

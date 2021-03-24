@@ -9,24 +9,31 @@ using UnityEngine.UI;
 
 public class DialogueTalkspriterSong : DialogueTalkspriter {
 
-    private List<ObjectConfig> talkspritables;
-
     public Dictionary<string, string> scriptToID;
     public Dictionary<string, string> scriptToNameplate;
-    public Dictionary<string, Animator> inSongTalksprites;
-    
-    void Awake() {
-        talkspritables = FindObjectsOfType<ObjectConfig>().Where(a => a.IsTalkspritable).ToList();
-    }
+    public Dictionary<string, TalkspriteController> inSongTalksprites;
 
+    private TalkspriteController current;
+
+    public void Awake() {
+        foreach (TalkspriteController tc in inSongTalksprites.Values) {
+            tc.gameObject.SetActive(false);
+        }
+    }
     public override void SetEmotion(string id, bool script, string emotion) {
-        ObjectConfig ts = talkspritables.Find(a => a.ID.Equals(script?scriptToID[id]:id));
-        if (ts) ts.talkspriteController.SetAnimation(emotion);
+        TalkspriteController currentTalksprite = inSongTalksprites[script ? scriptToID[id] : id];
+        
+        ManageCurrentSprite(currentTalksprite);
+
+        currentTalksprite.SetAnimation(emotion);
     }
 
     public override void SetState(string id, bool walk, bool set) {
-        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
-        if (ts) ts.talkspriteController.SetState(walk, set);
+        TalkspriteController currentTalksprite = inSongTalksprites[scriptToID[id]];
+        
+        ManageCurrentSprite(currentTalksprite);
+        
+        currentTalksprite.SetState(walk, set);
     }
 
     public override string GetNameplate(string scriptPlate) {
@@ -34,13 +41,18 @@ public class DialogueTalkspriterSong : DialogueTalkspriter {
     }
 
     public override void Bubble(string id, bool display) {
-        ObjectConfig ts = talkspritables.Find(a => a.ID == scriptToID[id]);
-        if (!ts) return;
-        if (ts.HasInteractBubble) {
-            ts.interactBubble.gameObject.SetActive(false);
+
+    }
+
+    private void ManageCurrentSprite(TalkspriteController currentTalksprite) {
+        if (current != null && currentTalksprite != current) {
+            current.gameObject.SetActive(false);
+            current = currentTalksprite;
+            current.gameObject.SetActive(true);
         }
-        if (ts.HasTalkBubble || ts.IsPlayer) {  
-            ts.talkBubble.gameObject.SetActive(display);
+        else if (current == null) {
+            current = currentTalksprite;
+            current.gameObject.SetActive(true);
         }
     }
 }

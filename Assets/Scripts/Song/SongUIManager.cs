@@ -15,6 +15,7 @@ public class SongUIManager : MonoBehaviour {
     public Image drivePacemaker;
 
     public TextMeshProUGUI songTitle;
+    public TextMeshProUGUI score;
     
     private int trackedCombo;
     public void UpdateCombo(int combo) {
@@ -43,5 +44,9 @@ public class SongUIManager : MonoBehaviour {
 
     public void UpdateSongAttributes(string title) {
         songTitle.text = title;
+    }
+
+    public void UpdateScore(int scr) {
+        score.text = scr.ToString("D7");
     }
 }
