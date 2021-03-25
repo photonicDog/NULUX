@@ -559,7 +559,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  - constPosX: 1
+  - constPosX: 0
     PosX: -4
     PosXCurve:
       serializedVersion: 2
@@ -609,7 +609,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    Mobile: 1
+    Mobile: 0
     stationary: 1
     warnTime: 2
     fadeLength: 2
