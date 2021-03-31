@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 public class NOVANote : SerializedMonoBehaviour {
@@ -11,6 +12,8 @@ public class NOVANote : SerializedMonoBehaviour {
     public VisualSet currentVisualSet;
     public Animator fade;
 
+    public bool enableTells;
+
     [SerializeField] private LineRenderer tailRenderer;
     
     public SpriteRenderer head = default;
@@ -19,6 +22,7 @@ public class NOVANote : SerializedMonoBehaviour {
     [SerializeField] private GameObject hitEffect = default;
     [SerializeField] private GameObject holdEffect = default;
     [SerializeField] private SpriteRenderer telegraphSprite;
+    [SerializeField] private TextMeshPro tellUI;
 
     private HoldParticle _holdBurn;
     private float _distanceIntoHold;
@@ -35,10 +39,13 @@ public class NOVANote : SerializedMonoBehaviour {
         telegraphSprite.sprite = currentVisualSet.telegraph;
         cap.sprite = currentVisualSet.cap;
         tailRenderer.material = currentVisualSet.arcMaterial;
+        
+        tellUI.gameObject.SetActive(enableTells);
+        tellUI.text = currentVisualSet.noteTell;
 
-        head.sortingOrder += 10000000 - (int)(note.Start * 480);
-        tailRenderer.sortingOrder += 10000000 - (int)(note.Start * 480);
-        cap.sortingOrder += 10000000 - (int)(note.Start * 480);
+        head.sortingOrder += -10000000 + (int)(note.Start * 480);
+        tailRenderer.sortingOrder += -10000000 + (int)(note.Start * 480) - 1;
+        cap.sortingOrder += -10000000 + (int)(note.Start * 480) - 2;
     }
 
     public void FadeIn(float fadeSpeed) {
@@ -165,4 +172,5 @@ public class VisualSet {
     public Sprite cap;
     public Material arcMaterial;
     public Sprite telegraph;
+    public string noteTell;
 }

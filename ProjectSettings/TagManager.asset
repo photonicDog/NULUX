@@ -50,3 +50,12 @@ TagManager:
   - name: UI
     uniqueID: 4277174457
     locked: 0
+  - name: NoteHead
+    uniqueID: 1263354643
+    locked: 0
+  - name: NoteCap
+    uniqueID: 1822408533
+    locked: 0
+  - name: NoteTail
+    uniqueID: 3335204207
+    locked: 0

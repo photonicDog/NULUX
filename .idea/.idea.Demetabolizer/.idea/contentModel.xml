@@ -7,7 +7,11 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="FileSelectMenu.cs" t="Include" />
         <e p="HoldParticle.cs" t="Include" />
+        <e p="LoginScreenMenu.cs" t="Include" />
+        <e p="ModeSelectMenu.cs" t="Include" />
+        <e p="MusicSelectMenu.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">
@@ -198,6 +202,7 @@
         </e>
         <e p="SpriteSwitcher.cs" t="Include" />
         <e p="SpriteToImage.cs" t="Include" />
+        <e p="SwitchWindows.cs" t="Include" />
         <e p="TalkspriteController.cs" t="Include" />
         <e p="WalkaroundCamera.cs" t="Include" />
         <e p="WalkaroundCameraSwitcher.cs" t="Include" />
