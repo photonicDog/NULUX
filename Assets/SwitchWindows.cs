@@ -37,6 +37,6 @@ public class SwitchWindows : StateMachineBehaviour {
     //}
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
-        animator.gameObject.SendMessage("ExecuteOnAnimation");
+        animator.gameObject.SendMessageUpwards("ExecuteOnAnimation");
     }
 }

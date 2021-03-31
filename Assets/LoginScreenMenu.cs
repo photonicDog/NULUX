@@ -6,18 +6,13 @@ using UnityEngine;
 using UnityEngine.UI.Extensions;
 
 public class LoginScreenMenu : SimpleMenu<LoginScreenMenu> {
-    private Animator anim;
+    public Animator loginAnim;
 
     delegate void AnimationComplete();
     private AnimationComplete animationComplete;
-    
-    
-    private void Start() {
-        anim = GetComponent<Animator>();
-    }
-
+   
     public void OnLogin() {
-        anim.SetTrigger("Login");
+        loginAnim.SetTrigger("Login");
         animationComplete += ModeSelectMenu.Show;
     }
 
