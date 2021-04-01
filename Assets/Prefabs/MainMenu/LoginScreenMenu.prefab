@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad4d0e423a48e84789982a1d9709c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyWhenClosed: 1
+  DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
   loginAnim: {fileID: 7332249482525790970}
 --- !u!1 &7332249481695448582

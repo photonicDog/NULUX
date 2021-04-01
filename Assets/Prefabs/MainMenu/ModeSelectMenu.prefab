@@ -968,7 +968,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9016654192245459186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9016654192851984431}
+        m_TargetAssemblyTypeName: ModeSelectMenu, Assembly-CSharp
+        m_MethodName: OnStoryPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &9016654192245459180
 Animator:
   serializedVersion: 3
@@ -2259,6 +2271,7 @@ GameObject:
   - component: {fileID: 9016654192851984429}
   - component: {fileID: 9016654192851984430}
   - component: {fileID: 9016654192851984431}
+  - component: {fileID: 6930972981831063610}
   m_Layer: 5
   m_Name: ModeSelectMenu
   m_TagString: Untagged
@@ -2359,8 +2372,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95082f9c6c45d06409d0f0568760f6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyWhenClosed: 1
+  DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
+  parentAnim: {fileID: 6930972981831063610}
+--- !u!95 &6930972981831063610
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016654192851984425}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a882a09dfa29dc14f9974efb6590f30f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9016654192856712744
 GameObject:
   m_ObjectHideFlags: 0

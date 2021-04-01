@@ -7,8 +7,11 @@ public class ModeSelectMenu : SimpleMenu<ModeSelectMenu>
 {
     delegate void AnimationComplete();
     private AnimationComplete animationComplete;
+
+    public Animator parentAnim;
     
     public void OnStoryPressed() {
+        parentAnim.SetTrigger("Exit");
         animationComplete += FileSelectMenu.Show;
     }
 

@@ -4,16 +4,17 @@
     <list default="true" id="13c280e0-af3a-4611-aaa1-1e3c4061726e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Demetabolizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Demetabolizer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Menu Animations/Main Menu/Login Screen.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Menu Animations/Main Menu/Login Screen.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LoginScreenMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LoginScreenMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Menu Animations/Main Menu/Mode Options/Mode Option.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Menu Animations/Main Menu/Mode Options/Mode Option.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ModeSelectMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ModeSelectMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/FileSelectMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/FileSelectMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/FileSelectMenu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/FileSelectMenu.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/LoginScreenMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/LoginScreenMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/LoginScreenMenu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/LoginScreenMenu.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/ModeSelectMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/ModeSelectMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/ModeSelectMenu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/ModeSelectMenu.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/MusicSelectMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/MusicSelectMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/MusicSelectMenu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MainMenu/MusicSelectMenu.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ui test scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ui test scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Renderers/Render Pipeline.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Renderers/Render Pipeline.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,19 +38,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/ModeSelectMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="286">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
               <folding>
-                <marker date="1617157798633" expanded="true" signature="6:111" ph="..." />
-                <marker date="1617157798633" expanded="true" signature="169:634" ph="{...}" />
-                <marker date="1617157798633" expanded="true" signature="298:355" ph="{...}" />
-                <marker date="1617157798633" expanded="true" signature="393:409" ph="{...}" />
-                <marker date="1617157798633" expanded="true" signature="446:462" ph="{...}" />
-                <marker date="1617157798633" expanded="true" signature="496:512" ph="{...}" />
-                <marker date="1617157798633" expanded="true" signature="555:632" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="6:111" ph="..." />
+                <marker date="1617300049814" expanded="true" signature="169:706" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="331:427" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="465:481" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="518:534" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="568:584" ph="{...}" />
+                <marker date="1617300049814" expanded="true" signature="627:704" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -128,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/LoginScreenMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="247">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <marker date="1617158433364" expanded="false" signature="6:169" ph="..." />
                 <marker date="1617158433364" expanded="true" signature="230:596" ph="{...}" />
@@ -140,16 +141,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/SwitchWindows.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="570">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
-                <marker date="1617157798654" expanded="false" signature="6:125" ph="..." />
-                <marker date="1617157798654" expanded="true" signature="178:1584" ph="{...}" />
-                <marker date="1617157798654" expanded="true" signature="189:1400" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
-                <marker date="1617157798654" expanded="true" signature="1512:1582" ph="{...}" />
+                <marker date="1617158542597" expanded="false" signature="6:125" ph="..." />
+                <marker date="1617158542597" expanded="true" signature="178:1591" ph="{...}" />
+                <marker date="1617158542597" expanded="true" signature="189:1400" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
+                <marker date="1617158542597" expanded="true" signature="1512:1589" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -382,9 +383,9 @@
         <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.uiextensions@2.2.4/Runtime/Scripts/MenuSystem/Menu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuState.cs" />
+        <option value="$PROJECT_DIR$/Assets/LoginScreenMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/SwitchWindows.cs" />
         <option value="$PROJECT_DIR$/Assets/ModeSelectMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/LoginScreenMenu.cs" />
       </list>
     </option>
   </component>
@@ -497,12 +498,12 @@
       <workItem from="1615493931241" duration="11458000" />
       <workItem from="1616090241742" duration="26701000" />
       <workItem from="1616432077485" duration="2502000" />
-      <workItem from="1617043745077" duration="13141000" />
+      <workItem from="1617043745077" duration="14552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="267434000" />
+    <option name="totallyTimeSpent" value="268845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1542,22 +1543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/ModeSelectMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <marker date="1617157798633" expanded="true" signature="6:111" ph="..." />
-            <marker date="1617157798633" expanded="true" signature="169:634" ph="{...}" />
-            <marker date="1617157798633" expanded="true" signature="298:355" ph="{...}" />
-            <marker date="1617157798633" expanded="true" signature="393:409" ph="{...}" />
-            <marker date="1617157798633" expanded="true" signature="446:462" ph="{...}" />
-            <marker date="1617157798633" expanded="true" signature="496:512" ph="{...}" />
-            <marker date="1617157798633" expanded="true" signature="555:632" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/FileSelectMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1588,6 +1573,32 @@
             <marker date="1604306507119" expanded="true" signature="1112:1262" ph="{...}" />
             <marker date="1604306507119" expanded="true" signature="1373:1414" ph="{...}" />
             <marker date="1604306507119" expanded="true" signature="1468:1785" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/LoginScreenMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <marker date="1617158433364" expanded="false" signature="6:169" ph="..." />
+            <marker date="1617158433364" expanded="true" signature="230:596" ph="{...}" />
+            <marker date="1617158433364" expanded="true" signature="382:478" ph="{...}" />
+            <marker date="1617158433364" expanded="true" signature="517:594" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/SwitchWindows.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <marker date="1617158542597" expanded="false" signature="6:125" ph="..." />
+            <marker date="1617158542597" expanded="true" signature="178:1591" ph="{...}" />
+            <marker date="1617158542597" expanded="true" signature="189:1400" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
+            <marker date="1617158542597" expanded="true" signature="1512:1589" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1630,28 +1641,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/LoginScreenMenu.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/ModeSelectMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="286">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
           <folding>
-            <marker date="1617158433364" expanded="false" signature="6:169" ph="..." />
-            <marker date="1617158433364" expanded="true" signature="230:596" ph="{...}" />
-            <marker date="1617158433364" expanded="true" signature="382:478" ph="{...}" />
-            <marker date="1617158433364" expanded="true" signature="517:594" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/SwitchWindows.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <marker date="1617157798654" expanded="false" signature="6:125" ph="..." />
-            <marker date="1617157798654" expanded="true" signature="178:1584" ph="{...}" />
-            <marker date="1617157798654" expanded="true" signature="189:1400" ph="/* OnStateEnter is called when a transition starts and the state machine starts to evaluate this state ... */" />
-            <marker date="1617157798654" expanded="true" signature="1512:1582" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="6:111" ph="..." />
+            <marker date="1617300049814" expanded="true" signature="169:706" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="331:427" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="465:481" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="518:534" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="568:584" ph="{...}" />
+            <marker date="1617300049814" expanded="true" signature="627:704" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82423d2246c05f4994cfc42f0a035ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyWhenClosed: 1
+  DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
 --- !u!1 &786710856966781971
 GameObject:
