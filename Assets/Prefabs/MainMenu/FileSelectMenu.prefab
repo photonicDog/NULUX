@@ -989,6 +989,7 @@ GameObject:
   - component: {fileID: 786710856863126562}
   - component: {fileID: 786710856863126563}
   - component: {fileID: 786710856863126560}
+  - component: {fileID: 4145007944163546666}
   m_Layer: 5
   m_Name: FileSelectMenu
   m_TagString: Untagged
@@ -1091,6 +1092,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
+--- !u!95 &4145007944163546666
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786710856863126566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0bc2042cb3cd574cb5510ad94f782c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &786710856966781971
 GameObject:
   m_ObjectHideFlags: 0
