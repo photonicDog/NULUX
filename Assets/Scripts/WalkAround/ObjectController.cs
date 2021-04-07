@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using Assets.Scripts.WalkAround.Objects.Implementations;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class ObjectController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ObjectController : MonoBehaviour
     public ObjectConfig config;
     public SpriteRenderer _renderer;
     private Vector3 _movement;
+
+    [FormerlySerializedAs("interactBubble")] public GameObject inpectBubble;
 
     private float idleTimer;
 
@@ -56,6 +59,10 @@ public class ObjectController : MonoBehaviour
     public void ResetIdle() {
         idleTimer = 0f;
     }
+
+    public void InspectBubble(bool enable) {
+        inpectBubble.SetActive(enable);
+    }
     
     void OnTriggerEnter(Collider collision)
     {
@@ -63,6 +70,7 @@ public class ObjectController : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out ObjectConfig conf)) {
             if (conf.IsLookable) {
                 conf.Look(config);
+                if (!conf.IsDoor) InspectBubble(true);
             }
             if (conf.IsInteractable) {
                 WalkaroundManager.Instance.ReadPotentialInteraction(conf);
@@ -77,6 +85,7 @@ public class ObjectController : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out ObjectConfig conf)) {
             if (conf.IsLookable) {
                 conf.Leave(config);
+                InspectBubble(false);
             }
             if (conf.HasInteractBubble) {
                 conf.interactBubble.gameObject.SetActive(false);

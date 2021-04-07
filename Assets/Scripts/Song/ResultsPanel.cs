@@ -114,7 +114,7 @@ public class ResultsPanel : SerializedMonoBehaviour {
     }
 
     public void LeaveSong() {
-        if (sm.isStoryMode) {
+        if (sm.isStoryMode && StoryModeGameManager.Instance != null) {
             foreach (GamestateFlag kv in sm.currentTrack.postSongFlags) {
                 StoryModeGameManager.Instance.SetGamestateFlag(kv.id, kv.flag);
             }

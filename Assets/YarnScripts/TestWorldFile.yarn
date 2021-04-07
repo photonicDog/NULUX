@@ -50,7 +50,7 @@ TEMP: I think I will talk to them twice, actually, no matter what they say to me
 title: GloomiLaunch
 tags: 
 colorID: 0
-position: -119,-426
+position: -514,531
 ---
 GLOOMI: I'm a test NPC. Talk to me again to launch into a song.
 TEMP: Neat!
@@ -59,9 +59,9 @@ TEMP: Neat!
 title: GloomiKeepGoing
 tags: 
 colorID: 0
-position: -118,-216
+position: -514,742
 ---
-GLOOMI: Okay, watch out for the battle.
+GLOOMI: Okay, we are launching into the song.
 TEMP+CONCERNED: Uh oh.
 <<customwait 1>>
 <<loadtrack Dogbite>>
@@ -102,7 +102,7 @@ NARRATOR: In a universe at its end.
 title: OpeningTest
 tags: 
 colorID: 0
-position: -924,248
+position: -923,246
 ---
 <<setbg color #111111 0>>
 <<setroom intro>>
@@ -111,31 +111,13 @@ position: -924,248
 <<setbgm mus_dramatube>>
 <<clearbg>>
 <<customwait 0.5>>
-???/DR.MELO: R4vyn, do you see what's out the window?
-???/R4VYN: Yes, Dr. Melodii. It's the Last Station, of course.
-???/R4VYN: Our home.
-DR.MELO: Above it, in the sky.
+???/DR.MELO: R4vyn, this opening cutscene is most certainly under construction.
+???/R4VYN: Yes, Dr. Melodii.
 <<switchcam CloserCam>>
-R4VYN: The Last Star.
-DR.MELO: And around it?
-R4VYN: Nothing. Empty space, forever.
-R4VYN: That's what last means, of course. No other ones.
-R4VYN: ...it really bothers you that much, huh?
-DR.MELO: Yes, well. We're used to it.
-DR.MELO: Imagine, as it were, living in a place where you could look up and see a thousand stars.
-DR.MELO: Dotting the skies in waves and spirals. Nebulae trapped in states of cosmic explosion.
-R4VYN: That sounds wild.
-R4VYN: And bright. You wouldn't be able to go outside.
-DR.MELO: No, but they'd be far away.
-DR.MELO: And very small, from our perspective.
-R4VYN: Then what's the point?
-DR.MELO: Well, around those stars, there might be planets, fed from those stars' energies.
-DR.MELO: And on those planets, life.
-DR.MELO: Free to roam thousands and thousands of miles, unconstrained by concrete walls and an artificial atmosphere.
-DR.MELO: Doesn't that sound grand, R4vyn? Doesn't that sound like a dream someone could dedicate their life to?
-R4VYN: I guess.
-R4VYN: I could see someone going through a lot of trouble to make that a reality.
-<<setbg color #111111 0>>
+R4VYN: There are assets that should be here that aren't.
+DR.MELO: Yes, absolutely.
+DR.MELO: As such, we'll have to content ourselves with the ones that are.
+<<setbg color #111111 1>>
 <<killbgm>>
 <<customwait 1>>
 <<setflag IntroComplete True>>
@@ -143,7 +125,7 @@ R4VYN: I could see someone going through a lot of trouble to make that a reality
 title: VSlice1
 tags: 
 colorID: 0
-position: -704,249
+position: -704,247
 ---
 <<setbg color #111111 0>>
 <<setroom temproom>>
@@ -155,51 +137,48 @@ position: -704,249
 <<customwait 1>>
 THINKING/TEMP: This post sucks. This post sucks. This post is... okay.. but this post sucks.
 NARRATOR: You continue to ambiently drag your thumbs across the touchscreen, as if this will change the quality of the contents rendered on them in any noticeable way.
-NARRATOR: It’s 12:00 PM and you haven’t gotten out of bed. Your shorts are noticeably stuck to your legs with sweat, not on account of the heat, but on account of the lack of movement.
+NARRATOR: It’s 12:00 PM and you haven’t gotten out of bed. Your pajama pants are noticeably stuck to your legs with sweat, not on account of the heat, but on account of the lack of movement.
 NARRATOR: You’re too uncomfortable to relax, and yet, you’re not even slightly motivated to try and find something worthwhile to do.
 NARRATOR: So here you are, scrolling through your social media as your eyes continue to adjust to the waking world.
-NARRATOR: Browsing. "Chilling". Waiting.
+NARRATOR: Browsing. <pause> “Chilling”. <pause> Waiting.
 THINKING/TEMP: I hate this app.
 NARRATOR: Your name is Temp, and you genuinely have nothing going on in your life.
-NARRATOR: You are 23 years old. Your sole personality trait is pretty much your enjoyment of ska music. You’re pretty alright at dancing.
-NARRATOR: You live with six other people in what could be generously referred to as a "frat house" based around your mutual enjoyment of ska music, which seems to be everyone else’s sole personality trait as well, which makes for riveting and surprisingly heated living room conversation.
-NARRATOR: Yeah. That's about it.
+NARRATOR: You are 23 years old. Your sole personality trait is pretty much your enjoyment of ska music. And that’s pretty much it.
 NARRATOR: You turn your phone screen off with an undeserved amount of frustration.
 THINKING/TEMP: This timeline womps. I’m gonna hit snooze an-
 <<playsfx sfx_skaphone>>
 NARRATOR: You then nearly drop your phone as it rings. You’ve got a call.
 <<switchsprite Bed phone>>
-TEMP: Huh?
-TEMP: Uh, hello?
+NARRATOR: You then nearly drop your phone as it vibrates. You’ve got a call.
+TEMP: Hello?
 ???/R4VYN: Is this Temp?
 TEMP: Yeah?
 ???/R4VYN: Ok, cool.
-TEMP: ...
+TEMP: Uh.
 ???/R4VYN: ...
-TEMP: Whooooo… is this...?
+TEMP: Whooooo... is this…?
 ???/R4VYN: Oh, uh. I’m R4vyn.
 R4VYN: With a 4.
 TEMP: Oh. Neat. 
-TEMP: Soooo…
-R4VYN: What is it?
-R4VYN: ...
-R4VYN: Oh, right.
+TEMP: Soooo...
 R4VYN: You’re wanted down at the labs. I’ll be there shortly to escort you down.
 TEMP: Huh?
-TEMP: Am I in trouble?
-R4VYN: No. Maybe? Depends.
-R4VYN: The doc wants you for a "very special opportunity".
-R4VYN: It’s really important, so... you should get over there as soon as possible.
+TEMP: What for?
+R4VYN: You’ve been selected for a “very special opportunity”. Handpicked by Dr. Melo itself.
+R4VYN: It’s really important, so you should get over there as soon as possible.
 TEMP: Alright.
 TEMP: I guess that’s fine.
 <<playsfx sfx_hangup>>
-TEMP: Good thing I sleep in my clothes...?
-<<setbg color #111111 0>>
+NARRATOR: The phone hangs up.
+NARRATOR: What does someone like Dr. Melo want with someone as unremarkable as you?
+<<setbg color #111111 1>>
 <<switchsprite Bed empty>>
 <<moveplayer PlayerSpawn>>
 <<switchcam TempRoomCam>>
-<<customwait 0.5>>
+<<customwait 1>>
 <<clearbg>>
+NARRATOR: You shuffle out of bed.
+TEMP: Good thing I sleep in my clothes...?
 <<setflag GameStarted True>>
 ===
 title: VSlice2
@@ -263,23 +242,23 @@ tags:
 colorID: 0
 position: -824,475
 ---
-<<setbg color #111111 0>>
+<<setbg color #111111 1>>
 <<setroom introhall>>
 <<switchcam ShortcutCam>>
 <<moveplayer shortcut_tblock>>
 <<spawnchar R4VYNH shortcut_rblock>>
 <<customwait 1>>
 <<clearbg>>
-R4VYNH: Hi.
-R4VYNH: Um.
-R4VYNH: I said I was going to escort you to the lab, but it doesn't currently exist.
-R4VYNH: How about we just do the tutorial right now?
-TEMP: You know, there's supposed to be a few more scenes before we get to the tutorial, right?
-TEMP+CONCERNED: Worldbuilding? That sort of thing?
-TEMP+CONCERNED: I wanted to do a cool elevator ride scene. Maybe meet another pair of major characters.
-R4VYNH: Yeah, but let's just skip to the tutorial.
-R4VYNH: Also, we're missing most of those assets. It's a whole lot of hallway.
-TEMP+CONCERNED: Usually you're not supposed to say what a demo is missing!
+R4VYNH: You must be Temp.
+TEMP: That’s me!
+TEMP: I’m guessing you’re R4vyn then? The one I spoke to a few minutes ago?
+R4VYNH: The very same. You’re smaller than I expected.
+TEMP: Yeah, I seem to get that a lot?
+TEMP+CONCERNED: Anyway... we should head down there pronto, if Dr. Melo wants us.
+R4VYNH: It was quite specific about getting us organized as soon as possible.
+NARRATOR: And that's all the final content we have.
+NARRATOR: Test dialogue incoming.
+R4VYNH: We're just going to skip to the tutorial.
 <<loadtrack Tutorial>>
 ===
 title: VSlicePostTutorial

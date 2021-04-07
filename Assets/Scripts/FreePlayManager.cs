@@ -1,57 +1,70 @@
 // FreePlayManager
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FreePlayManager : MonoBehaviour
 {
-    public static FreePlayManager Instance;
+    public Track selectedTrack;
+    public TrackBundle selectedBundle;
 
-    public Track prototypeTrack;
+    public int assumedDifficulty = 2;
+
+    public List<TrackBundle> songList;
+    public GameObject songListObject;
+
+    public GameObject songOptionPrefab;
+
+    public GameObject songCarrier;
+
+
+
+    [Header("UI")] public TextMeshProUGUI title;
+    public TextMeshProUGUI artist;
+    public TextMeshProUGUI bpm;
+    public TextMeshProUGUI release;
+    public List<Button> difficultySelector;
 
     private void Awake()
     {
-        Object.DontDestroyOnLoad(base.gameObject);
-        if (Instance == null)
-        {
-            Instance = this;
-            SceneManager.sceneLoaded += CheckDestroyableScene;
-        }
-        else
-        {
-            Debug.Log("Multiple FreePlayManager in the scene!");
-            Object.Destroy(base.gameObject);
+        foreach (TrackBundle tb in songList) {
+            tb.UpdateDifficulties();
+            GameObject sl = Instantiate(songOptionPrefab, songListObject.transform, false);
+            sl.GetComponent<FreePlaySongOption>().UpdateVisuals(tb);
+            sl.GetComponent<FreePlaySongOption>().UpdateAssumedDifficulty(assumedDifficulty);
         }
     }
 
-    private void Start()
-    {
+    public void SelectBundle(TrackBundle t) {
+        selectedBundle = t;
+        if (selectedBundle.GetTrack(assumedDifficulty, out selectedTrack)) UpdateUI();
     }
 
-    private void Update()
-    {
+    public void LaunchSong(Track t) {
+        selectedTrack = t;
+        Instantiate(songCarrier).GetComponent<SongLaunchCarrier>().Execute(selectedTrack);
+        LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync(2));
     }
 
-    private void CheckDestroyableScene(Scene s, LoadSceneMode ls)
-    {
-        if (s.buildIndex == 2 || s.buildIndex == 3)
-        {
-            SceneManager.sceneLoaded -= CheckDestroyableScene;
-            Object.Destroy(base.gameObject);
+    private void UpdateUI() {
+        title.text = selectedTrack.trackName;
+        artist.text = selectedTrack.artistName;
+        bpm.text = selectedTrack.bpm.ToString();
+        release.text = selectedTrack.releaseDate;
+
+        for (int i = 0; i < difficultySelector.Count; i++) {
+            difficultySelector[i].interactable = selectedBundle.availableDifficulties[i];
         }
     }
 
-    public void FreePlaySelect()
-    {
-        StartCoroutine(OnFreePlaySelect());
+    public void SetDifficulty(int i) {
+        assumedDifficulty = i;
     }
 
-    private IEnumerator OnFreePlaySelect()
-    {
-        while (!GameObject.Find("SongManager"))
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        GameObject.Find("SongManager").GetComponent<SongManager>().SetCurrentTrack(prototypeTrack);
+    public void UpdateList() {
+        
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine;
 public class Track : SerializedScriptableObject {
 
     [TitleGroup("Track Metadata")] public string trackName;
+    [TitleGroup("Track Metadata")] public string artistName;
     [TitleGroup("Track Metadata")] public string releaseDate;
     [TitleGroup("Track Metadata")] public string genre;
     [TitleGroup("Track Metadata")] public float bpm;

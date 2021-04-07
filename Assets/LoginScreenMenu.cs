@@ -20,4 +20,14 @@ public class LoginScreenMenu : SimpleMenu<LoginScreenMenu> {
         animationComplete.Invoke();
         animationComplete = null;
     }
+    
+    public override void OnBackPressed() {
+        StartCoroutine(DoEndGame());
+    }
+
+    private IEnumerator DoEndGame()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Application.Quit();
+    }
 }

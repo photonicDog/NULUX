@@ -5047,13 +5047,13 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2107124016}
-        m_TargetAssemblyTypeName: FreePlayManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: TempFreePlayManager, Assembly-CSharp
         m_MethodName: FreePlaySelect
         m_Mode: 1
         m_Arguments:
@@ -7777,10 +7777,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2107124015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1e6af33ed34f079feee3245301976d, type: 3}
+  m_Script: {fileID: 11500000, guid: f37ee4e3b4147dc44a9f8780785babcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prototypeTrack: {fileID: 11400000, guid: cc4c9c70855678e4a81162ca0f9f2acd, type: 2}
+  prototypeTrack: {fileID: 11400000, guid: 394684015aaa7a4438542a84231cb910, type: 2}
 --- !u!4 &2107124017
 Transform:
   m_ObjectHideFlags: 0

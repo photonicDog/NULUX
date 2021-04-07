@@ -22,7 +22,7 @@ public class ObjectProximityTrigger : MonoBehaviour {
         if (!objConfig.IsInteractable) return;
         if (other.gameObject.CompareTag("Player")) {
             GameObject playerObject = other.gameObject;
-            Debug.Log("Player object " + playerObject.name + " entered trigger!");
+            //Debug.Log("Player object " + playerObject.name + " entered trigger!");
             if (objConfig.IsCutsceneTrigger) {
                 foreach (KeyValuePair<string, bool> neg in objConfig.negateIf) {
                     if (StoryModeGameManager.Instance._gamestate.GetFlag(neg.Key) == neg.Value) return;

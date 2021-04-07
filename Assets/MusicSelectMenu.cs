@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI.Extensions;
 
-public class MusicSelectMenu : SimpleMenu<MusicSelectMenu>
-{
-    // Start is called before the first frame update
-    void Start()
-    {
+public class MusicSelectMenu : SimpleMenu<MusicSelectMenu> {
+    public int selectedDifficulty;
+    public void SetSongDifficulty(int difficulty) {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void GetAvailableSongDifficulty(TrackBundle tb) {
         
     }
+    
+    
 }

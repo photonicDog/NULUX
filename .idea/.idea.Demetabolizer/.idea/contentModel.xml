@@ -8,7 +8,9 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="FileSelectMenu.cs" t="Include" />
+        <e p="FreePlaySongOption.cs" t="Include" />
         <e p="HoldParticle.cs" t="Include" />
+        <e p="LoadIntoScene.cs" t="Include" />
         <e p="LoginScreenMenu.cs" t="Include" />
         <e p="ModeSelectMenu.cs" t="Include" />
         <e p="MusicSelectMenu.cs" t="Include" />
@@ -147,6 +149,7 @@
             <e p="CharacterTalksprites.cs" t="Include" />
             <e p="Gamestate.cs" t="Include" />
             <e p="Track.cs" t="Include" />
+            <e p="TrackBundle.cs" t="Include" />
             <e p="TrackLines.cs" t="Include" />
             <e p="WalkaroundNPCScenarioState.cs" t="Include" />
           </e>
@@ -171,6 +174,7 @@
             <e p="OffsetBar.cs" t="Include" />
             <e p="ReadPart.cs" t="Include" />
             <e p="ResultsPanel.cs" t="Include" />
+            <e p="SongLaunchCarrier.cs" t="Include" />
             <e p="SongManager.cs" t="Include" />
             <e p="SongUIManager.cs" t="Include" />
             <e p="WarningTelegraph.cs" t="Include" />
@@ -204,6 +208,7 @@
         <e p="SpriteToImage.cs" t="Include" />
         <e p="SwitchWindows.cs" t="Include" />
         <e p="TalkspriteController.cs" t="Include" />
+        <e p="TempFreePlayManager.cs" t="Include" />
         <e p="WalkaroundCamera.cs" t="Include" />
         <e p="WalkaroundCameraSwitcher.cs" t="Include" />
         <e p="Wireframe" t="Include">

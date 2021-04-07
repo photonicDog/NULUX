@@ -5,15 +5,11 @@ using UnityEngine.UI.Extensions;
 
 public class FileSelectMenu : SimpleMenu<FileSelectMenu>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Animator fileAnim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    delegate void AnimationComplete();
+    private AnimationComplete animationComplete;
+    public void OnFile() {
+        fileAnim.SetTrigger("Login");
     }
 }

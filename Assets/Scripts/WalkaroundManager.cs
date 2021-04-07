@@ -99,6 +99,7 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		if (context.started && currentInteractable != null)
 		{
 			sys.DeactivateInput();
+			sys.GetComponent<ObjectController>().InspectBubble(false);
 			if (currentInteractable.IsDialogueTrigger)
 			{
 				DialogueRunner.StartDialogue(currentInteractable.npcState.GetDialogueByState());
