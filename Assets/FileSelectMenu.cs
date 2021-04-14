@@ -12,6 +12,7 @@ public class FileSelectMenu : SimpleMenu<FileSelectMenu>
     public void OnFile() {
         fileAnim.SetTrigger("Exit");
         fileAnim.SetBool("ToStory", true);
+        BGMManager.Instance.KillAudio();
     }
 
     public override void OnBackPressed() {

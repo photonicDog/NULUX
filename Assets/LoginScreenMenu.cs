@@ -18,11 +18,6 @@ public class LoginScreenMenu : SimpleMenu<LoginScreenMenu> {
         loginAnim.SetTrigger("Login");
         animationComplete += ModeSelectMenu.Show;
         MenuCameraManager.Instance.SwitchCamera(1);
-        StartCoroutine(StartMusic());
-    }
-
-    IEnumerator StartMusic() {
-        yield return new WaitForSeconds(2f);
         BGMManager.Instance.PlayAudio("mus_title");
     }
 

@@ -27,5 +27,6 @@ public class MusicSelectMenu : SimpleMenu<MusicSelectMenu> {
     public void LaunchFreePlay() {
         selectAnim.SetTrigger("Exit");
         selectAnim.SetBool("ToSong", true);
+        BGMManager.Instance.KillAudio();
     }
 }

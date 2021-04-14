@@ -106,17 +106,34 @@ position: -923,246
 ---
 <<setbg color #111111 0>>
 <<setroom intro>>
+<<customwait 0.5>>
 <<switchcam IntroCam>>
+???/DR.MELO: The universe is dead.
+???/DR.MELO: Entropy has consumed all but one star.
+???/DR.MELO: Everything else is gone.
 <<customwait 0.5>> 
 <<setbgm mus_dramatube>>
 <<clearbg>>
 <<customwait 0.5>>
-???/DR.MELO: R4vyn, this opening cutscene is most certainly under construction.
-???/R4VYN: Yes, Dr. Melodii.
+???/DR.MELO: We’re the last wardens of the last light, and that light is fading.
 <<switchcam CloserCam>>
-R4VYN: There are assets that should be here that aren't.
-DR.MELO: Yes, absolutely.
-DR.MELO: As such, we'll have to content ourselves with the ones that are.
+<<customwait 0.5>> 
+???/DR.MELO: Initiating final small-scale NOVA interface test.
+<<playsfx sfx_melonova>>
+<<switchsprite Apple a1>>
+<<customwait 0.5>>
+<<switchsprite Apple a2>>
+<<customwait 0.5>> 
+<<switchsprite Apple a3>>
+<<customwait 0.5>> 
+???/DR.MELO: We do our best to turn back the clock, but we're just people.
+???/DR.MELO: People pouring oil into a single glass lantern.
+???/R4VYN: So what’s the point?
+???/DR.MELO: The "point?"
+???/DR.MELO: There's no "point" to fighting back. There's no "point" in not accepting death with grace.
+???/DR.MELO: It's just the right thing to do.
+???/DR.MELO: The only thing to do.
+???/DR.MELO: Refuse to die.
 <<setbg color #111111 1>>
 <<killbgm>>
 <<customwait 1>>
@@ -125,7 +142,7 @@ DR.MELO: As such, we'll have to content ourselves with the ones that are.
 title: VSlice1
 tags: 
 colorID: 0
-position: -704,247
+position: -710,245
 ---
 <<setbg color #111111 0>>
 <<setroom temproom>>
@@ -135,21 +152,18 @@ position: -704,247
 <<customwait 3>>
 <<clearbg>>
 <<customwait 1>>
-THINKING/TEMP: This post sucks. This post sucks. This post is... okay.. but this post sucks.
-NARRATOR: You continue to ambiently drag your thumbs across the touchscreen, as if this will change the quality of the contents rendered on them in any noticeable way.
+THINKING/TEMP: This post sucks. This post sucks. This post is... okay.. but *this* post sucks.
 NARRATOR: It’s 12:00 PM and you haven’t gotten out of bed. Your pajama pants are noticeably stuck to your legs with sweat, not on account of the heat, but on account of the lack of movement.
-NARRATOR: You’re too uncomfortable to relax, and yet, you’re not even slightly motivated to try and find something worthwhile to do.
-NARRATOR: So here you are, scrolling through your social media as your eyes continue to adjust to the waking world.
-NARRATOR: Browsing. <pause> “Chilling”. <pause> Waiting.
+NARRATOR: You’re too uncomfortable to relax, and yet, you’re not even slightly motivated to try and find something worthwhile to do that isn't scrolling through your social media.
+NARRATOR: So here you are.
+NARRATOR: Waiting for nothing.
 THINKING/TEMP: I hate this app.
 NARRATOR: Your name is Temp, and you genuinely have nothing going on in your life.
 NARRATOR: You are 23 years old. Your sole personality trait is pretty much your enjoyment of ska music. And that’s pretty much it.
-NARRATOR: You turn your phone screen off with an undeserved amount of frustration.
 THINKING/TEMP: This timeline womps. I’m gonna hit snooze an-
 <<playsfx sfx_skaphone>>
-NARRATOR: You then nearly drop your phone as it rings. You’ve got a call.
+NARRATOR: You then nearly drop your phone as it rings. You'’'ve got a call.
 <<switchsprite Bed phone>>
-NARRATOR: You then nearly drop your phone as it vibrates. You’ve got a call.
 TEMP: Hello?
 ???/R4VYN: Is this Temp?
 TEMP: Yeah?
@@ -159,12 +173,11 @@ TEMP: Uh.
 TEMP: Whooooo... is this…?
 ???/R4VYN: Oh, uh. I’m R4vyn.
 R4VYN: With a 4.
-TEMP: Oh. Neat. 
-TEMP: Soooo...
-R4VYN: You’re wanted down at the labs. I’ll be there shortly to escort you down.
+TEMP: Oh.
+R4VYN: You're wanted down at the labs. I'll be there shortly to escort you down.
 TEMP: Huh?
 TEMP: What for?
-R4VYN: You’ve been selected for a “very special opportunity”. Handpicked by Dr. Melo itself.
+R4VYN: You’ve been selected for a "very special opportunity. Handpicked by the station's lead scientist, Dr. Melo itself.
 R4VYN: It’s really important, so you should get over there as soon as possible.
 TEMP: Alright.
 TEMP: I guess that’s fine.
@@ -178,7 +191,7 @@ NARRATOR: What does someone like Dr. Melo want with someone as unremarkable as y
 <<customwait 1>>
 <<clearbg>>
 NARRATOR: You shuffle out of bed.
-TEMP: Good thing I sleep in my clothes...?
+TEMP: Let’s not keep it waiting, then.
 <<setflag GameStarted True>>
 ===
 title: VSlice2
@@ -240,7 +253,7 @@ UMBRA: Cutscene.
 title: VSliceShortcut
 tags: 
 colorID: 0
-position: -824,475
+position: -824,473
 ---
 <<setbg color #111111 1>>
 <<setroom introhall>>
@@ -249,16 +262,23 @@ position: -824,475
 <<spawnchar R4VYNH shortcut_rblock>>
 <<customwait 1>>
 <<clearbg>>
-R4VYNH: You must be Temp.
-TEMP: That’s me!
-TEMP: I’m guessing you’re R4vyn then? The one I spoke to a few minutes ago?
-R4VYNH: The very same. You’re smaller than I expected.
-TEMP: Yeah, I seem to get that a lot?
-TEMP+CONCERNED: Anyway... we should head down there pronto, if Dr. Melo wants us.
-R4VYNH: It was quite specific about getting us organized as soon as possible.
-NARRATOR: And that's all the final content we have.
+R4VYNH: There you are.
+R4VYNH: You must be Temp?
+TEMP: That’s... me?
+TEMP: I’m guessing you’re R4vyn then. The one I spoke to a few minutes ago?
+R4VYNH: The very same.
+R4VYNH: A pleasure to meet you.
+NARRATOR: R4vyn doesn't even ambiently try for a handshake, and just stands there awkwardly. You do the same, sort of.
+<<customwait 1>>
+NARRATOR: A beat passes.
+TEMP+CONCERNED: Anyway... we should head down to the labs ASAP, if Dr. Melo wants us.
+R4VYNH: It *was* quite specific about getting us organized as soon as possible.
+TEMP+CONCERNED: Do you know why us in particular?
+R4VYNH: ...
+R4VYNH: No clue.
+NARRATOR: And that's all the demo content we have.
 NARRATOR: Test dialogue incoming.
-R4VYNH: We're just going to skip to the tutorial.
+R4VYNH: We're just going to skip to the tutorial now I'm sorry.
 <<loadtrack Tutorial>>
 ===
 title: VSlicePostTutorial
@@ -297,11 +317,13 @@ THINKING/TEMP: I'm not very good at it.
 title: Fridge
 tags: 
 colorID: 0
-position: 899,244
+position: 888,260
 ---
 NARRATOR: You're happy to see that the fridge is fully stocked.
 NARRATOR: You actually maintain a healthy and balanced diet.
 NARRATOR: Consisting entirely of mozzarella sticks.
+TEMP: Mmm... treat...
+NARRATOR: You have things to do, though, so you close the fridge and move on.
 ===
 title: SkaGuy
 tags: 

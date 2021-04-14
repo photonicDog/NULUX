@@ -43,12 +43,13 @@ public class StoryModeGameManager : MonoBehaviour
 		}
 		
 		if (SceneManager.GetActiveScene().buildIndex == 1) Destroy(this.gameObject);
-		
-		_gamestate = UnityEngine.Object.Instantiate(gamestate);
-		SceneManager.sceneLoaded += GrabDialogueManager;
-		foreach (DialogueCondition flnode in flnodes)
-		{
-			_flnodes.Add(UnityEngine.Object.Instantiate(flnode));
+		else {
+			_gamestate = UnityEngine.Object.Instantiate(gamestate);
+			SceneManager.sceneLoaded += GrabDialogueManager;
+			foreach (DialogueCondition flnode in flnodes)
+			{
+				_flnodes.Add(UnityEngine.Object.Instantiate(flnode));
+			}
 		}
 	}
 
