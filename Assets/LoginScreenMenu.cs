@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI.Extensions;
 
@@ -10,10 +11,13 @@ public class LoginScreenMenu : SimpleMenu<LoginScreenMenu> {
 
     delegate void AnimationComplete();
     private AnimationComplete animationComplete;
+
+    public CinemachineVirtualCamera cam;
    
     public void OnLogin() {
         loginAnim.SetTrigger("Login");
         animationComplete += ModeSelectMenu.Show;
+        MenuCameraManager.Instance.SwitchCamera(1);
     }
 
     public void ExecuteOnAnimation() {

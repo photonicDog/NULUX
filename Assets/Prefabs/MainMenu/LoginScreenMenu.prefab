@@ -250,6 +250,7 @@ MonoBehaviour:
   DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
   loginAnim: {fileID: 7332249482525790970}
+  cam: {fileID: 0}
 --- !u!1 &7332249481695448582
 GameObject:
   m_ObjectHideFlags: 0

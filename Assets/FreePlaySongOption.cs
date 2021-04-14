@@ -20,16 +20,18 @@ public class FreePlaySongOption : MonoBehaviour {
         Track t;
         if (associatedTrack.GetTrack(assumedDifficulty, out t)) {
             diffText.text = t.difficulty.ToString();
-            trackName.text = t.trackName;
-            artistName.text = t.artistName;
         }
         else {
-            Destroy(this.gameObject);
+            diffText.text = "-";
         }
+
+        trackName.text = associatedTrack.trackName;
+        artistName.text = associatedTrack.artistName;
     }
 
-    public void UpdateAssumedDifficulty(int diff) {
+    public void UpdateAssumedDifficulty(int diff, TrackBundle newTrack = null) {
         assumedDifficulty = diff;
+        if (newTrack) associatedTrack = newTrack;
         
         UpdateVisuals(associatedTrack);
     }

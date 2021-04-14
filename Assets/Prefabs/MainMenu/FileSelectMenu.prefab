@@ -1092,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyWhenClosed: 0
   DisableMenusUnderneath: 1
+  fileAnim: {fileID: 4145007944163546666}
 --- !u!95 &4145007944163546666
 Animator:
   serializedVersion: 3

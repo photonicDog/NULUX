@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "TrackBundle", menuName = "ScriptableObjects/Charting/TrackBundle", order = 1)]
 public class TrackBundle : SerializedScriptableObject {
     public List<Track> associatedTracks;
     public List<bool> availableDifficulties;
+
+    public bool storyMode;
     
     [TitleGroup("Track Metadata")] public string trackName;
     [TitleGroup("Track Metadata")] public string artistName;
@@ -22,6 +24,8 @@ public class TrackBundle : SerializedScriptableObject {
         if (asscTrack.genre == null) asscTrack.genre = genre;
         if (asscTrack.albumPath == null) asscTrack.albumPath = albumPath;
         if (asscTrack.trackBGPath == null) asscTrack.trackBGPath = trackBGPath;
+
+        asscTrack.isStoryModeTrack = storyMode;
     }
 
     public bool GetTrack(int index, out Track t) {
@@ -32,6 +36,11 @@ public class TrackBundle : SerializedScriptableObject {
 
         t = null;
         return false;
+    }
+
+    public bool GetGeneric(out Track t) {
+        t = associatedTracks.Find(a => a != null);
+        return t != null;
     }
 
     public void UpdateDifficulties() {

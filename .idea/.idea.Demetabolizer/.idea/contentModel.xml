@@ -12,6 +12,7 @@
         <e p="HoldParticle.cs" t="Include" />
         <e p="LoadIntoScene.cs" t="Include" />
         <e p="LoginScreenMenu.cs" t="Include" />
+        <e p="MenuCameraManager.cs" t="Include" />
         <e p="ModeSelectMenu.cs" t="Include" />
         <e p="MusicSelectMenu.cs" t="Include" />
         <e p="Plugins" t="Include">
@@ -182,6 +183,7 @@
           <e p="SpriteBillboard.cs" t="Include" />
           <e p="SpriteScroller.cs" t="Include" />
           <e p="StoryModeGameManager.cs" t="Include" />
+          <e p="TrackList.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="UIGridRenderer.cs" t="Include" />
           </e>

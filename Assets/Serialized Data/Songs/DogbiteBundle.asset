@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c553d859abcf89f42a726df504f2d6c7, type: 3}
-  m_Name: Tutorial
+  m_Script: {fileID: 11500000, guid: a96d8a565eec32a43a21925fcf2c9abc, type: 3}
+  m_Name: DogbiteBundle
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,20 +21,17 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  trackName: Tutorial
-  releaseDate: 2021
-  genre: Tutorial
-  bpm: 110
-  difficulty: 1
+  associatedTracks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cc4c9c70855678e4a81162ca0f9f2acd, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  availableDifficulties: 0000010000
+  storyMode: 0
+  trackName: Dogbite
+  artistName: t+pazolite
+  releaseDate: 2020
+  genre: Hardcore
   albumPath: 
   trackBGPath: 
-  isStoryModeTrack: 1
-  songScenarioState: {fileID: 0}
-  yp: {fileID: 2480198943629176163, guid: 376d5f3b91017ea40aeec4306f4611c3, type: 3}
-  Audio: {fileID: 8300000, guid: f27ed82725df32641a4b19238c6c14ea, type: 3}
-  PathToChart: tut
-  Lines: {fileID: 11400000, guid: 2d04884f2fab1bf46a8f66ee2a2ee39d, type: 2}
-  Failable: 0
-  postSongFlags:
-  - id: Tutorialized
-    flag: 1

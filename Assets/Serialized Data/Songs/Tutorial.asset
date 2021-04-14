@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c553d859abcf89f42a726df504f2d6c7, type: 3}
-  m_Name: DogbiteGlow
+  m_Name: Tutorial
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,18 +21,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  trackName: Dogbite
-  releaseDate: 2020
-  genre: Huge
-  bpm: 195
-  difficulty: 5
+  trackName: Tutorial
+  artistName: NULUX SOUND TEAM
+  releaseDate: 2021
+  genre: Basics
+  bpm: 110
+  difficulty: 1
   albumPath: 
   trackBGPath: 
-  isStoryModeTrack: 0
+  isStoryModeTrack: 1
   songScenarioState: {fileID: 0}
-  yp: {fileID: 0}
-  Audio: {fileID: 8300000, guid: e323e43f066f4a9479fb4266a08ddeba, type: 3}
-  PathToChart: dogbite_chart_glow
-  Lines: {fileID: 11400000, guid: 57078af78e36efa4a98999dde0f0d4b8, type: 2}
+  yp: {fileID: 2480198943629176163, guid: 376d5f3b91017ea40aeec4306f4611c3, type: 3}
+  Audio: {fileID: 8300000, guid: f27ed82725df32641a4b19238c6c14ea, type: 3}
+  PathToChart: tut
+  Lines: {fileID: 11400000, guid: 2d04884f2fab1bf46a8f66ee2a2ee39d, type: 2}
   Failable: 0
-  postSongFlags: []
+  postSongFlags:
+  - id: Tutorialized
+    flag: 1

@@ -1,4 +1,6 @@
 // FreePlayManager
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,8 +24,9 @@ public class FreePlayManager : MonoBehaviour
 
 
 
-    [Header("UI")] public TextMeshProUGUI title;
+    [Header("UI")]
     public TextMeshProUGUI artist;
+    public TextMeshProUGUI genre;
     public TextMeshProUGUI bpm;
     public TextMeshProUGUI release;
     public List<Button> difficultySelector;
@@ -33,31 +36,62 @@ public class FreePlayManager : MonoBehaviour
         foreach (TrackBundle tb in songList) {
             tb.UpdateDifficulties();
             GameObject sl = Instantiate(songOptionPrefab, songListObject.transform, false);
-            sl.GetComponent<FreePlaySongOption>().UpdateVisuals(tb);
-            sl.GetComponent<FreePlaySongOption>().UpdateAssumedDifficulty(assumedDifficulty);
+            sl.GetComponent<FreePlaySongOption>().UpdateAssumedDifficulty(assumedDifficulty, tb);
         }
+        
+        SelectBundle(songList[0]);
     }
 
     public void SelectBundle(TrackBundle t) {
         selectedBundle = t;
-        if (selectedBundle.GetTrack(assumedDifficulty, out selectedTrack)) UpdateUI();
+        if (selectedBundle.GetTrack(assumedDifficulty, out selectedTrack)) {
+            UpdateUI();
+        }
+        else {
+            if (selectedBundle.GetGeneric(out selectedTrack))
+            UpdateUI();
+        }
     }
 
-    public void LaunchSong(Track t) {
-        selectedTrack = t;
+    public void LaunchSong() {
+        if (!selectedTrack) return;
         Instantiate(songCarrier).GetComponent<SongLaunchCarrier>().Execute(selectedTrack);
-        LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync(2));
+        GetComponent<MusicSelectMenu>().LaunchFreePlay();
     }
 
     private void UpdateUI() {
-        title.text = selectedTrack.trackName;
+        genre.text = selectedTrack.genre;
         artist.text = selectedTrack.artistName;
         bpm.text = selectedTrack.bpm.ToString();
         release.text = selectedTrack.releaseDate;
 
         for (int i = 0; i < difficultySelector.Count; i++) {
             difficultySelector[i].interactable = selectedBundle.availableDifficulties[i];
+            Track t;
+            if (selectedBundle.GetTrack(i, out t)) {
+                difficultySelector[i].GetComponentsInChildren<TextMeshProUGUI>()[1].text = t.difficulty.ToString();
+            }
+            else {
+                difficultySelector[i].GetComponentsInChildren<TextMeshProUGUI>()[1].text = "X";
+            }
         }
+
+        if (selectedBundle.GetTrack(assumedDifficulty, out selectedTrack)) {
+            difficultySelector[assumedDifficulty].Select();
+        }
+        else {
+            for (int i = 0; i < difficultySelector.Count; i++) {
+                if (selectedBundle.GetTrack(i, out selectedTrack)) {
+                    difficultySelector[i].Select();
+                    break;
+                }
+            }
+
+            if (!selectedTrack) {
+                throw new Exception("Something went wrong with selecting the default track.");
+            }
+        }
+
     }
 
     public void SetDifficulty(int i) {
@@ -67,4 +101,5 @@ public class FreePlayManager : MonoBehaviour
     public void UpdateList() {
         
     }
+
 }

@@ -11,11 +11,13 @@ public class ModeSelectMenu : SimpleMenu<ModeSelectMenu>
     public Animator parentAnim;
     
     public void OnStoryPressed() {
+        MenuCameraManager.Instance.SwitchCamera(2);
         parentAnim.SetTrigger("Exit");
         animationComplete += FileSelectMenu.Show;
     }
 
     public void OnFreePlayPressed() {
+        MenuCameraManager.Instance.SwitchCamera(3);
         parentAnim.SetTrigger("Exit");
         animationComplete += MusicSelectMenu.Show;
     }
@@ -25,8 +27,7 @@ public class ModeSelectMenu : SimpleMenu<ModeSelectMenu>
     }
 
     public void OnQuitPressed() {
-        parentAnim.SetTrigger("Exit");
-        animationComplete += FileSelectMenu.Show;
+
     }
 
     public override void OnBackPressed() {

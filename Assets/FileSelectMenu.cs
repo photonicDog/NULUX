@@ -10,6 +10,19 @@ public class FileSelectMenu : SimpleMenu<FileSelectMenu>
     delegate void AnimationComplete();
     private AnimationComplete animationComplete;
     public void OnFile() {
-        fileAnim.SetTrigger("Login");
+        fileAnim.SetTrigger("Exit");
+        fileAnim.SetBool("ToStory", true);
+    }
+
+    public override void OnBackPressed() {
+        MenuCameraManager.Instance.SwitchCamera(1);
+        fileAnim.SetTrigger("Exit");
+        fileAnim.SetBool("ToStory", false);
+        animationComplete += ModeSelectMenu.Show;
+    }
+    
+    public void ExecuteOnAnimation() {
+        animationComplete.Invoke();
+        animationComplete = null;
     }
 }
