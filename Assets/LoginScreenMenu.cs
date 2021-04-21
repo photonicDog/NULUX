@@ -32,7 +32,7 @@ public class LoginScreenMenu : SimpleMenu<LoginScreenMenu> {
 
     private IEnumerator DoEndGame()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         Application.Quit();
     }
 }

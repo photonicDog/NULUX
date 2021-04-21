@@ -8,6 +8,8 @@ public class WindowStateManager : MonoBehaviour
 
     public Animator endAnim;
 
+    public int CurrentScreen;
+
     private void Awake()
     {
         if (Instance == null)
