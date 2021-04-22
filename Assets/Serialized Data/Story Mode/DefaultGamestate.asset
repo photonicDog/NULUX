@@ -17,7 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 394684015aaa7a4438542a84231cb910, type: 2}
-    - {fileID: 11400000, guid: cc4c9c70855678e4a81162ca0f9f2acd, type: 2}
+    - {fileID: 11400000, guid: 6a17375b53fa3084187fc17362a40def, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -77,4 +77,6 @@ MonoBehaviour:
   - id: MetUmbra
     flag: 0
   - id: Tutorialized
+    flag: 0
+  - id: Gloomipilled
     flag: 0

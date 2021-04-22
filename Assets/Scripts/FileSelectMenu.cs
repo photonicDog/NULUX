@@ -19,6 +19,7 @@ public class FileSelectMenu : SimpleMenu<FileSelectMenu>
         MenuCameraManager.Instance.SwitchCamera(1);
         fileAnim.SetTrigger("Exit");
         fileAnim.SetBool("ToStory", false);
+        WindowStateManager.Instance.CurrentScreen = 1;
         animationComplete += ModeSelectMenu.Show;
     }
     

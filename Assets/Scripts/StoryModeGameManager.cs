@@ -55,7 +55,13 @@ public class StoryModeGameManager : MonoBehaviour
 
 	private void GrabDialogueManager(Scene scene, LoadSceneMode mode)
 	{
-		dl = GameObject.Find("Dialogue Runner").GetComponent<DialogueRunner>();
+		if (GameObject.Find("Dialogue Runner")) {
+			dl = GameObject.Find("Dialogue Runner").GetComponent<DialogueRunner>();
+		}
+		else {
+			Destroy(this.gameObject);
+		}
+
 	}
 
 	private void Update()

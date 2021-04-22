@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/_PRELOAD.unity
     guid: 017cbca40507d37408be4200207e6902
   - enabled: 1
-    path: Assets/Scenes/ui test scene.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: 99215e045e5cf5a41802a8aac172793d
   - enabled: 1
     path: Assets/Scenes/Walkaround.unity

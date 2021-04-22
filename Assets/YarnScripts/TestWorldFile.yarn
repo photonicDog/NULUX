@@ -183,15 +183,15 @@ TEMP: Alright.
 TEMP: I guess that’s fine.
 <<playsfx sfx_hangup>>
 NARRATOR: The phone hangs up.
-NARRATOR: What does someone like Dr. Melo want with someone as unremarkable as you?
+NARRATOR: It leaves a hollow silence.
 <<setbg color #111111 1>>
 <<switchsprite Bed empty>>
 <<moveplayer PlayerSpawn>>
 <<switchcam TempRoomCam>>
 <<customwait 1>>
 <<clearbg>>
-NARRATOR: You shuffle out of bed.
-TEMP: Let’s not keep it waiting, then.
+NARRATOR: You shuffle out of bed and put on your people face.
+TEMP: Let’s not keep them waiting, then.
 <<setflag GameStarted True>>
 ===
 title: VSlice2
@@ -335,4 +335,27 @@ NARRATOR: You and a few friends dug this huge standee out of the trash a few yea
 NARRATOR: The guy has been keeping a silent mid-skank vigil over your living room ever since.
 NARRATOR: He looks...
 THINKING/TEMP: Ancient.
+===
+title: GloomiPostGame
+tags: 
+colorID: 0
+position: -514,955
+---
+<<setbg color #111111 0>>
+<<setroom introhall>>
+<<switchcam EntrywayCam>>
+<<moveplayer gloom_tblock>>
+<<customwait 1>>
+<<despawnchar R4VYNH>>
+<<clearbg>>
+<<setnpcstate Gloomi 2>>
+GLOOMI: You did it.
+GLOOMI: That's the end of the game.
+===
+title: Gloomi3
+tags: 
+colorID: 0
+position: -299,952
+---
+GLOOMI: I have no more dialogue.
 ===

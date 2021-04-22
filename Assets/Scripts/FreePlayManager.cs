@@ -24,7 +24,7 @@ public class FreePlayManager : MonoBehaviour
 
 
 
-    [Header("UI")]
+    [Header("UI")] public TextMeshProUGUI title;
     public TextMeshProUGUI artist;
     public TextMeshProUGUI genre;
     public TextMeshProUGUI bpm;
@@ -60,6 +60,7 @@ public class FreePlayManager : MonoBehaviour
     }
 
     private void UpdateUI() {
+        title.text = selectedTrack.trackName;
         genre.text = selectedTrack.genre;
         artist.text = selectedTrack.artistName;
         bpm.text = selectedTrack.bpm.ToString();

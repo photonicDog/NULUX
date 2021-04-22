@@ -7,15 +7,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="FileSelectMenu.cs" t="Include" />
-        <e p="FreePlaySongOption.cs" t="Include" />
-        <e p="HoldParticle.cs" t="Include" />
-        <e p="LoadIntoScene.cs" t="Include" />
-        <e p="LoginScreenMenu.cs" t="Include" />
-        <e p="MainMenuBarController.cs" t="Include" />
-        <e p="MenuCameraManager.cs" t="Include" />
-        <e p="ModeSelectMenu.cs" t="Include" />
-        <e p="MusicSelectMenu.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">
@@ -134,19 +125,26 @@
           <e p="DialogueTalkspriterSong.cs" t="Include" />
           <e p="DialogueUIDemetabolizer.cs" t="Include" />
           <e p="Door.cs" t="Include" />
+          <e p="FileSelectMenu.cs" t="Include" />
           <e p="FreePlayManager.cs" t="Include" />
+          <e p="FreePlaySongOption.cs" t="Include" />
+          <e p="HoldParticle.cs" t="Include" />
           <e p="ImageAssetKey.cs" t="Include" />
           <e p="LightController.cs" t="Include" />
           <e p="LoadingScreen.cs" t="Include" />
+          <e p="LoadIntoScene.cs" t="Include" />
+          <e p="LoginScreenMenu.cs" t="Include" />
+          <e p="MainMenuBarController.cs" t="Include" />
+          <e p="MenuCameraManager.cs" t="Include" />
           <e p="MenuOptionBox.cs" t="Include" />
-          <e p="MenuSystem.cs" t="Include" />
+          <e p="ModeSelectMenu.cs" t="Include" />
+          <e p="MusicSelectMenu.cs" t="Include" />
           <e p="NPCState.cs" t="Include" />
           <e p="ObjectProximityTrigger.cs" t="Include" />
           <e p="ParallaxBG.cs" t="Include" />
           <e p="PreloadScene.cs" t="Include" />
           <e p="Room.cs" t="Include" />
           <e p="SceneTransitioner.cs" t="Include" />
-          <e p="SceneTransitionSetup.cs" t="Include" />
           <e p="ScriptableObject" t="Include">
             <e p="CharacterTalksprites.cs" t="Include" />
             <e p="Gamestate.cs" t="Include" />
@@ -183,7 +181,11 @@
           </e>
           <e p="SpriteBillboard.cs" t="Include" />
           <e p="SpriteScroller.cs" t="Include" />
+          <e p="SpriteToImage.cs" t="Include" />
           <e p="StoryModeGameManager.cs" t="Include" />
+          <e p="SwitchWindows.cs" t="Include" />
+          <e p="TalkspriteController.cs" t="Include" />
+          <e p="TempFreePlayManager.cs" t="Include" />
           <e p="TrackList.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="UIGridRenderer.cs" t="Include" />
@@ -196,9 +198,12 @@
               </e>
             </e>
           </e>
+          <e p="WalkaroundCamera.cs" t="Include" />
+          <e p="WalkaroundCameraSwitcher.cs" t="Include" />
           <e p="WalkaroundManager.cs" t="Include" />
           <e p="WindowStateManager.cs" t="Include" />
         </e>
+        <e p="SettingsMenuController.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="FlatTransparent.shader" t="Include" />
         </e>
@@ -208,12 +213,6 @@
           </e>
         </e>
         <e p="SpriteSwitcher.cs" t="Include" />
-        <e p="SpriteToImage.cs" t="Include" />
-        <e p="SwitchWindows.cs" t="Include" />
-        <e p="TalkspriteController.cs" t="Include" />
-        <e p="TempFreePlayManager.cs" t="Include" />
-        <e p="WalkaroundCamera.cs" t="Include" />
-        <e p="WalkaroundCameraSwitcher.cs" t="Include" />
         <e p="Wireframe" t="Include">
           <e p="Shaders" t="Include">
             <e p="Resources" t="Include">
