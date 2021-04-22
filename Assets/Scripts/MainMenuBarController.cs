@@ -12,7 +12,7 @@ public class MainMenuBarController : MonoBehaviour {
     public MenuManager mm;
 
     private void Awake() {
-        mm.OpenMenu(mm.MenuScreens[WindowStateManager.Instance.CurrentScreen]);
+        //mm.OpenMenu(mm.MenuScreens[WindowStateManager.Instance.CurrentScreen]);
     }
 
     private void Update() {
