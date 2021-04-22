@@ -14,7 +14,7 @@ public class SettingsMenuController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        offsetText.text = SettingsManager.Instance.userOffset.ToString();
+        offsetText.text = SettingsManager.Instance.userOffset.ToString() + " ms";
     }
 
     public void ChangeOffset(int i) {
