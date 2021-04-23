@@ -18,7 +18,7 @@ public class CutsceneFG : MonoBehaviour {
         img.enabled = true;
         img.color = Color.white;
         img.sprite = s;
-        transform.position = new Vector2(x * 1920, y * 1080);
+        //transform.position = new Vector2(x * 1920, y * 1080);
     }
 
     public void ClearFG() {
