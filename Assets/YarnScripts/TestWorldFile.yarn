@@ -162,7 +162,7 @@ NARRATOR: Your name is Temp, and you genuinely have nothing going on in your lif
 NARRATOR: You are 23 years old. Your sole personality trait is pretty much your enjoyment of ska music. And that’s pretty much it.
 THINKING/TEMP: This timeline womps. I’m gonna hit snooze an-
 <<playsfx sfx_skaphone>>
-NARRATOR: You then nearly drop your phone as it rings. You'’'ve got a call.
+NARRATOR: You then nearly drop your phone as it rings. You've got a call.
 <<switchsprite Bed phone>>
 TEMP: Hello?
 ???/R4VYN: Is this Temp?
