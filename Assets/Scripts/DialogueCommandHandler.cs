@@ -139,7 +139,13 @@ public class DialogueCommandHandler : MonoBehaviour {
         float y = float.Parse(parameters[2]);
         float w = 0;
         float h = 0;
-        CutsceneFg.SetFG(WalkaroundManager.Instance.fgImages.LookupAsset(parameters[0]), x, y, w, h);
+        if (WalkaroundManager.Instance != null) {
+            CutsceneFg.SetFG(WalkaroundManager.Instance.fgImages.LookupAsset(parameters[0]), x, y, w, h);
+        }
+        else {
+            CutsceneFg.SetFG(SongManager.Instance.currentTrack.imgKey.LookupAsset(parameters[0]), x, y, w, h);
+        }
+
     }
 
     void ClearFG(string[] parameters) {

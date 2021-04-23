@@ -44,8 +44,10 @@ public class ResultsPanel : SerializedMonoBehaviour {
         resultsScreen.SetActive(true);
         noteResults = SongManager.Instance.noteResults;
         ShowScore(score);
-        ShowOffsetsFrequency(SongManager.Instance.recordedData);
-        ShowOffsetsTime(SongManager.Instance.recordedData);
+        if (SongManager.Instance.recordedData.Count > 2) {
+            ShowOffsetsFrequency(SongManager.Instance.recordedData);
+            ShowOffsetsTime(SongManager.Instance.recordedData);
+        }
         
         ui.SetSelectedGameObject(continueButton);
     }
@@ -56,8 +58,9 @@ public class ResultsPanel : SerializedMonoBehaviour {
         foreach (var res in noteResults) {
             resultText[res.Key].text = res.Value.ToString();
         }
-        
-        if (score < 700000) rankResult.text = "D";
+
+        if (score < 1000) rankResult.text = "you didn't";
+        if (score > 1000) rankResult.text = "D";
         if (score > 700000) rankResult.text = "C";
         if (score > 800000) rankResult.text = "B";
         if (score > 900000) rankResult.text = "A";

@@ -32,6 +32,7 @@ MonoBehaviour:
   isStoryModeTrack: 1
   songScenarioState: {fileID: 0}
   yp: {fileID: 2480198943629176163, guid: 376d5f3b91017ea40aeec4306f4611c3, type: 3}
+  imgKey: {fileID: 11400000, guid: 12ce15280d68376479bb15c18e07a9b3, type: 2}
   Audio: {fileID: 8300000, guid: f27ed82725df32641a4b19238c6c14ea, type: 3}
   PathToChart: tut
   Lines: {fileID: 11400000, guid: 2d04884f2fab1bf46a8f66ee2a2ee39d, type: 2}

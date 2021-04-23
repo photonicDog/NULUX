@@ -19,6 +19,7 @@ public class Track : SerializedScriptableObject {
     [TitleGroup("Story Mode Metadata")] public bool isStoryModeTrack;
     [TitleGroup("Story Mode Metadata")] public WalkaroundNPCScenarioState songScenarioState;
     [TitleGroup("Story Mode Metadata")] public YarnProgram yp;
+    [TitleGroup("Story Mode Metadata")] public ImageAssetKey imgKey;
 
     [TitleGroup("Track Parameters")] public AudioClip Audio;
     [TitleGroup("Track Parameters")] public string PathToChart;
