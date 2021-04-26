@@ -26,6 +26,7 @@ public class NOVANote : SerializedMonoBehaviour {
 
     private HoldParticle _holdBurn;
     private float _distanceIntoHold;
+    private Vector2 _endPosition;
 
     public bool activated;
     public bool mobileNote;
@@ -33,7 +34,9 @@ public class NOVANote : SerializedMonoBehaviour {
     public void Initialize(Note n, List<LineDataCommand> lc) {
         note = n;
         cmds = lc;
-        
+        mobileNote = lc[0].data.Mobile;
+        _endPosition = lc[0].GetNotePosition(note.Start, note.Position, false);
+
         currentVisualSet = visualSets[(int)note.NoteType];
         head.sprite = currentVisualSet.head;
         telegraphSprite.sprite = currentVisualSet.telegraph;
@@ -55,7 +58,7 @@ public class NOVANote : SerializedMonoBehaviour {
 
     private void Update() {
         if (activated && mobileNote) {
-            transform.position = CalculateMovingNotePosition();
+            transform.position = CalculateNotePosition();
         }
     }
 
@@ -76,8 +79,8 @@ public class NOVANote : SerializedMonoBehaviour {
         }
     }
 
-    public void PlaceNote(NOVALine nl) {
-        activated = cmds[0].data.Mobile;
+    public void PlaceNote(NOVALine nl)
+    {
         transform.position = CalculateNotePosition();
     }
 
@@ -101,7 +104,7 @@ public class NOVANote : SerializedMonoBehaviour {
 
     public void AnimateHold(float currentTime) {
         LineDataCommand ldc = DetermineCurrentCMD(currentTime);
-        Vector2 cursorPosition = ldc.GetNotePosition(currentTime, note.Position);
+        Vector2 cursorPosition = ldc.GetNotePosition(currentTime, note.Position, mobileNote);
         head.gameObject.transform.position = cursorPosition;
         _holdBurn.gameObject.transform.position = cursorPosition;
     }
@@ -111,32 +114,9 @@ public class NOVANote : SerializedMonoBehaviour {
     }
     
     public Vector2 CalculateNotePosition() {
-        Vector2 res = new Vector2();
+        var currentTime = note.Start;
 
-        res = cmds[0].GetNotePosition(note.Start, note.Position);
-
-        if (note.Duration > 0) {
-            tailRenderer.positionCount = 21;
-            Vector2 incrementalPosition = Vector2.zero;
-            int lineAccumulator = 0;
-            for (int i = 0; i <= 20; i++) {
-                float increment = Mathf.Lerp(note.Start, note.Start + note.Duration, (float)i / 20f);
-                if (increment > cmds[lineAccumulator].endTime) lineAccumulator++;
-                if (lineAccumulator >= cmds.Count) lineAccumulator--;
-                incrementalPosition = cmds[lineAccumulator].GetNotePosition(increment, note.Position);
-                tailRenderer.SetPosition(i, incrementalPosition + new Vector2(0, 0.001f));
-            }
-
-            cap.gameObject.transform.localPosition = incrementalPosition - res;
-        }
-        
-        return res;
-    }
-    
-    public Vector2 CalculateMovingNotePosition() {
-        Vector2 res = new Vector2();
-
-        res = cmds[0].GetMobileNotePosition(note.Start + (note.Start + note.Duration) - Conductor.Instance.GetSongTime(), note.Position);
+        var res = cmds[0].GetNotePosition(currentTime, note.Position, mobileNote);
 
         if (note.Duration > 0) {
             tailRenderer.positionCount = 21;
@@ -146,13 +126,18 @@ public class NOVANote : SerializedMonoBehaviour {
                 float increment = Mathf.Lerp(note.Start, note.Start + note.Duration, (float)i / 20f);
                 if (increment > cmds[lineAccumulator].endTime) lineAccumulator++;
                 if (lineAccumulator >= cmds.Count) lineAccumulator--;
-                incrementalPosition = cmds[lineAccumulator].GetNotePosition(increment, note.Position);
+                incrementalPosition = cmds[lineAccumulator].GetNotePosition(increment, note.Position, mobileNote);
                 tailRenderer.SetPosition(i, incrementalPosition + new Vector2(0, 0.001f));
             }
 
             cap.gameObject.transform.localPosition = incrementalPosition - res;
         }
-        
+
+        if (mobileNote)
+        {
+            res += _endPosition;
+        }
+
         return res;
     }
 

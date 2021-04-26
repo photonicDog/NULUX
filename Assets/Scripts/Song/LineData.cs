@@ -31,29 +31,20 @@ public class LineData {
     [GUIColor(0.9f, 0.2f, 0.9f, 1f)] [HorizontalGroup("Animation/Mobility/Selector")] [LabelText("Mobility")] public bool Mobile;
     
     [VerticalGroup("Misc")]
-    [BoxGroup("Misc/Stationary")] public bool stationary;
     [BoxGroup("Misc/Telegraphing")] public float warnTime;
     [BoxGroup("Misc/Telegraphing")] public float fadeLength;
     [BoxGroup("Misc/TypeData")] public int index;
-    [BoxGroup("Misc/TypeData")]public LineStyle Style = LineStyle.NULL; 
+    [BoxGroup("Misc/TypeData")] public LineStyle Style = LineStyle.NULL; 
     
     [ShowIfGroup("Animation/Mobile")]
     [BoxGroup("Animation/Mobile/Movement")] 
-    [HorizontalGroup("Animation/Mobile/Movement/X")] [LabelText("Constant X")] public bool dataConstPosX;
-    [HorizontalGroup("Animation/Mobile/Movement/X")] [HideLabel] [ShowIf("dataConstPosX")] public float DataPosX;
-    [HorizontalGroup("Animation/Mobile/Movement/X")] [HideLabel] [HideIf("dataConstPosX")] public AnimationCurve DataPosXCurve;
+    [HorizontalGroup("Animation/Mobile/Movement/X")] [LabelText("Constant X")] public bool mobileConstPosX;
+    [HorizontalGroup("Animation/Mobile/Movement/X")] [HideLabel] [ShowIf("mobileConstPosX")] public float MobilePosX;
+    [HorizontalGroup("Animation/Mobile/Movement/X")] [HideLabel] [HideIf("mobileConstPosX")] public AnimationCurve MobilePosXCurve;
     
-    [HorizontalGroup("Animation/Mobile/Movement/Y")] [LabelText("Constant Y")] public bool dataConstPosY;
-    [HorizontalGroup("Animation/Mobile/Movement/Y")] [HideLabel] [ShowIf("dataConstPosY")] public float DataPosY;
-    [HorizontalGroup("Animation/Mobile/Movement/Y")] [HideLabel] [HideIf("dataConstPosY")] public AnimationCurve DataPosYCurve;
-    [BoxGroup("Animation/Mobile/Size")] 
-    [HorizontalGroup("Animation/Mobile/Size/Selector")][LabelText("Constant Size")] public bool dataConstSize;
-    [HorizontalGroup("Animation/Mobile/Size/Selector")] [HideLabel] [ShowIf("dataConstSize")] public float DataSize;
-    [HorizontalGroup("Animation/Mobile/Size/Selector")] [HideLabel] [HideIf("dataConstSize")] public AnimationCurve DataSizeCurve;
-    [BoxGroup("Animation/Mobile/Direction")] 
-    [HorizontalGroup("Animation/Mobile/Direction/Selector")] [LabelText("Constant Direction")] public bool dataConstDirection;
-    [HorizontalGroup("Animation/Mobile/Direction/Selector")] [HideLabel] [ShowIf("dataConstDirection")] public float DataDirection;
-    [HorizontalGroup("Animation/Mobile/Direction/Selector")] [HideLabel] [HideIf("dataConstDirection")] public AnimationCurve DataDirectionCurve;
+    [HorizontalGroup("Animation/Mobile/Movement/Y")] [LabelText("Constant Y")] public bool mobileConstPosY;
+    [HorizontalGroup("Animation/Mobile/Movement/Y")] [HideLabel] [ShowIf("mobileConstPosY")] public float MobilePosY;
+    [HorizontalGroup("Animation/Mobile/Movement/Y")] [HideLabel] [HideIf("mobileConstPosY")] public AnimationCurve MobilePosYCurve;
 }
 
 public class LineDataCommand {
@@ -67,127 +58,124 @@ public class LineDataCommand {
         this.endTime = endTime;
     }
 
-    public LineState CalculateLineState(float currentBeat) {
-        LineState res = new LineState();
+    public LineState CalculateLineState(float currentBeat)
+    {
+        var res = new LineState();
 
-        if (currentBeat < startTime) {
+        if (currentBeat < startTime)
+        {
             // Lead-in interp math.
             float leadInTime = ((currentBeat - startTime) / (endTime - startTime));
 
             float currentDir = data.constDirection ? data.Direction : CurveExtrap(data.DirectionCurve, leadInTime);
             float currentScale = data.constSize ? data.Size : CurveExtrap(data.SizeCurve, leadInTime);
             Vector2 positionVector = new Vector2(
-                data.constPosX ? data.PosX : CurveExtrap(data.PosXCurve, leadInTime), 
+                data.constPosX ? data.PosX : CurveExtrap(data.PosXCurve, leadInTime),
                 data.constPosY ? data.PosY : CurveExtrap(data.PosYCurve, leadInTime)
-            );  
-            
+            );
+
             Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
 
             res.position = positionVector;
             res.rotation = rotationVector;
             res.scale = currentScale;
         }
-        else {
+        else
+        {
             // Get values based on if they're constant or evaluate at time.
             float normalTime = Mathf.InverseLerp(startTime, endTime, currentBeat);
             float currentDir = data.constDirection ? data.Direction : data.DirectionCurve.Evaluate(normalTime);
             float currentScale = data.constSize ? data.Size : data.SizeCurve.Evaluate(normalTime);
             Vector2 positionVector = new Vector2(
-                data.constPosX ? data.PosX : data.PosXCurve.Evaluate(normalTime), 
+                data.constPosX ? data.PosX : data.PosXCurve.Evaluate(normalTime),
                 data.constPosY ? data.PosY : data.PosYCurve.Evaluate(normalTime)
-            );  
-        
+            );
+
             Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
 
             res.position = positionVector;
             res.rotation = rotationVector;
             res.scale = currentScale;
 
- 
+
         }
         return res;
     }
 
-    public LineState CalculateMobileLineState(float currentBeat) {
-        LineState res = new LineState();
-        LineState parent = CalculateLineState(currentBeat);
-        if (currentBeat < startTime) {
+    public LineState CalculateMobileLineState(float currentBeat)
+    {
+        var res = new LineState();
+        if (currentBeat < startTime)
+        {
             // Lead-in interp math.
             float leadInTime = ((currentBeat - startTime) / (endTime - startTime));
-
-            float currentDir = data.dataConstDirection ? data.DataDirection : CurveExtrap(data.DataDirectionCurve, leadInTime);
-            float currentScale = data.dataConstSize ? data.DataSize : CurveExtrap(data.DataSizeCurve, leadInTime);
             Vector2 positionVector = new Vector2(
-                data.dataConstPosX ? data.DataPosX : CurveExtrap(data.DataPosXCurve, leadInTime), 
-                data.dataConstPosY ? data.DataPosY : CurveExtrap(data.DataPosYCurve, leadInTime)
-            );  
-            
-            Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
+                data.mobileConstPosX ? data.MobilePosX : CurveExtrap(data.MobilePosXCurve, leadInTime),
+                data.mobileConstPosY ? data.MobilePosY : CurveExtrap(data.MobilePosYCurve, leadInTime)
+            );
 
             res.position = positionVector;
-            res.rotation = rotationVector;
-            res.scale = currentScale;
         }
-        else {
+        else
+        {
             // Get values based on if they're constant or evaluate at time.
-            float normalTime = Mathf.InverseLerp(startTime, endTime, currentBeat);
-            float currentDir = data.dataConstDirection ? data.DataDirection : data.DataDirectionCurve.Evaluate(normalTime);
-            float currentScale = data.dataConstSize ? data.DataSize : data.DataSizeCurve.Evaluate(normalTime);
+            var time = Conductor.Instance.GetSongTime();
+            float normalTime = Mathf.InverseLerp(currentBeat - data.fadeLength, currentBeat, time);
             Vector2 positionVector = new Vector2(
-                data.dataConstPosX ? data.DataPosX : data.DataPosXCurve.Evaluate(normalTime), 
-                data.dataConstPosY ? data.DataPosY : data.DataPosYCurve.Evaluate(normalTime)
-            );  
-        
-            Quaternion rotationVector = Quaternion.Euler(0f, 0f, 0f - currentDir);
+                data.mobileConstPosX ? data.MobilePosX : data.MobilePosXCurve.Evaluate(normalTime),
+                data.mobileConstPosY ? data.MobilePosY : data.MobilePosYCurve.Evaluate(normalTime)
+            );
 
             res.position = positionVector;
-            res.rotation = rotationVector;
-            res.scale = currentScale;
         }
 
-        res.position += parent.position;
-        res.rotation = Quaternion.Euler(res.rotation.eulerAngles + parent.rotation.eulerAngles);
-        res.scale *= parent.scale;
-        
         return res;
     }
 
-    public Vector2 GetNotePosition(float noteBeat, float pos) {
-        LineState line = CalculateLineState(noteBeat);
+    public Vector2 GetNotePosition(float noteBeat, float pos, bool isMobile) {
+        if(isMobile)
+        {
+            LineState line = CalculateMobileLineState(noteBeat);
 
-        float correctedPosPct = (pos - (data.Style != LineStyle.CIRCLE?50f:25f)) * 2f;
+            float correctedPosPct = (pos - (data.Style != LineStyle.CIRCLE ? 50f : 25f)) * 2f;
 
-        if (data.Style == LineStyle.STRAIGHT) {
-            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f) / 2;
-            return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position ;
-        }
-        
-        if (data.Style == LineStyle.CIRCLE) {
-            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f);
-            return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
-        }
-        
-        Vector2 angle = Quaternion.Euler(0, 0, -(pos/100) * 360f) * Vector3.down;
-        return angle * line.scale + line.position;
-    }
+            if (data.Style == LineStyle.STRAIGHT)
+            {
+                Vector2 upwardPosition = Vector2.up * (correctedPosPct / 100f) / 2;
+                return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
+            }
 
-    public Vector2 GetMobileNotePosition(float currentBeat, float pos) {
-        LineState dataLine = CalculateMobileLineState(currentBeat);
-        
-        float correctedPosPct = (pos - (data.Style != LineStyle.CIRCLE?50f:25f)) * 2f;
-        
-        if (data.Style == LineStyle.STRAIGHT) {
-            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f) / 2;
-            return (Vector2)(dataLine.rotation * (upwardPosition * dataLine.scale)) + dataLine.position ;
+            if (data.Style == LineStyle.CIRCLE)
+            {
+                Vector2 upwardPosition = Vector2.up * (correctedPosPct / 100f);
+                return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
+            }
+
+            Vector2 angle = Quaternion.Euler(0, 0, -(pos / 100) * 360f) * Vector3.down;
+            return angle * line.scale + line.position;
+
+        } else
+        {
+            LineState line = CalculateLineState(noteBeat);
+
+            float correctedPosPct = (pos - (data.Style != LineStyle.CIRCLE ? 50f : 25f)) * 2f;
+
+            if (data.Style == LineStyle.STRAIGHT)
+            {
+                Vector2 upwardPosition = Vector2.up * (correctedPosPct / 100f) / 2;
+                return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
+            }
+
+            if (data.Style == LineStyle.CIRCLE)
+            {
+                Vector2 upwardPosition = Vector2.up * (correctedPosPct / 100f);
+                return (Vector2)(line.rotation * (upwardPosition * line.scale)) + line.position;
+            }
+
+            Vector2 angle = Quaternion.Euler(0, 0, -(pos / 100) * 360f) * Vector3.down;
+            return angle * line.scale + line.position;
         }
-        
-        if (data.Style == LineStyle.CIRCLE) {
-            Vector2 upwardPosition = Vector2.up * (correctedPosPct/100f);
-            return (Vector2)(dataLine.rotation * (upwardPosition * dataLine.scale)) + dataLine.position;
-        }
-        
-        Vector2 angle = Quaternion.Euler(0, 0, -(pos/100) * 360f) * Vector3.down;
-        return angle * dataLine.scale + dataLine.position;
+
     }
 
     private float CurveExtrap(AnimationCurve curve, float back) {
