@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   trackLines:
-  - constPosX: 0
-    PosX: 0
+  - constPosX: 1
+    PosX: -5
     PosXCurve:
       serializedVersion: 2
       m_Curve:
@@ -72,39 +72,40 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    Mobile: 0
-    stationary: 0
+    Mobile: 1
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 5
+        inSlope: -5
+        outSlope: -5
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -5
+        outSlope: -5
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 1
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -161,38 +162,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -258,38 +242,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 0
     index: 0
     Style: 3
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -346,38 +313,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 2
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -434,38 +384,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -522,38 +455,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -610,56 +526,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 1
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstPosY: 1
-    DataPosY: 0
-    DataPosYCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstSize: 1
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 1
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -716,38 +597,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 1
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 3
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -858,38 +722,21 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     Mobile: 0
-    stationary: 0
     warnTime: 2
     fadeLength: 2
     index: 0
     Style: 1
-    dataConstPosX: 0
-    DataPosX: 0
-    DataPosXCurve:
+    mobileConstPosX: 0
+    MobilePosX: 0
+    MobilePosXCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    dataConstPosY: 0
-    DataPosY: 0
-    DataPosYCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstSize: 0
-    DataSize: 0
-    DataSizeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    dataConstDirection: 0
-    DataDirection: 0
-    DataDirectionCurve:
+    mobileConstPosY: 0
+    MobilePosY: 0
+    MobilePosYCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
