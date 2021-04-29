@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2299263942122600301}
   - component: {fileID: 5826510546272211428}
   - component: {fileID: 7255286013058402391}
+  - component: {fileID: 2099549175438596423}
   m_Layer: 5
   m_Name: Mode Info Text
   m_TagString: Untagged
@@ -65,7 +66,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Information about the game mode you are about to select goes here
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dce94a6b9ffcc664abf02ece2c19e9a6, type: 2}
   m_sharedMaterial: {fileID: 8560352701794138994, guid: dce94a6b9ffcc664abf02ece2c19e9a6, type: 2}
@@ -134,6 +137,137 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2099549175438596423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567116812788620554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9773e85d38cf4ae981021443b6db4605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: entries
+      Entry: 7
+      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[System.Int32, mscorlib],[System.Tuple`2[[System.String,
+        mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]], mscorlib]], Unity.RenderPipelines.Core.Runtime
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|System.Tuple`2[[System.String, mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: m_Item1
+      Entry: 1
+      Data: 
+    - Name: m_Item2
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|System.Tuple`2[[System.String, mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: m_Item1
+      Entry: 1
+      Data: Play through the story of NULUX and remake a universe on the brink of
+        collapse.
+    - Name: m_Item2
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|System.Tuple`2[[System.String, mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: m_Item1
+      Entry: 1
+      Data: Play any unlocked song, any time, at any difficulty.
+    - Name: m_Item2
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|System.Tuple`2[[System.String, mscorlib],[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: m_Item1
+      Entry: 1
+      Data: Change your controls, global offset, audio, video, and gameplay options.
+    - Name: m_Item2
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  image: {fileID: 0}
 --- !u!1 &9016654191608125132
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +983,7 @@ GameObject:
   - component: {fileID: 9016654192241339882}
   - component: {fileID: 9016654192241339883}
   - component: {fileID: 9016654192241339876}
+  - component: {fileID: 8590107122219444021}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -979,6 +1114,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8590107122219444021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016654192241339878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85750da13344bf448b265faac9e44d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  msm: {fileID: 2099549175438596423}
+  index: 3
 --- !u!1 &9016654192245459182
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1141,7 @@ GameObject:
   - component: {fileID: 9016654192245459186}
   - component: {fileID: 9016654192245459187}
   - component: {fileID: 9016654192245459180}
+  - component: {fileID: 7402412392779357860}
   m_Layer: 5
   m_Name: Story Mode
   m_TagString: Untagged
@@ -1014,7 +1164,7 @@ RectTransform:
   - {fileID: 9016654191608125139}
   - {fileID: 9016654193244220122}
   m_Father: {fileID: 9016654192856712751}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1134,6 +1284,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7402412392779357860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016654192245459182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85750da13344bf448b265faac9e44d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  msm: {fileID: 2099549175438596423}
+  index: 1
 --- !u!1 &9016654192250841231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +2172,7 @@ GameObject:
   - component: {fileID: 9016654192519350566}
   - component: {fileID: 9016654192519350567}
   - component: {fileID: 9016654192519350560}
+  - component: {fileID: 4623298149191059326}
   m_Layer: 5
   m_Name: Free Play
   m_TagString: Untagged
@@ -2030,7 +2195,7 @@ RectTransform:
   - {fileID: 9016654192256166636}
   - {fileID: 9016654192271229450}
   m_Father: {fileID: 9016654192856712751}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2150,6 +2315,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4623298149191059326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016654192519350562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85750da13344bf448b265faac9e44d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  msm: {fileID: 2099549175438596423}
+  index: 2
 --- !u!1 &9016654192524583313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,8 +2750,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9016654192078798845}
-  - {fileID: 9016654192519350561}
   - {fileID: 9016654192245459181}
+  - {fileID: 9016654192519350561}
   - {fileID: 9016654192241339877}
   m_Father: {fileID: 9016654192851984424}
   m_RootOrder: 0

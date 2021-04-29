@@ -9,15 +9,13 @@ using UnityEngine.UI;
 public class MenuOptionBox : SerializedMonoBehaviour
 {
     public Dictionary<int, Tuple<string, Sprite>> entries;
-
-    [SerializeField]
     private TextMeshProUGUI descriptionText;
 
     [SerializeField]
     private Image image;
 
-    private void Start()
-    {
+    private void Start() {
+        descriptionText = GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
