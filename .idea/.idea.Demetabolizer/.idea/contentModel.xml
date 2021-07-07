@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ModeSelectButton.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Le Tai's Asset" t="Include">
             <e p="TranslucentImage" t="Include">
@@ -225,6 +224,7 @@
           <e p="MainMenuBarController.cs" t="Include" />
           <e p="MenuCameraManager.cs" t="Include" />
           <e p="MenuOptionBox.cs" t="Include" />
+          <e p="ModeSelectButton.cs" t="Include" />
           <e p="ModeSelectMenu.cs" t="Include" />
           <e p="MusicSelectMenu.cs" t="Include" />
           <e p="NPCState.cs" t="Include" />
@@ -242,6 +242,7 @@
             <e p="WalkaroundNPCScenarioState.cs" t="Include" />
           </e>
           <e p="SettingsManager.cs" t="Include" />
+          <e p="SettingsMenuController.cs" t="Include" />
           <e p="SFXManager.cs" t="Include" />
           <e p="ShipManager.cs" t="Include" />
           <e p="ShipMenuManager.cs" t="Include" />
@@ -269,6 +270,7 @@
           </e>
           <e p="SpriteBillboard.cs" t="Include" />
           <e p="SpriteScroller.cs" t="Include" />
+          <e p="SpriteSwitcher.cs" t="Include" />
           <e p="SpriteToImage.cs" t="Include" />
           <e p="StoryModeGameManager.cs" t="Include" />
           <e p="SwitchWindows.cs" t="Include" />
@@ -279,19 +281,16 @@
             <e p="UIGridRenderer.cs" t="Include" />
           </e>
           <e p="WalkAround" t="Include">
+            <e p="ObjectConfig.cs" t="Include" />
             <e p="ObjectController.cs" t="Include" />
-            <e p="Types" t="Include">
-              <e p="Implementations" t="Include">
-                <e p="ObjectConfig.cs" t="Include" />
-              </e>
-            </e>
+            <e p="RoomManager.cs" t="Include" />
+            <e p="WalkaroundCameraManager.cs" t="Include" />
+            <e p="WalkaroundManager.cs" t="Include" />
           </e>
           <e p="WalkaroundCamera.cs" t="Include" />
-          <e p="WalkaroundCameraSwitcher.cs" t="Include" />
-          <e p="WalkaroundManager.cs" t="Include" />
+          <e p="WalkaroundCameraTrigger.cs" t="Include" />
           <e p="WindowStateManager.cs" t="Include" />
         </e>
-        <e p="SettingsMenuController.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="FlatTransparent.shader" t="Include" />
         </e>
@@ -300,7 +299,6 @@
             <e p="TextureScroll.cs" t="Include" />
           </e>
         </e>
-        <e p="SpriteSwitcher.cs" t="Include" />
         <e p="Wireframe" t="Include">
           <e p="Shaders" t="Include">
             <e p="Resources" t="Include">

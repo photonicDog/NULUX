@@ -1,5 +1,4 @@
 using System.Collections;
-using Assets.Scripts.WalkAround.Objects.Implementations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class Door : MonoBehaviour {
 
 
     public void MoveThroughDoor(ObjectConfig traveler) {
-        WalkaroundManager.Instance.UseDoor(traveler.gameObject, room, camera, this);
+        WalkaroundManager.Instance.RoomManager.UseDoor(traveler.gameObject, room, camera, this);
     }
 
     private IEnumerable GetAllRooms() {

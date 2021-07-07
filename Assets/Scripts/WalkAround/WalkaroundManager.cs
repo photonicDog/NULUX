@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.WalkAround.Objects.Implementations;
+
 using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Yarn.Unity;
 
@@ -15,29 +16,22 @@ public class WalkaroundManager : SerializedMonoBehaviour
 {
 	public static WalkaroundManager Instance;
 
+	[Header("Cutscene Image Panels")]
 	public ImageAssetKey bgImages;
 	public ImageAssetKey fgImages;
+	[FormerlySerializedAs("backgroundImage")] public Image fadeImage;
 
+	[Header("System Managers")]
 	public DialogueRunner DialogueRunner;
 	public DialogueTalkspriter Talkspriter;
 	public PlayerInput sys;
+	[HideInInspector] public RoomManager RoomManager;
+	[HideInInspector] public WalkaroundCameraManager CameraManager;
+
+	[Header("Scenario")]
 	public WalkaroundNPCScenarioState currentScenario;
-	public CinemachineBrain spriteCamBrain;
-
-	[HideInInspector]
-	public WalkaroundNPCScenarioState _currentScenario;
-
-	[SerializeField]
-	private ObjectConfig currentInteractable;
-
-	public Image backgroundImage;
-
-	public Dictionary<string, Room> rooms;
-	[HideInInspector] public Room currentRoom;
-	
-
-	private CinemachineBrain brain;
-	public WalkaroundCamera currentCam;
+	[HideInInspector] public WalkaroundNPCScenarioState _currentScenario;
+	[SerializeField] private ObjectConfig currentInteractable;
 
 	private void Awake()
 	{
@@ -45,10 +39,12 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		{
 			Instance = this;
 		}
+
+		RoomManager = GetComponent<RoomManager>();
+		CameraManager = GetComponent<WalkaroundCameraManager>();
 	}
 
 	void Start() {
-		brain = Camera.main.GetComponent<CinemachineBrain>();
 		_currentScenario = ScriptableObject.CreateInstance<WalkaroundNPCScenarioState>();
 		_currentScenario.scenarioNPCS = new List<WalkaroundNPCState>();
 		foreach (WalkaroundNPCState scenarioNPC in currentScenario.scenarioNPCS)
@@ -57,12 +53,8 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		}
 		
 		LoadNPCs();
-
-		foreach (Room room in rooms.Values) {
-			foreach (WalkaroundCamera vc in room.RoomCameras) {
-				vc.DeactivateCamera();
-			}
-		}
+		CameraManager.Initialize();
+		RoomManager.Initialize(fadeImage, sys, CameraManager);
 	}
 
 	private void LoadNPCs() {
@@ -88,12 +80,6 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		currentInteractable = interactable;
 	}
 
-	public void SetCamera(WalkaroundCamera vc) {
-		if (currentCam) currentCam.DeactivateCamera();
-		vc.ActivateCamera();
-		currentCam = vc;
-	}
-
 	public void ExecuteDialogueInteraction(InputAction.CallbackContext context)
 	{
 		if (context.started && currentInteractable != null)
@@ -114,54 +100,13 @@ public class WalkaroundManager : SerializedMonoBehaviour
 		}
 	}
 
-	public void UseDoor(GameObject mover, Room room, WalkaroundCamera camera, Door door)
-	{
-		StartCoroutine(DoorAnimation(mover, room, camera, door));
-	}
-
-	private IEnumerator DoorAnimation(GameObject mover, Room room, WalkaroundCamera camera, Door door)
-	{
-		sys.DeactivateInput();
-		backgroundImage.color = Color.black - new Color(0f, 0f, 0f, 1f);
-		while (backgroundImage.color.a < 1f)
-		{
-			backgroundImage.color += new Color(0f, 0f, 0f, 0.02f);
-			yield return new WaitForEndOfFrame();
-		}
-		backgroundImage.color = Color.black;
-		
-		Vector3 position = door.destinationPosn.position;
-		mover.transform.position = position;
-		SetRoomContext(room);
-		SetCamera(camera);
-		yield return new WaitForSeconds(0.2f);
-		
-		while (backgroundImage.color.a > 0f)
-		{
-			backgroundImage.color -= new Color(0f, 0f, 0f, 0.02f);
-			yield return new WaitForEndOfFrame();
-		}
-		backgroundImage.color = Color.black - new Color(0f, 0f, 0f, 1f);
-		sys.ActivateInput();
-	}
-
-	public void SetRoomContext(string key) {
-		SetRoomContext(rooms[key]);
-		SetCamera(currentRoom.RoomCameras.First());
-	}
-
-	public void SetRoomContext(Room room) {
-		currentRoom = room;
-		SetCamera(currentRoom.RoomCameras.First());
-	}
-
 	public void ReactivatePlayerControls()
 	{
 		sys.ActivateInput();
 	}
 
 	public void SwitchSprite(string name, string index) {
-		ObjectConfig sprite = currentRoom.transform.Find("InteractiveFurniture").Find(name).GetComponent<ObjectConfig>();
+		ObjectConfig sprite = RoomManager.currentRoom.SwitchableObject[name];
 		if (sprite.IsSwitchableSprite) {
 			sprite.switcher.SwitchSprite(index);
 		}

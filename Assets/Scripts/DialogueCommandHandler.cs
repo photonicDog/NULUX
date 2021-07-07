@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using Assets.Scripts.WalkAround.Objects.Implementations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Yarn.Unity;
 using Debug = UnityEngine.Debug;
 
@@ -153,28 +149,30 @@ public class DialogueCommandHandler : MonoBehaviour {
     }
 
     void SetRoomContext(string[] parameters) {
-        WalkaroundManager.Instance.SetRoomContext(parameters[0]);
+        WalkaroundManager.Instance.RoomManager.SetRoomContext(parameters[0]);
     }
 
     void SwitchCam(string[] parameters) {
-        WalkaroundManager.Instance.currentRoom.SwitchCamera(parameters[0]);
+        Room room = WalkaroundManager.Instance.RoomManager.currentRoom;
+        WalkaroundCamera cam = room.RoomCameras.Find(a => a.index == parameters[0]);
+        WalkaroundManager.Instance.CameraManager.SetCamera(cam);
     }
     
     void SetLight(string[] parameters) {
-        WalkaroundManager.Instance.currentRoom.SetLight(parameters[0], bool.Parse(parameters[1]));
+        WalkaroundManager.Instance.RoomManager.SetLight(parameters[0], bool.Parse(parameters[1]));
     }
     
     void SpawnChar(string[] parameters) {
         GameObject npc = GameObject.Find(WalkaroundManager.Instance.Talkspriter.scriptToID[parameters[0]]);
         string node = parameters[1];
         npc.transform.position = 
-            WalkaroundManager.Instance.currentRoom.Blocks[node].position;
+            WalkaroundManager.Instance.RoomManager.currentRoom.Blocks[node].position;
     }
 
     void SpawnPlayer(string[] parameters) {
         string node = parameters[0];
         WalkaroundManager.Instance.sys.transform.position = 
-            WalkaroundManager.Instance.currentRoom.Blocks[node].position;
+            WalkaroundManager.Instance.RoomManager.currentRoom.Blocks[node].position;
         WalkaroundManager.Instance.sys.GetComponent<ObjectController>().ResetIdle();
     }
 
@@ -188,7 +186,7 @@ public class DialogueCommandHandler : MonoBehaviour {
         ObjectConfig npc = FindObjectsOfType<ObjectConfig>().First(a => a.IsControllable && a.ID == parameters[0]);
 
         npc.GetComponent<ObjectController>().OnMoveScripted(
-            WalkaroundManager.Instance.currentRoom.Blocks[parameters[1]].position, 
+            WalkaroundManager.Instance.RoomManager.currentRoom.Blocks[parameters[1]].position, 
             float.Parse(parameters[2]));
     }
 
@@ -196,7 +194,7 @@ public class DialogueCommandHandler : MonoBehaviour {
         ObjectConfig npc = FindObjectsOfType<ObjectConfig>().First(a => a.IsControllable && a.ID == parameters[0]);
         DialogueContainer.SetActive(false);
         npc.GetComponent<ObjectController>().OnMoveScripted(
-                WalkaroundManager.Instance.currentRoom.Blocks[parameters[1]].position, 
+                WalkaroundManager.Instance.RoomManager.currentRoom.Blocks[parameters[1]].position, 
                 float.Parse(parameters[2]),
                 onComplete, DialogueContainer);
     }

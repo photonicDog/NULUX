@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.WalkAround.Objects.Implementations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;

@@ -8,12 +8,12 @@ public class SpriteBillboard : MonoBehaviour {
 
     IEnumerator Start() {
         yield return new WaitForEndOfFrame();
-        brain = WalkaroundManager.Instance.spriteCamBrain;
+        brain = WalkaroundManager.Instance.CameraManager.spriteCamBrain;
     }
 
-    void Update() 
-    {
+    void Update() {
+        Vector3 camPos = WalkaroundManager.Instance.CameraManager.currentCam.transform.position;
         if (brain)
-        transform.LookAt(WalkaroundManager.Instance.currentCam.transform.position, Vector3.up);
+        transform.LookAt(camPos, Vector3.up);
     }
 }

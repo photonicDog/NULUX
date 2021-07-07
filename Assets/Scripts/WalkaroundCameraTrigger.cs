@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class WalkaroundCameraSwitcher : MonoBehaviour {
+public class WalkaroundCameraTrigger : MonoBehaviour {
     
     private WalkaroundCamera storedCamera;
-
     public WalkaroundCamera transitionCam;
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            storedCamera = WalkaroundManager.Instance.currentCam;
+            storedCamera = WalkaroundManager.Instance.CameraManager.currentCam;
             if (storedCamera != transitionCam) {
-                WalkaroundManager.Instance.SetCamera(transitionCam);
+                WalkaroundManager.Instance.CameraManager.SetCamera(transitionCam);
             }
         }
     }

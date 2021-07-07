@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using Assets.Scripts.WalkAround.Objects.Implementations;
+
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
