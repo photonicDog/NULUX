@@ -1,5 +1,13 @@
 Changelog:
 
+v3.6.0:
+ - Support Single Pass Instanced Stereo Render Mode
+ - Reduce log level
+
+v3.5.1:
+ - Reduce error logging.
+ - Improve compatibility with Addressable.
+
 v3.5.0:
  - Changing Sprite Blending from script is now applied immediately.
  TranslucentImage.spriteBlending is now a property instead of a field.

@@ -7,7 +7,277 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ConsolePro" t="Include">
+          <e p="ConsoleProDebug.cs" t="Include" />
+          <e p="Remote" t="Include">
+            <e p="ConsoleProRemoteServer.cs" t="Include" />
+            <e p="LiteNetLib" t="Include">
+              <e p="FastBitConverter.cs" t="Include" />
+              <e p="INetEventListener.cs" t="Include" />
+              <e p="NatPunchModule.cs" t="Include" />
+              <e p="NetConstants.cs" t="Include" />
+              <e p="NetDataReader.cs" t="Include" />
+              <e p="NetDataWriter.cs" t="Include" />
+              <e p="NetDebug.cs" t="Include" />
+              <e p="NetEndPoint.cs" t="Include" />
+              <e p="NetManager.cs" t="Include" />
+              <e p="NetPacket.cs" t="Include" />
+              <e p="NetPacketPool.cs" t="Include" />
+              <e p="NetPeer.cs" t="Include" />
+              <e p="NetPeerCollection.cs" t="Include" />
+              <e p="NetSerializer.cs" t="Include" />
+              <e p="NetSocket.cs" t="Include" />
+              <e p="NetThread.cs" t="Include" />
+              <e p="NetUtils.cs" t="Include" />
+              <e p="NtpSyncModule.cs" t="Include" />
+              <e p="ReliableChannel.cs" t="Include" />
+              <e p="SequencedChannel.cs" t="Include" />
+              <e p="SimpleChannel.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Plugins" t="Include">
+          <e p="CodeStage" t="Include">
+            <e p="Maintainer" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CodeStage.Maintainer.Editor.asmdef" t="Include" />
+                  <e p="Core" t="Include">
+                    <e p="Filtering" t="Include">
+                      <e p="FilterItem.cs" t="Include" />
+                    </e>
+                    <e p="Map" t="Include">
+                      <e p="AssetInfo.cs" t="Include" />
+                      <e p="AssetReferenceInfo.cs" t="Include" />
+                      <e p="AssetsMap.cs" t="Include" />
+                      <e p="Dependencies" t="Include">
+                        <e p="AssetDependenciesSearcher.cs" t="Include" />
+                        <e p="Parsers" t="Include">
+                          <e p="AddressableAssetGroupParser.cs" t="Include" />
+                          <e p="AssemblyDefinitionParser.cs" t="Include" />
+                          <e p="AssemblyDefinitionReferenceParser.cs" t="Include" />
+                          <e p="IDependenciesParser.cs" t="Include" />
+                          <e p="ShaderParser.cs" t="Include" />
+                          <e p="SpriteAtlasParser.cs" t="Include" />
+                          <e p="TextAssetParser.cs" t="Include" />
+                        </e>
+                      </e>
+                      <e p="ReferencedAtAssetInfo.cs" t="Include" />
+                      <e p="ReferencedAtInfo.cs" t="Include" />
+                      <e p="ReferencedAtOpenedSceneInfo.cs" t="Include" />
+                      <e p="ReferencingEntryData.cs" t="Include" />
+                    </e>
+                    <e p="TreeDataModel" t="Include">
+                      <e p="TreeItem.cs" t="Include" />
+                      <e p="TreeItemUtility.cs" t="Include" />
+                      <e p="TreeModel.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Maintainer.cs" t="Include" />
+                  <e p="MaintainerMarker.cs" t="Include" />
+                  <e p="Modules" t="Include">
+                    <e p="RecordsBased" t="Include">
+                      <e p="Cleaner" t="Include">
+                        <e p="BuildReportAnalyzer.cs" t="Include" />
+                        <e p="CleanerSortingType.cs" t="Include" />
+                        <e p="ProjectCleaner.cs" t="Include" />
+                        <e p="Records" t="Include">
+                          <e p="AssetRecord.cs" t="Include" />
+                          <e p="CleanerErrorRecord.cs" t="Include" />
+                          <e p="CleanerRecord.cs" t="Include" />
+                          <e p="CleanerWarningRecord.cs" t="Include" />
+                        </e>
+                        <e p="RecordType.cs" t="Include" />
+                      </e>
+                      <e p="Common" t="Include">
+                        <e p="Enums" t="Include">
+                          <e p="RecordLocation.cs" t="Include" />
+                          <e p="SortingDirection.cs" t="Include" />
+                        </e>
+                        <e p="IShowableRecord.cs" t="Include" />
+                        <e p="Records" t="Include">
+                          <e p="RecordBase.cs" t="Include" />
+                        </e>
+                        <e p="RecordsSortings.cs" t="Include" />
+                        <e p="ReportsBuilder.cs" t="Include" />
+                      </e>
+                      <e p="Issues" t="Include">
+                        <e p="Detectors" t="Include">
+                          <e p="Abstraction" t="Include">
+                            <e p="IssueDetectorBase.cs" t="Include" />
+                          </e>
+                          <e p="Common" t="Include">
+                            <e p="DuplicateComponentDetector.cs" t="Include" />
+                            <e p="InconsistentTerrainDataDetector.cs" t="Include" />
+                            <e p="MissingComponentDetector.cs" t="Include" />
+                            <e p="MissingPrefabDetector.cs" t="Include" />
+                            <e p="ShaderErrorDetector.cs" t="Include" />
+                          </e>
+                          <e p="MissingReferenceDetector.cs" t="Include" />
+                          <e p="Neatness" t="Include">
+                            <e p="EmptyLayerNameDetector.cs" t="Include" />
+                            <e p="HugePositionDetector.cs" t="Include" />
+                          </e>
+                          <e p="ProjectSettings" t="Include">
+                            <e p="DuplicateLayersDetector.cs" t="Include" />
+                          </e>
+                        </e>
+                        <e p="IssueKind.cs" t="Include" />
+                        <e p="IssuesDetector.cs" t="Include" />
+                        <e p="IssuesFinder.cs" t="Include" />
+                        <e p="IssuesSortingType.cs" t="Include" />
+                        <e p="Records" t="Include">
+                          <e p="Abstraction" t="Include">
+                            <e p="AssetIssueRecord.cs" t="Include" />
+                            <e p="IssueRecord.cs" t="Include" />
+                          </e>
+                          <e p="GameObjectIssueRecord.cs" t="Include" />
+                          <e p="SceneSettingsIssueRecord.cs" t="Include" />
+                          <e p="SettingsIssueRecord.cs" t="Include" />
+                          <e p="ShaderIssueRecord.cs" t="Include" />
+                          <e p="UnityObjectAssetIssueRecord.cs" t="Include" />
+                        </e>
+                        <e p="RecordSeverity.cs" t="Include" />
+                        <e p="Routines" t="Include">
+                          <e p="IssuesFixer.cs" t="Include" />
+                          <e p="SettingsChecker.cs" t="Include" />
+                          <e p="TargetCollector.cs" t="Include" />
+                          <e p="TargetProcessor.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                    <e p="TreeBased" t="Include">
+                      <e p="References" t="Include">
+                        <e p="Conjunction" t="Include">
+                          <e p="AssetConjunctions.cs" t="Include" />
+                          <e p="TreeConjunction.cs" t="Include" />
+                        </e>
+                        <e p="Data" t="Include">
+                          <e p="HierarchyReferenceItem.cs" t="Include" />
+                          <e p="ProjectReferenceItem.cs" t="Include" />
+                        </e>
+                        <e p="Entry" t="Include">
+                          <e p="EntryAddSettings.cs" t="Include" />
+                          <e p="EntryFinder.cs" t="Include" />
+                          <e p="EntryGenerator.cs" t="Include" />
+                          <e p="HierarchyEntryFinder.cs" t="Include" />
+                          <e p="Processors" t="Include">
+                            <e p="GenericObjectProcessor.cs" t="Include" />
+                            <e p="ManualComponentProcessor.cs" t="Include" />
+                          </e>
+                          <e p="ProjectEntryFinder.cs" t="Include" />
+                          <e p="SceneSettingsProcessor.cs" t="Include" />
+                        </e>
+                        <e p="HierarchyScopeReferencesFinder.cs" t="Include" />
+                        <e p="ProjectScopeReferencesFinder.cs" t="Include" />
+                        <e p="ReferencesFinder.cs" t="Include" />
+                        <e p="Routines" t="Include">
+                          <e p="ProjectScopeReferencesTreeBuilder.cs" t="Include" />
+                        </e>
+                      </e>
+                    </e>
+                  </e>
+                  <e p="SearchResultsStorage.cs" t="Include" />
+                  <e p="Settings" t="Include">
+                    <e p="IssuesFinderSettings.cs" t="Include" />
+                    <e p="ProjectCleanerSettings.cs" t="Include" />
+                    <e p="ProjectSettings.cs" t="Include" />
+                    <e p="ReferencesFinderSettings.cs" t="Include" />
+                    <e p="User" t="Include">
+                      <e p="IssuesFinderPersonalSettings.cs" t="Include" />
+                      <e p="ProjectCleanerPersonalSettings.cs" t="Include" />
+                      <e p="ReferencesFinderPersonalSettings.cs" t="Include" />
+                      <e p="UserSettings.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Tools" t="Include">
+                    <e p="CSArrayTools.cs" t="Include" />
+                    <e p="CSAssetTools.cs" t="Include" />
+                    <e p="CSComponentTools.cs" t="Include" />
+                    <e p="CSEditorTools.cs" t="Include" />
+                    <e p="CSFileTools.cs" t="Include" />
+                    <e p="CSFilterTools.cs" t="Include" />
+                    <e p="CSMenuTools.cs" t="Include" />
+                    <e p="CSObjectTools.cs" t="Include" />
+                    <e p="CSPathTools.cs" t="Include" />
+                    <e p="CSPrefabTools.cs" t="Include" />
+                    <e p="CSReflectionTools.cs" t="Include" />
+                    <e p="CSSceneTools.cs" t="Include" />
+                    <e p="CSSelectionTools.cs" t="Include" />
+                    <e p="CSSettingsTools.cs" t="Include" />
+                    <e p="CSTraverseTools.cs" t="Include" />
+                  </e>
+                  <e p="UI" t="Include">
+                    <e p="Filters" t="Include">
+                      <e p="CleanerFiltersWindow.cs" t="Include" />
+                      <e p="FiltersWindow.cs" t="Include" />
+                      <e p="FilterType.cs" t="Include" />
+                      <e p="IssuesFiltersWindow.cs" t="Include" />
+                      <e p="ReferencesFiltersWindow.cs" t="Include" />
+                      <e p="Tabs" t="Include">
+                        <e p="ComponentFiltersTab.cs" t="Include" />
+                        <e p="PathFiltersTab.cs" t="Include" />
+                        <e p="SceneFiltersTab.cs" t="Include" />
+                        <e p="StringFiltersTab.cs" t="Include" />
+                        <e p="TabBase.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="MaintainerMenu.cs" t="Include" />
+                    <e p="MaintainerWindow.cs" t="Include" />
+                    <e p="Tabs" t="Include">
+                      <e p="AboutTab.cs" t="Include" />
+                      <e p="Abstractions" t="Include">
+                        <e p="BaseTab.cs" t="Include" />
+                        <e p="RecordsTab.cs" t="Include" />
+                        <e p="TwoColumnsTab.cs" t="Include" />
+                      </e>
+                      <e p="IssuesFinder" t="Include">
+                        <e p="IssuesTab.cs" t="Include" />
+                        <e p="IssuesTab.LeftColumn.cs" t="Include" />
+                      </e>
+                      <e p="ProjectCleaner" t="Include">
+                        <e p="CleanerTab.cs" t="Include" />
+                        <e p="CleanerTab.LeftColumn.cs" t="Include" />
+                      </e>
+                      <e p="ReferencesFinder" t="Include">
+                        <e p="ChildTabs" t="Include">
+                          <e p="Project" t="Include">
+                            <e p="ProjectExactReferencesListPanel.cs" t="Include" />
+                            <e p="ProjectReferencesTab.cs" t="Include" />
+                            <e p="ProjectReferencesTreePanel.cs" t="Include" />
+                          </e>
+                          <e p="ReferencesChildTab.cs" t="Include" />
+                          <e p="Scene" t="Include">
+                            <e p="HierarchyReferencesTab.cs" t="Include" />
+                            <e p="HierarchyReferencesTreePanel.cs" t="Include" />
+                          </e>
+                        </e>
+                        <e p="ReferencesTab.cs" t="Include" />
+                        <e p="ReferencesTab.LeftColumn.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="TreeViews" t="Include">
+                      <e p="ListTreeView.cs" t="Include" />
+                      <e p="MaintainerMultiColumnHeader.cs" t="Include" />
+                      <e p="MaintainerTreeView.cs" t="Include" />
+                      <e p="References" t="Include">
+                        <e p="ExactReferencesList.cs" t="Include" />
+                        <e p="ExactReferencesListItem.cs" t="Include" />
+                        <e p="HierarchyReferencesTreeView.cs" t="Include" />
+                        <e p="HierarchyReferencesTreeViewItem.cs" t="Include" />
+                        <e p="ProjectReferencesTreeView.cs" t="Include" />
+                        <e p="ProjectReferencesTreeViewItem.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="Utils" t="Include">
+                      <e p="CSAssetsLoader.cs" t="Include" />
+                      <e p="UIHelpers.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Le Tai's Asset" t="Include">
             <e p="TranslucentImage" t="Include">
               <e p="CHANGELOG.txt" t="Include" />
@@ -44,6 +314,7 @@
               <e p="Resources" t="Include">
                 <e p="EfficientBlur.shader" t="Include" />
                 <e p="FillCrop.shader" t="Include" />
+                <e p="lib.cginc" t="Include" />
                 <e p="TranslucentImage.shader" t="Include" />
                 <e p="UniversalRP" t="Include">
                   <e p="EfficientBlur_UniversalRP.shader" t="Include" />
@@ -65,6 +336,7 @@
                   <e p="ScenceGizmoAutoDisable.cs" t="Include" />
                   <e p="TranslucentImageEditor.cs" t="Include" />
                   <e p="TranslucentImageSourceEditor.cs" t="Include" />
+                  <e p="UnityShaderBugHack.cs" t="Include" />
                 </e>
                 <e p="TranslucentImage.cs" t="Include" />
                 <e p="TranslucentImageEditorEnhancement.cs" t="Include" />
@@ -316,6 +588,7 @@
           </e>
         </e>
       </e>
+      <e p="CodeStage.Maintainer.Editor.csproj" t="IncludeRecursive" />
       <e p="Demetabolizer.sln" t="IncludeFlat" />
       <e p="LeTai.TranslucentImage.csproj" t="IncludeRecursive" />
       <e p="LeTai.TranslucentImage.Demo.csproj" t="IncludeRecursive" />

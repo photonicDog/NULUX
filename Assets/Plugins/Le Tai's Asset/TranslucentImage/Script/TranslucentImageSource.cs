@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.XR;
 
 namespace LeTai.Asset.TranslucentImage
 {
@@ -12,11 +14,10 @@ namespace LeTai.Asset.TranslucentImage
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
 [AddComponentMenu("Image Effects/Tai Le Assets/Translucent Image Source")]
-[HelpURL("http://leloctai.com/asset/translucentimage/docs/articles/customize.html#translucent-image-source")]
+[HelpURL("https://leloctai.com/asset/translucentimage/docs/articles/customize.html#translucent-image-source")]
 public class TranslucentImageSource : MonoBehaviour
 {
 #region Public field
-
     /// <summary>
     /// Maximum number of times to update the blurred image each second
     /// </summary>
@@ -26,12 +27,10 @@ public class TranslucentImageSource : MonoBehaviour
     /// Render the blurred result to the render target
     /// </summary>
     public bool preview;
-
 #endregion
 
 
 #region Private Field
-
     private IBlurAlgorithm blurAlgorithm;
 
     [SerializeField]
@@ -57,12 +56,10 @@ public class TranslucentImageSource : MonoBehaviour
 
     Material      previewMaterial;
     RenderTexture blurredScreen;
-
 #endregion
 
 
 #region Properties
-
     public BlurAlgorithmType BlurAlgorithmSelection
     {
         get { return blurAlgorithmSelection; }
@@ -137,14 +134,14 @@ public class TranslucentImageSource : MonoBehaviour
     {
         get
         {
-            var camRect = camera.rect;
+            var camRect = Cam.rect;
             return new Rect(camRect.position + BlurRegion.position * camRect.size,
                             camRect.size * BlurRegion.size);
         }
 
         set
         {
-            var camRect = camera.rect;
+            var camRect = Cam.rect;
             blurRegion.position = (value.position - camRect.position) / camRect.size;
             blurRegion.size     = value.size / camRect.size;
         }
@@ -158,7 +155,6 @@ public class TranslucentImageSource : MonoBehaviour
     {
         get { return (maxUpdateRate > 0) ? (1f / maxUpdateRate) : float.PositiveInfinity; }
     }
-
 #endregion
 
 
@@ -212,11 +208,11 @@ public class TranslucentImageSource : MonoBehaviour
     {
         switch (BlurAlgorithmSelection)
         {
-            case BlurAlgorithmType.ScalableBlur:
-                blurAlgorithm = new ScalableBlur();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(BlurAlgorithmSelection));
+        case BlurAlgorithmType.ScalableBlur:
+            blurAlgorithm = new ScalableBlur();
+            break;
+        default:
+            throw new ArgumentOutOfRangeException(nameof(BlurAlgorithmSelection));
         }
 
         blurAlgorithm.Init(BlurConfig);
@@ -227,24 +223,42 @@ public class TranslucentImageSource : MonoBehaviour
         if (BlurredScreen)
             BlurredScreen.Release();
 
-        BlurredScreen = new RenderTexture(Mathf.RoundToInt(Cam.pixelWidth * BlurRegion.width) >> Downsample,
-                                          Mathf.RoundToInt(Cam.pixelHeight * BlurRegion.height) >> Downsample,
-                                          0) {
-            name       = $"{gameObject.name} Translucent Image Source",
-            filterMode = FilterMode.Bilinear,
-        };
+        if (XRSettings.enabled)
+        {
+            BlurredScreen              = new RenderTexture(XRSettings.eyeTextureDesc);
+            BlurredScreen.width        = Mathf.RoundToInt(BlurredScreen.width * BlurRegion.width) >> Downsample;
+            BlurredScreen.height       = Mathf.RoundToInt(BlurredScreen.height * BlurRegion.height) >> Downsample;
+            BlurredScreen.depth        = 0;
+        }
+        else
+        {
+            BlurredScreen = new RenderTexture(Mathf.RoundToInt(Cam.pixelWidth * BlurRegion.width) >> Downsample,
+                                              Mathf.RoundToInt(Cam.pixelHeight * BlurRegion.height) >> Downsample, 0);
+        }
+
+        BlurredScreen.antiAliasing = 1;
+        BlurredScreen.useMipMap    = false;
+
+        BlurredScreen.name         = $"{gameObject.name} Translucent Image Source";
+        BlurredScreen.filterMode   = FilterMode.Bilinear;
+
         BlurredScreen.Create();
     }
 
+    TextureDimension lastEyeTexDim;
+
     public void OnBeforeBlur()
     {
-        if (BlurredScreen == null || !BlurredScreen.IsCreated() ||
-            Downsample != lastDownsample ||
-            !BlurRegion.Approximately(lastBlurRegion))
+        if (BlurredScreen == null
+         || !BlurredScreen.IsCreated()
+         || Downsample != lastDownsample
+         || !BlurRegion.Approximately(lastBlurRegion)
+         || XRSettings.deviceEyeTextureDimension != lastEyeTexDim)
         {
             CreateNewBlurredScreen();
             lastDownsample = Downsample;
             lastBlurRegion = BlurRegion;
+            lastEyeTexDim  = XRSettings.deviceEyeTextureDimension;
         }
     }
 

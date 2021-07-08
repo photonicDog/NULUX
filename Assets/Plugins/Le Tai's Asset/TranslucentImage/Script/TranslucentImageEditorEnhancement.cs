@@ -19,8 +19,6 @@ public partial class TranslucentImage
         flatten    = material.GetFloat(_flattenPropId);
 
         source = source ? source : FindObjectOfType<TranslucentImageSource>();
-
-        PrepareShader();
     }
 
     static Material FindDefaultMaterial()

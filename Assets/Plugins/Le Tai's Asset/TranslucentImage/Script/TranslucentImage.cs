@@ -33,9 +33,6 @@ public partial class TranslucentImage : Image, IMeshModifier
     [Tooltip("Flatten the color behind to help keep contrast on varying background")] [Range(0, 1)]
     public float flatten = .1f;
 
-
-    Shader correctShader;
-
     static readonly int _vibrancyPropId   = Shader.PropertyToID("_Vibrancy");
     static readonly int _brightnessPropId = Shader.PropertyToID("_Brightness");
     static readonly int _flattenPropId    = Shader.PropertyToID("_Flatten");
@@ -43,12 +40,11 @@ public partial class TranslucentImage : Image, IMeshModifier
     static readonly int _cropRegionPropId = Shader.PropertyToID("_CropRegion");
 
     Material replacedMaterial;
+    bool     shouldRun;
 
     protected override void Start()
     {
         base.Start();
-
-        PrepareShader();
 
         oldVibrancy   = vibrancy;
         oldBrightness = brightness;
@@ -63,27 +59,32 @@ public partial class TranslucentImage : Image, IMeshModifier
 #endif
     }
 
-    void PrepareShader()
+    bool Validate()
     {
-        correctShader = Shader.Find("UI/TranslucentImage");
+        if (!IsActive() || !source.BlurredScreen || !material)
+            return false;
+
+        if (!source)
+        {
+            if (Application.isPlaying)
+                Debug.LogWarning(
+                    "TranslucentImageSource is missing. Please add the TranslucentImageSource component to your main camera, then assign it to the Source field of the Translucent Image(s)");
+            return false;
+        }
+
+        // Have to use string comparison as Addressable break object comparision :(
+        if (material.shader.name != "UI/TranslucentImage")
+        {
+            Debug.LogWarning("Translucent Image requires a material using the \"UI/TranslucentImage\" shader");
+            return false;
+        }
+
+        return true;
     }
 
     void LateUpdate()
     {
-        if (!source)
-        {
-            Debug.LogError(
-                "TranslucentImageSource is missing. Add TranslucentImageSource component to your main camera, then assign it camera to the Source field of the Translucent Image(s)");
-            return;
-        }
-
-        if (!IsActive() || !source.BlurredScreen)
-            return;
-
-        if (!material || material.shader != correctShader)
-        {
-            Debug.LogError("Translucent Image require a material using \"UI/TranslucentImage\" shader");
-        }
+        if (!shouldRun) return;
 
         if (replacedMaterial)
         {
@@ -107,6 +108,9 @@ public partial class TranslucentImage : Image, IMeshModifier
 
     void Update()
     {
+        shouldRun = Validate();
+        if (!shouldRun) return;
+
         if (_vibrancyPropId == 0 || _brightnessPropId == 0 || _flattenPropId == 0)
             return;
 
