@@ -1331,6 +1331,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 809285111793501260, guid: 936640ba8dc812c4a8d67acd51f7ab0d, type: 3}
   m_PrefabInstance: {fileID: 48312435}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &48312439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 131142657316538039, guid: 936640ba8dc812c4a8d67acd51f7ab0d, type: 3}
+  m_PrefabInstance: {fileID: 48312435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673ba34278c6fd9449bc40375d3c8253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &56087827
 GameObject:
   m_ObjectHideFlags: 0
@@ -9778,7 +9789,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98290
+  m_Name: pb_Mesh27876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16182,6 +16193,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SwitchableObject
+      Entry: 6
+      Data: 
   RoomCameras:
   - {fileID: 1146650519}
   - {fileID: 305633126}
@@ -16279,7 +16293,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98230
+  m_Name: pb_Mesh27816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19968,7 +19982,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98726
+  m_Name: pb_Mesh28312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20630,7 +20644,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97856
+  m_Name: pb_Mesh27444
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21645,6 +21659,9 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SwitchableObject
+      Entry: 6
       Data: 
   RoomCameras:
   - {fileID: 311389713}
@@ -24939,7 +24956,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97558
+  m_Name: pb_Mesh27148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31150,7 +31167,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98472
+  m_Name: pb_Mesh28058
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37536,7 +37553,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97930
+  m_Name: pb_Mesh27516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37801,7 +37818,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97158
+  m_Name: pb_Mesh26746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38057,6 +38074,9 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SwitchableObject
+      Entry: 6
       Data: 
   RoomCameras:
   - {fileID: 1665373967}
@@ -39132,7 +39152,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97136
+  m_Name: pb_Mesh26724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41453,7 +41473,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97386
+  m_Name: pb_Mesh26974
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43566,7 +43586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98318
+  m_Name: pb_Mesh27904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44354,7 +44374,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97528
+  m_Name: pb_Mesh27118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46013,7 +46033,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh97782
+  m_Name: pb_Mesh27372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51030,6 +51050,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8732014289922740246, guid: 936640ba8dc812c4a8d67acd51f7ab0d, type: 3}
   m_PrefabInstance: {fileID: 1687806966}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687806973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 131142657316538039, guid: 936640ba8dc812c4a8d67acd51f7ab0d, type: 3}
+  m_PrefabInstance: {fileID: 1687806966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673ba34278c6fd9449bc40375d3c8253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693285079
 GameObject:
   m_ObjectHideFlags: 0
@@ -51166,6 +51197,9 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SwitchableObject
+      Entry: 6
       Data: 
   RoomCameras:
   - {fileID: 104375352}
@@ -57194,6 +57228,8 @@ GameObject:
   - component: {fileID: 2070842725}
   - component: {fileID: 2070842724}
   - component: {fileID: 2070842727}
+  - component: {fileID: 2070842728}
+  - component: {fileID: 2070842726}
   m_Layer: 0
   m_Name: WalkaroundManager
   m_TagString: Untagged
@@ -57216,96 +57252,23 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 260473797}
-    - {fileID: 634038952}
-    - {fileID: 1196759034}
-    - {fileID: 352831707}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: rooms
-      Entry: 7
-      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[System.String, mscorlib],[Room,
-        Assembly-CSharp]], Unity.RenderPipelines.Core.Runtime
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: intro
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: temproom
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: dormroom
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: introhall
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   bgImages: {fileID: 11400000, guid: b6590157f84ecb24384e3df85486811c, type: 2}
   fgImages: {fileID: 11400000, guid: 37135bf859ced064896658d7a0cee0e5, type: 2}
+  fadeImage: {fileID: 0}
   DialogueRunner: {fileID: 623078843}
   Talkspriter: {fileID: 2070842727}
   sys: {fileID: 1014233774}
+  RoomManager: {fileID: 0}
+  CameraManager: {fileID: 0}
   currentScenario: {fileID: 11400000, guid: 280b0679073369f4aa8c5e84a06199e6, type: 2}
-  spriteCamBrain: {fileID: 389830171}
   _currentScenario: {fileID: 0}
   currentInteractable: {fileID: 0}
-  backgroundImage: {fileID: 7734054}
-  currentRoom: {fileID: 0}
-  currentCam: {fileID: 0}
 --- !u!4 &2070842725
 Transform:
   m_ObjectHideFlags: 0
@@ -57320,6 +57283,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070842726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070842723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf9acb0306e49dd88deb8de918f18cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteCamBrain: {fileID: 389830171}
+  physicalBrain: {fileID: 512044460}
+  currentCam: {fileID: 0}
 --- !u!114 &2070842727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57497,6 +57475,126 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+--- !u!114 &2070842728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070842723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd522d1306a64d5e9d5b68770c17711c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 634038952}
+    - {fileID: 1196759034}
+    - {fileID: 352831707}
+    - {fileID: 1687806973}
+    - {fileID: 260473797}
+    - {fileID: 48312439}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: rooms
+      Entry: 7
+      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[System.String, mscorlib],[Room,
+        Assembly-CSharp]], Unity.RenderPipelines.Core.Runtime
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: temproom
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: skaroom
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: introhall
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: elevator
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: introcutscene
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: labhall
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  currentRoom: {fileID: 0}
 --- !u!1 &2080766905
 GameObject:
   m_ObjectHideFlags: 0
