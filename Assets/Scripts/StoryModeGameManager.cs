@@ -112,6 +112,7 @@ public class StoryModeGameManager : MonoBehaviour
 		{
 			yield return new WaitForEndOfFrame();
 		}
-		GameObject.Find("SongManager").GetComponent<SongManagerDeprecated>().SetCurrentTrack(_gamestate.tracks[trackname]);
+		//TODO: Hook up song build.
+		//GameObject.Find("SongManager").GetComponent<SongManagerDeprecated>().SetCurrentTrack(_gamestate.tracks[trackname]);
 	}
 }

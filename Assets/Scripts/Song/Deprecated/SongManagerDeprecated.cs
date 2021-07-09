@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +54,7 @@ public class SongManagerDeprecated : SerializedMonoBehaviour {
     private List<Note> chartNotes;
     private int origNoteCt;
 
-    [SerializeField] private OffsetBar ob = default;
+    [SerializeField] private OffsetBarDeprecated ob = default;
     [HideInInspector] public List<HitDataDeprecated> recordedData;
 
     public int combo;
@@ -309,7 +309,7 @@ public class SongManagerDeprecated : SerializedMonoBehaviour {
         ui.UpdateCombo(combo);
     }
 
-    private void ScoreManager(ScoringJudgement judgement) {
+    private void ScoreManager(TimingWindow judgement) {
         float add = 0;
         float diff = 1f/(origNoteCt);
         pacemaker += diff * 0.76f;
@@ -357,4 +357,4 @@ class ChartDialogueCommand {
         this.command = command;
         this.timing = timing;
     }
-}
+}*/

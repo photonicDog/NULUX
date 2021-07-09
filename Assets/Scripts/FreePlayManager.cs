@@ -55,7 +55,8 @@ public class FreePlayManager : MonoBehaviour
 
     public void LaunchSong() {
         if (!selectedTrack) return;
-        Instantiate(songCarrier).GetComponent<SongLaunchCarrierDeprecated>().Execute(selectedTrack);
+        //TODO: Hook up song launch
+        //Instantiate(songCarrier).GetComponent<SongLaunchCarrierDeprecated>().Execute(selectedTrack);
         GetComponent<MusicSelectMenu>().LaunchFreePlay();
     }
 

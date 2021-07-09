@@ -1,11 +1,12 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OffsetBar : MonoBehaviour {
+public class OffsetBarDeprecated : MonoBehaviour {
     
     [SerializeField] private GameObject mark = default;
     [SerializeField] private GameObject arrow = default;
@@ -69,3 +70,4 @@ public class OffsetBar : MonoBehaviour {
         }
     }
 }
+*/

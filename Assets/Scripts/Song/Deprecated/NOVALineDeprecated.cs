@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+/*
 public class NOVALineDeprecated : SerializedMonoBehaviour
 {
 	public LineDataCommand currentCMD;
@@ -101,3 +102,4 @@ public class NOVALineDeprecated : SerializedMonoBehaviour
 		}
 	}
 }
+*/

@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
+/*
 [Serializable]
 public class LineDataDeprecated {
     [VerticalGroup("Animation")] 
@@ -210,3 +211,4 @@ public enum LineStyle {
     CIRCLE,
     PULSE
 }
+*/

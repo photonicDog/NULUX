@@ -9,9 +9,10 @@ public class FeedbackText : MonoBehaviour {
 
     public void DisplayFeedback(GameObject go, Transform source) {
         Destroy(currentText);
-        
-        currentText = Instantiate(go, source.position, Quaternion.identity, transform);
-        currentText.transform.position = source.position + (Vector3.up * 0.5f);
+
+        Vector3 position = source.position;
+        currentText = Instantiate(go, position, Quaternion.identity, transform);
+        currentText.transform.position = position + (Vector3.up * 0.5f);
     }
 
     public void ResetFeedback() {

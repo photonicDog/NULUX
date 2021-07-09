@@ -50,14 +50,7 @@ public class SFXManager : MonoBehaviour
         audio.Stop();
         audio.time = 0;
     }
-
-    public void LoadHitsounds(List<ScoringJudgement> judges) {
-        hitSounds = new Dictionary<int, AudioClip>();
-        foreach (var j in judges) {
-            hitSounds.Add(j.leftMS, j.feedbackAudio);
-        }
-    }
-
+    
     public void PlayHitsound(int index) {
         audio.clip = hitSounds[index];
         audio.Play();

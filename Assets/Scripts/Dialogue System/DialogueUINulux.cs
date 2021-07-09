@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
 
-public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
+public class DialogueUINulux : Yarn.Unity.DialogueUIBehaviour {
     
     /// <summary>
     /// The object that contains the dialogue and the options.
@@ -245,11 +245,14 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             Debug.Log("Initialized walk-style talksprites!");
             ts = WalkaroundManager.Instance.Talkspriter; 
         }
-
+        
+        //TODO: Re-add song talksprites.
+        /*
         if (SongManagerDeprecated.Instance != null) {
             Debug.Log("Initialized song-style talksprites!");
             ts = SongManagerDeprecated.Instance.Talkspriter;
         }
+        */
     }
 
     /// Runs a line.

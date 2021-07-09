@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -173,4 +173,4 @@ public class VisualSet {
     public Material arcMaterial;
     public Sprite telegraph;
     public string noteTell;
-}
+}*/

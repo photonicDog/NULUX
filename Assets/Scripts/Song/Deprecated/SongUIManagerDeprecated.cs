@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -52,3 +53,4 @@ public class SongUIManagerDeprecated : MonoBehaviour {
         scoreBottom.text = scr.ToString("D7").Substring(3, 4);
     }
 }
+*/

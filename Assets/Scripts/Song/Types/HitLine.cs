@@ -1,14 +1,9 @@
-﻿/*
 using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class ReadPartDeprecated : SerializedMonoBehaviour
+public class HitLine : MonoBehaviour
 {
-    public NoteType key;
-    public Queue<Note> notes;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +16,3 @@ public class ReadPartDeprecated : SerializedMonoBehaviour
         
     }
 }
-*/

@@ -1,5 +1,4 @@
-
-
+/*
 public class HitDataDeprecated {
     public float time;
     public float offset;
@@ -11,4 +10,4 @@ public class HitDataDeprecated {
         this.heur = heur;
     }
 }
-
+*/

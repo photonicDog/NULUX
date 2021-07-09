@@ -19,6 +19,36 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongLaunchCarrier.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Track.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/FeedbackText.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/HitParticle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/OffsetBar.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/OffsetBarDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HoldParticle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ParallaxBG.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TrackList.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DialogueUINulux.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CullableParticleParent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/ChartDataManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongGameplayManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/DebugCanvasDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/HitDataDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/LineDataDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/NOVALineDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/NOVAMechanicDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/NOVANoteDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/OffsetBarDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/ReadPartDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/ResultsPanelDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/SongLaunchCarrierDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/SongManagerDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/SongUIManagerDeprecated.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TempFreePlayManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SFXManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FreePlayManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StoryModeGameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueUINulux.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCommandHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackLines.cs" />
     </changedPaths>
   </component>
   <component name="TaskManager">

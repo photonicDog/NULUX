@@ -1,4 +1,5 @@
 // NOVAMechanic
+/*
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using UnityEngine.InputSystem;
 
 public class NOVAMechanicDeprecated : SerializedMonoBehaviour
 {
-	public delegate void ScoringSystem(ScoringJudgement score);
+	public delegate void ScoringSystem(TimingWindow score);
 	public delegate void HandleCombo(int add);
 	public delegate void RecordNoteData(HitDataDeprecated data);
 	private HandleCombo Combo;
@@ -37,10 +38,10 @@ public class NOVAMechanicDeprecated : SerializedMonoBehaviour
 
 	private Dictionary<string, NoteType> _controlMapping;
 
-	public List<ScoringJudgement> judgements;
+	public List<TimingWindow> judgements;
 	private float earlyCutoff;
 	private float lateCutoff;
-	[SerializeField] private ScoringJudgement missJudgement;
+	[SerializeField] private TimingWindow missJudgement;
 	
 	[SerializeField] private float noteFadeInSpeed = 1f;	
 	[SerializeField] private float lineFadeInSpeed = 1f;
@@ -244,7 +245,7 @@ public class NOVAMechanicDeprecated : SerializedMonoBehaviour
 	private void ScoreLogic(Note note, float hitTiming, bool releaseNote, float lenience = 1f)
 	{
 		Transform textPosition = noteMap[note].head.transform;
-		ScoringJudgement judge = judgements.Find(a => a.leftMS < hitTiming && a.rightMS >= hitTiming);
+		TimingWindow judge = judgements.Find(a => a.leftMS < hitTiming && a.rightMS >= hitTiming);
 
 		if (judge != null) {
 			fbtext.DisplayFeedback(judge.feedbackText, textPosition);
@@ -351,7 +352,7 @@ public enum ScoringHeuristic {
 }
 
 [Serializable]
-public class ScoringJudgement {
+public class TimingWindow {
 	[HorizontalGroup("Data")]
 	[BoxGroup("Data/Judgement")] [LabelWidth(100)] public ScoringHeuristic heur;
 	[BoxGroup("Data/Judgement")] [LabelWidth(100)]public int leftMS;
@@ -366,3 +367,4 @@ public class ScoringJudgement {
 	[BoxGroup("Feedback")] public AudioClip feedbackAudio;
 
 }
+*/
