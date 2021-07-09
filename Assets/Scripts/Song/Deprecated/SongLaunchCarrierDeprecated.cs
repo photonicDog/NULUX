@@ -3,9 +3,9 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class SongLaunchCarrier : MonoBehaviour {
+    public class SongLaunchCarrierDeprecated : MonoBehaviour {
 
-        public static SongLaunchCarrier Instance;
+        public static SongLaunchCarrierDeprecated Instance;
         public Track currentTrack;
         
         void Awake() {
@@ -23,7 +23,7 @@
                 yield return new WaitForEndOfFrame();
             }
 
-            GameObject.Find("SongManager").GetComponent<SongManager>().SetCurrentTrack(currentTrack);
+            GameObject.Find("SongManager").GetComponent<SongManagerDeprecated>().SetCurrentTrack(currentTrack);
             Destroy(gameObject);
         }
     }

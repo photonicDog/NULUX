@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class NOVALine : SerializedMonoBehaviour
+public class NOVALineDeprecated : SerializedMonoBehaviour
 {
 	public LineDataCommand currentCMD;
 

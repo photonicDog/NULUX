@@ -76,7 +76,7 @@ public class NOVANote : SerializedMonoBehaviour {
         }
     }
 
-    public void PlaceNote(NOVALine nl) {
+    public void PlaceNote(NOVALineDeprecated nl) {
         activated = cmds[0].data.Mobile;
         transform.position = CalculateNotePosition();
     }

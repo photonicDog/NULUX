@@ -139,7 +139,7 @@ public class DialogueCommandHandler : MonoBehaviour {
             CutsceneFg.SetFG(WalkaroundManager.Instance.fgImages.LookupAsset(parameters[0]), x, y, w, h);
         }
         else {
-            CutsceneFg.SetFG(SongManager.Instance.currentTrack.imgKey.LookupAsset(parameters[0]), x, y, w, h);
+            CutsceneFg.SetFG(SongManagerDeprecated.Instance.currentTrack.imgKey.LookupAsset(parameters[0]), x, y, w, h);
         }
 
     }

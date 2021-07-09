@@ -4,7 +4,7 @@ using Sirenix.Serialization;
 using UnityEngine;
 
 [Serializable]
-public class LineData {
+public class LineDataDeprecated {
     [VerticalGroup("Animation")] 
     
     [BoxGroup("Animation/Movement")] 
@@ -57,11 +57,11 @@ public class LineData {
 }
 
 public class LineDataCommand {
-    public LineData data;
+    public LineDataDeprecated data;
     public float startTime;
     public float endTime;
 
-    public LineDataCommand(LineData data, float startTime, float endTime) {
+    public LineDataCommand(LineDataDeprecated data, float startTime, float endTime) {
         this.data = data;
         this.startTime = startTime;
         this.endTime = endTime;

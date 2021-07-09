@@ -28,6 +28,6 @@ public class TempFreePlayManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        GameObject.Find("SongManager").GetComponent<SongManager>().SetCurrentTrack(prototypeTrack);
+        GameObject.Find("SongManager").GetComponent<SongManagerDeprecated>().SetCurrentTrack(prototypeTrack);
     }
 }

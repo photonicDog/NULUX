@@ -15,9 +15,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
 
-public class SongManager : SerializedMonoBehaviour {
+public class SongManagerDeprecated : SerializedMonoBehaviour {
     // TODO: Organize this PLEASE
-    public static SongManager Instance;
+    public static SongManagerDeprecated Instance;
     
     public Track currentTrack;
     private List<LineDataCommand> lineDataCommands;
@@ -30,14 +30,14 @@ public class SongManager : SerializedMonoBehaviour {
     [SerializeField] private AudioSource introAnimationSound = default;
     
     [SerializeField] private GameObject mechanicObject = default;
-    private NOVAMechanic mechanic;
+    private NOVAMechanicDeprecated _mechanicDeprecated;
     [SerializeField] private AudioSource songAudio;
 
     public float score = 0;
     public TextMeshProUGUI scoreboard;
-    [SerializeField] private SongUIManager ui;
+    [SerializeField] private SongUIManagerDeprecated ui;
     public DialogueTalkspriter Talkspriter;
-    private ResultsPanel resultsPanel;
+    private ResultsPanelDeprecated resultsPanel;
     [HideInInspector] public Dictionary<ScoringHeuristic, int> noteResults;
 
     [SerializeReference] private DialogueRunner dialogueRunner = default;
@@ -55,7 +55,7 @@ public class SongManager : SerializedMonoBehaviour {
     private int origNoteCt;
 
     [SerializeField] private OffsetBar ob = default;
-    [HideInInspector] public List<HitData> recordedData;
+    [HideInInspector] public List<HitDataDeprecated> recordedData;
 
     public int combo;
     private float endTime;
@@ -96,8 +96,8 @@ public class SongManager : SerializedMonoBehaviour {
         StartCoroutine(StartSequence());
     }
     void AssembleMechanic() {
-        mechanic = mechanicObject.GetComponent<NOVAMechanic>();
-        mechanic.BuildMechanic(ComboManager, ScoreManager, RecordDataManager);
+        _mechanicDeprecated = mechanicObject.GetComponent<NOVAMechanicDeprecated>();
+        _mechanicDeprecated.BuildMechanic(ComboManager, ScoreManager, RecordDataManager);
     }
     void AssembleChart() {
         chartNotes = new List<Note>();
@@ -113,8 +113,8 @@ public class SongManager : SerializedMonoBehaviour {
         origNoteCt = chartNotes.Count;
     }
     void AssembleData() {
-        resultsPanel = GetComponent<ResultsPanel>();
-        recordedData = new List<HitData>();
+        resultsPanel = GetComponent<ResultsPanelDeprecated>();
+        recordedData = new List<HitDataDeprecated>();
         noteResults = new Dictionary<ScoringHeuristic, int>() {
             {ScoringHeuristic.STELLAR, 0},
             {ScoringHeuristic.PERFECT, 0},
@@ -286,7 +286,7 @@ public class SongManager : SerializedMonoBehaviour {
         MIDIEndTrack(mf);
 
         chartNotes.Select(a => new Note(a.Start, a.Index, a.Position, a.Duration));
-        mechanic.ImportNotes(chartNotes, lineDataCommands);
+        _mechanicDeprecated.ImportNotes(chartNotes, lineDataCommands);
         
         //End track
 
@@ -328,7 +328,7 @@ public class SongManager : SerializedMonoBehaviour {
         ui.UpdateDrive(drive, pacemaker);
     }
 
-    private void RecordDataManager(HitData data) {
+    private void RecordDataManager(HitDataDeprecated data) {
         recordedData.Add(data);
         ob.MakeMark(data.offset, data.heur);
     }

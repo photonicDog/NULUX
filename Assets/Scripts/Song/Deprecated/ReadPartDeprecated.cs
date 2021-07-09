@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class ReadPart : SerializedMonoBehaviour
+public class ReadPartDeprecated : SerializedMonoBehaviour
 {
     public NoteType key;
     public Queue<Note> notes;

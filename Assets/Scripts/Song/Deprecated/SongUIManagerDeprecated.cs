@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SongUIManager : MonoBehaviour {
+public class SongUIManagerDeprecated : MonoBehaviour {
 
     public TextMeshProUGUI comboCounter;
     public TextMeshProUGUI floatingCombo;

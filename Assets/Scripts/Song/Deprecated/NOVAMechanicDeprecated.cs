@@ -8,11 +8,11 @@ using Song;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class NOVAMechanic : SerializedMonoBehaviour
+public class NOVAMechanicDeprecated : SerializedMonoBehaviour
 {
 	public delegate void ScoringSystem(ScoringJudgement score);
 	public delegate void HandleCombo(int add);
-	public delegate void RecordNoteData(HitData data);
+	public delegate void RecordNoteData(HitDataDeprecated data);
 	private HandleCombo Combo;
 	private ScoringSystem Score;
 	private RecordNoteData RecordData;
@@ -22,8 +22,8 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	private List<LineDataCommand> cmdList;
 	private List<Note> currentlyActiveNotes;
 
-	private List<NOVALine> novaLines;
-	private List<NOVALine> activeLines;
+	private List<NOVALineDeprecated> novaLines;
+	private List<NOVALineDeprecated> activeLines;
 	
 	private Note[] _heldNotes;
 	private List<HoldParticle> _holdParticles;
@@ -31,7 +31,6 @@ public class NOVAMechanic : SerializedMonoBehaviour
 	[SerializeField] private GameObject noteObject;
 	[SerializeField] private Transform noteCanvas;
 	[SerializeField] private Dictionary<LineStyle, GameObject> novaPrefabs;
-	[SerializeField] private WarningTelegraph warning;
 	public FeedbackText fbtext;
 	
 	public float offset;
@@ -67,7 +66,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 
 	public void UpdateLines()
 	{
-		foreach (NOVALine novaLine in novaLines) {
+		foreach (NOVALineDeprecated novaLine in novaLines) {
 			if (novaLine.currentCMD.startTime <= Conductor.Instance.GetSongTime() + novaLine.currentCMD.data.fadeLength && !novaLine.activated)
 			{
 				novaLine.FadeIn();
@@ -76,8 +75,8 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			novaLine.CalculateHitLineMovement(Conductor.Instance.GetSongTime());
 		}
 		
-		List<NOVALine> slatedToRemove = new List<NOVALine>();
-		foreach (NOVALine novaLine in activeLines) {
+		List<NOVALineDeprecated> slatedToRemove = new List<NOVALineDeprecated>();
+		foreach (NOVALineDeprecated novaLine in activeLines) {
 			
 			if (novaLine.currentCMD.endTime < Conductor.Instance.GetSongTime()) {
 				slatedToRemove.Add(novaLine);
@@ -106,8 +105,8 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		
 		cmdList = lineCommands;
 		noteMap = new Dictionary<Note, NOVANote>();
-		novaLines = new List<NOVALine>();
-		activeLines = new List<NOVALine>();
+		novaLines = new List<NOVALineDeprecated>();
+		activeLines = new List<NOVALineDeprecated>();
 		_holdParticles = new List<HoldParticle>();
 
 		earlyCutoff = judgements.Select(a => a.leftMS).Min();
@@ -117,7 +116,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 		
 		foreach (LineDataCommand ldc in cmdList) {
 			GameObject go = Instantiate(novaPrefabs[ldc.data.Style]);
-			NOVALine nl = go.GetComponent<NOVALine>();
+			NOVALineDeprecated nl = go.GetComponent<NOVALineDeprecated>();
 			nl.currentCMD = ldc;
 			novaLines.Add(nl);
 			nl.SetActivated(false);
@@ -252,7 +251,7 @@ public class NOVAMechanic : SerializedMonoBehaviour
 			Score(judge);
 			Combo(judge.combo);
 			PushInputToPart(noteMap[note], judge.countsAsHit, releaseNote);
-			RecordData(new HitData(note.Start + (releaseNote?note.Duration:0), hitTiming, judge.heur));
+			RecordData(new HitDataDeprecated(note.Start + (releaseNote?note.Duration:0), hitTiming, judge.heur));
 			SFXManager.Instance.PlayHitsound(judge.leftMS);
 		}
 		else {

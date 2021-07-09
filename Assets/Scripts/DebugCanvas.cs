@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DebugCanvas : MonoBehaviour {
 
-    public SongManager sm;
+    public SongManagerDeprecated sm;
 
     public TextMeshProUGUI offsetText;
     

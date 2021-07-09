@@ -11,14 +11,14 @@ using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI.Extensions;
 
-public class ResultsPanel : SerializedMonoBehaviour {
+public class ResultsPanelDeprecated : SerializedMonoBehaviour {
 
     public TextMeshProUGUI scoreResult;
     public TextMeshProUGUI rankResult;
     public GameObject resultsScreen;
     public GameObject continueButton;
     public EventSystem ui;
-    public SongManager sm;
+    public SongManagerDeprecated sm;
     public UILineRenderer offsetLine;
     public UILineRenderer timeLine;
     public TextMeshProUGUI offsetText;
@@ -42,11 +42,11 @@ public class ResultsPanel : SerializedMonoBehaviour {
 
     public void SetScore(int score) {
         resultsScreen.SetActive(true);
-        noteResults = SongManager.Instance.noteResults;
+        noteResults = SongManagerDeprecated.Instance.noteResults;
         ShowScore(score);
-        if (SongManager.Instance.recordedData.Count > 2) {
-            ShowOffsetsFrequency(SongManager.Instance.recordedData);
-            ShowOffsetsTime(SongManager.Instance.recordedData);
+        if (SongManagerDeprecated.Instance.recordedData.Count > 2) {
+            ShowOffsetsFrequency(SongManagerDeprecated.Instance.recordedData);
+            ShowOffsetsTime(SongManagerDeprecated.Instance.recordedData);
         }
         
         ui.SetSelectedGameObject(continueButton);
@@ -70,7 +70,7 @@ public class ResultsPanel : SerializedMonoBehaviour {
         if (score > 999999) rankResult.text = "X";
     }
 
-    private void ShowOffsetsFrequency(List<HitData> data) {
+    private void ShowOffsetsFrequency(List<HitDataDeprecated> data) {
         int maxCt = 0;
         float pointCt = 500;
         List<Vector2> pointList = new List<Vector2>();
@@ -94,7 +94,7 @@ public class ResultsPanel : SerializedMonoBehaviour {
         offsetText.text = "AVERAGE OFFSET: " + data.Average(a => a.offset);
     }
 
-    private void ShowOffsetsTime(List<HitData> data) {
+    private void ShowOffsetsTime(List<HitDataDeprecated> data) {
         float pointCt = 300;
         List<Vector2> transformed = new List<Vector2>();
         float regionAverage = 0;

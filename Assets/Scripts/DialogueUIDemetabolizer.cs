@@ -246,9 +246,9 @@ public class DialogueUIDemetabolizer : Yarn.Unity.DialogueUIBehaviour {
             ts = WalkaroundManager.Instance.Talkspriter; 
         }
 
-        if (SongManager.Instance != null) {
+        if (SongManagerDeprecated.Instance != null) {
             Debug.Log("Initialized song-style talksprites!");
-            ts = SongManager.Instance.Talkspriter;
+            ts = SongManagerDeprecated.Instance.Talkspriter;
         }
     }
 
