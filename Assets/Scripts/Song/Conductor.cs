@@ -10,132 +10,71 @@ using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 public class Conductor : MonoBehaviour {
-    public float bpm;
 
-    private Stopwatch stopwatch;
-    
-    public float songPosition;
-    public float offset;
-
-    private bool priming;
-    private bool primed;
-    private Stopwatch primedWatch;
-    private TimeSpan primedTimer;
-    private float primedTime;
-
-    public float beatS;
-    public float halfS;
-    public float quarterS;
-    public float eighthS;
-    public float sixteenthS;
-
-    public bool playing;
-    private Dictionary<int, char> midNoteToKey;
+    public static Conductor Instance;
     
     public AudioSource musicSource;
-    
-    private static Conductor _instance;
-    public static Conductor Instance {
-        get { return _instance; }
-    }
+    [SerializeField]
+    public double songTime;
+    [SerializeField]
+    public double startOffset; //the offset between the start of the audio file and the first beat
+    [SerializeField]
+    private double songStartPoint; //where in the audio file should we start playing from
+    [SerializeField]
+    private double leadIn; //how far ahead we schedule playback to give the audio system time to prepare
+    [SerializeField]
+    private double pausePoint; //stores the time of playback for when things get paused
+    [SerializeField]
+    private double startTimeAudio; //the dsptime when the music will start playing
+    [SerializeField]
+    private double startTimeReal; //the real time when the music will start playing
+
+    public volatile bool isPlaying;
+
+    private TimingEvent currentTiming;
+    public double msPerBeat;
+    public double nextBeat;
+
     private void Awake() {
-        if (Instance != null && _instance != this) {
-            Destroy(this.gameObject);
+        Instance = this;
+    }
+
+    public void StartMusic() {
+        songStartPoint = 0;
+        musicSource.timeSamples = 0;
+        songTime = -10000;
+        startTimeReal = Time.realtimeSinceStartupAsDouble + leadIn;
+        startTimeAudio = AudioSettings.dspTime + leadIn;
+        musicSource.PlayScheduled(startTimeAudio);
+        isPlaying = true;
+    }
+
+    public void StartMusicFromTime(double time) {
+        songStartPoint = time;
+        musicSource.timeSamples = (int)(time * musicSource.clip.frequency);
+        songTime = -10000;
+        startTimeReal = Time.realtimeSinceStartupAsDouble + leadIn;
+        startTimeAudio = AudioSettings.dspTime + leadIn;
+        musicSource.PlayScheduled(startTimeAudio);
+        isPlaying = true;
+    }
+
+    public void UpdateSongTime() {
+        //update time
+        songTime = ((songStartPoint + (Time.realtimeSinceStartupAsDouble - startTimeReal)) * 1000) + startOffset;
+        //check timings
+        
+        //check beats
+        if(songTime > nextBeat) {
+            nextBeat += msPerBeat;
         }
-        else {
-            _instance = this;
-        }
-        
-        stopwatch = new Stopwatch();
-        primedWatch = new Stopwatch();
-        if (!Stopwatch.IsHighResolution) {
-            Debug.Log("Not using a high resolution timer!");
-        }
-
     }
 
-    // Start is called before the first frame update
-    void Start() {
-        beatS = (60f / bpm);
-        halfS = beatS / 2;
-        quarterS = halfS / 2;
-        eighthS = quarterS / 2;
-        sixteenthS = eighthS / 2;
-    }
-
-    public void SetSong(AudioClip au) {
-        musicSource.clip = au;
-    }
-
-    // Update is called once per frame
-    void Update() {
-        if (playing) UpdateTiming();
-    }
-
-    public void SetSongOffset(float offset) {
-        this.offset = offset + SettingsManager.Instance.userOffset;
-    }
-
-    public void SetBPM(float bpm) {
-        this.bpm = bpm;
-    }
-
-    public void PrimeSong(float time) {
-        playing = true;
-        primed = false;
-        primedTime = time;
-        primedWatch.Start();
-        
-        StartCoroutine(SongDelay(time));
-    }
-
-    IEnumerator SongDelay(float time) {
-        yield return new WaitForSeconds(time);
-        primedTimer = primedWatch.Elapsed;
-        primedWatch.Stop();
-        primed = true;
-        
-        StartSong();
-    }
-
-    public void StartSong() {
-        stopwatch.Reset();
-        stopwatch.Start();
-
-        if (primed) stopwatch.Elapsed.Add(primedTimer);
-        musicSource.Play(0);
-        
-        playing = true;
-    }
-
-    public void StopSong() {
-        stopwatch.Stop();
-        musicSource.Stop();
-        
-        playing = false;
-    }
-
-    public void ResetSong(float time) {
-        StopSong();
-        PrimeSong(time);
-    }
-
-    public void UpdateTiming() {
-        songPosition = GetSongTime();
-    }
-
-    public float GetSongTime() {
-        return (GetSongTimeMS() / 1000f) * (bpm / 60f);
-        
-        throw new Exception("Stopwatch is not running!");
-    }
-
-    public long GetSongTimeMS() {
-        if (stopwatch.IsRunning || primedWatch.IsRunning) {
-            if (primedWatch.IsRunning) return ((long) -(primedTime * 1000)) + primedWatch.ElapsedMilliseconds + Mathf.RoundToInt(offset);
-            return stopwatch.ElapsedMilliseconds + Mathf.RoundToInt(offset);
-        }
-        
-        throw new Exception("Stopwatch is not running!");
+    public void UpdateCurrentTiming(TimingEvent timing) {
+        Debug.Log("updating timing " + timing.bpm);
+        currentTiming = timing;
+        msPerBeat = 60 / currentTiming.bpm;
+        msPerBeat *= 1000;
+        nextBeat = songTime + (msPerBeat - ((songTime - currentTiming.time) % msPerBeat));
     }
 }

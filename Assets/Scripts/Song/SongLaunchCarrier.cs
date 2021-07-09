@@ -19,12 +19,11 @@
         }
 
         IEnumerator SongFlywrench() {
-            while (!GameObject.Find("SongManager"))
-            {
+            while (!GameObject.Find("SongManager")) {
                 yield return new WaitForEndOfFrame();
             }
+
             GameObject.Find("SongManager").GetComponent<SongManager>().SetCurrentTrack(currentTrack);
             Destroy(gameObject);
         }
-        
     }

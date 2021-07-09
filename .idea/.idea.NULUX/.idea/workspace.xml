@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="af194f5b-9977-45f1-a3f9-f8f1ea7891f9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BGMManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.5.7/Editor/Collaborate/UserInterface/CollaborateWindow.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Conductor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/TimingEvent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Note.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongLaunchCarrier.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Track.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongManager.cs" />
+    </changedPaths>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+</project>

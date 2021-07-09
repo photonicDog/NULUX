@@ -5,31 +5,24 @@ using UnityEngine;
 
 [Serializable]
 public class Note {
-    public float Start;
-    public NoteType NoteType;
+    public double Start;
+    public int NoteType;
     public bool Hit = false;
-    public float Duration;
+    public double Duration;
     public float Position;
     public int Index;
 
-    public Note(float start, int n, float position) {
+    public Note(double start, int n, float position) {
         this.Start = start;
         this.Position = position;
-        this.NoteType = (NoteType)n;
+        this.NoteType = n;
         this.Duration = 0;
     }
     
-    public Note(float start, int n, float position, float duration) {
+    public Note(double start, int n, float position, double duration) {
         this.Start = start;
         this.Position = position;
-        this.NoteType = (NoteType)n;
+        this.NoteType = n;
         this.Duration = duration;
     }
-}
-
-public enum NoteType {
-    L1 = 0, 
-    L2 = 1, 
-    L3 = 2, 
-    L4 = 3,
 }

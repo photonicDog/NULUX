@@ -20,22 +20,24 @@ public class SongManager : SerializedMonoBehaviour {
     public static SongManager Instance;
     
     public Track currentTrack;
-    public List<LineDataCommand> lcList;
+    private List<LineDataCommand> lineDataCommands;
+    private Queue<TimingEvent> timingQueue;
 
     private Note[] heldNotes;
-    private Queue<ChartDialogueCommand> dcQueue;
+    private Queue<ChartDialogueCommand> dialogueCommandQueue;
 
     [SerializeField] private GameObject introAnimation = default;
     [SerializeField] private AudioSource introAnimationSound = default;
     
     [SerializeField] private GameObject mechanicObject = default;
     private NOVAMechanic mechanic;
+    [SerializeField] private AudioSource songAudio;
 
     public float score = 0;
     public TextMeshProUGUI scoreboard;
     [SerializeField] private SongUIManager ui;
     public DialogueTalkspriter Talkspriter;
-    private ResultsPanel rp;
+    private ResultsPanel resultsPanel;
     [HideInInspector] public Dictionary<ScoringHeuristic, int> noteResults;
 
     [SerializeReference] private DialogueRunner dialogueRunner = default;
@@ -44,10 +46,6 @@ public class SongManager : SerializedMonoBehaviour {
     private float perfectNoteScore;
 
     public bool isStoryMode;
-
-    public float perfectWindow = 20;
-    public float greatWindow = 40;
-    public float goodWindow = 90;
 
     public Image driveGauge;
     private float drive = 0f;
@@ -60,13 +58,13 @@ public class SongManager : SerializedMonoBehaviour {
     [HideInInspector] public List<HitData> recordedData;
 
     public int combo;
-    private float endBeat;
+    private float endTime;
 
     public Image endFade;
 
     void Awake() {
         Instance = this;
-        StartCoroutine(WaitForTrackSignal());
+        StartCoroutine(WaitForSongStart());
     }
 
     private void OnDestroy() {
@@ -77,19 +75,45 @@ public class SongManager : SerializedMonoBehaviour {
         currentTrack = t;
         isStoryMode = t.isStoryModeTrack;
     }
+    
+    // -- SETUP --
 
-    IEnumerator WaitForTrackSignal() {
+    IEnumerator WaitForSongStart() {
         while (currentTrack == null) {
             yield return new WaitForFixedUpdate();
         }
         InputSystem.pollingFrequency = 4000f;
-        chartNotes = new List<Note>();
-        lcList = new List<LineDataCommand>();
-        heldNotes = new Note[4];
-        rp = GetComponent<ResultsPanel>();
+        
+        InitializeSong();
+    }
+
+    void InitializeSong() {
+        AssembleMechanic();
+        AssembleChart();
+        AssembleData();
+        AssembleUI();
+        
+        StartCoroutine(StartSequence());
+    }
+    void AssembleMechanic() {
         mechanic = mechanicObject.GetComponent<NOVAMechanic>();
         mechanic.BuildMechanic(ComboManager, ScoreManager, RecordDataManager);
+    }
+    void AssembleChart() {
+        chartNotes = new List<Note>();
+        lineDataCommands = new List<LineDataCommand>();
         
+        heldNotes = new Note[4];
+        for (int i = 0; i < 4; i++) {
+            heldNotes[i] = null;
+        }
+        
+        ReadMIDI(Application.streamingAssetsPath + "/" + currentTrack.PathToChart +".mid", currentTrack);
+        songAudio.clip = currentTrack.Audio;
+        origNoteCt = chartNotes.Count;
+    }
+    void AssembleData() {
+        resultsPanel = GetComponent<ResultsPanel>();
         recordedData = new List<HitData>();
         noteResults = new Dictionary<ScoringHeuristic, int>() {
             {ScoringHeuristic.STELLAR, 0},
@@ -99,79 +123,75 @@ public class SongManager : SerializedMonoBehaviour {
             {ScoringHeuristic.MISS, 0}
         };
         
-        Build();
-    }
-
-    void Build() {
-        for (int i = 0; i < 4; i++) {
-            heldNotes[i] = null;
-        }
-
-        ReadMIDI(Application.streamingAssetsPath + "/" + currentTrack.PathToChart +".mid", currentTrack);
-        Conductor.Instance.SetSong(currentTrack.Audio);
-        origNoteCt = chartNotes.Count;
-        
         perfectNoteScore = 1000000f / ((chartNotes.Count));
+    }
+    void AssembleUI() {
         if (currentTrack.yp) dialogueRunner.Add(currentTrack.yp);
         driveGauge.fillAmount = drive;
         
         ui.UpdateSongAttributes(currentTrack.trackName);
-
-        // Build all necessary components and then turn em off until they're ready.
-        
-
-        StartCoroutine(StartSequence());
     }
 
     IEnumerator StartSequence() {
         introAnimation.SetActive(true);
         introAnimationSound.Play();
-        Conductor.Instance.PrimeSong(8f);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(7f);
         introAnimation.SetActive(false);
+        Conductor.Instance.StartMusic();
     }
-
-    // Update is called once per frame
-    void Update() {
-        
-        if (Conductor.Instance.playing && dcQueue.Count > 0) {
-            // Chart dialogue
-            if (dcQueue.Peek().timing < Conductor.Instance.GetSongTime()) {
-                ChartDialogueCommand dcm = dcQueue.Dequeue();
-                Debug.Log("Running command " + dcm.command[0]);
-                switch (dcm.command[0]) {
-                    case "PLAY":
-                        RunDialogueNode(dcm.command[1]);
-                        break;
-                    case "ADV":
-                        AdvanceDialogueNode();
-                        break;
-                }
-            }
+    
+   // -- GAMEPLAY LOOP -- 
+   
+   void Update() {
+        if (Conductor.Instance.isPlaying && dialogueCommandQueue.Count > 0) {
+            DialogueCheck();
         }
     }
-
-    private void RunDialogueNode(string node) {
+   
+   #region DIALOGUE_HANDLING
+   void DialogueCheck() {
+       if (CheckValueAgainstTiming(dialogueCommandQueue.Peek().timing)) {
+           ChartDialogueCommand dcm = dialogueCommandQueue.Dequeue();
+//           Debug.Log("Running command " + dcm.command[0]);
+           switch (dcm.command[0]) {
+               case "PLAY":
+                   RunDialogueNode(dcm.command[1]);
+                   break;
+               case "ADV":
+                   AdvanceDialogueNode();
+                   break;
+           }
+       }
+   }
+   private void RunDialogueNode(string node) {
         dialogueRunner.StartDialogue(node);
     }
 
     private void AdvanceDialogueNode() {
         dialogueAdvanceButton.onClick.Invoke();
     }
+    
+    #endregion
 
     private void LateUpdate() {
-        if (Conductor.Instance.playing) {
-            if (Conductor.Instance.GetSongTime() >= endBeat) {
-                Conductor.Instance.StopSong();
-                Debug.Log("End beat reached.");
-                EndSong();
-            }
+        if (Conductor.Instance.isPlaying) {
+            CheckEnd();
         }
     }
 
+    void CheckEnd() {
+        if (Conductor.Instance.songTime >= endTime) {
+            songAudio.Stop();
+            StartCoroutine(EndSong());
+        }
+    }
 
-    void EndSong() {
-        StartCoroutine(FadeOut(120f));
+    IEnumerator EndSong() {
+        yield return StartCoroutine(FadeOut(120f));
+        
+        mechanicObject.SetActive(false);
+        resultsPanel.endBeat = endTime;
+        resultsPanel.SetScore((int)score);
     }
 
     IEnumerator FadeOut(float timeInFrames) {
@@ -179,31 +199,22 @@ public class SongManager : SerializedMonoBehaviour {
             endFade.color += new Color(0,0,0,1/timeInFrames);
             yield return new WaitForEndOfFrame();
         }
-        
-        mechanicObject.SetActive(false);
-        rp.endBeat = endBeat;
-        rp.SetScore((int)score);
     }
+    
+    #region MIDI
 
-    // Read midi from path.
-    void ReadMIDI(string midiPath, Track track) {
-        TrackLines asscTrack = track.Lines;
-        MidiFile mf = new MidiFile(midiPath, false);
-        dcQueue = new Queue<ChartDialogueCommand>();
-
-        // Tempo track
+    void MIDITempoTrack(MidiFile mf) {
         foreach (var midiEvent in mf.Events[0]) {
             if (midiEvent is TempoEvent) {
-                // TODO: Make event queue for BPM changes and stuff.
-                Conductor.Instance.SetBPM((float)(midiEvent as TempoEvent).Tempo);
+                timingQueue.Enqueue(new TimingEvent(midiEvent.AbsoluteTime, (float)(midiEvent as TempoEvent).Tempo));
             } else if (midiEvent is TextEvent) {
-                // TODO: Add json-based animation or whatever here.
                 if ((midiEvent as TextEvent).MetaEventType == MetaEventType.TextEvent) 
-                    Conductor.Instance.SetSongOffset(float.Parse((midiEvent as TextEvent).Text));
+                    Conductor.Instance.startOffset = (float.Parse((midiEvent as TextEvent).Text));
             }
         }
-        
-        // Note track
+    }
+
+    void MIDINoteTrack(MidiFile mf) {
         foreach (var midiEvent in mf.Events[1]) {
             if (MidiEvent.IsNoteOn(midiEvent)) {
                 int length = ((NoteOnEvent) midiEvent).NoteLength;
@@ -223,51 +234,66 @@ public class SongManager : SerializedMonoBehaviour {
                 }
             }
         }
+    }
 
-        //LineCMD track
+    void MIDILineTrack(MidiFile mf) {
         // TODO: FIX THIS
         foreach (var midiEvent in mf.Events[2]) {
             if (MidiEvent.IsNoteOn(midiEvent)) {
                 NoteOnEvent nev = midiEvent as NoteOnEvent;
-                lcList.Add(new LineDataCommand(
+                TrackLines asscTrack = currentTrack.Lines;
+                lineDataCommands.Add(new LineDataCommand(
                     asscTrack.trackLines[nev.NoteNumber], 
                     nev.AbsoluteTime/480f, 
                     nev.AbsoluteTime/480f + (nev.NoteLength-1)/480f)
                 );
             }
         }
-        
-        mechanic.ImportNotes(chartNotes, lcList);
+    }
 
-        if (currentTrack.yp != null)
-        foreach (var midiEvent in mf.Events[3]) {
-            if (midiEvent is TextEvent && ((TextEvent) midiEvent).MetaEventType == MetaEventType.Marker) {
-                TextEvent tev = midiEvent as TextEvent;
-                string[] cmds = tev.Text.Split(' ');
-                dcQueue.Enqueue(new ChartDialogueCommand(cmds, (float) midiEvent.AbsoluteTime / 480));
+    void MIDIDialogueTrack(MidiFile mf) {
+        if (currentTrack.yp != null) {
+            foreach (var midiEvent in mf.Events[3]) {
+                if (midiEvent is TextEvent && ((TextEvent) midiEvent).MetaEventType == MetaEventType.Marker) {
+                    TextEvent tev = midiEvent as TextEvent;
+                    string[] cmds = tev.Text.Split(' ');
+                    dialogueCommandQueue.Enqueue(new ChartDialogueCommand(cmds, (float) midiEvent.AbsoluteTime / 480));
+                }
             }
         }
+    }
 
-        //End track
+    void MIDIEndTrack(MidiFile mf) {
         foreach (var midiEvent in mf.Events[4]) {
             if (MidiEvent.IsNoteOn(midiEvent)) {
-                endBeat = ((NoteOnEvent) midiEvent).AbsoluteTime / 480f;
+                endTime = ((NoteOnEvent) midiEvent).AbsoluteTime / 480f;
                 break;
             }
         }
     }
 
+    #endregion
+    
+    // Read midi from path.
+    void ReadMIDI(string midiPath, Track track) {
+        MidiFile mf = new MidiFile(midiPath, false);
+        dialogueCommandQueue = new Queue<ChartDialogueCommand>();
+        
+        MIDITempoTrack(mf);
+        MIDINoteTrack(mf);
+        MIDILineTrack(mf);
+        MIDIDialogueTrack(mf);
+        MIDIEndTrack(mf);
+
+        chartNotes.Select(a => new Note(a.Start, a.Index, a.Position, a.Duration));
+        mechanic.ImportNotes(chartNotes, lineDataCommands);
+        
+        //End track
+
+    }
+
     private void ResetTrack() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    // Input method.
-    public void SongKey(InputAction.CallbackContext context) {        
-        mechanic.QueryInput(context);
-    }
-
-    public void AlterOffset(InputAction.CallbackContext context) {
-        Conductor.Instance.offset += context.ReadValue<float>();
     }
 
     public void ResetButton(InputAction.CallbackContext context) {
@@ -310,6 +336,16 @@ public class SongManager : SerializedMonoBehaviour {
     public void ReturnToMenu() {
         if (SceneManager.GetActiveScene().buildIndex == 4)
             LoadingScreen.Instance.Show(SceneManager.LoadSceneAsync(1));
+    }
+    
+    // -- UTILITY --
+
+    bool CheckValueAgainstTiming(double timing) {
+        return timing < Conductor.Instance.songTime;
+    }
+
+    double MidiToSeconds(float resolution, float absoluteTime, float bpm) {
+        return (absoluteTime / resolution) / bpm;
     }
 }
 
