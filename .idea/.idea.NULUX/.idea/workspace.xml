@@ -51,9 +51,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackLines.cs" />
     </changedPaths>
   </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+  </component>
   <component name="TaskManager">
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
-  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
 </project>
