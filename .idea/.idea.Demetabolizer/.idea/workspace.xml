@@ -2,16 +2,152 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13c280e0-af3a-4611-aaa1-1e3c4061726e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Demetabolizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Demetabolizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/CHANGELOG.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/CHANGELOG.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/EfficientBlur.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/EfficientBlur.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/EfficientBlur.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/EfficientBlur.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/FillCrop.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/FillCrop.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/BlurAlgorithm/ScalableBlur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/BlurAlgorithm/ScalableBlur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImageEditorEnhancement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImageEditorEnhancement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImageSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Script/TranslucentImageSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/chartreuse.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/chartreuse.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/t+pazolite - Chartreuse Green.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Audio/t+pazolite - Chartreuse Green.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/nakki_ldr 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/nakki_ldr 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Demo/UniversalRP/Material/Overlay Translucent Image.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Demo/UniversalRP/Material/Overlay Translucent Image.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Material/Default-Translucent.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Le Tai's Asset/TranslucentImage/Material/Default-Translucent.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Examples &amp; Extras/Prefabs/Text Popup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Examples &amp; Extras/Prefabs/Text Popup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Song/ChartManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Song/ChartManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SongDialogue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SongDialogue.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu Background.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Menu Background.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Song.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Song.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/checkerboard texture.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/checkerboard texture.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/enron.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/enron.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/fridge.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/fridge.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/pickup.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/pickup.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/skatv.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/FinalFurniture/Materials/skatv.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/New Material 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/New Material 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/VSRGGrindFX.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/VSRGGrindFX.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/VSRGHitFX.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/VSRGHitFX.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/lane receptor rotate color.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/lane receptor rotate color.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/sparkle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Hit Particle/sparkle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HitEffect/HitEffect.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HitEffect/HitEffect.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/r4vynfull.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/r4vynfull.clip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/r4vynfull.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/r4vynfull.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/tempfull.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/tempfull.clip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/tempfull.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/tempfull.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/umbrafull.clip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/umbrafull.clip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/umbrafull.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/FG Art/umbrafull.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/creatures1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/creatures1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/distanceshot1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/distanceshot1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/distanceshot2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/distanceshot2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/starview1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/starview1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/stationview1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Key Art/stationview1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_base.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_base.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_color.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_color.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mechanic Swap Warning/swap_warning_top.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge base.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge base.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge fill.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge overlay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Song UI/drive gauge overlay.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/DJMAX_RESPECT_V_2021-03-22_14-36-58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/DJMAX_RESPECT_V_2021-03-22_14-36-58.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Untitled-f42dbd9c-9500-4734-bc28-ec80a5c2d0c6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Untitled-f42dbd9c-9500-4734-bc28-ec80a5c2d0c6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/splat 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/splat 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/VSRGNoteSpin.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/VSRGNoteSpin.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Walkaround/Furniture/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Walkaround/Furniture/Materials/cabinet.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Walkaround/Furniture/Materials/cabinet.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Walkaround/Furniture/bed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Walkaround/Furniture/bed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/airplane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/airplane.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/game_ui_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/game_ui_background.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/logo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlebackstarplx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlebackstarplx.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlefrontstarplx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlefrontstarplx.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlelineplx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/menu/titlelineplx.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/chartreuse.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/chartreuse.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/clown nose chart.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/clown nose chart.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/psyched_prepared.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/psyched_prepared.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/svxtest.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/svxtest.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/test2.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/test2.mid.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Crown.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Crown.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Menu Background.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Menu Background.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Crown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Crown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 3.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Ring 3.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Shape.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Rotating Shape.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Wireframe.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/Wireframe.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 1 (1).controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 1 (1).controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 1.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 1.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 2.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/hit effect ring 2.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/icosahedron.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/icosahedron.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/icosahedron.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/The Bathroom/icosahedron.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/demovideo.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/demovideo.mp4.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/guitarSM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/guitarSM.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/MaintainerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/MaintainerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,22 +172,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/WalkaroundCamera.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding>
-                <marker date="1616592394618" expanded="false" signature="6:97" ph="..." />
-                <marker date="1616592394618" expanded="true" signature="145:526" ph="{...}" />
-                <marker date="1616592394618" expanded="true" signature="289:381" ph="{...}" />
-                <marker date="1616592394618" expanded="true" signature="416:451" ph="{...}" />
-                <marker date="1616592394618" expanded="true" signature="488:524" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Door.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,7 +251,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Song/Conductor.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="112" column="27" lean-forward="true" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+              <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
               <folding>
                 <marker date="1612559469308" expanded="false" signature="6:238" ph="..." />
                 <marker date="1612559469308" expanded="true" signature="279:3388" ph="{...}" />
@@ -358,6 +478,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SettingsMenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Wireframe/Shaders/Wireframe.cginc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPCState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@1.2.7/Editor/YarnImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackBundle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -553,12 +674,12 @@
       <workItem from="1619696947486" duration="2437000" />
       <workItem from="1620668797539" duration="4538000" />
       <workItem from="1625691123839" duration="2565000" />
-      <workItem from="1625762139410" duration="449000" />
+      <workItem from="1625762139410" duration="1021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319809000" />
+    <option name="totallyTimeSpent" value="320381000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,23 +740,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackBundle.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-          <folding>
-            <marker date="1618355166464" expanded="false" signature="6:107" ph="..." />
-            <marker date="1618355166464" expanded="true" signature="270:1875" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="805:1359" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="1410:1573" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="1449:1526" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="1615:1699" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="1738:1873" ph="{...}" />
-            <marker date="1618355166464" expanded="true" signature="1776:1867" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/MusicSelectMenu.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PreloadScene.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1350,6 +1454,7 @@
           <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
           <folding>
             <marker date="1620672036393" expanded="true" signature="6:140" ph="..." />
+            <marker date="1620672036393" expanded="true" signature="186:632" ph="{...}" />
             <marker date="1620672036393" expanded="true" signature="509:630" ph="{...}" />
           </folding>
         </state>
@@ -1465,10 +1570,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Wireframe/Shaders/Wireframe.cginc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Song/Conductor.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="112" column="27" lean-forward="true" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+          <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
           <folding>
             <marker date="1612559469308" expanded="false" signature="6:238" ph="..." />
             <marker date="1612559469308" expanded="true" signature="279:3388" ph="{...}" />

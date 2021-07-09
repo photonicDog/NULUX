@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &1
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 61
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -52,6 +52,21 @@ MonoBehaviour:
       ignoreCase: 1
       kind: 3
       value: .preset
+      exactMatch: 0
+    - enabled: 1
+      ignoreCase: 0
+      kind: 1
+      value: Assets/ProBuilder Data
+      exactMatch: 0
+    - enabled: 1
+      ignoreCase: 0
+      kind: 1
+      value: Assets/Sprites/HitEffect
+      exactMatch: 0
+    - enabled: 1
+      ignoreCase: 0
+      kind: 1
+      value: Assets/Sprites/Small Sprites
       exactMatch: 0
     pathIncludesFilters: []
     sceneIgnoresFilters: []

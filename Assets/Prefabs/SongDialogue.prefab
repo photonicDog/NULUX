@@ -824,17 +824,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adee08a81c2704a4c8c780f898f9c00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 2822029579407322830}
-  talksprites:
-  - {fileID: 11400000, guid: 686a94d23f736e940b012948d62d517d, type: 2}
-  - {fileID: 11400000, guid: d7c58d8a9a0cbcb4b82a9d39f53ed12d, type: 2}
-  - {fileID: 11400000, guid: de1bbdb7dde6c7d4d914f15fa50f7089, type: 2}
-  - {fileID: 11400000, guid: 0b10a46fd4dc4d347817ae74a147ce8a, type: 2}
-  talkspr: {fileID: 2822029579407322864}
-  nameplate: {fileID: 2822029577896044466}
-  fps: 4
-  blankClip: {fileID: 7400000, guid: c2f53bc381ab448408ebf1f15b0e8405, type: 2}
-  defaultClip: {fileID: 7400000, guid: c2a64f1a98347d946806c36004d1c4e6, type: 2}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: scriptToID
+      Entry: 6
+      Data: 
+    - Name: scriptToNameplate
+      Entry: 6
+      Data: 
 --- !u!1 &2822029578965846201
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dc04b6725ed1d648a9439924a268373, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1017,7 +1021,7 @@ Animator:
   m_GameObject: {fileID: 2822029579407322828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b93cd62c6ca7424439ea309c01894fe8, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
