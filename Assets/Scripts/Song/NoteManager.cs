@@ -7,14 +7,28 @@ public class NoteManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    public void PreprocessNotes()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Initialize()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    //Check note tracks for misses, if miss, send HitData with miss to SongGameplayManager, update note track indices
+
+    //Check for held status of current hold notes, if not held, send HitData with miss to SongGameplayManager, update note track indices
     
     // Updates list playhead.
     private void UpdateNoteList(double time) {

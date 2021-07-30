@@ -71,10 +71,10 @@ public class Conductor : MonoBehaviour {
     }
 
     public void UpdateCurrentTiming(TimingEvent timing) {
-        Debug.Log("updating timing " + timing.bpm);
+        Debug.Log("updating timing " + timing.BPM);
         currentTiming = timing;
-        msPerBeat = 60 / currentTiming.bpm;
+        msPerBeat = 60 / currentTiming.BPM;
         msPerBeat *= 1000;
-        nextBeat = songTime + (msPerBeat - ((songTime - currentTiming.time) % msPerBeat));
+        nextBeat = songTime + (msPerBeat - ((songTime - currentTiming.Time) % msPerBeat));
     }
 }

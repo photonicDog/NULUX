@@ -15,4 +15,16 @@ public class ScoringManager : MonoBehaviour
     {
         
     }
+
+    public void CalculateMaxScore()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Initialize()
+    {
+        throw new System.NotImplementedException();
+    }
+
+
 }
