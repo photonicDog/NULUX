@@ -13,16 +13,16 @@ public class Note {
     public int Index;
 
     public Note(double start, int n, float position) {
-        this.Start = start;
-        this.Position = position;
-        this.NoteType = n;
-        this.Duration = 0;
+        Start = start;
+        Position = position;
+        NoteType = n;
+        Duration = 0;
     }
     
     public Note(double start, int n, float position, double duration) {
-        this.Start = start;
-        this.Position = position;
-        this.NoteType = n;
-        this.Duration = duration;
+        Start = start;
+        Position = position;
+        NoteType = n;
+        Duration = duration;
     }
 }

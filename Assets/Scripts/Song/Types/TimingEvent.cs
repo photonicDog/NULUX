@@ -2,11 +2,11 @@ using System;
 
 [Serializable]
 public class TimingEvent {
-    public double time;
-    public float bpm;
+    public double Time;
+    public float BPM;
 
     public TimingEvent(double time, float bpm) {
-        this.time = time;
-        this.bpm = bpm;
+        Time = time;
+        BPM = bpm;
     }
 }
