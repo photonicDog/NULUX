@@ -1,4 +1,5 @@
 using Assets.Scripts.Song.Types;
+using Song.Types;
 using System.Collections.Generic;
 using UnityEngine;
 
