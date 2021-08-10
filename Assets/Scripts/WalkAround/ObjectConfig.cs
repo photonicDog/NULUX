@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
+namespace WalkAround {
     [Serializable]
     public class InteractEvent : UnityEvent<ObjectConfig> {
     }
@@ -91,4 +92,4 @@ using UnityEngine.Serialization;
             onDoor.Invoke(trigger);
         }
     }
-
+}

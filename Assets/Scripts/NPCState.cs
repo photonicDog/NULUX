@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObject;
 using UnityEngine;
 
 public class NPCState : MonoBehaviour {

@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Song.Types
+﻿namespace Song.Types
 {
     public class DialogueEvent
     {

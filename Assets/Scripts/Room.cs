@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using WalkAround;
 
 public class Room : SerializedMonoBehaviour {
     public List<WalkaroundCamera> RoomCameras;

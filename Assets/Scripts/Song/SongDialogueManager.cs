@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Song
+namespace Song
 {
     public class SongDialogueManager : MonoBehaviour
     {

@@ -1,12 +1,34 @@
-public class SongGameplayManager
-{
-    /// <summary>
-    /// Activates all manager initialization methods
-    /// </summary>
-    public void Initialize()
-    {
-        throw new System.NotImplementedException();
-    }
+using System;
+using System.Collections.Generic;
+using Song.Types;
+using UnityEngine;
 
-    //Miss event handler, tell ScoringManager/UIManager/VisualManager there was a miss
+namespace Song {
+    public class SongGameplayManager : MonoBehaviour {
+        public SongSettings settings;
+
+        private static SongGameplayManager _instance;
+        public static SongGameplayManager Instance { get { return _instance;  } }
+
+        private Queue<HitEvent> hitEventQueue = new Queue<HitEvent>();
+        /// <summary>
+        /// Activates all manager initialization methods
+        /// </summary>
+        private void Awake() {
+            if (_instance != null && _instance != this) {
+                Destroy(gameObject);
+            } else {
+                _instance = this;
+            }
+        }
+
+        public void Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AddToHitEventQueue(HitEvent hd) {
+            hitEventQueue.Enqueue(hd);
+        }
+    }
 }
