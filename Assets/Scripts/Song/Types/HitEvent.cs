@@ -1,7 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+namespace Song.Types {
+    public class HitEvent {
+        public Note Note;
+        public double Offset;
+        public bool Release;
 
-public class HitEvent
-{
+        public HitEvent(Note note, bool release, double offset) {
+            Note = note;
+            Offset = offset;
+            Release = release;
+        }
+    }
 }

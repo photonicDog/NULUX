@@ -1,3 +1,5 @@
-public class ChartDataManager {
+namespace Song {
+    public class ChartDataManager {
     
+    }
 }

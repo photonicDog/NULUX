@@ -2,8 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af194f5b-9977-45f1-a3f9-f8f1ea7891f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/InputCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/InputCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/JudgementWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/JudgementWindow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NULUX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NULUX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Song Anims/Song Intro Animation/TextureScroll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Song Anims/Song Intro Animation/TextureScroll.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Walkaround.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Walkaround.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCondition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueTalkspriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueTalkspriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueTalkspriterSong.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueTalkspriterSong.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueUINulux.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueUINulux.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FreePlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FreePlayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FreePlaySongOption.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FreePlaySongOption.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/FileSelectMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/FileSelectMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/LoginScreenMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/LoginScreenMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/ModeSelectMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/ModeSelectMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/MusicSelectMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu Systems/MusicSelectMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectProximityTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ObjectProximityTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/CharacterTalksprites.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/CharacterTalksprites.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Gamestate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Gamestate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Track.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Track.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackBundle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackBundle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackLines.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackLines.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/WalkaroundNPCScenarioState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/WalkaroundNPCScenarioState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/BattleNoteManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/BattleNoteManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/BattleUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/BattleUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/ChartDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/ChartDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/DebugPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/DebugPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/FeedbackText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/FeedbackText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/HitLineComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/HitLineComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/LineRendererArc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/LineRendererArc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/LineRendererCircle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/LineRendererCircle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/NoteComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/NoteComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/OffsetBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/OffsetBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Components/ResultsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Components/ResultsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Conductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Conductor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/NoteManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/NoteManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/ScoringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/ScoringManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/SongBattleGameplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongBattleGameplayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/SongDialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongDialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/SongGameplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongGameplayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/SongInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/SongInputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/Chart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/Chart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/ChartBundle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/ChartBundle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/DialogueEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/DialogueEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/HitEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/HitEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/HitLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/HitLine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/Note.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/Note.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/Types/TimingEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/Types/TimingEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Song/VisualManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Song/VisualManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpriteBillboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpriteBillboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoryModeGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoryModeGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIGridRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGridRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkAround/ObjectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkAround/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkAround/RoomManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkAround/WalkaroundCameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkAround/WalkaroundCameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkAround/WalkaroundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkAround/WalkaroundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WalkaroundCameraTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WalkaroundCameraTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NULUX.sln" beforeDir="false" afterPath="$PROJECT_DIR$/NULUX.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,16 +76,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="feature/refactor-methodstub-songinputmanager" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/admin/Documents/Demetabolizer/Game/NULUX/Assets/Scripts/WalkAround/WalkaroundCameraManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BGMManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.5.7/Editor/Collaborate/UserInterface/CollaborateWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/admin/Documents/Demetabolizer/Game/NULUX/Assets/Scripts/ScriptableObject/Track.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -40,7 +102,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DialogueUINulux.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CullableParticleParent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/ChartDataManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongGameplayManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/DebugCanvasDeprecated.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/HitDataDeprecated.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/Deprecated/LineDataDeprecated.cs" />
@@ -60,6 +121,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueUINulux.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue System/DialogueCommandHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TrackLines.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Types/JudgementWindow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Types/InputCommand.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/Types/HitEvent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Song/SongGameplayManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Song/NoteManager.cs" />
     </changedPaths>
   </component>
@@ -107,6 +173,8 @@
       <updated>1626117213795</updated>
       <workItem from="1626117214626" duration="2356000" />
       <workItem from="1627677084029" duration="1810000" />
+      <workItem from="1627991365449" duration="2315000" />
+      <workItem from="1628618045205" duration="7064000" />
     </task>
     <servers />
   </component>

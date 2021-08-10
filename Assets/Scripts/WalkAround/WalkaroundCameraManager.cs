@@ -1,20 +1,22 @@
 using Cinemachine;
 using UnityEngine;
 
-public class WalkaroundCameraManager : MonoBehaviour {
+namespace WalkAround {
+    public class WalkaroundCameraManager : MonoBehaviour {
     
-    [Header("Camera")]
-    public CinemachineBrain spriteCamBrain;
-    public CinemachineBrain physicalBrain;
-    public WalkaroundCamera currentCam;
+        [Header("Camera")]
+        public CinemachineBrain spriteCamBrain;
+        public CinemachineBrain physicalBrain;
+        public WalkaroundCamera currentCam;
 
-    public void Initialize() {
+        public void Initialize() {
         
-    }
+        }
     
-    public void SetCamera(WalkaroundCamera vc) {
-        if (currentCam) currentCam.DeactivateCamera();
-        vc.ActivateCamera();
-        currentCam = vc;
-    }        
+        public void SetCamera(WalkaroundCamera vc) {
+            if (currentCam) currentCam.DeactivateCamera();
+            vc.ActivateCamera();
+            currentCam = vc;
+        }        
+    }
 }
