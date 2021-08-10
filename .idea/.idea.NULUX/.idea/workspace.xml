@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af194f5b-9977-45f1-a3f9-f8f1ea7891f9" name="Default Changelist" comment="Added namespacing for pretty much everything, pending revision.&#10;&#10;Did methods and logic for NoteManager.cs, types and logic for HitEvent.cs JudgementWindow.cs SongSettings.cs, a little bit of fiddling with SongGameplayManager.cs" />
+    <list default="true" id="af194f5b-9977-45f1-a3f9-f8f1ea7891f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NULUX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NULUX/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +70,9 @@
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vEB8X522iXhyMBH5GyrtbnBlDl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

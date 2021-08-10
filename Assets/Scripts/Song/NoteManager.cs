@@ -34,7 +34,7 @@ namespace Song {
         //Looks at the notes at the current indices for every note list and checks if any of them have been missed.
         //Updates note list indices accordingly, sends miss events for any missed notes
         private void CheckCurrentNotes(double time) {
-            int missThreshold = jw.closeWindow;
+            int missThreshold = jw.offWindow;
             for (int i = 0; i < 4; i++) {
                 Note currentNote = notes[i][noteListIndices[i]];
                 if (currentNote.Start < time - missThreshold) {
@@ -48,7 +48,7 @@ namespace Song {
         //Clears the hold from hold list if dropped and creates and sends a miss event
 
         private void CheckCurrentHolds(double time) {
-            int missThreshold = jw.closeWindow;
+            int missThreshold = jw.offWindow;
             for(int i = 0; i < 7; i++) {
                 if (holds[i] != null) {
                     if (holds[i].Start + holds[i].Duration < time - missThreshold) {
