@@ -1,18 +1,26 @@
-using UnityEngine;
+using Assets.Scripts.Song.Enums;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
-namespace Song.Types {
-    public class ChartBundle : MonoBehaviour
+namespace Assets.Scripts.Song.Types
+{
+    [Serializable]
+    public class ChartBundle
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public string Title;
+        public string Artist;
+        public string Genre;
+        public string Source;
+        public DateTime ReleaseDate;
 
-        // Update is called once per frame
-        void Update()
+        public string CoverArtFile;
+        public string BGFile;
+        public Dictionary<Difficulty, string> ChartFiles;
+
+        public static ChartBundle DeserialiseChartBundleFile(string chartBundleJSON)
         {
-        
+            return JsonConvert.DeserializeObject<ChartBundle>(chartBundleJSON);
         }
     }
 }

@@ -1,18 +1,21 @@
-using UnityEngine;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
-namespace Song.Types {
-    public class Chart : MonoBehaviour
+namespace Assets.Scripts.Song.Types
+{
+    [Serializable]
+    public class Chart
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public List<List<Note>> Notes;
+        public List<HitLine> Lines;
+        public List<DialogueEvent> Dialogue;
+        public List<TimingEvent> TimingEvents;
+        public string AudioFile;
 
-        // Update is called once per frame
-        void Update()
+        public static Chart DeserialiseChartFile(string chartJSON)
         {
-        
+            return JsonConvert.DeserializeObject<Chart>(chartJSON);
         }
     }
 }
