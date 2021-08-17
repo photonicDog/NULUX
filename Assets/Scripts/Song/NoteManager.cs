@@ -13,7 +13,19 @@ namespace Song {
         private int[] noteListIndices;
 
         private JudgementWindow jw;
+
+        private static NoteManager _instance;
+        public static NoteManager Instance { get { return _instance; } }
         void Awake() {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+            }
+            
             holds = new Note[7];
             notes = new List<List<Note>>();
             noteListIndices = new int[4];
