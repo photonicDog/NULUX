@@ -71,5 +71,10 @@ namespace Song {
             msPerBeat *= 1000;
             nextBeat = songTime + (msPerBeat - ((songTime - currentTiming.Time) % msPerBeat));
         }
+
+        public double GetSongTime()
+        {
+            return songTime;
+        }
     }
 }
