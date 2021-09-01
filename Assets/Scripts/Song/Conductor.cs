@@ -76,5 +76,10 @@ namespace Song {
         {
             return songTime;
         }
+
+        public double GetRealStartTimeOffset()
+        {
+            return startTimeReal;
+        }
     }
 }
