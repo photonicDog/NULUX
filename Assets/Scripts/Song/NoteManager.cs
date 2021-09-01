@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Assets.Scripts.Song.Enums;
+using Assets.Scripts.Song.Extensions;
 using Song.Types;
 using UnityEngine;
 
@@ -35,7 +37,8 @@ namespace Song {
             //ChartDataManager pull goes here
         }
 
-        public void OnUpdate(Queue<InputCommand> commandQueue, double time) {
+        public void OnUpdate(Queue<InputCommand> commandQueue) {
+            var time = Conductor.Instance.GetSongTime();
             foreach (InputCommand cmd in commandQueue) {
                 CheckInput(cmd, time);  
             }
@@ -83,24 +86,26 @@ namespace Song {
         private void CheckInput(InputCommand command, double time) {
             // Because there are duplicate keys (SDF JKL) for 3 tracks, simplify for array reasons.
             // Use command.Key for hold stuff.
-            int boundedKey = command.Key > 3 ? command.Key - 4 : command.Key;
             
+            NoteType boundedKey = KeyToNoteType.FromKeyType(command.Key);
+            int keyValue = (int)command.Key;
+
             if (command.PressType == PressType.RELEASE) {
-                if (holds[command.Key] != null) {
-                    double timeDifference = CalculateTimingDifference(holds[command.Key].Start + holds[command.Key].Duration, command.Time);
-                    SendHit(holds[command.Key], true, timeDifference);
-                    holds[command.Key] = null;
+                if (holds[keyValue] != null) {
+                    double timeDifference = CalculateTimingDifference(holds[keyValue].Start + holds[keyValue].Duration, command.Time);
+                    SendHit(holds[keyValue], true, timeDifference);
+                    holds[keyValue] = null;
                 }
             }
             else {
-                Note currentNote = notes[boundedKey][noteListIndices[boundedKey]];
+                Note currentNote = notes[(int)boundedKey][noteListIndices[(int)boundedKey]];
 
                 if (currentNote.Start > time + jw.closeWindow) {
                     return;
                 }
                 else {
                     if (currentNote.Duration > 0) {
-                        holds[command.Key] = currentNote;
+                        holds[keyValue] = currentNote;
                     }
                     double timeDifference = CalculateTimingDifference(currentNote.Start, command.Time);
                     SendHit(currentNote, false, timeDifference);
