@@ -1,2 +1,8 @@
 # NULUX
-Glitterglue's new game.
+Archive of NULUX codebase
+
+Created by GlitterGlue studios
+
+- rubiline
+- HarmHearts
+- photonicDog
